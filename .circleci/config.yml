@@ -33,9 +33,9 @@ jobs:
           path: restaurant/build/reports
           destination: restaurant/reports
       - store_test_results:
-          path:
-            - user/build/test-results
-            - restaurant/build/test-results
+          path: user/build/test-results
+      - store_test_results:
+          path: restaurant/build/test-results
       - store_artifacts:
           path: user/build/outputs/apk
           destination: user/apks
