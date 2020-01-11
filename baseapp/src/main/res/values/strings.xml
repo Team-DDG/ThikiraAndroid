@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">시키라</string>
+
+    <!--feature:login-->
+    <string name="login">로그인</string>
+    <string name="header_restaurant_login">주문 좀 시키라</string>
+
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+
+    <string name="forget_id_or_pwd">아이디 | 비밀번호를 잊어버렸어요ㅠㅠ</string>
+
+    <!--feature:register-->
+    <string name="register_restaurant">업체 등록하기</string>
+
 </resources>

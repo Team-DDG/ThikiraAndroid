@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dsm.restaurant.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dsm.restaurant.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_register1Fragment"
+            app:destination="@id/register1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.dsm.restaurant.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/register1Fragment"
+        android:name="com.dsm.restaurant.Register1Fragment"
+        android:label="Register1Fragment"
+        tools:layout="@layout/fragment_register1">
+        <action
+            android:id="@+id/action_register1Fragment_to_register2Fragment"
+            app:destination="@id/register2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register2Fragment"
+        android:name="com.dsm.restaurant.Register2Fragment"
+        android:label="Register2Fragment"
+        tools:layout="@layout/fragment_register2">
+        <action
+            android:id="@+id/action_register2Fragment_to_register3Fragment"
+            app:destination="@id/register3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register3Fragment"
+        android:name="com.dsm.restaurant.Register3Fragment"
+        android:label="Register3Fragment"
+        tools:layout="@layout/fragment_register3">
+        <action
+            android:id="@+id/action_register3Fragment_to_register4Fragment"
+            app:destination="@id/register4Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register4Fragment"
+        android:name="com.dsm.restaurant.Register4Fragment"
+        android:label="Register4Fragment"
+        tools:layout="@layout/fragment_register4">
+        <action
+            android:id="@+id/action_register4Fragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>
