@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/baseapp" />
             <option value="$PROJECT_DIR$/restaurant" />
             <option value="$PROJECT_DIR$/user" />
           </set>
