@@ -1,2 +1,2 @@
-include ':user', ':restaurant'
+include ':user', ':restaurant', ':baseapp'
 rootProject.name='ThikiraAndroid'
