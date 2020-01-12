@@ -1,4 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="RtlSymmetry">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_register2"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            android:elevation="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_arrow_back_24dp"
+            tools:targetApi="lollipop">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/do_register_restaurant"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <Button
+            android:id="@+id/btn_register2_category"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_primary_button"
+            android:text="@string/select_category"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
+            app:layout_constraintRight_toRightOf="@id/gl_register2_right"
+            app:layout_constraintTop_toBottomOf="@id/tb_register2" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_register2_minPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:digits="0123456789"
+            android:hint="@string/min_price"
+            android:inputType="number"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
+            app:layout_constraintRight_toRightOf="@id/gl_register2_right"
+            app:layout_constraintTop_toBottomOf="@id/btn_register2_category" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_register2_dayOff"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/day_off"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
+            app:layout_constraintRight_toRightOf="@id/gl_register2_right"
+            app:layout_constraintTop_toBottomOf="@id/et_register2_minPrice" />
+
+        <TextView
+            android:id="@+id/tv_register2_offline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:text="@string/offline_payment"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
+            app:layout_constraintTop_toBottomOf="@id/et_register2_dayOff" />
+
+        <RadioGroup
+            android:id="@+id/rg_register2_offline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/tv_register2_offline"
+            app:layout_constraintRight_toRightOf="@id/gl_register2_right"
+            app:layout_constraintTop_toTopOf="@id/tv_register2_offline">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rbtn_left_selector"
+                android:button="@null"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="8dp"
+                android:text="@string/accept"
+                android:textColor="@drawable/rbtn_textcolor_selector"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rbtn_right_selector"
+                android:button="@null"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="8dp"
+                android:text="@string/refuse"
+                android:textColor="@drawable/rbtn_textcolor_selector"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_register2_online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/online_payment"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
+            app:layout_constraintTop_toBottomOf="@id/rg_register2_offline" />
+
+        <RadioGroup
+            android:id="@+id/rg_register2_online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/tv_register2_online"
+            app:layout_constraintRight_toRightOf="@id/gl_register2_right"
+            app:layout_constraintTop_toTopOf="@id/tv_register2_online">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rbtn_left_selector"
+                android:button="@null"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="8dp"
+                android:text="@string/accept"
+                android:textColor="@drawable/rbtn_textcolor_selector"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rbtn_right_selector"
+                android:button="@null"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="8dp"
+                android:text="@string/refuse"
+                android:textColor="@drawable/rbtn_textcolor_selector"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_register2_businessHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="@string/business_hour"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rg_register2_online" />
+
+        <NumberPicker
+            android:id="@+id/np_register2_startHour"
+            android:layout_width="30dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:theme="@style/TransparentNumberPickerTheme"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
+            app:layout_constraintRight_toLeftOf="@id/tv_register2_startColon"
+            app:layout_constraintTop_toBottomOf="@id/tv_register2_businessHour" />
+
+        <TextView
+            android:id="@+id/tv_register2_startColon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:text="@string/colon"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/np_register2_startHour"
+            app:layout_constraintLeft_toRightOf="@id/np_register2_startHour"
+            app:layout_constraintRight_toLeftOf="@id/np_register2_startMinute"
+            app:layout_constraintTop_toTopOf="@id/np_register2_startHour" />
+
+        <NumberPicker
+            android:id="@+id/np_register2_startMinute"
+            android:layout_width="30dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:theme="@style/TransparentNumberPickerTheme"
+            app:layout_constraintBottom_toBottomOf="@id/np_register2_startHour"
+            app:layout_constraintLeft_toRightOf="@id/tv_register2_startColon"
+            app:layout_constraintRight_toLeftOf="@id/tv_register2_tilde"
+            app:layout_constraintTop_toTopOf="@id/np_register2_startHour" />
+
+        <TextView
+            android:id="@+id/tv_register2_tilde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:text="@string/tilde"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/np_register2_startMinute"
+            app:layout_constraintLeft_toRightOf="@id/np_register2_startMinute"
+            app:layout_constraintRight_toLeftOf="@id/np_register2_endHour"
+            app:layout_constraintTop_toTopOf="@id/np_register2_startMinute" />
+
+        <NumberPicker
+            android:id="@+id/np_register2_endHour"
+            android:layout_width="30dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:theme="@style/TransparentNumberPickerTheme"
+            app:layout_constraintBottom_toBottomOf="@id/tv_register2_tilde"
+            app:layout_constraintLeft_toRightOf="@id/tv_register2_tilde"
+            app:layout_constraintRight_toLeftOf="@id/tv_register2_endColon"
+            app:layout_constraintTop_toTopOf="@id/tv_register2_tilde" />
+
+        <TextView
+            android:id="@+id/tv_register2_endColon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:text="@string/colon"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/np_register2_endHour"
+            app:layout_constraintLeft_toRightOf="@id/np_register2_endHour"
+            app:layout_constraintRight_toLeftOf="@id/np_register2_endMinute"
+            app:layout_constraintTop_toTopOf="@id/np_register2_endHour" />
+
+        <NumberPicker
+            android:id="@+id/np_register2_endMinute"
+            android:layout_width="30dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:theme="@style/TransparentNumberPickerTheme"
+            app:layout_constraintBottom_toBottomOf="@id/tv_register2_endColon"
+            app:layout_constraintLeft_toRightOf="@id/tv_register2_endColon"
+            app:layout_constraintRight_toRightOf="@id/gl_register2_right"
+            app:layout_constraintTop_toTopOf="@id/tv_register2_endColon" />
+
+        <Button
+            android:id="@+id/btn_register2_next"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_primary_button"
+            android:text="@string/next"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
+            app:layout_constraintRight_toRightOf="@id/gl_register2_right" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_register2_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="60dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_register2_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="60dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

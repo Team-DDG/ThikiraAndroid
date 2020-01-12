@@ -13,6 +13,10 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -23,10 +27,18 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_loginFragment_to_register1Fragment"
-            app:destination="@id/register1Fragment" />
+            app:destination="@id/register1Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -40,7 +52,11 @@
         tools:layout="@layout/fragment_register1">
         <action
             android:id="@+id/action_register1Fragment_to_register2Fragment"
-            app:destination="@id/register2Fragment" />
+            app:destination="@id/register2Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/register2Fragment"
@@ -49,7 +65,11 @@
         tools:layout="@layout/fragment_register2">
         <action
             android:id="@+id/action_register2Fragment_to_register3Fragment"
-            app:destination="@id/register3Fragment" />
+            app:destination="@id/register3Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/register3Fragment"
@@ -58,15 +78,15 @@
         tools:layout="@layout/fragment_register3">
         <action
             android:id="@+id/action_register3Fragment_to_register4Fragment"
-            app:destination="@id/register4Fragment" />
+            app:destination="@id/register4Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/register4Fragment"
         android:name="com.dsm.restaurant.Register4Fragment"
         android:label="Register4Fragment"
-        tools:layout="@layout/fragment_register4">
-        <action
-            android:id="@+id/action_register4Fragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_register4" />
 </navigation>
