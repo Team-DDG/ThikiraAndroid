@@ -47,5 +47,20 @@
     
     <string name="parcel_addr">지번</string>
     <string name="road_addr">도로명</string>
+
+    <!--feature:category-->
+    <string name="do_select_category">카테고리 선택하기</string>
+
+    <string name="school_food">분식</string>
+    <string name="japanese_food">일식</string>
+    <string name="chicken">치킨</string>
+    <string name="pizza">피자</string>
+    <string name="korean_food">한식</string>
+    <string name="chinese_food">중식</string>
+    <string name="midnight_snack">야!식</string>
+    <string name="lunchbox">도시락</string>
+    <string name="dessert">디저트</string>
+    <string name="pigfeet_bossam">족발 보쌈</string>
+    <string name="fast_food">패스트푸드</string>
     
 </resources>

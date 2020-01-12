@@ -19,6 +19,10 @@ class Register2Fragment : BaseFragment() {
             findNavController().navigate(R.id.action_register2Fragment_to_register3Fragment)
         }
 
+        btn_register2_category.setOnClickListener {
+            findNavController().navigate(R.id.action_register2Fragment_to_categoryFragment)
+        }
+
         setNumberPickerValues()
     }
 
