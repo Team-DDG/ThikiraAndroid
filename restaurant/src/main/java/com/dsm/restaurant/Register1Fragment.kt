@@ -17,5 +17,9 @@ class Register1Fragment : BaseFragment() {
         btn_register1_next.setOnClickListener {
             findNavController().navigate(R.id.action_register1Fragment_to_register2Fragment)
         }
+
+        btn_register1_location.setOnClickListener {
+            findNavController().navigate(R.id.action_register1Fragment_to_locationFragment)
+        }
     }
 }

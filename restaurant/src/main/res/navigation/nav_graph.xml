@@ -57,6 +57,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_register1Fragment_to_locationFragment"
+            app:destination="@id/locationFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/register2Fragment"
@@ -89,4 +96,9 @@
         android:name="com.dsm.restaurant.Register4Fragment"
         android:label="Register4Fragment"
         tools:layout="@layout/fragment_register4" />
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.dsm.restaurant.LocationFragment"
+        android:label="LocationFragment"
+        tools:layout="@layout/fragment_location"/>
 </navigation>
