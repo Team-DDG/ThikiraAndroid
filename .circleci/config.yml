@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "user/build.gradle" }}-{{ checksum "restaurant/build.gradle" }}
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
@@ -19,18 +19,26 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "user/build.gradle" }}-{{ checksum "restaurant/build.gradle" }}
       - run:
           name: Run Build
-          command: ./gradlew lint build
+          command: ./gradlew lint assembleDebug
       - run:
           name: Run Tests
           command: ./gradlew test
       - store_artifacts:
-          path: app/build/reports
-          destination: reports
-      - store_test_results:
-          path: app/build/test-results
+          path: user/build/reports
+          destination: user/reports
       - store_artifacts:
-          path: app/build/outputs/apk
-          destination: apks
+          path: restaurant/build/reports
+          destination: restaurant/reports
+      - store_test_results:
+          path: user/build/test-results
+      - store_test_results:
+          path: restaurant/build/test-results
+      - store_artifacts:
+          path: user/build/outputs/apk
+          destination: user/apks
+      - store_artifacts:
+          path: restaurant/build/outputs/apk
+          destination: restaurant/apks
