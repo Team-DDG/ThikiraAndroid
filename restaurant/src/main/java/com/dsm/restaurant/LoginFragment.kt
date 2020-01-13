@@ -15,5 +15,9 @@ class LoginFragment : BaseFragment() {
         tv_login_register.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_register1Fragment)
         }
+
+        btn_login.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+        }
     }
 }
