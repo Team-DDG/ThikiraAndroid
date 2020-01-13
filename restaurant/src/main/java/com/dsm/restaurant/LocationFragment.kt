@@ -12,7 +12,6 @@ class LocationFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         tb_location.setNavigationOnClickListener { findNavController().popBackStack() }
 
         setupRecyclerView()
