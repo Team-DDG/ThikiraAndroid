@@ -62,5 +62,17 @@
     <string name="dessert">디저트</string>
     <string name="pigfeet_bossam">족발 보쌈</string>
     <string name="fast_food">패스트푸드</string>
-    
+
+    <!--feature:order-->
+    <string name="order">주문</string>
+
+    <!--feature:menu-->
+    <string name="menu">메뉴</string>
+
+    <!--feature:coupon-->
+    <string name="coupon">쿠폰</string>
+
+    <!--feature:restaurant-->
+    <string name="restaurant">업체</string>
+
 </resources>
