@@ -35,6 +35,15 @@ class MainFragment : BaseFragment() {
             }
             true
         }
+
+        bnv_main.setOnNavigationItemReselectedListener {
+            when (it.itemId) {
+                R.id.order -> reselectFragment(0)
+                R.id.menu -> reselectFragment(1)
+                R.id.coupon -> reselectFragment(2)
+                R.id.restaurant -> reselectFragment(3)
+            }
+        }
     }
 
     private fun addNavHostFragment() {
@@ -54,6 +63,12 @@ class MainFragment : BaseFragment() {
                 getTransaction().hide(fragment).commitNow()
             }
         }
+    }
+
+    private fun reselectFragment(index: Int) {
+        val fragment = childFragmentManager.findFragmentByTag(index.toString()) as NavHostFragment
+        val navController = fragment.navController
+        navController.popBackStack(navController.graph.startDestination, false)
     }
 
     private fun getTransaction() = childFragmentManager.beginTransaction()
