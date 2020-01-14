@@ -7,4 +7,6 @@
     <color name="colorGrey3">#EEEEEE</color>
     <color name="colorGrey5">#C4C4C4</color>
 
+    <color name="colorRed">#E53A40</color>
+    <color name="colorBlue">#30A9DE</color>
 </resources>
