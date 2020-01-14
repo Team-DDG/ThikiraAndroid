@@ -110,7 +110,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="24dp"
-        android:background="@drawable/bg_primary_button"
+        android:background="@drawable/bg_primary_light_button"
         android:text="@string/register_restaurant"
         android:textColor="@color/colorPrimaryLight"
         android:textStyle="bold"
