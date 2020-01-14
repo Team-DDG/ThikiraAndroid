@@ -2,6 +2,8 @@
     <string name="app_name">시키라</string>
 
     <string name="next">다음으로</string>
+    <string name="sir">님</string>
+    <string name="won">원</string>
 
     <string name="colon">:</string>
     <string name="tilde">~</string>
