@@ -3,6 +3,7 @@ package com.dsm.restaurant
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_order.view.*
@@ -17,6 +18,11 @@ class OrderListAdapter : ListAdapter<OrderModel, OrderListAdapter.OrderHolder>(O
             itemView.tv_order_nick.text = item.name
             itemView.tv_order_price.text = item.price
             itemView.tv_order_time.text = item.orderTime
+            itemView.tv_order_status.text = item.status
+
+            itemView.setOnClickListener {
+                itemView.findNavController().navigate(R.id.action_orderFragment_to_orderDialog)
+            }
         }
     }
 

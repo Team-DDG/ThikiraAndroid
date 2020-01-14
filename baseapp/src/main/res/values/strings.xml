@@ -68,6 +68,19 @@
     <!--feature:order-->
     <string name="order">주문</string>
 
+    <string name="receipt">영수증</string>
+    
+    <string name="receipt_restaurant_name">[매장명]</string>
+    <string name="receipt_address">[주 소]</string>
+    <string name="receipt_date_of_sale">[매출일]</string>
+    
+    <string name="total_price">합계 금액</string>
+    <string name="discount_price">할인 금액</string>
+    <string name="final_price">최종 금액</string>
+
+    <string name="delivery_complete">배달 완료</string>
+    <string name="call">전화걸기</string>
+    
     <!--feature:menu-->
     <string name="menu">메뉴</string>
 
