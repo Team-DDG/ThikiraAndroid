@@ -84,6 +84,8 @@
     <!--feature:menu-->
     <string name="menu">메뉴</string>
 
+    <string name="option">옵션</string>
+
     <!--feature:coupon-->
     <string name="coupon">쿠폰</string>
 
