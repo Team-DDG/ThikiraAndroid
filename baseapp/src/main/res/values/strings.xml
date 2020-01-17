@@ -95,6 +95,12 @@
     
     <!--feature:coupon-->
     <string name="coupon">쿠폰</string>
+    <string name="expire">만료</string>
+
+    <string name="won_discount_price">원 할인 쿠폰</string>
+    
+    <string name="period_setting">기간 설정</string>
+    <string name="publish">발행</string>
 
     <!--feature:restaurant-->
     <string name="restaurant">업체</string>

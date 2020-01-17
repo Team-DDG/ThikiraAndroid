@@ -9,5 +9,18 @@
         android:id="@+id/couponFragment"
         android:name="com.dsm.restaurant.CouponFragment"
         android:label="CouponFragment"
-        tools:layout="@layout/fragment_coupon"/>
+        tools:layout="@layout/fragment_coupon">
+        <action
+            android:id="@+id/action_couponFragment_to_couponDialog"
+            app:destination="@id/couponDialog"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <dialog
+        android:id="@+id/couponDialog"
+        android:name="com.dsm.restaurant.CouponDialog"
+        android:label="CouponDialog"
+        tools:layout="@layout/dialog_coupon"/>
 </navigation>
