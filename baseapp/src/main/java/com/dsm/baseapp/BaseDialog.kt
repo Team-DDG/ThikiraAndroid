@@ -1,4 +1,4 @@
-package com.dsm.restaurant
+package com.dsm.baseapp
 
 import android.os.Bundle
 import android.view.LayoutInflater

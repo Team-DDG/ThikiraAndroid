@@ -3,6 +3,7 @@ package com.dsm.restaurant
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import com.dsm.baseapp.BaseDialog
 import kotlinx.android.synthetic.main.dialog_order.*
 
 

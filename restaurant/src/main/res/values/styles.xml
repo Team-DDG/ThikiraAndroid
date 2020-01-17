@@ -10,5 +10,9 @@
     <style name="TransparentNumberPickerTheme" parent="AppTheme">
         <item name="colorControlNormal">@android:color/transparent</item>
     </style>
+
+    <style name="CustomSpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/bg_spinner</item>
+    </style>
 </resources>
 
