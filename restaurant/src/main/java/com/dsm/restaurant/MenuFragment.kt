@@ -3,6 +3,7 @@ package com.dsm.restaurant
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.baseapp.BaseFragment
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -38,5 +39,9 @@ class MenuFragment : BaseFragment() {
                 }
             }
         })
+
+        fab_menu.setOnClickListener {
+            findNavController().navigate(R.id.action_menuFragment_to_menuRegistration1Activity)
+        }
     }
 }
