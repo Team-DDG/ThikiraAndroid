@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_lock_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:src="@drawable/ic_lock_open_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/et_changePwd"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/et_changePwd"
+        app:layout_constraintTop_toTopOf="@id/et_changePwd" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_changePwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/password_to_change"
+        android:inputType="textPassword"
+        android:textColorHint="@color/colorGrey"
+        app:layout_constraintLeft_toRightOf="@id/iv_lock_open"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:src="@drawable/ic_lock_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/et_changePwd_confirm"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/et_changePwd_confirm"
+        app:layout_constraintTop_toTopOf="@id/et_changePwd_confirm" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_changePwd_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/password_check"
+        android:inputType="textPassword"
+        android:textColorHint="@color/colorGrey"
+        app:layout_constraintLeft_toRightOf="@id/iv_lock"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_changePwd" />
+
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_primary_button"
+        android:text="@string/change"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_changePwd_confirm" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
