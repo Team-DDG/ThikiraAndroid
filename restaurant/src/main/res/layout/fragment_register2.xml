@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:digits="0123456789"
-            android:hint="@string/min_price"
+            android:hint="@string/delivery_min_price"
             android:inputType="number"
             android:paddingStart="8dp"
             android:paddingLeft="8dp"

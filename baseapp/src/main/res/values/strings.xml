@@ -2,6 +2,7 @@
     <string name="app_name">시키라</string>
 
     <string name="next">다음으로</string>
+    <string name="confirm">확인</string>
     <string name="sir">님</string>
     <string name="won">원</string>
 
@@ -30,12 +31,12 @@
     <string name="possible_area">#주문가능지역</string>
 
     <string name="select_category">카테고리 선택</string>
-    <string name="min_price">배달 최소 주문 금액</string>
+    <string name="delivery_min_price">배달 최소 주문 금액</string>
     <string name="day_off">휴무일</string>
     <string name="online_payment">온라인 결제</string>
     <string name="offline_payment">오프라인 결제</string>
     <string name="business_hour">영업 시간</string>
-    
+
     <string name="accept">수락</string>
     <string name="refuse">거부</string>
 
@@ -46,11 +47,12 @@
     <!--feature:location-->
     <string name="do_select_location">위치 선택하기</string>
     <string name="search_address">주소 검색</string>
-    
+
     <string name="parcel_addr">지번</string>
     <string name="road_addr">도로명</string>
 
     <!--feature:category-->
+    <string name="category">카테고리</string>
     <string name="do_select_category">카테고리 선택하기</string>
 
     <string name="school_food">분식</string>
@@ -69,18 +71,18 @@
     <string name="order">주문</string>
 
     <string name="receipt">영수증</string>
-    
+
     <string name="receipt_restaurant_name">[매장명]</string>
     <string name="receipt_address">[주 소]</string>
     <string name="receipt_date_of_sale">[매출일]</string>
-    
+
     <string name="total_price">합계 금액</string>
     <string name="discount_price">할인 금액</string>
     <string name="final_price">최종 금액</string>
 
     <string name="delivery_complete">배달 완료</string>
     <string name="call">전화걸기</string>
-    
+
     <!--feature:menu-->
     <string name="menu">메뉴</string>
 
@@ -92,17 +94,30 @@
     <string name="menu_category_text">류</string>
 
     <string name="explain_menu">메뉴를 설명해주세요!</string>
-    
+
     <!--feature:coupon-->
     <string name="coupon">쿠폰</string>
     <string name="expire">만료</string>
 
     <string name="won_discount_price">원 할인 쿠폰</string>
-    
+
     <string name="period_setting">기간 설정</string>
     <string name="publish">발행</string>
 
     <!--feature:restaurant-->
     <string name="restaurant">업체</string>
 
+    <string name="check_review">리뷰 보기</string>
+
+    <string name="min_price">최소 주문 금액</string>
+
+    <!--feature:setting-->
+    <string name="setting">설정</string>
+    
+    <string name="change_password">비밀번호 변경</string>
+    <string name="update_restaurant_info">업체 정보 수정</string>
+    <string name="unregister_restaurant">업체 등록 해제</string>
+
+    <string name="password_to_change">변경할 비밀번호</string>
+    <string name="change">변경</string>
 </resources>
