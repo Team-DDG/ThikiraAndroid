@@ -8,6 +8,30 @@
         android:id="@+id/splashFragment"
         android:name="com.dsm.thikiraandroid.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" />
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dsm.thikiraandroid.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_register1Fragment"
+            app:destination="@id/register1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.dsm.thikiraandroid.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/register1Fragment"
+        android:name="com.dsm.thikiraandroid.Register1Fragment"
+        android:label="Register1Fragment" />
 
 </navigation>
