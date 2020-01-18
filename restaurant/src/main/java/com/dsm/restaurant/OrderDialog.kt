@@ -2,7 +2,6 @@ package com.dsm.restaurant
 
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import com.dsm.baseapp.BaseDialog
 import kotlinx.android.synthetic.main.dialog_order.*
 
@@ -24,13 +23,5 @@ class OrderDialog : BaseDialog() {
             OrderedModel.Ordered("도훈이의 총각김치", "5", "5,000"),
             OrderedModel.Option("고추가루 추가")
         )
-    }
-
-    override fun onResume() {
-        super.onResume()
-        val params: WindowManager.LayoutParams = dialog!!.window!!.attributes
-        params.width = WindowManager.LayoutParams.MATCH_PARENT
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT
-        dialog!!.window!!.attributes = params
     }
 }
