@@ -1,85 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb_order"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="8dp"
-        tools:targetApi="lollipop">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_order"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="8dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="lollipop">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_order_left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:src="@drawable/ic_left_24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tv_order_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginRight="4dp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/tv_order"
-                app:layout_constraintTop_toTopOf="parent" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_order_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/ic_left_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_order"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/order"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/tv_order_date"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tv_order_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/tv_order"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_order_right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:src="@drawable/ic_right_24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.appcompat.widget.Toolbar>
+                <TextView
+                    android:id="@+id/tv_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tv_order_date"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_order"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tb_order" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_order_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/ic_right_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_order"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_order" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

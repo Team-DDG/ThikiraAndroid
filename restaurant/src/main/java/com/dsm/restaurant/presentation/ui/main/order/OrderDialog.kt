@@ -2,14 +2,15 @@ package com.dsm.restaurant.presentation.ui.main.order
 
 import android.os.Bundle
 import android.view.View
-import com.dsm.baseapp.BaseDialog
 import com.dsm.restaurant.R
+import com.dsm.restaurant.databinding.DialogOrderBinding
 import com.dsm.restaurant.presentation.ui.adapter.OrderedListAdapter
+import com.dsm.restaurant.presentation.ui.base.BaseDialog
 import com.dsm.restaurant.trashModel.OrderedModel
 import kotlinx.android.synthetic.main.dialog_order.*
 
 
-class OrderDialog : BaseDialog() {
+class OrderDialog : BaseDialog<DialogOrderBinding>() {
     override val layoutResId: Int = R.layout.dialog_order
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

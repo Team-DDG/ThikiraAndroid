@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.dsm.baseapp.BaseFragment
 import com.dsm.restaurant.R
+import com.dsm.restaurant.databinding.FragmentLocationBinding
 import com.dsm.restaurant.presentation.ui.adapter.LocationListAdapter
+import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.trashModel.LocationModel
 import kotlinx.android.synthetic.main.fragment_location.*
 
-class LocationFragment : BaseFragment() {
+class LocationFragment : BaseFragment<FragmentLocationBinding>() {
     override val layoutResId: Int = R.layout.fragment_location
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -3,11 +3,12 @@ package com.dsm.restaurant.presentation.ui.main
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.NavHostFragment
-import com.dsm.baseapp.BaseFragment
 import com.dsm.restaurant.R
+import com.dsm.restaurant.databinding.FragmentMainBinding
+import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : BaseFragment() {
+class MainFragment : BaseFragment<FragmentMainBinding>() {
     override val layoutResId: Int = R.layout.fragment_main
 
     private val navGraphIds = listOf(
