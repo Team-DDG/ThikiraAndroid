@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
-import com.dsm.baseapp.BaseFragment
 import com.dsm.restaurant.R
+import com.dsm.restaurant.databinding.FragmentMenuDetailBinding
 import com.dsm.restaurant.presentation.ui.adapter.MenuOptionListAdapter
+import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.trashModel.OptionModel
 import kotlinx.android.synthetic.main.fragment_menu_detail.*
 
-class MenuDetailFragment : BaseFragment() {
+class MenuDetailFragment : BaseFragment<FragmentMenuDetailBinding>() {
     override val layoutResId: Int = R.layout.fragment_menu_detail
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

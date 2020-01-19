@@ -2,13 +2,14 @@ package com.dsm.restaurant.presentation.ui.main.order.list
 
 import android.os.Bundle
 import android.view.View
-import com.dsm.baseapp.BaseFragment
 import com.dsm.restaurant.R
+import com.dsm.restaurant.databinding.FragmentOrderListBinding
 import com.dsm.restaurant.presentation.ui.adapter.OrderListAdapter
+import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.trashModel.OrderModel
 import kotlinx.android.synthetic.main.fragment_order_list.*
 
-class OrderListFragment : BaseFragment() {
+class OrderListFragment : BaseFragment<FragmentOrderListBinding>() {
     override val layoutResId: Int = R.layout.fragment_order_list
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

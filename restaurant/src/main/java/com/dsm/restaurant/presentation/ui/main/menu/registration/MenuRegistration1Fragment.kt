@@ -3,11 +3,12 @@ package com.dsm.restaurant.presentation.ui.main.menu.registration
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import com.dsm.baseapp.BaseFragment
 import com.dsm.restaurant.R
+import com.dsm.restaurant.databinding.FragmentMenuRegistration1Binding
+import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_menu_registration1.*
 
-class MenuRegistration1Fragment : BaseFragment() {
+class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>() {
     override val layoutResId: Int = R.layout.fragment_menu_registration1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
