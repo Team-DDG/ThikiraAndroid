@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.dsm.restaurant.MenuFragment"
+        android:name="com.dsm.restaurant.presentation.ui.main.menu.MenuFragment"
         android:label="MenuFragment"
         tools:layout="@layout/fragment_menu">
         <action
@@ -27,12 +27,12 @@
     </fragment>
     <fragment
         android:id="@+id/menuDetailFragment"
-        android:name="com.dsm.restaurant.MenuDetailFragment"
+        android:name="com.dsm.restaurant.presentation.ui.main.menu.detail.MenuDetailFragment"
         android:label="MenuDetailFragment"
         tools:layout="@layout/fragment_menu_detail" />
     <activity
         android:id="@+id/menuRegistration1Activity"
-        android:name="com.dsm.restaurant.MenuRegistrationActivity"
+        android:name="com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationActivity"
         android:label="activity_menu_registration1"
         tools:layout="@layout/activity_menu_registration" />
 </navigation>

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.dsm.restaurant.SplashFragment"
+        android:name="com.dsm.restaurant.presentation.ui.splash.SplashFragment"
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash">
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.dsm.restaurant.LoginFragment"
+        android:name="com.dsm.restaurant.presentation.ui.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -44,12 +44,12 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.dsm.restaurant.MainFragment"
+        android:name="com.dsm.restaurant.presentation.ui.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/register1Fragment"
-        android:name="com.dsm.restaurant.Register1Fragment"
+        android:name="com.dsm.restaurant.presentation.ui.register.Register1Fragment"
         android:label="Register1Fragment"
         tools:layout="@layout/fragment_register1">
         <action
@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/register2Fragment"
-        android:name="com.dsm.restaurant.Register2Fragment"
+        android:name="com.dsm.restaurant.presentation.ui.register.Register2Fragment"
         android:label="Register2Fragment"
         tools:layout="@layout/fragment_register2">
         <action
@@ -89,7 +89,7 @@
     </fragment>
     <fragment
         android:id="@+id/register3Fragment"
-        android:name="com.dsm.restaurant.Register3Fragment"
+        android:name="com.dsm.restaurant.presentation.ui.register.Register3Fragment"
         android:label="Register3Fragment"
         tools:layout="@layout/fragment_register3">
         <action
@@ -102,17 +102,17 @@
     </fragment>
     <fragment
         android:id="@+id/register4Fragment"
-        android:name="com.dsm.restaurant.Register4Fragment"
+        android:name="com.dsm.restaurant.presentation.ui.register.Register4Fragment"
         android:label="Register4Fragment"
         tools:layout="@layout/fragment_register4" />
     <fragment
         android:id="@+id/locationFragment"
-        android:name="com.dsm.restaurant.LocationFragment"
+        android:name="com.dsm.restaurant.presentation.ui.location.LocationFragment"
         android:label="LocationFragment"
         tools:layout="@layout/fragment_location"/>
     <fragment
         android:id="@+id/categoryFragment"
-        android:name="com.dsm.restaurant.CategoryFragment"
+        android:name="com.dsm.restaurant.presentation.ui.category.CategoryFragment"
         android:label="CategoryFragment"
         tools:layout="@layout/fragment_category"/>
 </navigation>

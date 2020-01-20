@@ -1,4 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+<layout>
 
-</LinearLayout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tb_restaurant"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="lollipop">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorRed"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_restaurant_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:src="@drawable/ic_settings_24dp" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_restaurant"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tb_restaurant" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_restaurant_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_clock_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_restaurant" />
+
+            <TextView
+                android:id="@+id/tv_restaurant_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_clock"
+                app:layout_constraintLeft_toRightOf="@id/iv_restaurant_clock"
+                app:layout_constraintTop_toTopOf="@id/iv_restaurant_clock" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_review"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_clock"
+                app:layout_constraintRight_toRightOf="@id/gl_restaurant_right"
+                app:layout_constraintTop_toTopOf="@id/iv_restaurant_clock" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_restaurant_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_phone_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_restaurant_clock" />
+
+            <TextView
+                android:id="@+id/tv_restaurant_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_phone"
+                app:layout_constraintLeft_toLeftOf="@id/tv_restaurant_time"
+                app:layout_constraintTop_toTopOf="@id/iv_restaurant_phone" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_restaurant_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_email_grey_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_restaurant_phone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_email"
+                app:layout_constraintLeft_toLeftOf="@id/tv_restaurant_phone"
+                app:layout_constraintTop_toTopOf="@id/iv_restaurant_email" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_restaurant_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_location_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_restaurant_email" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_location"
+                app:layout_constraintLeft_toRightOf="@id/iv_restaurant_location"
+                app:layout_constraintTop_toTopOf="@id/iv_restaurant_location" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_restaurant_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_area_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_restaurant_location" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_area"
+                app:layout_constraintLeft_toLeftOf="@id/tv_restaurant_time"
+                app:layout_constraintTop_toTopOf="@id/iv_restaurant_area" />
+
+            <View
+                android:id="@+id/view_line1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="14dp"
+                android:background="#E0E0E0"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintRight_toRightOf="@id/gl_restaurant_right"
+                app:layout_constraintTop_toBottomOf="@id/iv_restaurant_area" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/category"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintTop_toBottomOf="@id/view_line1" />
+
+            <TextView
+                android:id="@+id/tv_categoryColon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/colon"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_category"
+                app:layout_constraintLeft_toRightOf="@id/tv_category"
+                app:layout_constraintTop_toTopOf="@id/tv_category" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_categoryColon"
+                app:layout_constraintLeft_toRightOf="@id/tv_categoryColon"
+                app:layout_constraintTop_toTopOf="@id/tv_categoryColon" />
+
+            <TextView
+                android:id="@+id/tv_minPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/min_price"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintTop_toBottomOf="@id/tv_category" />
+
+            <TextView
+                android:id="@+id/tv_minPriceColon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/colon"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_minPrice"
+                app:layout_constraintLeft_toRightOf="@id/tv_minPrice"
+                app:layout_constraintTop_toTopOf="@id/tv_minPrice" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_minPriceColon"
+                app:layout_constraintLeft_toRightOf="@id/tv_minPriceColon"
+                app:layout_constraintTop_toTopOf="@id/tv_minPriceColon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_minPriceColon"
+                app:layout_constraintLeft_toRightOf="@id/tv_minPriceColon"
+                app:layout_constraintTop_toTopOf="@id/tv_minPriceColon" />
+
+            <TextView
+                android:id="@+id/tv_dayOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/day_off"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintTop_toBottomOf="@id/tv_minPrice" />
+
+            <TextView
+                android:id="@+id/tv_dayOffColon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/colon"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_dayOff"
+                app:layout_constraintLeft_toRightOf="@id/tv_dayOff"
+                app:layout_constraintTop_toTopOf="@id/tv_dayOff" />
+
+            <TextView
+                android:id="@+id/tv_restaurant_dayOff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_dayOffColon"
+                app:layout_constraintRight_toRightOf="@id/gl_restaurant_right"
+                app:layout_constraintTop_toTopOf="@id/tv_dayOffColon" />
+
+            <View
+                android:id="@+id/view_line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#E0E0E0"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintRight_toRightOf="@id/gl_restaurant_right"
+                app:layout_constraintTop_toBottomOf="@id/tv_restaurant_dayOff" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
+                app:layout_constraintRight_toRightOf="@id/gl_restaurant_right"
+                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_restaurant_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="24dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_restaurant_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="24dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
