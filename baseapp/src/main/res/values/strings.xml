@@ -9,6 +9,15 @@
     <string name="colon">:</string>
     <string name="tilde">~</string>
 
+    <!--fail message-->
+    <string name="fail_blank_email">이메일이 공백입니다</string>
+    <string name="fail_invalid_email">유효하지 않은 이메일입니다</string>
+    <string name="fail_conflict_email">이미 존재하는 이메일입니다</string>
+    <string name="fail_internal">네트워크를 확인해주세요</string>
+
+    <!--success message-->
+    <string name="success_email_check">사용 가능한 이메일입니다</string>
+
     <!--feature:login-->
     <string name="login">로그인</string>
     <string name="header_restaurant_login">주문 좀 시키라</string>
