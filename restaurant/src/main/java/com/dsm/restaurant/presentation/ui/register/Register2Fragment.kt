@@ -7,10 +7,15 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentRegister2Binding
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_register2.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.text.DecimalFormat
 
 class Register2Fragment : BaseFragment<FragmentRegister2Binding>() {
     override val layoutResId: Int = R.layout.fragment_register2
+
+    private val viewModel: RegisterViewModel by sharedViewModel(from = {
+        findNavController().getViewModelStoreOwner(R.id.nav_graph)
+    })
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,6 +31,8 @@ class Register2Fragment : BaseFragment<FragmentRegister2Binding>() {
         }
 
         setNumberPickerValues()
+
+        binding.viewModel = viewModel
     }
 
     private fun setNumberPickerValues() {

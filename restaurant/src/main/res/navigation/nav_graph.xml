@@ -33,10 +33,10 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_loginFragment_to_register1Fragment"
-            app:destination="@id/register1Fragment"
+            android:id="@+id/action_loginFragment_to_nav_register"
+            app:destination="@id/nav_register"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -47,72 +47,80 @@
         android:name="com.dsm.restaurant.presentation.ui.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" />
-    <fragment
-        android:id="@+id/register1Fragment"
-        android:name="com.dsm.restaurant.presentation.ui.register.Register1Fragment"
-        android:label="Register1Fragment"
-        tools:layout="@layout/fragment_register1">
-        <action
-            android:id="@+id/action_register1Fragment_to_register2Fragment"
-            app:destination="@id/register2Fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-        <action
-            android:id="@+id/action_register1Fragment_to_locationFragment"
-            app:destination="@id/locationFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-    </fragment>
-    <fragment
-        android:id="@+id/register2Fragment"
-        android:name="com.dsm.restaurant.presentation.ui.register.Register2Fragment"
-        android:label="Register2Fragment"
-        tools:layout="@layout/fragment_register2">
-        <action
-            android:id="@+id/action_register2Fragment_to_register3Fragment"
-            app:destination="@id/register3Fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-        <action
-            android:id="@+id/action_register2Fragment_to_categoryFragment"
-            app:destination="@id/categoryFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-    </fragment>
-    <fragment
-        android:id="@+id/register3Fragment"
-        android:name="com.dsm.restaurant.presentation.ui.register.Register3Fragment"
-        android:label="Register3Fragment"
-        tools:layout="@layout/fragment_register3">
-        <action
-            android:id="@+id/action_register3Fragment_to_register4Fragment"
-            app:destination="@id/register4Fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-    </fragment>
-    <fragment
-        android:id="@+id/register4Fragment"
-        android:name="com.dsm.restaurant.presentation.ui.register.Register4Fragment"
-        android:label="Register4Fragment"
-        tools:layout="@layout/fragment_register4" />
+    <navigation
+        android:id="@+id/nav_register"
+        app:startDestination="@id/register1Fragment">
+        <fragment
+            android:id="@+id/register1Fragment"
+            android:name="com.dsm.restaurant.presentation.ui.register.Register1Fragment"
+            android:label="Register1Fragment"
+            tools:layout="@layout/fragment_register1">
+            <action
+                android:id="@+id/action_register1Fragment_to_register2Fragment"
+                app:destination="@id/register2Fragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            <action
+                android:id="@+id/action_register1Fragment_to_locationFragment"
+                app:destination="@id/locationFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/register2Fragment"
+            android:name="com.dsm.restaurant.presentation.ui.register.Register2Fragment"
+            android:label="Register2Fragment"
+            tools:layout="@layout/fragment_register2">
+            <action
+                android:id="@+id/action_register2Fragment_to_register3Fragment"
+                app:destination="@id/register3Fragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            <action
+                android:id="@+id/action_register2Fragment_to_categoryFragment"
+                app:destination="@id/categoryFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/register3Fragment"
+            android:name="com.dsm.restaurant.presentation.ui.register.Register3Fragment"
+            android:label="Register3Fragment"
+            tools:layout="@layout/fragment_register3">
+            <action
+                android:id="@+id/action_register3Fragment_to_register4Fragment"
+                app:destination="@id/register4Fragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/register4Fragment"
+            android:name="com.dsm.restaurant.presentation.ui.register.Register4Fragment"
+            android:label="Register4Fragment"
+            tools:layout="@layout/fragment_register4" />
+
+    </navigation>
     <fragment
         android:id="@+id/locationFragment"
         android:name="com.dsm.restaurant.presentation.ui.location.LocationFragment"
         android:label="LocationFragment"
-        tools:layout="@layout/fragment_location"/>
+        tools:layout="@layout/fragment_location" />
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.dsm.restaurant.presentation.ui.category.CategoryFragment"
         android:label="CategoryFragment"
-        tools:layout="@layout/fragment_category"/>
+        tools:layout="@layout/fragment_category" />
 </navigation>
