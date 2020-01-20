@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuRegistrationActivity">
+    tools:context=".presentation.ui.main.menu.registration.MenuRegistrationActivity">
 
     <fragment
-        android:id="@+id/fragment_main_container"
+        android:id="@+id/fragment_registration_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
