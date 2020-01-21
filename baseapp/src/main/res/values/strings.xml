@@ -12,6 +12,7 @@
     <!--feature:login-->
     <string name="login">로그인</string>
     <string name="header_restaurant_login">주문 좀 시키라</string>
+    <string name="header_user_login">지금 바로 시키라</string>
 
     <string name="email">이메일</string>
     <string name="password">비밀번호</string>
@@ -22,6 +23,7 @@
     <!--feature:register-->
     <string name="register_restaurant">업체 등록</string>
     <string name="do_register_restaurant">업체 등록하기</string>
+    <string name="do_register_user">회원가입하기</string>
     <string name="select_location">위치 선택</string>
     <string name="default_location">대한민국 어딘가에 존재하는 배달집</string>
 
