@@ -3,7 +3,6 @@ package com.dsm.thikiraandroid
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import com.dsm.baseapp.BaseFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment: BaseFragment() {
