@@ -6,6 +6,8 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'com.google.gms.google-services'
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
 
@@ -53,6 +55,11 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "androidx.viewpager2:viewpager2:$viewPager2Version"
+    implementation "com.github.kimdohun0104:MediaPicker:$mediaPickerVersion"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
     // navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
@@ -68,6 +75,9 @@ dependencies {
     // koin
     implementation "org.koin:koin-androidx-ext:$koinVersion"
 
+    // firebase
+    implementation "com.google.firebase:firebase-storage:$firebaseStorageVersion"
+
     // testing
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
@@ -75,5 +85,4 @@ dependencies {
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion"
     testImplementation "androidx.arch.core:core-testing:$archCoreTestingVersion"
     testImplementation "com.jraska.livedata:testing-ktx:$liveDataTestingVersion"
-
 }
