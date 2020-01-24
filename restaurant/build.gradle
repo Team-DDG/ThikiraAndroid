@@ -21,6 +21,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         resConfigs "kr"
+
+        def apikeyPropertiesFile = rootProject.file('apikey.properties')
+        def apikeyProperties = new Properties()
+        apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
+        buildConfigField("String", "NAVER_CLIENT_ID", apikeyProperties['NAVER_CLIENT_ID'])
+        buildConfigField("String", "NAVER_CLIENT_SECRET", apikeyProperties['NAVER_CLIENT_SECRET'])
     }
 
     buildTypes {
@@ -56,12 +63,13 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "androidx.viewpager2:viewpager2:$viewPager2Version"
     implementation "com.github.kimdohun0104:MediaPicker:$mediaPickerVersion"
+    implementation "com.github.mabbas007:TagsEditText:$tagsEditTextVersion"
 
     // glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-    // navigation
+    // AAC
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 

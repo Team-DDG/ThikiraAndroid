@@ -8,7 +8,7 @@ import com.google.android.material.snackbar.Snackbar
 
 fun Fragment.setupSnackbar(
     snackbarEvent: LiveData<Int>,
-    timeLength: Int
+    timeLength: Int = Snackbar.LENGTH_SHORT
 ) {
     snackbarEvent.observe(viewLifecycleOwner, Observer { stringResId ->
         view?.let { view -> Snackbar.make(view, stringResId, timeLength).show() }
@@ -17,7 +17,7 @@ fun Fragment.setupSnackbar(
 
 fun Fragment.setupToast(
     toastEvent: LiveData<Int>,
-    timeLength: Int
+    timeLength: Int = Toast.LENGTH_SHORT
 ) {
     toastEvent.observe(viewLifecycleOwner, Observer { stringResId ->
         Toast.makeText(activity, stringResId, timeLength).show()
