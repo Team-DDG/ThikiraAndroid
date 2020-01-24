@@ -50,6 +50,9 @@
 
     <string name="check_conflict">중복확인</string>
 
+    <string name="nickname">닉네임</string>
+    <string name="register">회원가입</string>
+
     <!--feature:location-->
     <string name="do_select_location">위치 선택하기</string>
     <string name="search_address">주소 검색</string>
