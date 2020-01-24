@@ -3,15 +3,15 @@ package com.dsm.thikiraandroid
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_register1.*
+import kotlinx.android.synthetic.main.fragment_register2.*
 
-class Register1Fragment: BaseFragment() {
+class Register2Fragment : BaseFragment() {
 
     override val layoutResId: Int
-        get() = R.layout.fragment_register1
+        get() = R.layout.fragment_register2
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btn_next_register1.setOnClickListener { findNavController().navigate(R.id.action_register1Fragment_to_register2Fragment) }
+        btn_register.setOnClickListener { findNavController().popBackStack(R.id.loginFragment, true) }
     }
 }
