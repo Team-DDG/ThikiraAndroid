@@ -4,7 +4,6 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.dsm.mediapicker.MediaPicker
 import com.dsm.restaurant.R
@@ -46,10 +45,10 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
         }
 
         btn_register1_location.setOnClickListener {
-            findNavController().navigate(R.id.action_register1Fragment_to_locationFragment)
+            findNavController().navigate(R.id.action_register1Fragment_to_addressFragment)
         }
 
-        setupToast(viewModel.toastEvent, Toast.LENGTH_SHORT)
+        setupToast(viewModel.toastEvent)
 
         binding.viewModel = viewModel
     }
