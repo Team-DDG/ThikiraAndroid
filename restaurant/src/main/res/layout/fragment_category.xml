@@ -37,6 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/tb_category">
 
             <LinearLayout
+                android:id="@+id/ll_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"

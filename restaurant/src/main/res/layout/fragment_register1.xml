@@ -58,6 +58,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tb_register1" />
 
             <TextView
+                android:id="@+id/tv_restaurantImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/restaurant_image"
@@ -158,6 +159,7 @@
                 android:hint="@string/possible_area"
                 android:textColorHint="@color/colorGrey"
                 android:textSize="16sp"
+                app:allowSpaceInTag="true"
                 app:layout_constraintBottom_toTopOf="@id/btn_register1_next"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
                 app:layout_constraintRight_toRightOf="@id/gl_register1_right"
@@ -173,7 +175,6 @@
                 android:layout_height="48dp"
                 android:layout_marginBottom="24dp"
                 android:background="@{viewModel.isNext1Enabled ? @drawable/bg_primary_light_button : @drawable/bg_grey_button}"
-                android:clickable="@{viewModel.isNext1Enabled}"
                 android:text="@string/next"
                 android:textColor="@{viewModel.isNext1Enabled ? @color/colorPrimaryLight : @color/colorGrey}"
                 android:textSize="20sp"

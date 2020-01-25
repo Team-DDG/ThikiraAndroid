@@ -3,37 +3,42 @@ package com.dsm.restaurant.presentation.ui.register
 import androidx.lifecycle.*
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ConflictException
+import com.dsm.restaurant.data.firebase.FirebaseSource
 import com.dsm.restaurant.domain.interactor.CheckEmailUseCase
 import com.dsm.restaurant.domain.interactor.SearchAddressUseCase
 import com.dsm.restaurant.domain.model.AddressModel
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import com.dsm.restaurant.presentation.util.isValueBlank
-import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.launch
-import java.io.File
-import java.io.FileInputStream
 import java.util.regex.Pattern
 
 class RegisterViewModel(
     private val checkEmailUseCase: CheckEmailUseCase,
-    private val searchAddressUseCase: SearchAddressUseCase
+    private val searchAddressUseCase: SearchAddressUseCase,
+    private val firebaseSource: FirebaseSource
 ) : ViewModel() {
 
-    val imageUrl = MutableLiveData<String>().apply { value = "" }
-    val address = MutableLiveData<String>()
-    val roadAddress = MutableLiveData<String>()
+    private val _imageUrl = MutableLiveData<String>()
+    val imageUrl: LiveData<String> = _imageUrl
 
+    private val _address = MutableLiveData<String>()
+    val address: LiveData<String> = _address
+
+    private val _roadAddress = MutableLiveData<String>()
+    val roadAddress: LiveData<String> = _roadAddress
+
+    // 양방향 바인딩을 위해 노출
     val restaurantName = MutableLiveData<String>()
     val phoneNum = MutableLiveData<String>()
     val area = MutableLiveData<List<String>>()
     val email = MutableLiveData<String>()
+    val category = MutableLiveData<String>()
 
     private val _snackbarEvent = SingleLiveEvent<Int>()
     val snackbarEvent: LiveData<Int> = _snackbarEvent
 
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
-
 
     /**
      * 버튼 활성화 체크
@@ -52,22 +57,34 @@ class RegisterViewModel(
     }
 
     /**
+     * 카테고리
+     */
+    fun onSelectCategory(category: String) {
+        this.category.value = category
+    }
+
+    /**
      * 파이어베이스 이미지 업로딩
      */
     private val _isUploadingImage = MutableLiveData<Boolean>().apply { value = false }
     val isUploadingImage: LiveData<Boolean> = _isUploadingImage
 
     fun uploadImage(imagePath: String) {
-        val ref = FirebaseStorage.getInstance().reference.child("/restaurant")
-            .child(System.currentTimeMillis().toString() + ".png")
-
         _isUploadingImage.value = true
-        ref.putStream(FileInputStream(File(imagePath)))
-            .addOnSuccessListener {
-                ref.downloadUrl.addOnSuccessListener { imageUrl.value = it.toString() }
+        firebaseSource.uploadImage(imagePath, object: FirebaseSource.UploadListener {
+            override fun onSuccess(imageUrl: String) {
+                _imageUrl.value = imageUrl
             }
-            .addOnFailureListener { _toastEvent.value = R.string.fail_image_uploading }
-            .addOnCompleteListener { _isUploadingImage.value = false }
+
+            override fun onFailure(exception: java.lang.Exception) {
+                _toastEvent.value = R.string.fail_image_uploading
+            }
+
+            override fun onComplete() {
+                _isUploadingImage.value = false
+            }
+
+        })
     }
 
     /**
@@ -95,8 +112,8 @@ class RegisterViewModel(
     }
 
     fun onSelectRestaurantAddress(address: String, roadAddress: String) {
-        this.address.value = address
-        this.roadAddress.value = roadAddress
+        _address.value = address
+        _roadAddress.value = roadAddress
     }
 
     /**

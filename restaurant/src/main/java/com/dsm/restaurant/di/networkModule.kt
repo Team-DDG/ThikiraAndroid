@@ -2,6 +2,8 @@ package com.dsm.restaurant.di
 
 import com.dsm.restaurant.data.error.ErrorHandler
 import com.dsm.restaurant.data.error.ErrorHandlerImpl
+import com.dsm.restaurant.data.firebase.FirebaseSource
+import com.dsm.restaurant.data.firebase.FirebaseSourceImpl
 import com.dsm.restaurant.data.remote.NaverApi
 import com.dsm.restaurant.data.remote.NaverInterceptor
 import com.dsm.restaurant.data.remote.ThikiraApi
@@ -45,4 +47,6 @@ val networkModule = module {
     }
 
     single<ErrorHandler> { ErrorHandlerImpl() }
+
+    factory<FirebaseSource> { FirebaseSourceImpl() }
 }
