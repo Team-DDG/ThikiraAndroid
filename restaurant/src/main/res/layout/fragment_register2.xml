@@ -48,7 +48,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/bg_primary_light_button"
-                android:text="@string/select_category"
+                android:text="@{viewModel.category, default=@string/select_category}"
                 android:textColor="@color/colorPrimaryLight"
                 android:textSize="20sp"
                 android:textStyle="bold"

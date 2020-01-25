@@ -21,5 +21,5 @@ val accountModule = module {
 
     factory { SearchAddressUseCase(get()) }
 
-    viewModel { RegisterViewModel(get(), get()) }
+    viewModel { RegisterViewModel(get(), get(), get()) }
 }

@@ -116,10 +116,11 @@
             android:name="com.dsm.restaurant.presentation.ui.register.AddressFragment"
             android:label="AddressFragment"
             tools:layout="@layout/fragment_address" />
+        <fragment
+            android:id="@+id/categoryFragment"
+            android:name="com.dsm.restaurant.presentation.ui.register.CategoryFragment"
+            android:label="CategoryFragment"
+            tools:layout="@layout/fragment_category" />
+
     </navigation>
-    <fragment
-        android:id="@+id/categoryFragment"
-        android:name="com.dsm.restaurant.presentation.ui.category.CategoryFragment"
-        android:label="CategoryFragment"
-        tools:layout="@layout/fragment_category" />
 </navigation>
