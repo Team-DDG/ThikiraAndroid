@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import com.dsm.baseapp.BaseFragment
 
 class SplashFragment : BaseFragment() {
 
