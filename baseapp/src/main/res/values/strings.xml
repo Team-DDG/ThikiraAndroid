@@ -22,6 +22,7 @@
 
     <!--feature:register-->
     <string name="register_restaurant">업체 등록</string>
+    <string name="register_user">유저 회원가입</string>
     <string name="do_register_restaurant">업체 등록하기</string>
     <string name="do_register_user">회원가입하기</string>
     <string name="select_location">위치 선택</string>
@@ -44,7 +45,13 @@
 
     <string name="fill_description">회원님의 업체를 설명해주세요!</string>
 
+    <string name="send">발송</string>
+    <string name="certification_number">인증번호</string>
+
     <string name="check_conflict">중복확인</string>
+
+    <string name="nickname">닉네임</string>
+    <string name="register">회원가입</string>
 
     <!--feature:location-->
     <string name="do_select_location">위치 선택하기</string>
