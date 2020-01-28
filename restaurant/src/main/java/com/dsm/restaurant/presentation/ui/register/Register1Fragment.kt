@@ -27,6 +27,27 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupNavigate()
+        setupImagePicker()
+
+        setupToast(viewModel.toastEvent)
+
+        binding.viewModel = viewModel
+    }
+
+    private fun setupNavigate() {
+        tb_register1.setNavigationOnClickListener { findNavController().popBackStack() }
+
+        btn_register1_next.setOnClickListener {
+            findNavController().navigate(R.id.action_register1Fragment_to_register2Fragment)
+        }
+
+        btn_register1_location.setOnClickListener {
+            findNavController().navigate(R.id.action_register1Fragment_to_addressFragment)
+        }
+    }
+
+    private fun setupImagePicker() =
         iv_register1_image.setOnClickListener {
             MediaPicker.createImage(this)
                 .single()
@@ -37,21 +58,6 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
                 .toolbarCompleteText(getString(R.string.select_image_complete))
                 .start(IMAGE_CODE)
         }
-
-        tb_register1.setNavigationOnClickListener { findNavController().popBackStack() }
-
-        btn_register1_next.setOnClickListener {
-            findNavController().navigate(R.id.action_register1Fragment_to_register2Fragment)
-        }
-
-        btn_register1_location.setOnClickListener {
-            findNavController().navigate(R.id.action_register1Fragment_to_addressFragment)
-        }
-
-        setupToast(viewModel.toastEvent)
-
-        binding.viewModel = viewModel
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == IMAGE_CODE && resultCode == RESULT_OK) {
