@@ -142,7 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@{viewModel.address, default=@string/default_location}"
+                android:text="@{viewModel.address"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
@@ -169,12 +169,22 @@
                 app:tagsPaddingLeft="4dp"
                 app:tagsPaddingRight="4dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/area_divide_by_enter"
+                app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
+                app:layout_constraintTop_toBottomOf="@id/et_register1_area"
+                android:textSize="12sp"
+                android:textColor="@color/colorGrey"/>
+
             <Button
                 android:id="@+id/btn_register1_next"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="24dp"
                 android:background="@{viewModel.isNext1Enabled ? @drawable/bg_primary_light_button : @drawable/bg_grey_button}"
+                android:clickable="@{viewModel.isNext1Enabled}"
                 android:text="@string/next"
                 android:textColor="@{viewModel.isNext1Enabled ? @color/colorPrimaryLight : @color/colorGrey}"
                 android:textSize="20sp"

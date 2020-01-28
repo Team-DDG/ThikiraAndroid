@@ -7,4 +7,6 @@ interface AccountDataSource {
     suspend fun searchAddress(query: String): AddressDto
 
     suspend fun checkEmail(email: String)
+
+    suspend fun register(body: Any)
 }

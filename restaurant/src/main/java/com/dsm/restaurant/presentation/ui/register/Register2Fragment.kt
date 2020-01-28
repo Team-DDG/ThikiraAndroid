@@ -20,6 +20,13 @@ class Register2Fragment : BaseFragment<FragmentRegister2Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupNavigate()
+        setupNumberPicker()
+
+        binding.viewModel = viewModel
+    }
+
+    private fun setupNavigate() {
         tb_register2.setNavigationOnClickListener { findNavController().popBackStack() }
 
         btn_register2_next.setOnClickListener {
@@ -29,13 +36,9 @@ class Register2Fragment : BaseFragment<FragmentRegister2Binding>() {
         btn_register2_category.setOnClickListener {
             findNavController().navigate(R.id.action_register2Fragment_to_categoryFragment)
         }
-
-        setNumberPickerValues()
-
-        binding.viewModel = viewModel
     }
 
-    private fun setNumberPickerValues() {
+    private fun setupNumberPicker() {
         val df = DecimalFormat("00")
         val hourArray = (0..23).map { df.format(it) }.toTypedArray()
         val minuteArray = (0..59).map { df.format(it) }.toTypedArray()

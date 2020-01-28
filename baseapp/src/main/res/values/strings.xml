@@ -18,6 +18,7 @@
 
     <!--success message-->
     <string name="success_email_check">사용 가능한 이메일입니다</string>
+    <string name="success_register_restaurant">업체 등록에 성공하셨습니다</string>
 
     <!--feature:image-->
     <string name="select_image">이미지 선택</string>
@@ -44,7 +45,8 @@
     <string name="restaurant_image">업체 사진</string>
     <string name="restaurant_name">업체 이름</string>
     <string name="phone_number">전화번호</string>
-    <string name="possible_area">#주문가능지역</string>
+    <string name="possible_area">주문가능지역</string>
+    <string name="area_divide_by_enter">엔터키로 새로운 지역 입력</string>
 
     <string name="select_category">카테고리 선택</string>
     <string name="delivery_min_price">배달 최소 주문 금액</string>

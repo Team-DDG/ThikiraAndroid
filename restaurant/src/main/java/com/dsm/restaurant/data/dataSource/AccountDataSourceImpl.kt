@@ -30,5 +30,11 @@ class AccountDataSourceImpl(
         }
     }
 
-
+    override suspend fun register(body: Any) = withContext(ioDispatcher) {
+        try {
+            thikiraApi.register(body)
+        } catch (e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
 }

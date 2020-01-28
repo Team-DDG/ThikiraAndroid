@@ -20,4 +20,7 @@ class AccountRepositoryImpl(
         accountDataSource.checkEmail(email)
     }
 
+    override suspend fun register(body: Any) = withContext(ioDispatcher) {
+        accountDataSource.register(body)
+    }
 }
