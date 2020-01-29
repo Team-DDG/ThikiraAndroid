@@ -17,6 +17,9 @@ jobs:
           name: Google Services
           command: echo $GOOGLE_SERVICES | base64 --decode > ${HOME}/code/restaurant/google-services.json
       - run:
+          name: API Keys
+          command: echo $API_KEYS | base64 --decode > ${HOME}/code/apikey.properties
+      - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - save_cache:
