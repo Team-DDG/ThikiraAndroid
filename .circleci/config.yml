@@ -14,6 +14,9 @@ jobs:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
       - run:
+          name: Google Services
+          command: echo $GOOGLE_SERVICES | base64 --decode > ${HOME}/code/restaurant/google-services.json
+      - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - save_cache:

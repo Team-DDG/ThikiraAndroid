@@ -15,7 +15,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         tv_login_register.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_register1Fragment)
+            findNavController().navigate(R.id.action_loginFragment_to_nav_register)
         }
 
         btn_login.setOnClickListener {
