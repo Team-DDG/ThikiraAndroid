@@ -106,47 +106,22 @@ class RegisterViewModelTests : BaseTest() {
     }
 
     @Test
-    fun isRegisterEnabledTest() {
+    fun isRegisterEnabledTest() = runBlockingTest {
         viewModel.run {
-            email.value = "EMAIL"
+            email.value = "email@gmail.com"
+            `when`(checkEmailUseCase.invoke(email.value!!)).thenReturn(Unit)
+            checkEmail()
             password.value = "PASSWORD"
             reTypePwd.value = "PASSWORD"
 
             isRegisterEnabled.test().assertValue(true)
 
-            email.value = ""
+            password.value = ""
 
             isRegisterEnabled.test().assertValue(false)
         }
     }
 
-    /**
-     * 비밀번호 유효성 및 재입력 검사
-     */
-    @Test
-    fun passwordValidationTest() {
-        viewModel.run {
-            password.value = "dfdfd"
-            isPasswordValid.test().assertValue(false)
-
-            password.value = "dfdfdf@"
-            isPasswordValid.test().assertValue(true)
-        }
-    }
-
-    @Test
-    fun passwordReTypeTest() {
-        viewModel.run {
-            password.value = "PASSWORD"
-            reTypePwd.value = "PASSWORD_RETYPE"
-
-            isPasswordReTypeCorrect.test().assertValue(false)
-
-            reTypePwd.value = "PASSWORD"
-
-            isPasswordReTypeCorrect.test().assertValue(true)
-        }
-    }
 
     /**
      * 영업시간 유효성 확인
@@ -187,8 +162,6 @@ class RegisterViewModelTests : BaseTest() {
 
         uploadListener.value.onSuccess("imageurl")
         viewModel.imageUrl.test().assertValue("imageurl")
-
-        uploadListener.value.onComplete()
         viewModel.isUploadingImage.test().assertValue(false)
     }
 
@@ -201,8 +174,6 @@ class RegisterViewModelTests : BaseTest() {
 
         uploadListener.value.onFailure(Exception())
         viewModel.toastEvent.test().assertValue(R.string.fail_image_uploading)
-
-        uploadListener.value.onComplete()
         viewModel.isUploadingImage.test().assertValue(false)
     }
 
@@ -286,6 +257,7 @@ class RegisterViewModelTests : BaseTest() {
             checkEmail()
 
             toastEvent.test().assertValue(R.string.success_email_check)
+            email.test().assertValue("")
         }
     }
 
@@ -307,7 +279,7 @@ class RegisterViewModelTests : BaseTest() {
      * 업체 등록
      */
     @Test
-    fun registerSusccessTest() = runBlockingTest {
+    fun registerSuccessTest() = runBlockingTest {
         viewModel.run {
             restaurantName.value = "RESTAURANT_NAME"
             phoneNum.value = "PHONE_NUM"
@@ -320,8 +292,8 @@ class RegisterViewModelTests : BaseTest() {
             endMinute.value = 1
             description.value = "DESCRIPTION"
             email.value = "EMAIL"
-            password.value = "PASSWORD"
-            reTypePwd.value = "RETYPE"
+            password.value = "PASSWORD!"
+            reTypePwd.value = "PASSWORD!"
 
             setIsOfflineEnable(true)
             setIsOnlineEnable(true)
@@ -379,8 +351,8 @@ class RegisterViewModelTests : BaseTest() {
             endMinute.value = 1
             description.value = "DESCRIPTION"
             email.value = "EMAIL"
-            password.value = "PASSWORD"
-            reTypePwd.value = "RETYPE"
+            password.value = "PASSWORD!"
+            reTypePwd.value = "PASSWORD!"
 
             setIsOfflineEnable(true)
             setIsOnlineEnable(true)
@@ -411,7 +383,7 @@ class RegisterViewModelTests : BaseTest() {
                         "open_time" to timeToString(startTime),
                         "close_time" to timeToString(endTime),
                         "description" to description.value,
-                        "email" to email.value,
+                        "email" to checkedEmail.value,
                         "password" to password.value
                     )
                 )
@@ -420,6 +392,20 @@ class RegisterViewModelTests : BaseTest() {
             register()
 
             toastEvent.test().assertValue(R.string.fail_internal)
+        }
+    }
+
+    @Test
+    fun passwordReTypeTest() {
+        viewModel.run {
+            password.value = "PASSWORD"
+            reTypePwd.value = "PASSWORD_RETYPE"
+
+            isPasswordReTypeCorrect.test().assertValue(false)
+
+            reTypePwd.value = "PASSWORD"
+
+            isPasswordReTypeCorrect.test().assertValue(true)
         }
     }
 

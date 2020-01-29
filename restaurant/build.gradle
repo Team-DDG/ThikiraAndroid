@@ -20,8 +20,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        resConfigs "kr"
-
         def apikeyPropertiesFile = rootProject.file('apikey.properties')
         def apikeyProperties = new Properties()
         apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))

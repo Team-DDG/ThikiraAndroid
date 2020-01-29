@@ -2,7 +2,6 @@ package com.dsm.restaurant.presentation.ui.register
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.dsm.restaurant.R
@@ -34,9 +33,5 @@ class AddressFragment : BaseFragment<FragmentAddressBinding>() {
         val adapter = AddressListAdapter(viewModel, findNavController())
         rv_location.adapter = adapter
         rv_location.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
-
-        viewModel.addressList.observe(this, Observer {
-            adapter.locationItems = it
-        })
     }
 }

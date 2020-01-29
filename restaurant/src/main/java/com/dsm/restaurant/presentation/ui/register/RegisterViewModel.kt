@@ -22,22 +22,22 @@ class RegisterViewModel(
     private val firebaseSource: FirebaseSource
 ) : ViewModel() {
 
-    private val _imageUrl = MutableLiveData<String>().apply { value = " " }
+    private val _imageUrl = MutableLiveData<String>("")
     val imageUrl: LiveData<String> = _imageUrl
 
-    private val _address = MutableLiveData<String>()
+    private val _address = MutableLiveData<String>("")
     val address: LiveData<String> = _address
 
     private val _roadAddress = MutableLiveData<String>()
     val roadAddress: LiveData<String> = _roadAddress
 
-    private val _category = MutableLiveData<String>()
+    private val _category = MutableLiveData<String>("")
     val category: LiveData<String> = _category
 
-    private val _isOfflineEnable = MutableLiveData<Boolean>().apply { value = true }
+    private val _isOfflineEnable = MutableLiveData<Boolean>(true)
     val isOfflineEnable: LiveData<Boolean> = _isOfflineEnable
 
-    private val _isOnlineEnable = MutableLiveData<Boolean>().apply { value = true }
+    private val _isOnlineEnable = MutableLiveData<Boolean>(true)
     val isOnlineEnable: LiveData<Boolean> = _isOnlineEnable
 
     // 양방향 바인딩을 위해 노출
@@ -46,23 +46,20 @@ class RegisterViewModel(
     val area = MutableLiveData<List<String>>()
     val minPrice = MutableLiveData<String>()
     val dayOff = MutableLiveData<String>()
-    val startHour = MutableLiveData<Int>().apply { value = 0 }
-    val startMinute = MutableLiveData<Int>().apply { value = 0 }
-    val endHour = MutableLiveData<Int>().apply { value = 0 }
-    val endMinute = MutableLiveData<Int>().apply { value = 0 }
+    val startHour = MutableLiveData(0)
+    val startMinute = MutableLiveData(0)
+    val endHour = MutableLiveData(0)
+    val endMinute = MutableLiveData(0)
     val description = MutableLiveData<String>()
     val email = MutableLiveData<String>()
-    val password = MutableLiveData<String>()
-    val reTypePwd = MutableLiveData<String>()
+    val password = MutableLiveData<String>("")
+    val reTypePwd = MutableLiveData<String>("")
 
     private val _snackbarEvent = SingleLiveEvent<Int>()
     val snackbarEvent: LiveData<Int> = _snackbarEvent
 
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
-
-    private val _popToLoginEvent = SingleLiveEvent<Unit>()
-    val popToLoginEvent: LiveData<Unit> = _popToLoginEvent
 
     /**
      * Binding
@@ -102,56 +99,6 @@ class RegisterViewModel(
     }
 
     /**
-     * 비밀번호 유효성 및 재입력 검사
-     */
-    val isPasswordReTypeCorrect: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
-        addSource(password) { value = password.value!! == reTypePwd.value!! }
-        addSource(reTypePwd) { value = password.value!! == reTypePwd.value!! }
-    }
-
-    val isPasswordValid: LiveData<Boolean> = Transformations.map(password) {
-        Pattern.compile("^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*+=-]).{6,}$").matcher(it).find()
-    }
-
-    /**
-     * 버튼 활성화 체크
-     */
-    private fun isRegister1Filled(): Boolean =
-        !(imageUrl.isValueBlank() || restaurantName.isValueBlank()
-                || phoneNum.isValueBlank() || address.isValueBlank()
-                || area.value.isNullOrEmpty())
-
-    val isNext1Enabled = MediatorLiveData<Boolean>().apply {
-        addSource(imageUrl) { value = isRegister1Filled() }
-        addSource(restaurantName) { value = isRegister1Filled() }
-        addSource(phoneNum) { value = isRegister1Filled() }
-        addSource(address) { value = isRegister1Filled() }
-        addSource(area) { value = isRegister1Filled() }
-    }
-
-    private fun isRegister2Filled(): Boolean =
-        !(category.isValueBlank() || minPrice.isValueBlank()
-                || dayOff.isValueBlank() || isStoreHoursValid.value == false)
-
-    val isNext2Enabled = MediatorLiveData<Boolean>().apply {
-        addSource(category) { value = isRegister2Filled() }
-        addSource(minPrice) { value = isRegister2Filled() }
-        addSource(dayOff) { value = isRegister2Filled() }
-        addSource(isStoreHoursValid) { value = isRegister2Filled() }
-    }
-
-    val isNext3Enabled: LiveData<Boolean> = Transformations.map(description) { it != "" }
-
-    private fun isRegister4Filled(): Boolean =
-        !(email.isValueBlank() || password.isValueBlank() || reTypePwd.isValueBlank())
-
-    val isRegisterEnabled: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
-        addSource(email) { value = isRegister4Filled() }
-        addSource(password) { value = isRegister4Filled() }
-        addSource(reTypePwd) { value = isRegister4Filled() }
-    }
-
-    /**
      * 파이어베이스 이미지 업로딩
      */
     private val _isUploadingImage = MutableLiveData<Boolean>().apply { value = false }
@@ -162,13 +109,11 @@ class RegisterViewModel(
         firebaseSource.uploadImage(imagePath, object : FirebaseSource.UploadListener {
             override fun onSuccess(imageUrl: String) {
                 _imageUrl.value = imageUrl
+                _isUploadingImage.value = false
             }
 
             override fun onFailure(exception: java.lang.Exception) {
                 _toastEvent.value = R.string.fail_image_uploading
-            }
-
-            override fun onComplete() {
                 _isUploadingImage.value = false
             }
 
@@ -207,6 +152,9 @@ class RegisterViewModel(
     /**
      * 이메일 검증 및 중복 검사
      */
+    private val _checkedEmail = MutableLiveData<String>("")
+    val checkedEmail: LiveData<String> = _checkedEmail
+
     fun checkEmail() {
         val currentEmail = email.value
 
@@ -232,6 +180,9 @@ class RegisterViewModel(
         try {
             checkEmailUseCase(email)
             _toastEvent.value = R.string.success_email_check
+
+            this@RegisterViewModel.email.value = ""
+            _checkedEmail.value = email
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
                 is ConflictException -> R.string.fail_conflict_email
@@ -243,9 +194,22 @@ class RegisterViewModel(
     /**
      * 업체 등록
      */
+    private val _popToLoginEvent = SingleLiveEvent<Unit>()
+    val popToLoginEvent: LiveData<Unit> = _popToLoginEvent
+
     fun register() = viewModelScope.launch {
         val startTime = parseTimeToDate(startHour.value!!, startMinute.value!!)
         val endTime = parseTimeToDate(endHour.value!!, endMinute.value!!)
+
+        if (!passwordValidation(password.value!!)) {
+            _toastEvent.value = R.string.fail_password_invalid
+            return@launch
+        }
+
+        if (!checkPasswordReType()) {
+            _toastEvent.value = R.string.fail_diff_retype
+            return@launch
+        }
 
         try {
             registerUseCase(
@@ -264,7 +228,7 @@ class RegisterViewModel(
                     "open_time" to timeToString(startTime),
                     "close_time" to timeToString(endTime),
                     "description" to description.value,
-                    "email" to email.value,
+                    "email" to checkedEmail.value,
                     "password" to password.value
                 )
             )
@@ -276,8 +240,56 @@ class RegisterViewModel(
         }
     }
 
+    private fun checkPasswordReType() = password.value!! == reTypePwd.value!!
+
+    val isPasswordReTypeCorrect: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
+        addSource(password) { value = checkPasswordReType() }
+        addSource(reTypePwd) { value = checkPasswordReType() }
+    }
+
+    private fun passwordValidation(password: String) =
+        Pattern.compile("^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*+=-]).{6,}$").matcher(password).find()
+
     private fun timeToString(time: Date): String {
         val formatter = SimpleDateFormat("HH:mm", Locale.KOREA)
         return formatter.format(time)
+    }
+
+    /**
+     * 버튼 활성화 체크
+     */
+    private fun isRegister1Filled(): Boolean =
+        !(imageUrl.isValueBlank() || restaurantName.isValueBlank()
+                || phoneNum.isValueBlank() || address.isValueBlank()
+                || area.value.isNullOrEmpty())
+
+    val isNext1Enabled = MediatorLiveData<Boolean>().apply {
+        addSource(imageUrl) { value = isRegister1Filled() }
+        addSource(restaurantName) { value = isRegister1Filled() }
+        addSource(phoneNum) { value = isRegister1Filled() }
+        addSource(address) { value = isRegister1Filled() }
+        addSource(area) { value = isRegister1Filled() }
+    }
+
+    private fun isRegister2Filled(): Boolean =
+        !(category.isValueBlank() || minPrice.isValueBlank()
+                || dayOff.isValueBlank() || isStoreHoursValid.value == false)
+
+    val isNext2Enabled = MediatorLiveData<Boolean>().apply {
+        addSource(category) { value = isRegister2Filled() }
+        addSource(minPrice) { value = isRegister2Filled() }
+        addSource(dayOff) { value = isRegister2Filled() }
+        addSource(isStoreHoursValid) { value = isRegister2Filled() }
+    }
+
+    val isNext3Enabled: LiveData<Boolean> = Transformations.map(description) { it != "" }
+
+    private fun isRegister4Filled(): Boolean =
+        !(checkedEmail.isValueBlank() || password.isValueBlank() || reTypePwd.isValueBlank())
+
+    val isRegisterEnabled: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
+        addSource(email) { value = isRegister4Filled() }
+        addSource(password) { value = isRegister4Filled() }
+        addSource(reTypePwd) { value = isRegister4Filled() }
     }
 }

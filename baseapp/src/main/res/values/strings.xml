@@ -15,6 +15,8 @@
     <string name="fail_conflict_email">이미 존재하는 이메일입니다</string>
     <string name="fail_internal">네트워크를 확인해주세요</string>
     <string name="fail_image_uploading">이미지 업로드에 실패했습니다</string>
+    <string name="fail_password_invalid">유효하지 않은 비밀번호입니다</string>
+    <string name="fail_diff_retype">비밀번호가 일치하지 않습니다</string>
 
     <!--success message-->
     <string name="success_email_check">사용 가능한 이메일입니다</string>
