@@ -1,2 +1,11 @@
 {
+  "project_info": {
+    "project_number": "187128403337",
+    "firebase_url": "https://thikiraandroid.firebaseio.com",
+    "project_id": "thikiraandroid",
+    "storage_bucket": "thikiraandroid.appspot.com"
+  },
+  "client": [
+  ],
+  "configuration_version": "1"
 }
