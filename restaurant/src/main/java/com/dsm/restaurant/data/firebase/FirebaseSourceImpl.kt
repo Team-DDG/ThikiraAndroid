@@ -17,7 +17,6 @@ class FirebaseSourceImpl : FirebaseSource {
                 uploadRef.downloadUrl.addOnSuccessListener { uploadListener.onSuccess(it.toString()) }
             }
             .addOnFailureListener { uploadListener.onFailure(it) }
-            .addOnCompleteListener { uploadListener.onComplete() }
     }
 
 }

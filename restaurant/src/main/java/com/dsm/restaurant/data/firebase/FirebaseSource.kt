@@ -6,8 +6,6 @@ interface FirebaseSource {
         fun onSuccess(imageUrl: String)
 
         fun onFailure(exception: Exception)
-
-        fun onComplete()
     }
 
     fun uploadImage(imagePath: String, uploadListener: UploadListener)
