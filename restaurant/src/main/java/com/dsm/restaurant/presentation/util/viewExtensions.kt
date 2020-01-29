@@ -1,5 +1,7 @@
 package com.dsm.restaurant.presentation.util
 
+import android.app.Activity
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -22,4 +24,9 @@ fun Fragment.setupToast(
     toastEvent.observe(viewLifecycleOwner, Observer { stringResId ->
         Toast.makeText(activity, stringResId, timeLength).show()
     })
+}
+
+fun Fragment.hideKeyborad() {
+    (activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
+        .hideSoftInputFromWindow(view?.windowToken, 0)
 }
