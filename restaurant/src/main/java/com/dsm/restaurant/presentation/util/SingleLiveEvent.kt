@@ -1,4 +1,4 @@
-package com.dsm.restaurant.presentation
+package com.dsm.restaurant.presentation.util
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

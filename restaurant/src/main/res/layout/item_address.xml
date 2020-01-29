@@ -1,23 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+        <variable
+            name="address"
+            type="com.dsm.restaurant.domain.model.AddressModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_parcel"
+            android:id="@+id/tv_location_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_parcel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text='@{address.title.replace("&lt;b>", "").replace("&lt;/b>", "")}'/>
+
+        <TextView
+            android:id="@+id/tv_parcel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/parcel_addr"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintLeft_toLeftOf="@id/tv_location_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_location_title" />
 
         <TextView
             android:id="@+id/tv_parcel_colon"
@@ -28,7 +46,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_parcel"
             app:layout_constraintLeft_toRightOf="@id/tv_parcel"
-            app:layout_constraintTop_toTopOf="@id/tv_parcel" />
+            app:layout_constraintTop_toTopOf="@id/tv_parcel"/>
 
         <TextView
             android:id="@+id/tv_location_parcel"
@@ -42,7 +60,8 @@
             android:textSize="16sp"
             app:layout_constraintLeft_toRightOf="@id/tv_parcel_colon"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_parcel_colon" />
+            app:layout_constraintTop_toTopOf="@id/tv_parcel_colon"
+            android:text="@{address.address}"/>
 
         <TextView
             android:id="@+id/tv_road"
@@ -79,6 +98,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/tv_road_colon"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_road_colon" />
+            app:layout_constraintTop_toTopOf="@id/tv_road_colon"
+            android:text="@{address.roadAddress}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
