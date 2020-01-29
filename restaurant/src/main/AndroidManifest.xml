@@ -23,7 +23,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.ui.MainActivity"
-            android:windowSoftInputMode="adjustResize|stateVisible">
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
