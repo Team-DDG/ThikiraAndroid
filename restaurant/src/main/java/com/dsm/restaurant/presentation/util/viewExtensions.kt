@@ -26,7 +26,7 @@ fun Fragment.setupToast(
     })
 }
 
-fun Fragment.hideKeyborad() {
+fun Fragment.hideKeyboard() {
     (activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
         .hideSoftInputFromWindow(view?.windowToken, 0)
 }
