@@ -49,6 +49,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -91,4 +94,13 @@ dependencies {
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion"
     testImplementation "androidx.arch.core:core-testing:$archCoreTestingVersion"
     testImplementation "com.jraska.livedata:testing-ktx:$liveDataTestingVersion"
+
+    // ui-testing
+    androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
+    androidTestImplementation "org.mockito:mockito-android:$mockitoAndroidVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+    androidTestImplementation "androidx.test:rules:$testRulesVersion"
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentTestingVersion"
+    debugImplementation "androidx.test.espresso:espresso-idling-resource:$espressoCoreVersion"
 }
