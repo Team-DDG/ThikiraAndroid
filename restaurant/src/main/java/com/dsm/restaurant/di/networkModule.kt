@@ -1,5 +1,6 @@
 package com.dsm.restaurant.di
 
+import com.dsm.restaurant.BuildConfig
 import com.dsm.restaurant.data.error.ErrorHandler
 import com.dsm.restaurant.data.error.ErrorHandlerImpl
 import com.dsm.restaurant.data.firebase.FirebaseSource
@@ -17,7 +18,7 @@ val networkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl("http://192.168.1.86:1234/")
+            .baseUrl(getBaseUrl())
             .client(
                 OkHttpClient.Builder()
                     .addInterceptor(HttpLoggingInterceptor().apply {
@@ -50,3 +51,7 @@ val networkModule = module {
 
     factory<FirebaseSource> { FirebaseSourceImpl() }
 }
+
+fun getBaseUrl() =
+    if (BuildConfig.DEBUG) "http://127.0.0.1:1234/"
+    else "http://192.168.1.86:1234/"
