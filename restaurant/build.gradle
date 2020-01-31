@@ -18,7 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.dsm.restaurant.MockTestRunner"
 
         def apikeyPropertiesFile = rootProject.file('apikey.properties')
         def apikeyProperties = new Properties()

@@ -95,7 +95,8 @@
             app:layout_constraintLeft_toLeftOf="@id/gl_register4_left"
             app:layout_constraintRight_toRightOf="@id/gl_register4_right"
             app:layout_constraintTop_toBottomOf="@id/et_register4_email"
-            tools:ignore="RtlSymmetry" />
+            tools:ignore="RtlSymmetry"
+            android:nextFocusDown="@id/et_register4_pwdCheck"/>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_register4_pwdCheck"
