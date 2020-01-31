@@ -1,4 +1,4 @@
-package com.dsm.restaurant.data.remote
+package com.dsm.restaurant.data.remote.interceptor
 
 import com.dsm.restaurant.BuildConfig
 import okhttp3.Interceptor
