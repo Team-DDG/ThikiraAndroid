@@ -6,7 +6,6 @@ import androidx.fragment.app.testing.FragmentScenario
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.dsm.restaurant.presentation.util.EspressoIdlingResource
 import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
@@ -14,12 +13,10 @@ import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.RecordedRequest
 import org.junit.After
 import org.junit.Before
-import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import java.nio.charset.Charset
 
-@RunWith(AndroidJUnit4::class)
 open class BaseUiTest {
 
     companion object {
@@ -78,7 +75,7 @@ open class BaseUiTest {
         return scenario
     }
 
-    protected fun getErrorDispatcher(errorCode: Int, body: String = "") = object: Dispatcher() {
+    protected fun getErrorDispatcher(errorCode: Int, body: String = "") = object : Dispatcher() {
         override fun dispatch(request: RecordedRequest): MockResponse =
             MockResponse().setResponseCode(errorCode).setBody(body)
 

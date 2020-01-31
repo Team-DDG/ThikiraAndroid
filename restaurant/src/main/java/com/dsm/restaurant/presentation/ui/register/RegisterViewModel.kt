@@ -8,6 +8,7 @@ import com.dsm.restaurant.domain.interactor.CheckEmailUseCase
 import com.dsm.restaurant.domain.interactor.RegisterUseCase
 import com.dsm.restaurant.domain.interactor.SearchAddressUseCase
 import com.dsm.restaurant.domain.model.AddressModel
+import com.dsm.restaurant.presentation.util.EspressoIdlingResource
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import com.dsm.restaurant.presentation.util.isValueBlank
 import kotlinx.coroutines.launch
@@ -106,15 +107,19 @@ class RegisterViewModel(
 
     fun uploadImage(imagePath: String) {
         _isUploadingImage.value = true
+        EspressoIdlingResource.increment()
         firebaseSource.uploadImage(imagePath, object : FirebaseSource.UploadListener {
             override fun onSuccess(imageUrl: String) {
                 _imageUrl.value = imageUrl
-                _isUploadingImage.value = false
             }
 
             override fun onFailure(exception: java.lang.Exception) {
                 _toastEvent.value = R.string.fail_image_uploading
+            }
+
+            override fun onComplete() {
                 _isUploadingImage.value = false
+                EspressoIdlingResource.decrement()
             }
 
         })

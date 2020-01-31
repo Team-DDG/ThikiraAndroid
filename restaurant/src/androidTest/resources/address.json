@@ -1,0 +1,118 @@
+{
+  "lastBuildDate": "Thu, 30 Jan 2020 20:59:34 +0900",
+  "total": 10188,
+  "start": 1,
+  "display": 10,
+  "items": [
+    {
+      "title": "대가수산민물장어",
+      "link": "http://cafe.naver.com/dk7722",
+      "category": "한식>해물,생선요리",
+      "description": "",
+      "telephone": "031-376-8859",
+      "address": "경기도 오산시 서동 284-7",
+      "roadAddress": "경기도 오산시 서동로 140",
+      "mapx": "314949",
+      "mapy": "506044"
+    },
+    {
+      "title": "솔향",
+      "link": "https://solhyangosan.modoo.at",
+      "category": "한식>육류,고기요리",
+      "description": "",
+      "telephone": "031-377-5250",
+      "address": "경기도 오산시 서동 347",
+      "roadAddress": "경기도 오산시 서동로 165 솔향",
+      "mapx": "314992",
+      "mapy": "506357"
+    },
+    {
+      "title": "용달이사",
+      "link": "",
+      "category": "화물운송>용달",
+      "description": "",
+      "telephone": "031-374-4924",
+      "address": "경기도 오산시 서동 351",
+      "roadAddress": "경기도 오산시 서동로 179-27",
+      "mapx": "314935",
+      "mapy": "506378"
+    },
+    {
+      "title": "신동아2차아파트",
+      "link": "",
+      "category": "주택>아파트",
+      "description": "",
+      "telephone": "",
+      "address": "경기도 오산시 서동 125-8",
+      "roadAddress": "경기도 오산시 초평로 84-4",
+      "mapx": "315291",
+      "mapy": "505125"
+    },
+    {
+      "title": "초평동행정복지센터",
+      "link": "http://www.osan.go.kr/osanCSC/chopyeang/main.do",
+      "category": "공공,사회기관>행정복지센터",
+      "description": "",
+      "telephone": "031-8036-6350",
+      "address": "경기도 오산시 벌음동 243-1",
+      "roadAddress": "경기도 오산시 발안로 1308-9 초평동주민센터",
+      "mapx": "314967",
+      "mapy": "504672"
+    },
+    {
+      "title": "신동아1차아파트",
+      "link": "",
+      "category": "주택>아파트",
+      "description": "",
+      "telephone": "",
+      "address": "경기도 오산시 서동 125-2",
+      "roadAddress": "경기도 오산시 초평로 35",
+      "mapx": "315170",
+      "mapy": "505184"
+    },
+    {
+      "title": "두향",
+      "link": "",
+      "category": "음식점>한식",
+      "description": "",
+      "telephone": "031-372-2580",
+      "address": "경기도 오산시 서동 477-6",
+      "roadAddress": "경기도 오산시 서동로65번길 148-8",
+      "mapx": "314508",
+      "mapy": "505809"
+    },
+    {
+      "title": "카오스",
+      "link": "http://www.caroasis.co.kr/",
+      "category": "쇼핑,유통>자동차부품",
+      "description": "",
+      "telephone": "031-378-7671",
+      "address": "경기도 오산시 서동 307-1",
+      "roadAddress": "경기도 오산시 서동로 145",
+      "mapx": "314922",
+      "mapy": "506139"
+    },
+    {
+      "title": "세교동일하이빌(2022년예정)",
+      "link": "",
+      "category": "아파트>예정,공사중",
+      "description": "",
+      "telephone": "",
+      "address": "경기도 오산시 서동 39-1",
+      "roadAddress": "경기도 오산시 가장로 612 한일농장",
+      "mapx": "315355",
+      "mapy": "506294"
+    },
+    {
+      "title": "경동택배 오산<b>서동</b>202 영업소",
+      "link": "",
+      "category": "화물운송>택배",
+      "description": "",
+      "telephone": "031-378-1034",
+      "address": "경기도 오산시 서동 202-1",
+      "roadAddress": "경기도 오산시 서동로 61",
+      "mapx": "314739",
+      "mapy": "505302"
+    }
+  ]
+}
