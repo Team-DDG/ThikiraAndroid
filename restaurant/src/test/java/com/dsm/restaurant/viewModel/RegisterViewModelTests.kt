@@ -162,6 +162,7 @@ class RegisterViewModelTests : BaseTest() {
 
         uploadListener.value.onSuccess("imageurl")
         viewModel.imageUrl.test().assertValue("imageurl")
+        uploadListener.value.onComplete()
         viewModel.isUploadingImage.test().assertValue(false)
     }
 
@@ -174,6 +175,7 @@ class RegisterViewModelTests : BaseTest() {
 
         uploadListener.value.onFailure(Exception())
         viewModel.toastEvent.test().assertValue(R.string.fail_image_uploading)
+        uploadListener.value.onComplete()
         viewModel.isUploadingImage.test().assertValue(false)
     }
 
