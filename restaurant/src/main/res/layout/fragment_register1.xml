@@ -71,6 +71,7 @@
                 app:layout_constraintTop_toTopOf="@id/iv_register1_image" />
 
             <ProgressBar
+                android:id="@+id/pb_register1_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="@{viewModel.isUploadingImage ? View.VISIBLE : View.INVISIBLE}"
@@ -129,7 +130,7 @@
                 android:singleLine="true"/>
 
             <Button
-                android:id="@+id/btn_register1_location"
+                android:id="@+id/btn_register1_address"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
@@ -143,7 +144,7 @@
                 app:layout_constraintTop_toBottomOf="@id/et_register1_phone" />
 
             <TextView
-                android:id="@+id/tv_register1_location"
+                android:id="@+id/tv_register1_address"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -152,21 +153,22 @@
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
                 app:layout_constraintRight_toRightOf="@id/gl_register1_right"
-                app:layout_constraintTop_toBottomOf="@id/btn_register1_location"
+                app:layout_constraintTop_toBottomOf="@id/btn_register1_address"
                 android:gravity="center"
                 android:maxLines="3"/>
 
             <TextView
+                android:id="@+id/tv_register1_default_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scrollbarSize="16sp"
                 android:text="@string/default_location"
                 android:textColor="@android:color/black"
                 android:visibility="@{viewModel.address.empty ? View.VISIBLE : View.INVISIBLE}"
-                app:layout_constraintBottom_toBottomOf="@id/tv_register1_location"
-                app:layout_constraintLeft_toLeftOf="@id/tv_register1_location"
-                app:layout_constraintRight_toRightOf="@id/tv_register1_location"
-                app:layout_constraintTop_toTopOf="@id/tv_register1_location" />
+                app:layout_constraintBottom_toBottomOf="@id/tv_register1_address"
+                app:layout_constraintLeft_toLeftOf="@id/tv_register1_address"
+                app:layout_constraintRight_toRightOf="@id/tv_register1_address"
+                app:layout_constraintTop_toTopOf="@id/tv_register1_address" />
 
             <mabbas007.tagsedittext.TagsEditText
                 android:id="@+id/et_register1_area"
@@ -182,7 +184,7 @@
                 app:layout_constraintBottom_toTopOf="@id/btn_register1_next"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
                 app:layout_constraintRight_toRightOf="@id/gl_register1_right"
-                app:layout_constraintTop_toBottomOf="@id/tv_register1_location"
+                app:layout_constraintTop_toBottomOf="@id/tv_register1_address"
                 app:tagsBackground="@drawable/bg_tag"
                 app:tagsCloseImageRight="@drawable/ic_close_white_15dp"
                 app:tagsPaddingLeft="4dp"

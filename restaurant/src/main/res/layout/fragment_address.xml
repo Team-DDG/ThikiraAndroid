@@ -38,7 +38,7 @@
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_location_address"
+            android:id="@+id/et_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -60,6 +60,7 @@
             tools:ignore="RtlSymmetry" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_address_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -69,12 +70,12 @@
             android:onClick="@{() -> viewModel.onClickSearchAddress()}"
             android:padding="4dp"
             android:src="@drawable/ic_search_24dp"
-            app:layout_constraintBottom_toBottomOf="@id/et_location_address"
-            app:layout_constraintRight_toRightOf="@id/et_location_address"
-            app:layout_constraintTop_toTopOf="@id/et_location_address" />
+            app:layout_constraintBottom_toBottomOf="@id/et_address"
+            app:layout_constraintRight_toRightOf="@id/et_address"
+            app:layout_constraintTop_toTopOf="@id/et_address" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_location"
+            android:id="@+id/rv_address"
             addressList="@{viewModel.addressList}"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -83,7 +84,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_location_address" />
+            app:layout_constraintTop_toBottomOf="@id/et_address" />
 
         <ProgressBar
             android:layout_width="wrap_content"
@@ -92,7 +93,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/rv_location" />
+            app:layout_constraintTop_toTopOf="@id/rv_address" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

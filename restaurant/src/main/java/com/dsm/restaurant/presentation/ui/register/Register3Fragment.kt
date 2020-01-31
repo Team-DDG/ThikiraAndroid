@@ -12,9 +12,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 class Register3Fragment : BaseFragment<FragmentRegister3Binding>() {
     override val layoutResId: Int = R.layout.fragment_register3
 
-    private val viewModel: RegisterViewModel by sharedViewModel(from = {
-        findNavController().getViewModelStoreOwner(R.id.nav_graph)
-    })
+    private val viewModel: RegisterViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

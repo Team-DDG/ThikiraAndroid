@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentLoginBinding
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
-import com.dsm.restaurant.presentation.util.hideKeyborad
+import com.dsm.restaurant.presentation.util.hideKeyboard
 import com.dsm.restaurant.presentation.util.setupToast
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,6 +38,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     private fun setupKeyboard() {
-        viewModel.hideKeyboardEvent.observe(this, Observer { hideKeyborad() })
+        viewModel.hideKeyboardEvent.observe(this, Observer { hideKeyboard() })
     }
 }
