@@ -6,8 +6,10 @@ import com.dsm.restaurant.data.error.ErrorHandlerImpl
 import com.dsm.restaurant.data.firebase.FirebaseSource
 import com.dsm.restaurant.data.firebase.FirebaseSourceImpl
 import com.dsm.restaurant.data.remote.NaverApi
-import com.dsm.restaurant.data.remote.NaverInterceptor
 import com.dsm.restaurant.data.remote.ThikiraApi
+import com.dsm.restaurant.data.remote.TokenApi
+import com.dsm.restaurant.data.remote.interceptor.NaverInterceptor
+import com.dsm.restaurant.data.remote.interceptor.TokenInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -20,11 +22,19 @@ val networkModule = module {
     single {
         Retrofit.Builder()
             .baseUrl((androidContext() as ThikiraRestaurantApplication).getApiUrl())
+            .build()
+            .create(TokenApi::class.java)
+    }
+
+    single {
+        Retrofit.Builder()
+            .baseUrl((androidContext() as ThikiraRestaurantApplication).getApiUrl())
             .client(
                 OkHttpClient.Builder()
                     .addInterceptor(HttpLoggingInterceptor().apply {
                         level = HttpLoggingInterceptor.Level.BODY
                     })
+                    .addInterceptor(TokenInterceptor(get(), get()))
                     .build()
             )
             .addConverterFactory(GsonConverterFactory.create())
