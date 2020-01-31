@@ -11,9 +11,9 @@ import com.dsm.restaurant.presentation.ui.register.RegisterViewModel
 class AddressListAdapter(
     private val viewModel: RegisterViewModel,
     private val navController: NavController
-) : RecyclerView.Adapter<AddressListAdapter.LocationHolder>() {
+) : RecyclerView.Adapter<AddressListAdapter.AddressHolder>() {
 
-    inner class LocationHolder(private val binding: ItemAddressBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class AddressHolder(private val binding: ItemAddressBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
             val item = locationItems[adapterPosition]
             binding.address = item
@@ -34,10 +34,10 @@ class AddressListAdapter(
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationHolder =
-        LocationHolder(ItemAddressBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressHolder =
+        AddressHolder(ItemAddressBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun getItemCount(): Int = locationItems.size
 
-    override fun onBindViewHolder(holder: LocationHolder, position: Int) = holder.bind()
+    override fun onBindViewHolder(holder: AddressHolder, position: Int) = holder.bind()
 }

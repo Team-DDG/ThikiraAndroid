@@ -33,7 +33,7 @@ val networkModule = module {
 
     factory {
         Retrofit.Builder()
-            .baseUrl("https://openapi.naver.com/")
+            .baseUrl(getNaverBaseUrl())
             .client(
                 OkHttpClient.Builder()
                     .addInterceptor(NaverInterceptor())
@@ -52,6 +52,10 @@ val networkModule = module {
     factory<FirebaseSource> { FirebaseSourceImpl() }
 }
 
-fun getBaseUrl() =
+private fun getBaseUrl() =
     if (BuildConfig.DEBUG) "http://127.0.0.1:1234/"
     else "http://192.168.1.86:1234/"
+
+private fun getNaverBaseUrl() =
+    if (BuildConfig.DEBUG) "http://127.0.0.1:1234/"
+    else "https://openapi.naver.com/"

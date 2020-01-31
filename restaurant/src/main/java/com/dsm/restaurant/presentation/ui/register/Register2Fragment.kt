@@ -13,9 +13,7 @@ import java.text.DecimalFormat
 class Register2Fragment : BaseFragment<FragmentRegister2Binding>() {
     override val layoutResId: Int = R.layout.fragment_register2
 
-    private val viewModel: RegisterViewModel by sharedViewModel(from = {
-        findNavController().getViewModelStoreOwner(R.id.nav_graph)
-    })
+    private val viewModel: RegisterViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -15,9 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 class AddressFragment : BaseFragment<FragmentAddressBinding>() {
     override val layoutResId: Int = R.layout.fragment_address
 
-    private val viewModel: RegisterViewModel by sharedViewModel(from = {
-        findNavController().getViewModelStoreOwner(R.id.nav_graph)
-    })
+    private val viewModel: RegisterViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +29,7 @@ class AddressFragment : BaseFragment<FragmentAddressBinding>() {
 
     private fun setupRecyclerView() {
         val adapter = AddressListAdapter(viewModel, findNavController())
-        rv_location.adapter = adapter
-        rv_location.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+        rv_address.adapter = adapter
+        rv_address.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
     }
 }

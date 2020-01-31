@@ -100,6 +100,7 @@ dependencies {
     androidTestImplementation "org.mockito:mockito-android:$mockitoAndroidVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
     androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espressoContribVersion"
     androidTestImplementation "androidx.test:rules:$testRulesVersion"
     debugImplementation "androidx.fragment:fragment-testing:$fragmentTestingVersion"
     debugImplementation "androidx.test.espresso:espresso-idling-resource:$espressoCoreVersion"

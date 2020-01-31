@@ -20,9 +20,7 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
 
     override val layoutResId: Int = R.layout.fragment_register1
 
-    private val viewModel: RegisterViewModel by sharedViewModel(from = {
-        findNavController().getViewModelStoreOwner(R.id.nav_graph)
-    })
+    private val viewModel: RegisterViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,7 +40,7 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
             findNavController().navigate(R.id.action_register1Fragment_to_register2Fragment)
         }
 
-        btn_register1_location.setOnClickListener {
+        btn_register1_address.setOnClickListener {
             findNavController().navigate(R.id.action_register1Fragment_to_addressFragment)
         }
     }

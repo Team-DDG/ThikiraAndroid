@@ -66,4 +66,5 @@ ext {
     mockWebServerVersion = '4.3.1'
     testRulesVersion = '1.2.0'
     fragmentTestingVersion = '1.2.0'
+    espressoContribVersion = '3.0.2'
 }
