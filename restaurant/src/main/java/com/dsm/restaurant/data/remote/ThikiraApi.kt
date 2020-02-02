@@ -14,6 +14,10 @@ interface ThikiraApi {
     @POST("sign_up")
     suspend fun register(@Body body: Any)
 
+    @GET("auth")
+    suspend fun authToken()
+
     @POST("auth/login")
     suspend fun login(@Body body: Any): TokenDto
+
 }
