@@ -22,6 +22,7 @@ val networkModule = module {
     single {
         Retrofit.Builder()
             .baseUrl((androidContext() as ThikiraRestaurantApplication).getApiUrl())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(TokenApi::class.java)
     }

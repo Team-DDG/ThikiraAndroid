@@ -10,5 +10,4 @@ interface TokenApi {
     fun refreshToken(
         @Header("X-Refresh-Token") refreshToken: String
     ): Call<Map<String, String>>
-
 }

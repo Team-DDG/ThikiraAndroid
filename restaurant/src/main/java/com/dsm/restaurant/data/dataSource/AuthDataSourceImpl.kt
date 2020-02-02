@@ -13,6 +13,14 @@ class AuthDataSourceImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : AuthDataSource {
 
+    override suspend fun authToken() = withContext(ioDispatcher) {
+        try {
+            thikiraApi.authToken()
+        } catch(e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
+
     override suspend fun login(body: Any): TokenDto = withContext(ioDispatcher) {
         try {
             thikiraApi.login(body)

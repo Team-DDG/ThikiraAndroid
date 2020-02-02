@@ -28,6 +28,7 @@ class TokenInterceptor(
                 val newToken = refreshResponse.body()?.get("accessToken") ?: ""
                 prefStorage.setAccessToken(newToken)
 
+                response.close()
                 chain.proceed(
                     request.newBuilder().run {
                         removeHeader("Authorization")
