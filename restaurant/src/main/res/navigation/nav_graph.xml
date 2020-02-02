@@ -19,6 +19,11 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -110,10 +115,10 @@
             android:id="@+id/register4Fragment"
             android:name="com.dsm.restaurant.presentation.ui.register.Register4Fragment"
             android:label="Register4Fragment"
-            tools:layout="@layout/fragment_register4" >
+            tools:layout="@layout/fragment_register4">
             <action
-                app:destination="@id/loginFragment"
                 android:id="@+id/action_register4Fragment_to_loginFragment"
+                app:destination="@id/loginFragment"
                 app:popUpTo="@id/register4Fragment"
                 app:popUpToInclusive="true" />
         </fragment>

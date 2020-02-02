@@ -15,7 +15,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.`when`
 
 @ExperimentalCoroutinesApi
-class LoginViewModel : BaseTest() {
+class LoginViewModelTests : BaseTest() {
 
     @Mock
     private lateinit var loginUseCase: LoginUseCase
