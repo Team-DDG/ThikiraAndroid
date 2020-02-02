@@ -13,6 +13,10 @@ class AuthRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : AuthRepository {
 
+    override suspend fun authToken() = withContext(ioDispatcher) {
+        authDataSource.authToken()
+    }
+
     override suspend fun login(body: Any) = withContext(ioDispatcher) {
         val tokenDto = authDataSource.login(body)
         prefStorage.setAccessToken(tokenDto.accessToken)
