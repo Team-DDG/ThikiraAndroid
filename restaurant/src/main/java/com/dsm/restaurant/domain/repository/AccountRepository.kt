@@ -9,4 +9,6 @@ interface AccountRepository {
     suspend fun checkEmail(email: String)
 
     suspend fun register(body: Any)
+
+    suspend fun unregister()
 }

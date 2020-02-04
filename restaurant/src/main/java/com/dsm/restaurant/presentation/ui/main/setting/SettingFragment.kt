@@ -19,5 +19,9 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
         tv_setting_changePwd.setOnClickListener {
             findNavController().navigate(R.id.action_settingFragment_to_changePwdDialog)
         }
+
+        tv_setting_unregister.setOnClickListener {
+            findNavController().navigate(R.id.action_settingFragment_to_unregisterDialog)
+        }
     }
 }
