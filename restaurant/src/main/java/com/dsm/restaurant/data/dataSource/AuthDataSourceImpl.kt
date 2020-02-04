@@ -16,7 +16,7 @@ class AuthDataSourceImpl(
     override suspend fun authToken() = withContext(ioDispatcher) {
         try {
             thikiraApi.authToken()
-        } catch(e: Exception) {
+        } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }
     }
@@ -24,6 +24,14 @@ class AuthDataSourceImpl(
     override suspend fun login(body: Any): TokenDto = withContext(ioDispatcher) {
         try {
             thikiraApi.login(body)
+        } catch (e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
+
+    override suspend fun authPassword(password: String) = withContext(ioDispatcher) {
+        try {
+            thikiraApi.authPassword(password)
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }

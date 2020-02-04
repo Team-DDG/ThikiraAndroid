@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.restaurant.presentation.ui.main.setting.unregister.UnregisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_unregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/ask_unregister"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_unregister_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:src="@drawable/ic_lock_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/et_unregister_password"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/et_unregister_password"
+            app:layout_constraintTop_toTopOf="@id/et_unregister_password" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_unregister_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="@string/password_check"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:text="@={viewModel.password}"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/iv_unregister_lock"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_unregister" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="16dp"
+            android:background="@{viewModel.isUnregisterEnabled ? @drawable/bg_primary_light_button : @drawable/bg_grey_button}"
+            android:clickable="@{viewModel.isUnregisterEnabled}"
+            android:text="@string/unregister"
+            android:textColor="@{viewModel.isUnregisterEnabled ? @color/colorPrimaryLight : @color/colorGrey}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_unregister_password"
+            android:onClick="@{() -> viewModel.unregister()}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
