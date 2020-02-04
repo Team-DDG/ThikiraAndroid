@@ -23,4 +23,8 @@ class AccountRepositoryImpl(
     override suspend fun register(body: Any) = withContext(ioDispatcher) {
         accountDataSource.register(body)
     }
+
+    override suspend fun unregister() = withContext(ioDispatcher) {
+        accountDataSource.unregister()
+    }
 }

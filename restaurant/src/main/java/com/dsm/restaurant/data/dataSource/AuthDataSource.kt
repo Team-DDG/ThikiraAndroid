@@ -7,4 +7,6 @@ interface AuthDataSource {
     suspend fun authToken()
 
     suspend fun login(body: Any): TokenDto
+
+    suspend fun authPassword(password: String)
 }
