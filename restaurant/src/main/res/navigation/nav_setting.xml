@@ -19,7 +19,7 @@
     </fragment>
     <dialog
         android:id="@+id/changePwdDialog"
-        android:name="com.dsm.restaurant.presentation.ui.main.setting.ChangePwdDialog"
+        android:name="com.dsm.restaurant.presentation.ui.main.setting.changePwd.ChangePwdDialog"
         android:label="ChangePwdDialog"
         tools:layout="@layout/dialog_change_pwd"/>
     <dialog
