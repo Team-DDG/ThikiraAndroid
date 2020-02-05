@@ -45,4 +45,12 @@ class AccountDataSourceImpl(
             throw errorHandler.getNetworkException(e)
         }
     }
+
+    override suspend fun changePassword(newPassword: String) = withContext(ioDispatcher) {
+        try {
+            thikiraApi.changePassword(newPassword)
+        } catch (e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
 }

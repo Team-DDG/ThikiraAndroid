@@ -27,4 +27,8 @@ class AccountRepositoryImpl(
     override suspend fun unregister() = withContext(ioDispatcher) {
         accountDataSource.unregister()
     }
+
+    override suspend fun changePassword(newPassword: String) = withContext(ioDispatcher) {
+        accountDataSource.changePassword(newPassword)
+    }
 }

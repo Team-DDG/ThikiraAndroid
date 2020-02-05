@@ -23,5 +23,7 @@ interface ThikiraApi {
     @POST("auth/login")
     suspend fun login(@Body body: Any): TokenDto
 
-
+    @FormUrlEncoded
+    @PATCH("password")
+    suspend fun changePassword(@Field("password") newPassword: String)
 }

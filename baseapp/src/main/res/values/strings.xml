@@ -18,7 +18,7 @@
     <string name="fail_password_invalid">유효하지 않은 비밀번호입니다</string>
     <string name="fail_diff_retype">비밀번호가 일치하지 않습니다</string>
     <string name="fail_login_not_found">존재하지 않는 계정입니다</string>
-    <string name="fail_auth_password">비밀번호가 일치하지 않습니다</string>
+    <string name="fail_auth_password">비밀번호가 틀렸습니다</string>
     <string name="fail_forbidden">로그인이 필요합니다</string>
 
     <!--success message-->

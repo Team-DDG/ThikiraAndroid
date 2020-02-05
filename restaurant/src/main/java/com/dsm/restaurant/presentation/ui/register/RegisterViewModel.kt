@@ -8,13 +8,10 @@ import com.dsm.restaurant.domain.interactor.CheckEmailUseCase
 import com.dsm.restaurant.domain.interactor.RegisterUseCase
 import com.dsm.restaurant.domain.interactor.SearchAddressUseCase
 import com.dsm.restaurant.domain.model.AddressModel
-import com.dsm.restaurant.presentation.util.EspressoIdlingResource
-import com.dsm.restaurant.presentation.util.SingleLiveEvent
-import com.dsm.restaurant.presentation.util.isValueBlank
+import com.dsm.restaurant.presentation.util.*
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.regex.Pattern
 
 class RegisterViewModel(
     private val checkEmailUseCase: CheckEmailUseCase,
@@ -168,18 +165,13 @@ class RegisterViewModel(
             return
         }
 
-        if (!isEmailValid(currentEmail)) {
+        if (!isValidEmail(currentEmail)) {
             _snackbarEvent.value = R.string.fail_invalid_email
             return
         }
 
         checkEmailDuplication(currentEmail)
     }
-
-    private fun isEmailValid(email: String): Boolean =
-        Pattern.compile("^[0-9a-zA-Z]*[-_.]?[0-9a-zA-Z]*@[0-9a-zA-Z]*[-_.]?[0-9a-zA-Z]*.[a-zA-Z]{2,3}$")
-            .matcher(email)
-            .find()
 
     private fun checkEmailDuplication(email: String) = viewModelScope.launch {
         try {
@@ -206,7 +198,7 @@ class RegisterViewModel(
         val startTime = parseTimeToDate(startHour.value!!, startMinute.value!!)
         val endTime = parseTimeToDate(endHour.value!!, endMinute.value!!)
 
-        if (!passwordValidation(password.value!!)) {
+        if (!isValidPassword(password.value!!)) {
             _toastEvent.value = R.string.fail_password_invalid
             return@launch
         }
@@ -251,9 +243,6 @@ class RegisterViewModel(
         addSource(password) { value = checkPasswordReType() }
         addSource(reTypePwd) { value = checkPasswordReType() }
     }
-
-    private fun passwordValidation(password: String) =
-        Pattern.compile("^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*+=-]).{6,}$").matcher(password).find()
 
     private fun timeToString(time: Date): String {
         val formatter = SimpleDateFormat("HH:mm", Locale.KOREA)
