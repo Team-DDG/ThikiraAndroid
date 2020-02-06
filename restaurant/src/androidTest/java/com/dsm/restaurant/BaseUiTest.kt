@@ -20,7 +20,7 @@ import java.nio.charset.Charset
 open class BaseUiTest {
 
     companion object {
-        private const val MOCK_SERVER_PORT = 8080
+        private const val MOCK_SERVER_PORT = 1313
     }
 
     private val mockServer = MockWebServer()

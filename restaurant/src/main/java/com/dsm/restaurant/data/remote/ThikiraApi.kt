@@ -1,9 +1,13 @@
 package com.dsm.restaurant.data.remote
 
+import com.dsm.restaurant.data.remote.dto.RestaurantDto
 import com.dsm.restaurant.data.remote.dto.TokenDto
 import retrofit2.http.*
 
 interface ThikiraApi {
+
+    @GET("/")
+    suspend fun getRestaurantInfo(): RestaurantDto
 
     @GET("check_email")
     suspend fun checkEmail(@Query("email") email: String)
