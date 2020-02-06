@@ -5,6 +5,7 @@ import com.dsm.restaurant.di.account.accountModule
 import com.dsm.restaurant.di.auth.authModule
 import com.dsm.restaurant.di.localModule
 import com.dsm.restaurant.di.networkModule
+import com.dsm.restaurant.di.restaurant.restaurantModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -21,7 +22,8 @@ open class ThikiraRestaurantApplication : Application() {
                     localModule,
 
                     accountModule,
-                    authModule
+                    authModule,
+                    restaurantModule
                 )
             )
         }
