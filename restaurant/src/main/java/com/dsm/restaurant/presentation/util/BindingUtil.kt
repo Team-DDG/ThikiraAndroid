@@ -8,9 +8,16 @@ import com.bumptech.glide.Glide
 import mabbas007.tagsedittext.TagsEditText
 
 @BindingAdapter("image")
-fun ImageView.bindImage(url: LiveData<String>?) {
+fun ImageView.setImage(url: LiveData<String>?) {
     url?.let {
         Glide.with(this).load(it.value).into(this)
+    }
+}
+
+@BindingAdapter("image")
+fun ImageView.setImage(url: String?) {
+    url?.let {
+        Glide.with(this).load(it).into(this)
     }
 }
 

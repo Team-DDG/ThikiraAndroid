@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.restaurant.presentation.ui.main.restaurant.RestaurantViewModel" />
+    </data>
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -41,6 +48,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_restaurant"
+                image="@{viewModel.restaurantInfo.image}"
                 android:layout_width="0dp"
                 android:layout_height="160dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -62,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
+                android:text='@{viewModel.restaurantInfo.openTime + "~" + viewModel.restaurantInfo.closeTime}'
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_clock"
@@ -92,6 +101,7 @@
                 android:id="@+id/tv_restaurant_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurantInfo.phone}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_phone"
@@ -108,8 +118,10 @@
                 app:layout_constraintTop_toBottomOf="@id/iv_restaurant_phone" />
 
             <TextView
+                android:id="@+id/tv_restaurant_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurantInfo.email}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_email"
@@ -126,12 +138,14 @@
                 app:layout_constraintTop_toBottomOf="@id/iv_restaurant_email" />
 
             <TextView
+                android:id="@+id/tv_restaurant_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurantInfo.address}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_location"
-                app:layout_constraintLeft_toRightOf="@id/iv_restaurant_location"
+                app:layout_constraintLeft_toLeftOf="@id/tv_restaurant_time"
                 app:layout_constraintTop_toTopOf="@id/iv_restaurant_location" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -144,8 +158,10 @@
                 app:layout_constraintTop_toBottomOf="@id/iv_restaurant_location" />
 
             <TextView
+                android:id="@+id/tv_restaurant_area"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurantInfo.area}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_area"
@@ -185,8 +201,10 @@
                 app:layout_constraintTop_toTopOf="@id/tv_category" />
 
             <TextView
+                android:id="@+id/tv_restaurant_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurantInfo.category}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_categoryColon"
@@ -216,17 +234,10 @@
                 app:layout_constraintTop_toTopOf="@id/tv_minPrice" />
 
             <TextView
+                android:id="@+id/tv_restaurant_minPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorGrey"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/tv_minPriceColon"
-                app:layout_constraintLeft_toRightOf="@id/tv_minPriceColon"
-                app:layout_constraintTop_toTopOf="@id/tv_minPriceColon" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(viewModel.restaurantInfo.minPrice)}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_minPriceColon"
@@ -259,6 +270,7 @@
                 android:id="@+id/tv_restaurant_dayOff"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurantInfo.dayOff}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toRightOf="@id/tv_dayOffColon"
@@ -276,9 +288,11 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_restaurant_dayOff" />
 
             <TextView
+                android:id="@+id/tv_restaurant_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:text="@{viewModel.restaurantInfo.description}"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
