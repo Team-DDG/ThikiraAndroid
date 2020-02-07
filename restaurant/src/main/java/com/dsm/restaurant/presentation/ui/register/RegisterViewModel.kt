@@ -59,6 +59,9 @@ class RegisterViewModel(
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
 
+    private val _animatePassword = SingleLiveEvent<Unit>()
+    val animatePassword: LiveData<Unit> = _animatePassword
+
     /**
      * Binding
      */
@@ -180,6 +183,7 @@ class RegisterViewModel(
 
             this@RegisterViewModel.email.value = ""
             _checkedEmail.value = email
+            _animatePassword.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
                 is ConflictException -> R.string.fail_conflict_email
