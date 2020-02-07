@@ -10,11 +10,14 @@
         <import type="android.view.View" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ml_register4"
+        passwordAnim="@{!viewModel.checkedEmail.empty}"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/xml_register4">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tb_register4"
@@ -87,6 +90,7 @@
             android:drawablePadding="16dp"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:nextFocusDown="@id/et_register4_pwdCheck"
             android:paddingStart="24dp"
             android:paddingLeft="24dp"
             android:text="@={viewModel.password}"
@@ -95,8 +99,7 @@
             app:layout_constraintLeft_toLeftOf="@id/gl_register4_left"
             app:layout_constraintRight_toRightOf="@id/gl_register4_right"
             app:layout_constraintTop_toBottomOf="@id/et_register4_email"
-            tools:ignore="RtlSymmetry"
-            android:nextFocusDown="@id/et_register4_pwdCheck"/>
+            tools:ignore="RtlSymmetry" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_register4_pwdCheck"
@@ -121,6 +124,7 @@
             tools:ignore="RtlSymmetry" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_register4_correct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintRight_toRightOf="@id/et_register4_pwdCheck"
@@ -163,5 +167,5 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="28dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

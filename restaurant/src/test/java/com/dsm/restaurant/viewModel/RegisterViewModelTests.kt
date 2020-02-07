@@ -259,6 +259,7 @@ class RegisterViewModelTests : BaseTest() {
             checkEmail()
 
             toastEvent.test().assertValue(R.string.success_email_check)
+            animatePassword.test().assertHasValue()
             email.test().assertValue("")
         }
     }
