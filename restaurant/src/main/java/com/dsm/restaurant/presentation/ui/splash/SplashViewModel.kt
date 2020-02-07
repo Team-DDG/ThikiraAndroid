@@ -17,6 +17,10 @@ class SplashViewModel(
     private val _navigateToLoginEvent = SingleLiveEvent<Unit>()
     val navigateToLoginEvent: LiveData<Unit> = _navigateToLoginEvent
 
+    init {
+        authToken()
+    }
+
     fun authToken() = viewModelScope.launch {
         try {
             authTokenUseCase()

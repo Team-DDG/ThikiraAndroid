@@ -32,5 +32,4 @@ open class ThikiraRestaurantApplication : Application() {
     open fun getApiUrl(): String = "http://192.168.1.86:1234/"
 
     open fun getNaverApiUrl(): String = "https://openapi.naver.com/"
-
 }

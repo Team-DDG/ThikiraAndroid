@@ -6,7 +6,7 @@ import com.dsm.restaurant.domain.interactor.ChangePwdUseCase
 import com.dsm.restaurant.domain.repository.AccountRepository
 import com.dsm.restaurant.domain.repository.AuthRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -31,7 +31,7 @@ class ChangePwdUseCaseTests {
     }
 
     @Test
-    fun unregisterSuccessTest() = runBlockingTest {
+    fun unregisterSuccessTest() = runBlocking {
         `when`(authRepository.authPassword("PASSWORD")).thenReturn(Unit)
         `when`(accountRepository.changePassword("NEW_PASSWORD")).thenReturn(Unit)
         usecase.invoke("PASSWORD", "NEW_PASSWORD")
@@ -41,7 +41,7 @@ class ChangePwdUseCaseTests {
     }
 
     @Test
-    fun authPasswordFailedTest() = runBlockingTest {
+    fun authPasswordFailedTest() = runBlocking {
         `when`(authRepository.authPassword("PASSWORD"))
             .thenThrow(UnauthorizedException(Exception()))
 
@@ -55,7 +55,7 @@ class ChangePwdUseCaseTests {
     }
 
     @Test
-    fun unregisterFailedTest() = runBlockingTest {
+    fun unregisterFailedTest() = runBlocking {
         `when`(authRepository.authPassword("PASSWORD")).thenReturn(Unit)
         `when`(accountRepository.changePassword("NEW_PASSWORD")).thenThrow(ForbiddenException(Exception()))
 
