@@ -64,28 +64,24 @@ class RestaurantRepositoryTests {
     }
 
     @Test
-    fun `when force update false, local restaurant info is empty test`() {
-        runBlocking {
-            `when`(restaurantDataSource.getLocalRestaurantInfo()).thenReturn(null)
-            `when`(restaurantDataSource.getRemoteRestaurantInfo()).thenReturn(restaurantDto)
+    fun `when force update false, local restaurant info is empty test`() = runBlocking {
+        `when`(restaurantDataSource.getLocalRestaurantInfo()).thenReturn(null)
+        `when`(restaurantDataSource.getRemoteRestaurantInfo()).thenReturn(restaurantDto)
 
-            repository.getRestaurantInfo(false)
+        repository.getRestaurantInfo(false)
 
-            verify(restaurantDataSource).getRemoteRestaurantInfo()
-            verify(restaurantDataSource).insertLocalRestaurantInfo(restaurantDto.toLocalDto())
-        }
+        verify(restaurantDataSource).getRemoteRestaurantInfo()
+        verify(restaurantDataSource).insertLocalRestaurantInfo(restaurantDto.toLocalDto())
     }
 
     @Test
-    fun `when force update false, local restaurant info is not empty test`() {
-        runBlocking {
-            `when`(restaurantDataSource.getLocalRestaurantInfo()).thenReturn(restaurantLocalDto)
-            `when`(restaurantDataSource.getRemoteRestaurantInfo()).thenReturn(restaurantDto)
+    fun `when force update false, local restaurant info is not empty test`() = runBlocking {
+        `when`(restaurantDataSource.getLocalRestaurantInfo()).thenReturn(restaurantLocalDto)
+        `when`(restaurantDataSource.getRemoteRestaurantInfo()).thenReturn(restaurantDto)
 
-            repository.getRestaurantInfo(false)
+        repository.getRestaurantInfo(false)
 
-            verify(restaurantDataSource).getLocalRestaurantInfo()
-            verifyNoMoreInteractions(restaurantDataSource)
-        }
+        verify(restaurantDataSource).getLocalRestaurantInfo()
+        verifyNoMoreInteractions(restaurantDataSource)
     }
 }

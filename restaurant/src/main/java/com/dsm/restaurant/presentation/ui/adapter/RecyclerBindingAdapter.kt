@@ -8,6 +8,6 @@ import com.dsm.restaurant.domain.model.AddressModel
 @BindingAdapter("addressList")
 fun RecyclerView.bindAddressList(addressListLiveData: LiveData<List<AddressModel>>) {
     addressListLiveData.value?.let {
-        (adapter as AddressListAdapter).locationItems = it
+        (adapter as AddressListAdapter).submitList(it)
     }
 }

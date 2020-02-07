@@ -18,8 +18,6 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         setupNavigate()
-
-        viewModel.authToken()
     }
 
     private fun setupNavigate() {

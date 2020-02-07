@@ -6,7 +6,7 @@ import com.dsm.restaurant.domain.interactor.UnregisterUseCase
 import com.dsm.restaurant.domain.repository.AccountRepository
 import com.dsm.restaurant.domain.repository.AuthRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -31,7 +31,7 @@ class UnregisterUseCaseTests {
     }
 
     @Test
-    fun unregisterSuccessTest() = runBlockingTest {
+    fun unregisterSuccessTest() = runBlocking {
         `when`(authRepository.authPassword("PASSWORD")).thenReturn(Unit)
         `when`(accountRepository.unregister()).thenReturn(Unit)
         usecase.invoke("PASSWORD")
@@ -41,7 +41,7 @@ class UnregisterUseCaseTests {
     }
 
     @Test
-    fun authPasswordFailedTest() = runBlockingTest {
+    fun authPasswordFailedTest() = runBlocking {
         `when`(authRepository.authPassword("PASSWORD"))
             .thenThrow(UnauthorizedException(Exception()))
 
@@ -55,7 +55,7 @@ class UnregisterUseCaseTests {
     }
 
     @Test
-    fun unregisterFailedTest() = runBlockingTest {
+    fun unregisterFailedTest() = runBlocking {
         `when`(authRepository.authPassword("PASSWORD")).thenReturn(Unit)
         `when`(accountRepository.unregister()).thenThrow(ForbiddenException(Exception()))
 
