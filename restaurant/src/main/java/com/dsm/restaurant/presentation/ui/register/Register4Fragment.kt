@@ -21,7 +21,8 @@ class Register4Fragment : BaseFragment<FragmentRegister4Binding>() {
         super.onViewCreated(view, savedInstanceState)
 
         setupNavigate()
-        setupMessage()
+        setupSnackbar(viewModel.snackbarEvent)
+        setupToast(viewModel.toastEvent)
 
         binding.viewModel = viewModel
     }
@@ -36,10 +37,5 @@ class Register4Fragment : BaseFragment<FragmentRegister4Binding>() {
         viewModel.popToLoginEvent.observe(this, Observer {
             findNavController().navigate(R.id.action_register4Fragment_to_loginFragment)
         })
-    }
-
-    private fun setupMessage() {
-        setupSnackbar(viewModel.snackbarEvent)
-        setupToast(viewModel.toastEvent)
     }
 }
