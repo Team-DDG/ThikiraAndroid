@@ -56,7 +56,7 @@ class Register4FragmentTests : BaseUiTest() {
 
         launchFragment(Register4Fragment::class.java)
 
-        onView(withId(R.id.btn_register)).check(matches(withBackground(R.drawable.bg_grey_button)))
+        onView(withId(R.id.btn_register)).check(matches(withBackground(R.drawable.bg_button_disable)))
         onView(withId(R.id.btn_register)).check(matches(withTextColor(R.color.colorGrey)))
         onView(withId(R.id.btn_register)).check(matches(not(isClickable())))
 
@@ -65,7 +65,7 @@ class Register4FragmentTests : BaseUiTest() {
         onView(withId(R.id.et_register4_password)).perform(typeText("password!"), pressImeActionButton())
         onView(withId(R.id.et_register4_password_re_type)).perform(typeText("password!"), closeSoftKeyboard())
 
-        onView(withId(R.id.btn_register)).check(matches(withBackground(R.drawable.bg_primary_light_button)))
+        onView(withId(R.id.btn_register)).check(matches(withBackground(R.drawable.bg_button_primary_light)))
         onView(withId(R.id.btn_register)).check(matches(withTextColor(R.color.colorPrimaryLight)))
         onView(withId(R.id.btn_register)).check(matches(isClickable()))
     }
