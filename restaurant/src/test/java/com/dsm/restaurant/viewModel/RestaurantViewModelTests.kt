@@ -64,7 +64,7 @@ class RestaurantViewModelTests : BaseTest() {
 
             loadRestaurantInfo(true)
 
-            toastEvent.test().assertValue(R.string.fail_forbidden)
+            toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }
     }
 }

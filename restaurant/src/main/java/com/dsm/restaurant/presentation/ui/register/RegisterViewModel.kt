@@ -145,7 +145,7 @@ class RegisterViewModel(
             _isSearchingAddress.value = false
         } catch (e: Exception) {
             _isSearchingAddress.value = false
-            _toastEvent.value = R.string.fail_internal
+            _toastEvent.value = R.string.fail_exception_internal
         }
     }
 
@@ -164,12 +164,12 @@ class RegisterViewModel(
         val currentEmail = email.value
 
         if (currentEmail == null || currentEmail.isNullOrBlank()) {
-            _snackbarEvent.value = R.string.fail_blank_email
+            _snackbarEvent.value = R.string.fail_email_blank
             return
         }
 
         if (!isValidEmail(currentEmail)) {
-            _snackbarEvent.value = R.string.fail_invalid_email
+            _snackbarEvent.value = R.string.fail_email_invalid
             return
         }
 
@@ -179,15 +179,15 @@ class RegisterViewModel(
     private fun checkEmailDuplication(email: String) = viewModelScope.launch {
         try {
             checkEmailUseCase(email)
-            _toastEvent.value = R.string.success_email_check
+            _toastEvent.value = R.string.success_email_duplication_check
 
             this@RegisterViewModel.email.value = ""
             _checkedEmail.value = email
             _animatePassword.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
-                is ConflictException -> R.string.fail_conflict_email
-                else -> R.string.fail_internal
+                is ConflictException -> R.string.fail_email_conflict
+                else -> R.string.fail_exception_internal
             }
         }
     }
@@ -208,7 +208,7 @@ class RegisterViewModel(
         }
 
         if (!checkPasswordReType()) {
-            _toastEvent.value = R.string.fail_diff_retype
+            _toastEvent.value = R.string.fail_re_type_different
             return@launch
         }
 
@@ -237,7 +237,7 @@ class RegisterViewModel(
             _toastEvent.value = R.string.success_register_restaurant
             _popToLoginEvent.call()
         } catch (e: Exception) {
-            _toastEvent.value = R.string.fail_internal
+            _toastEvent.value = R.string.fail_exception_internal
         }
     }
 

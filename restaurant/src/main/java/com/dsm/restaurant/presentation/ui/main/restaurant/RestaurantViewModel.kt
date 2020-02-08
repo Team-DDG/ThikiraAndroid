@@ -30,8 +30,8 @@ class RestaurantViewModel(
             _restaurantInfo.value = getRestaurantInfoUseCase(forceUpdate)
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
-                is ForbiddenException -> R.string.fail_forbidden
-                else -> R.string.fail_internal
+                is ForbiddenException -> R.string.fail_exception_forbidden
+                else -> R.string.fail_exception_internal
             }
         }
     }
