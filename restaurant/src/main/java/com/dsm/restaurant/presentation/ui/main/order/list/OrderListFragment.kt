@@ -16,7 +16,7 @@ class OrderListFragment : BaseFragment<FragmentOrderListBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = OrderListAdapter()
-        rv_order.adapter = adapter
+        rv_order_list.adapter = adapter
 
         adapter.submitList((0..5).map {
             OrderModel(

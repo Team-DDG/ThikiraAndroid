@@ -17,7 +17,7 @@ class OrderDetailDialog : BaseDialog<DialogOrderDetailBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = OrderedListAdapter()
-        rv_ordered.adapter = adapter
+        rv_order_detail_ordered.adapter = adapter
 
         adapter.orderedItems = listOf(
             OrderedModel.Ordered("도훈이의 총각김치", "5", "5,000"),

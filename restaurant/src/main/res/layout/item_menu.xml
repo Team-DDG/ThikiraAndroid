@@ -7,7 +7,7 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_menu"
+            android:id="@+id/iv_menu_item_image"
             android:layout_width="0dp"
             android:layout_height="128dp"
             android:layout_marginStart="30dp"
@@ -20,24 +20,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_menu_name"
+            android:id="@+id/tv_menu_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="@id/iv_menu"
-            app:layout_constraintTop_toBottomOf="@id/iv_menu" />
+            app:layout_constraintLeft_toLeftOf="@id/iv_menu_item_image"
+            app:layout_constraintTop_toBottomOf="@id/iv_menu_item_image" />
 
         <TextView
-            android:id="@+id/tv_menu_price"
+            android:id="@+id/tv_menu_item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="@color/colorGrey"
             android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="@id/tv_menu_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_menu_name" />
+            app:layout_constraintLeft_toLeftOf="@id/tv_menu_item_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_menu_item_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

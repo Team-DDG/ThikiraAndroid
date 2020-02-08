@@ -15,12 +15,12 @@ class OrderListAdapter : ListAdapter<OrderModel, OrderListAdapter.OrderHolder>(O
     inner class OrderHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
             val item = getItem(adapterPosition)
-            itemView.tv_order_addr.text = item.address
-            itemView.tv_order_method.text = item.method
-            itemView.tv_order_nick.text = item.name
-            itemView.tv_order_price.text = item.price
-            itemView.tv_order_time.text = item.orderTime
-            itemView.tv_order_status.text = item.status
+            itemView.tv_order_item_address.text = item.address
+            itemView.tv_order_item_method.text = item.method
+            itemView.tv_order_item_nick.text = item.name
+            itemView.tv_order_item_price.text = item.price
+            itemView.tv_order_item_time.text = item.orderTime
+            itemView.tv_order_item_status.text = item.status
 
             itemView.setOnClickListener {
                 itemView.findNavController().navigate(R.id.action_orderFragment_to_orderDetailDialog)

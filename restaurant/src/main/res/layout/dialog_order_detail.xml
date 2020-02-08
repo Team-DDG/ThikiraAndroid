@@ -12,7 +12,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tv_receipt"
+                android:id="@+id/tv_order_detail_receipt_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -24,15 +24,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/tv_order_detail_restaurant_name_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/receipt_restaurant_name"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintTop_toBottomOf="@id/tv_receipt" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintTop_toBottomOf="@id/tv_order_detail_receipt_label" />
 
             <TextView
                 android:id="@+id/tv_receipt_name"
@@ -42,184 +42,186 @@
                 android:layout_marginLeft="4dp"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/tv_name"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toTopOf="@id/tv_name" />
+                app:layout_constraintLeft_toRightOf="@id/tv_order_detail_restaurant_name_label"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toTopOf="@id/tv_order_detail_restaurant_name_label" />
 
             <TextView
-                android:id="@+id/tv_addr"
+                android:id="@+id/tv_order_detail_address_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/receipt_address"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
                 app:layout_constraintTop_toBottomOf="@id/tv_receipt_name" />
 
             <TextView
-                android:id="@+id/tv_receipt_addr"
+                android:id="@+id/tv_order_detail_address"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/tv_addr"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toTopOf="@id/tv_addr" />
+                app:layout_constraintLeft_toRightOf="@id/tv_order_detail_address_label"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toTopOf="@id/tv_order_detail_address_label" />
 
             <TextView
-                android:id="@+id/tv_date_of_sale"
+                android:id="@+id/tv_order_detail_date_of_sale_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/receipt_date_of_sale"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintTop_toBottomOf="@id/tv_receipt_addr" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintTop_toBottomOf="@id/tv_order_detail_address" />
 
             <TextView
-                android:id="@+id/tv_receipt_dateOfSale"
+                android:id="@+id/tv_order_detail_date_of_sale"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
-                app:layout_constraintLeft_toRightOf="@id/tv_date_of_sale"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toTopOf="@id/tv_date_of_sale" />
+                app:layout_constraintLeft_toRightOf="@id/tv_order_detail_date_of_sale_label"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toTopOf="@id/tv_order_detail_date_of_sale_label" />
 
             <View
-                android:id="@+id/view_line1"
+                android:id="@+id/view_order_detail_line1"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:background="@android:color/black"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toBottomOf="@id/tv_receipt_dateOfSale" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toBottomOf="@id/tv_order_detail_date_of_sale" />
 
             <View
-                android:id="@+id/view_line2"
+                android:id="@+id/view_order_detail_line2"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
                 android:background="@android:color/black"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toBottomOf="@id/view_line1" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toBottomOf="@id/view_order_detail_line1" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_ordered"
+                android:id="@+id/rv_order_detail_ordered"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toBottomOf="@id/view_order_detail_line2" />
 
             <View
-                android:id="@+id/view_line3"
+                android:id="@+id/view_order_detail_line3"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
                 android:background="@android:color/black"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toBottomOf="@id/rv_ordered" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toBottomOf="@id/rv_order_detail_ordered" />
 
             <TextView
-                android:id="@+id/tv_totalPrice"
+                android:id="@+id/tv_order_detail_total_price_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/total_price"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintTop_toBottomOf="@id/view_line3" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintTop_toBottomOf="@id/view_order_detail_line3" />
 
             <TextView
+                android:id="@+id/tv_order_detail_total_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toTopOf="@id/tv_totalPrice" />
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toTopOf="@id/tv_order_detail_total_price_label" />
 
             <TextView
-                android:id="@+id/tv_discountPrice"
+                android:id="@+id/tv_order_detail_discount_price_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/discount_price"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintTop_toBottomOf="@id/tv_totalPrice" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintTop_toBottomOf="@id/tv_order_detail_total_price_label" />
 
             <TextView
+                android:id="@+id/tv_order_detail_discount_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toTopOf="@id/tv_discountPrice" />
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toTopOf="@id/tv_order_detail_discount_price_label" />
 
             <View
-                android:id="@+id/view_line4"
+                android:id="@+id/view_order_detail_line4"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
                 android:background="@android:color/black"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toBottomOf="@id/tv_discountPrice" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toBottomOf="@id/tv_order_detail_discount_price_label" />
 
             <TextView
-                android:id="@+id/tv_finalPrice"
+                android:id="@+id/tv_order_detail_final_price_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/final_price"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintTop_toBottomOf="@id/view_line4" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintTop_toBottomOf="@id/view_order_detail_line4" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toTopOf="@id/tv_finalPrice" />
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toTopOf="@id/tv_order_detail_final_price_label" />
 
             <View
-                android:id="@+id/view_line5"
+                android:id="@+id/view_order_detail_line5"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
                 android:background="@android:color/black"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toBottomOf="@id/tv_finalPrice" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toBottomOf="@id/tv_order_detail_final_price_label" />
 
             <View
-                android:id="@+id/view_line6"
+                android:id="@+id/view_order_detail_line6"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
                 android:background="@android:color/black"
-                app:layout_constraintLeft_toLeftOf="@id/gl_receipt_left"
-                app:layout_constraintRight_toRightOf="@id/gl_receipt_right"
-                app:layout_constraintTop_toBottomOf="@id/view_line5" />
+                app:layout_constraintLeft_toLeftOf="@id/gl_order_detail_left"
+                app:layout_constraintRight_toRightOf="@id/gl_order_detail_right"
+                app:layout_constraintTop_toBottomOf="@id/view_order_detail_line5" />
 
             <Button
-                android:id="@+id/btn_ordered_complete"
+                android:id="@+id/btn_order_detail_delivery_complete"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="64dp"
@@ -232,9 +234,10 @@
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_line6" />
+                app:layout_constraintTop_toBottomOf="@id/view_order_detail_line6" />
 
             <Button
+                android:id="@+id/btn_order_detail_call"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
@@ -245,19 +248,19 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/btn_ordered_complete"
-                app:layout_constraintRight_toRightOf="@id/btn_ordered_complete"
-                app:layout_constraintTop_toBottomOf="@id/btn_ordered_complete" />
+                app:layout_constraintLeft_toLeftOf="@id/btn_order_detail_delivery_complete"
+                app:layout_constraintRight_toRightOf="@id/btn_order_detail_delivery_complete"
+                app:layout_constraintTop_toBottomOf="@id/btn_order_detail_delivery_complete" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_receipt_left"
+                android:id="@+id/gl_order_detail_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_begin="24dp" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_receipt_right"
+                android:id="@+id/gl_order_detail_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

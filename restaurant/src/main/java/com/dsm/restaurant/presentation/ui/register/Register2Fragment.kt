@@ -31,7 +31,7 @@ class Register2Fragment : BaseFragment<FragmentRegister2Binding>() {
             findNavController().navigate(R.id.action_register2Fragment_to_register3Fragment)
         }
 
-        btn_register2_category.setOnClickListener {
+        btn_register2_select_category.setOnClickListener {
             findNavController().navigate(R.id.action_register2Fragment_to_categorySelectFragment)
         }
     }
@@ -41,20 +41,20 @@ class Register2Fragment : BaseFragment<FragmentRegister2Binding>() {
         val hourArray = (0..23).map { df.format(it) }.toTypedArray()
         val minuteArray = (0..59).map { df.format(it) }.toTypedArray()
 
-        np_register2_startHour.minValue = 0
-        np_register2_startHour.maxValue = 23
-        np_register2_startMinute.minValue = 0
-        np_register2_startMinute.maxValue = 59
+        np_register2_start_hour.minValue = 0
+        np_register2_start_hour.maxValue = 23
+        np_register2_start_minute.minValue = 0
+        np_register2_start_minute.maxValue = 59
 
-        np_register2_endHour.minValue = 0
-        np_register2_endHour.maxValue = 23
-        np_register2_endMinute.minValue = 0
-        np_register2_endMinute.maxValue = 59
+        np_register2_end_hour.minValue = 0
+        np_register2_end_hour.maxValue = 23
+        np_register2_end_minute.minValue = 0
+        np_register2_end_minute.maxValue = 59
 
-        np_register2_startHour.displayedValues = hourArray
-        np_register2_startMinute.displayedValues = minuteArray
+        np_register2_start_hour.displayedValues = hourArray
+        np_register2_start_minute.displayedValues = minuteArray
 
-        np_register2_endHour.displayedValues = hourArray
-        np_register2_endMinute.displayedValues = minuteArray
+        np_register2_end_hour.displayedValues = hourArray
+        np_register2_end_minute.displayedValues = minuteArray
     }
 }

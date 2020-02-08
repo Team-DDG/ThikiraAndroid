@@ -8,7 +8,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tb_category"
+            android:id="@+id/tb_category_select"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/white"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tb_category">
+            app:layout_constraintTop_toBottomOf="@id/tb_category_select">
 
             <LinearLayout
                 android:id="@+id/ll_category"

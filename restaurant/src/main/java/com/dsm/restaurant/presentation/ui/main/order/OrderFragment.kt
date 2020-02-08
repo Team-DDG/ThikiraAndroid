@@ -26,11 +26,11 @@ class OrderFragment : BaseFragment<FragmentOrderBinding>() {
             }
         })
 
-        iv_order_left.setOnClickListener {
+        iv_order_to_previous_date.setOnClickListener {
             vp_order.setCurrentItem(vp_order.currentItem - 1, true)
         }
 
-        iv_order_right.setOnClickListener {
+        iv_order_to_next_date.setOnClickListener {
             vp_order.setCurrentItem(vp_order.currentItem + 1, true)
         }
     }

@@ -11,7 +11,7 @@
         android:label="SettingFragment"
         tools:layout="@layout/fragment_setting">
         <action
-            android:id="@+id/action_settingFragment_to_changePwdDialog"
+            android:id="@+id/action_settingFragment_to_passwordChangeDialog"
             app:destination="@id/passwordChangeDialog" />
         <action
             android:id="@+id/action_settingFragment_to_unregisterDialog"

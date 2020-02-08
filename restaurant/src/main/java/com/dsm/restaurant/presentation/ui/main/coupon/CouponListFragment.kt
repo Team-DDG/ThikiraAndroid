@@ -18,24 +18,24 @@ class CouponListFragment : BaseFragment<FragmentCouponListBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = CouponListAdapter()
-        rv_coupon.adapter = adapter
+        rv_coupon_list.adapter = adapter
         adapter.submitList(
             (0..10).map {
                 CouponModel(it, "발행 중인 쿠폰", "2020.01.01", "1,000")
             }
         )
 
-        rv_coupon.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        rv_coupon_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                if (dy < 0 && !fab_coupon.isShown) {
-                    fab_coupon.show()
-                } else if (dy > 0 && fab_coupon.isShown) {
-                    fab_coupon.hide()
+                if (dy < 0 && !fab_coupon_list.isShown) {
+                    fab_coupon_list.show()
+                } else if (dy > 0 && fab_coupon_list.isShown) {
+                    fab_coupon_list.hide()
                 }
             }
         })
 
-        fab_coupon.setOnClickListener {
+        fab_coupon_list.setOnClickListener {
             findNavController().navigate(R.id.action_couponListFragment_to_couponIssueDialog)
         }
     }

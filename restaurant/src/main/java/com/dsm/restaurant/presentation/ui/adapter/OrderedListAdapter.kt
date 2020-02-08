@@ -25,16 +25,16 @@ class OrderedListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class OrderedHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
             val item = orderedItems[adapterPosition] as OrderedModel.Ordered
-            itemView.tv_ordered_name.text = item.name
-            itemView.tv_ordered_amount.text = item.amount
-            itemView.tv_ordered_price.text = item.price
+            itemView.tv_ordered_item_name.text = item.name
+            itemView.tv_ordered_item_amount.text = item.amount
+            itemView.tv_ordered_item_price.text = item.price
         }
     }
 
     inner class OptionHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
             val item = orderedItems[adapterPosition] as OrderedModel.Option
-            itemView.tv_option_name.text = item.name
+            itemView.tv_ordered_option_item_option_name.text = item.name
         }
     }
 
