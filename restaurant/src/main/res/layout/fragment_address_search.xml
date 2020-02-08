@@ -24,7 +24,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="@drawable/ic_arrow_back_24dp"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
             tools:targetApi="lollipop">
 
             <TextView
@@ -69,7 +69,7 @@
             android:clickable="@{viewModel.isAddressSearchable ? true : false}"
             android:onClick="@{() -> viewModel.onClickSearchAddress()}"
             android:padding="4dp"
-            android:src="@drawable/ic_search_24dp"
+            android:src="@drawable/ic_search_grey_24dp"
             app:layout_constraintBottom_toBottomOf="@id/et_address_search"
             app:layout_constraintRight_toRightOf="@id/et_address_search"
             app:layout_constraintTop_toTopOf="@id/et_address_search" />

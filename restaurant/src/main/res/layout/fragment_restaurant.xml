@@ -43,7 +43,7 @@
                     android:layout_gravity="end"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
-                    android:src="@drawable/ic_settings_24dp" />
+                    android:src="@drawable/ic_settings_grey_24dp" />
             </androidx.appcompat.widget.Toolbar>
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:src="@drawable/ic_clock_24dp"
+                android:src="@drawable/ic_clock_grey_24dp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
                 app:layout_constraintTop_toBottomOf="@id/iv_restaurant_image" />
 
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/ic_phone_24dp"
+                android:src="@drawable/ic_phone_grey_24dp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
                 app:layout_constraintTop_toBottomOf="@id/iv_restaurant_time_icon" />
 
@@ -133,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/ic_location_24dp"
+                android:src="@drawable/ic_location_grey_24dp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
                 app:layout_constraintTop_toBottomOf="@id/iv_restaurant_email_icon" />
 
@@ -153,7 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/ic_area_24dp"
+                android:src="@drawable/ic_area_grey_24dp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_restaurant_left"
                 app:layout_constraintTop_toBottomOf="@id/iv_restaurant_address_icon" />
 
