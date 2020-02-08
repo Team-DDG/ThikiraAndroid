@@ -10,7 +10,7 @@ import com.dsm.restaurant.presentation.util.isValidPassword
 import com.dsm.restaurant.presentation.util.isValueBlank
 import kotlinx.coroutines.launch
 
-class ChangePwdViewModel(
+class PasswordChangeViewModel(
     private val changePwdUseCase: ChangePwdUseCase
 ) : ViewModel() {
 

@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_coupon"
-    app:startDestination="@id/couponFragment">
+    app:startDestination="@id/couponListFragment">
 
     <fragment
-        android:id="@+id/couponFragment"
-        android:name="com.dsm.restaurant.presentation.ui.main.coupon.CouponFragment"
-        android:label="CouponFragment"
-        tools:layout="@layout/fragment_coupon">
+        android:id="@+id/couponListFragment"
+        android:name="com.dsm.restaurant.presentation.ui.main.coupon.CouponListFragment"
+        android:label="CouponListFragment"
+        tools:layout="@layout/fragment_coupon_list">
         <action
-            android:id="@+id/action_couponFragment_to_couponDialog"
-            app:destination="@id/couponDialog"
+            android:id="@+id/action_couponListFragment_to_couponIssueDialog"
+            app:destination="@id/couponIssueDialog"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <dialog
-        android:id="@+id/couponDialog"
-        android:name="com.dsm.restaurant.presentation.ui.main.coupon.CouponDialog"
-        android:label="CouponDialog"
-        tools:layout="@layout/dialog_coupon"/>
+        android:id="@+id/couponIssueDialog"
+        android:name="com.dsm.restaurant.presentation.ui.main.coupon.CouponIssueDialog"
+        android:label="CouponIssueDialog"
+        tools:layout="@layout/dialog_coupon_issue"/>
 </navigation>

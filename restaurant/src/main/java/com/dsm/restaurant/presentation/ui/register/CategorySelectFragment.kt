@@ -6,13 +6,13 @@ import android.widget.TextView
 import androidx.core.view.children
 import androidx.navigation.fragment.findNavController
 import com.dsm.restaurant.R
-import com.dsm.restaurant.databinding.FragmentCategoryBinding
+import com.dsm.restaurant.databinding.FragmentCategorySelectBinding
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_category.*
+import kotlinx.android.synthetic.main.fragment_category_select.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
-    override val layoutResId: Int = R.layout.fragment_category
+class CategorySelectFragment : BaseFragment<FragmentCategorySelectBinding>() {
+    override val layoutResId: Int = R.layout.fragment_category_select
 
     private val viewModel: RegisterViewModel by sharedViewModel()
 

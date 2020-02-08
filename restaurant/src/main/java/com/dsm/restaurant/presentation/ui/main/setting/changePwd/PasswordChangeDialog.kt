@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.dsm.restaurant.R
-import com.dsm.restaurant.databinding.DialogChangePwdBinding
+import com.dsm.restaurant.databinding.DialogPasswordChangeBinding
 import com.dsm.restaurant.presentation.ui.base.BaseDialog
 import com.dsm.restaurant.presentation.util.setupToast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ChangePwdDialog : BaseDialog<DialogChangePwdBinding>() {
-    override val layoutResId: Int = R.layout.dialog_change_pwd
+class PasswordChangeDialog : BaseDialog<DialogPasswordChangeBinding>() {
+    override val layoutResId: Int = R.layout.dialog_password_change
 
-    private val viewModel: ChangePwdViewModel by viewModel()
+    private val viewModel: PasswordChangeViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

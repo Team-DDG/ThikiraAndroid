@@ -6,14 +6,14 @@ import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.R
-import com.dsm.restaurant.databinding.FragmentMenuBinding
+import com.dsm.restaurant.databinding.FragmentMenuListBinding
 import com.dsm.restaurant.presentation.ui.adapter.MenuListAdapter
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.trashModel.MenuModel
-import kotlinx.android.synthetic.main.fragment_menu.*
+import kotlinx.android.synthetic.main.fragment_menu_list.*
 
-class MenuFragment : BaseFragment<FragmentMenuBinding>() {
-    override val layoutResId: Int = R.layout.fragment_menu
+class MenuListFragment : BaseFragment<FragmentMenuListBinding>() {
+    override val layoutResId: Int = R.layout.fragment_menu_list
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,7 +45,7 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
         })
 
         fab_menu.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_menuRegistration1Activity)
+            findNavController().navigate(R.id.action_menuListFragment_to_menuRegistration1Activity)
         }
     }
 }

@@ -5,15 +5,15 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.dsm.restaurant.R
-import com.dsm.restaurant.databinding.FragmentAddressBinding
+import com.dsm.restaurant.databinding.FragmentAddressSearchBinding
 import com.dsm.restaurant.presentation.ui.adapter.AddressListAdapter
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.presentation.util.setupToast
-import kotlinx.android.synthetic.main.fragment_address.*
+import kotlinx.android.synthetic.main.fragment_address_search.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class AddressFragment : BaseFragment<FragmentAddressBinding>() {
-    override val layoutResId: Int = R.layout.fragment_address
+class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
+    override val layoutResId: Int = R.layout.fragment_address_search
 
     private val viewModel: RegisterViewModel by sharedViewModel()
 
