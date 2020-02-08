@@ -36,7 +36,7 @@ class PasswordChangeViewModel(
 
     fun changePassword() = viewModelScope.launch {
         if (changePwd.value != changePwdCheck.value) {
-            _toastEvent.value = R.string.fail_diff_retype
+            _toastEvent.value = R.string.fail_re_type_different
             return@launch
         }
 
@@ -54,9 +54,9 @@ class PasswordChangeViewModel(
             _dismissEvent.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
-                is UnauthorizedException -> R.string.fail_auth_password
-                is ForbiddenException -> R.string.fail_forbidden
-                else -> R.string.fail_internal
+                is UnauthorizedException -> R.string.fail_password_auth
+                is ForbiddenException -> R.string.fail_exception_forbidden
+                else -> R.string.fail_exception_internal
             }
         }
     }

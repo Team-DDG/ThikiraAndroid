@@ -53,7 +53,6 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
                 .toolbarBackgroundColor(R.color.colorPrimaryLight)
                 .toolbarTextColor(R.color.colorPickerWhite)
                 .toolbarTitle(getString(R.string.select_image))
-                .toolbarCompleteText(getString(R.string.select_image_complete))
                 .start(IMAGE_CODE)
         }
 

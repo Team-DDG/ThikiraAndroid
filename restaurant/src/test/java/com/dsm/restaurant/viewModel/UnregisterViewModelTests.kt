@@ -61,7 +61,7 @@ class UnregisterViewModelTests : BaseTest() {
 
             unregister()
 
-            toastEvent.test().assertValue(R.string.fail_auth_password)
+            toastEvent.test().assertValue(R.string.fail_password_auth)
         }
     }
 
@@ -74,7 +74,7 @@ class UnregisterViewModelTests : BaseTest() {
 
             unregister()
 
-            toastEvent.test().assertValue(R.string.fail_forbidden)
+            toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }
     }
 }

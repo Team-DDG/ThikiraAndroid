@@ -49,7 +49,7 @@ class PasswordChangeViewModelTests : BaseTest() {
 
             changePassword()
 
-            toastEvent.test().assertValue(R.string.fail_diff_retype)
+            toastEvent.test().assertValue(R.string.fail_re_type_different)
         }
     }
 
@@ -102,7 +102,7 @@ class PasswordChangeViewModelTests : BaseTest() {
 
             changePassword()
 
-            toastEvent.test().assertValue(R.string.fail_auth_password)
+            toastEvent.test().assertValue(R.string.fail_password_auth)
         }
     }
 
@@ -122,7 +122,7 @@ class PasswordChangeViewModelTests : BaseTest() {
 
             changePassword()
 
-            toastEvent.test().assertValue(R.string.fail_forbidden)
+            toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }
     }
 }

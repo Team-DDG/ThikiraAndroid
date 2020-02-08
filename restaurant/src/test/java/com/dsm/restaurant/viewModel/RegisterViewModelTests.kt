@@ -220,7 +220,7 @@ class RegisterViewModelTests : BaseTest() {
             onClickSearchAddress()
 
             isSearchingAddress.test().assertValue(false)
-            toastEvent.test().assertValue(R.string.fail_internal)
+            toastEvent.test().assertValue(R.string.fail_exception_internal)
         }
     }
 
@@ -234,7 +234,7 @@ class RegisterViewModelTests : BaseTest() {
 
             checkEmail()
 
-            snackbarEvent.test().assertValue(R.string.fail_blank_email)
+            snackbarEvent.test().assertValue(R.string.fail_email_blank)
         }
     }
 
@@ -245,7 +245,7 @@ class RegisterViewModelTests : BaseTest() {
 
             checkEmail()
 
-            snackbarEvent.test().assertValue(R.string.fail_invalid_email)
+            snackbarEvent.test().assertValue(R.string.fail_email_invalid)
         }
     }
 
@@ -258,7 +258,7 @@ class RegisterViewModelTests : BaseTest() {
 
             checkEmail()
 
-            toastEvent.test().assertValue(R.string.success_email_check)
+            toastEvent.test().assertValue(R.string.success_email_duplication_check)
             animatePassword.test().assertHasValue()
             email.test().assertValue("")
         }
@@ -274,7 +274,7 @@ class RegisterViewModelTests : BaseTest() {
 
             checkEmail()
 
-            toastEvent.test().assertValue(R.string.fail_conflict_email)
+            toastEvent.test().assertValue(R.string.fail_email_conflict)
         }
     }
 
@@ -394,7 +394,7 @@ class RegisterViewModelTests : BaseTest() {
 
             register()
 
-            toastEvent.test().assertValue(R.string.fail_internal)
+            toastEvent.test().assertValue(R.string.fail_exception_internal)
         }
     }
 
