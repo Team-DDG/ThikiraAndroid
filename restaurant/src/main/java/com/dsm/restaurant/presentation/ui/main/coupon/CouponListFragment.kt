@@ -5,14 +5,14 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.R
-import com.dsm.restaurant.databinding.FragmentCouponBinding
+import com.dsm.restaurant.databinding.FragmentCouponListBinding
 import com.dsm.restaurant.presentation.ui.adapter.CouponListAdapter
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.trashModel.CouponModel
-import kotlinx.android.synthetic.main.fragment_coupon.*
+import kotlinx.android.synthetic.main.fragment_coupon_list.*
 
-class CouponFragment : BaseFragment<FragmentCouponBinding>() {
-    override val layoutResId: Int = R.layout.fragment_coupon
+class CouponListFragment : BaseFragment<FragmentCouponListBinding>() {
+    override val layoutResId: Int = R.layout.fragment_coupon_list
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,7 +36,7 @@ class CouponFragment : BaseFragment<FragmentCouponBinding>() {
         })
 
         fab_coupon.setOnClickListener {
-            findNavController().navigate(R.id.action_couponFragment_to_couponDialog)
+            findNavController().navigate(R.id.action_couponListFragment_to_couponIssueDialog)
         }
     }
 }

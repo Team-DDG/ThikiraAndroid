@@ -19,7 +19,7 @@ class MenuListAdapter : ListAdapter<MenuModel, MenuListAdapter.MenuHolder>(MenuM
             itemView.tv_menu_price.text = item.price
 
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_menuFragment_to_menuDetailFragment)
+                it.findNavController().navigate(R.id.action_menuListFragment_to_menuDetailFragment)
             }
         }
     }

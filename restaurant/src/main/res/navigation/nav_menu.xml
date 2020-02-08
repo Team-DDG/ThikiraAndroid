@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_menu"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/menuListFragment">
 
     <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.dsm.restaurant.presentation.ui.main.menu.MenuFragment"
+        android:id="@+id/menuListFragment"
+        android:name="com.dsm.restaurant.presentation.ui.main.menu.MenuListFragment"
         android:label="MenuFragment"
-        tools:layout="@layout/fragment_menu">
+        tools:layout="@layout/fragment_menu_list">
         <action
-            android:id="@+id/action_menuFragment_to_menuDetailFragment"
+            android:id="@+id/action_menuListFragment_to_menuDetailFragment"
             app:destination="@id/menuDetailFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
-            android:id="@+id/action_menuFragment_to_menuRegistration1Activity"
+            android:id="@+id/action_menuListFragment_to_menuRegistration1Activity"
             app:destination="@id/menuRegistration1Activity"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"

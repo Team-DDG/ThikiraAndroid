@@ -41,7 +41,7 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
         }
 
         btn_register1_address.setOnClickListener {
-            findNavController().navigate(R.id.action_register1Fragment_to_addressFragment)
+            findNavController().navigate(R.id.action_register1Fragment_to_addressSearchFragment)
         }
     }
 

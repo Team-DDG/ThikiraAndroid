@@ -32,7 +32,7 @@ class Register2Fragment : BaseFragment<FragmentRegister2Binding>() {
         }
 
         btn_register2_category.setOnClickListener {
-            findNavController().navigate(R.id.action_register2Fragment_to_categoryFragment)
+            findNavController().navigate(R.id.action_register2Fragment_to_categorySelectFragment)
         }
     }
 

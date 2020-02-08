@@ -9,22 +9,22 @@
         android:id="@+id/settingFragment"
         android:name="com.dsm.restaurant.presentation.ui.main.setting.SettingFragment"
         android:label="SettingFragment"
-        tools:layout="@layout/fragment_setting" >
+        tools:layout="@layout/fragment_setting">
         <action
             android:id="@+id/action_settingFragment_to_changePwdDialog"
-            app:destination="@id/changePwdDialog" />
+            app:destination="@id/passwordChangeDialog" />
         <action
             android:id="@+id/action_settingFragment_to_unregisterDialog"
             app:destination="@id/unregisterDialog" />
     </fragment>
     <dialog
-        android:id="@+id/changePwdDialog"
-        android:name="com.dsm.restaurant.presentation.ui.main.setting.changePwd.ChangePwdDialog"
-        android:label="ChangePwdDialog"
-        tools:layout="@layout/dialog_change_pwd"/>
+        android:id="@+id/passwordChangeDialog"
+        android:name="com.dsm.restaurant.presentation.ui.main.setting.changePwd.PasswordChangeDialog"
+        android:label="PasswordChangeDialog"
+        tools:layout="@layout/dialog_password_change" />
     <dialog
         android:id="@+id/unregisterDialog"
         android:name="com.dsm.restaurant.presentation.ui.main.setting.unregister.UnregisterDialog"
         android:label="UnregisterDialog"
-        tools:layout="@layout/dialog_unregister"/>
+        tools:layout="@layout/dialog_unregister" />
 </navigation>

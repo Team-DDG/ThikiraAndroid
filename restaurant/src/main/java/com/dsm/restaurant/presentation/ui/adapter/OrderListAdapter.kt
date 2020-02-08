@@ -23,7 +23,7 @@ class OrderListAdapter : ListAdapter<OrderModel, OrderListAdapter.OrderHolder>(O
             itemView.tv_order_status.text = item.status
 
             itemView.setOnClickListener {
-                itemView.findNavController().navigate(R.id.action_orderFragment_to_orderDialog)
+                itemView.findNavController().navigate(R.id.action_orderFragment_to_orderDetailDialog)
             }
         }
     }
