@@ -8,7 +8,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tb_menu"
+            android:id="@+id/tb_menu_list"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:elevation="8dp"
@@ -33,18 +33,18 @@
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_menu"
+            android:id="@+id/rv_menu_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tb_menu"
+            app:layout_constraintTop_toBottomOf="@id/tb_menu_list"
             app:spanCount="2" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_menu"
+            android:id="@+id/fab_menu_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"

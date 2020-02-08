@@ -40,13 +40,13 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
             findNavController().navigate(R.id.action_register1Fragment_to_register2Fragment)
         }
 
-        btn_register1_address.setOnClickListener {
+        btn_register1_select_address.setOnClickListener {
             findNavController().navigate(R.id.action_register1Fragment_to_addressSearchFragment)
         }
     }
 
     private fun setupImagePicker() =
-        iv_register1_image.setOnClickListener {
+        iv_register1_restaurant_image.setOnClickListener {
             MediaPicker.createImage(this)
                 .single()
                 .theme(R.style.AppTheme)

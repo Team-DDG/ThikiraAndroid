@@ -16,8 +16,8 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
 
         tb_setting.setNavigationOnClickListener { activity?.finish() }
 
-        tv_setting_changePwd.setOnClickListener {
-            findNavController().navigate(R.id.action_settingFragment_to_changePwdDialog)
+        tv_setting_change_password.setOnClickListener {
+            findNavController().navigate(R.id.action_settingFragment_to_passwordChangeDialog)
         }
 
         tv_setting_unregister.setOnClickListener {

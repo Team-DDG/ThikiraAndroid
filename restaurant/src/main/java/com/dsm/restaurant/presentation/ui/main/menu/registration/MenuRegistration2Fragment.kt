@@ -14,6 +14,6 @@ class MenuRegistration2Fragment : BaseFragment<FragmentMenuRegistration2Binding>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tb_menuRegistration2.setNavigationOnClickListener { findNavController().popBackStack() }
+        tb_menu_registration2.setNavigationOnClickListener { findNavController().popBackStack() }
     }
 }

@@ -21,7 +21,7 @@ class MenuListFragment : BaseFragment<FragmentMenuListBinding>() {
         spn_menu.adapter = ArrayAdapter<String>(activity!!, R.layout.support_simple_spinner_dropdown_item, arrayOf("김치류", "빵류"))
 
         val adapter = MenuListAdapter()
-        rv_menu.adapter = adapter
+        rv_menu_list.adapter = adapter
 
         adapter.submitList(
             (0..5).map {
@@ -34,17 +34,17 @@ class MenuListFragment : BaseFragment<FragmentMenuListBinding>() {
             }
         )
 
-        rv_menu.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        rv_menu_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                if (dy < 0 && !fab_menu.isShown) {
-                    fab_menu.show()
-                } else if (dy > 0 && fab_menu.isShown) {
-                    fab_menu.hide()
+                if (dy < 0 && !fab_menu_list.isShown) {
+                    fab_menu_list.show()
+                } else if (dy > 0 && fab_menu_list.isShown) {
+                    fab_menu_list.hide()
                 }
             }
         })
 
-        fab_menu.setOnClickListener {
+        fab_menu_list.setOnClickListener {
             findNavController().navigate(R.id.action_menuListFragment_to_menuRegistration1Activity)
         }
     }

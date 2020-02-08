@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_unregister"
+            android:id="@+id/tv_unregister_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_unregister_lock"
+            android:id="@+id/iv_unregister_password_confirm_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -50,9 +50,9 @@
             android:text="@={viewModel.password}"
             android:textColorHint="@color/colorGrey"
             android:textSize="18sp"
-            app:layout_constraintLeft_toRightOf="@id/iv_unregister_lock"
+            app:layout_constraintLeft_toRightOf="@id/iv_unregister_password_confirm_icon"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_unregister" />
+            app:layout_constraintTop_toBottomOf="@id/tv_unregister_label" />
 
         <Button
             android:layout_width="wrap_content"

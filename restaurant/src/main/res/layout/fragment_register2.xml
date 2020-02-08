@@ -45,7 +45,7 @@
             </androidx.appcompat.widget.Toolbar>
 
             <Button
-                android:id="@+id/btn_register2_category"
+                android:id="@+id/btn_register2_select_category"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
@@ -59,7 +59,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tb_register2" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_register2_minPrice"
+                android:id="@+id/et_register2_min_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -73,10 +73,10 @@
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
                 app:layout_constraintRight_toRightOf="@id/gl_register2_right"
-                app:layout_constraintTop_toBottomOf="@id/btn_register2_category" />
+                app:layout_constraintTop_toBottomOf="@id/btn_register2_select_category" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_register2_dayOff"
+                android:id="@+id/et_register2_day_off"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -88,10 +88,10 @@
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
                 app:layout_constraintRight_toRightOf="@id/gl_register2_right"
-                app:layout_constraintTop_toBottomOf="@id/et_register2_minPrice" />
+                app:layout_constraintTop_toBottomOf="@id/et_register2_min_price" />
 
             <TextView
-                android:id="@+id/tv_register2_offline"
+                android:id="@+id/tv_register2_offline_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="38dp"
@@ -99,16 +99,16 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
-                app:layout_constraintTop_toBottomOf="@id/et_register2_dayOff" />
+                app:layout_constraintTop_toBottomOf="@id/et_register2_day_off" />
 
             <RadioGroup
                 android:id="@+id/rg_register2_offline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="@id/tv_register2_offline"
+                app:layout_constraintBottom_toBottomOf="@id/tv_register2_offline_label"
                 app:layout_constraintRight_toRightOf="@id/gl_register2_right"
-                app:layout_constraintTop_toTopOf="@id/tv_register2_offline">
+                app:layout_constraintTop_toTopOf="@id/tv_register2_offline_label">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -148,7 +148,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/tv_register2_online"
+                android:id="@+id/tv_register2_online_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -163,9 +163,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="@id/tv_register2_online"
+                app:layout_constraintBottom_toBottomOf="@id/tv_register2_online_label"
                 app:layout_constraintRight_toRightOf="@id/gl_register2_right"
-                app:layout_constraintTop_toTopOf="@id/tv_register2_online">
+                app:layout_constraintTop_toTopOf="@id/tv_register2_online_label">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/tv_register2_businessHour"
+                android:id="@+id/tv_register2_business_hour_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
@@ -217,7 +217,7 @@
                 app:layout_constraintTop_toBottomOf="@id/rg_register2_online" />
 
             <NumberPicker
-                android:id="@+id/np_register2_startHour"
+                android:id="@+id/np_register2_start_hour"
                 android:layout_width="30dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
@@ -225,11 +225,11 @@
                 android:value="@={viewModel.startHour}"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register2_left"
-                app:layout_constraintRight_toLeftOf="@id/tv_register2_startColon"
-                app:layout_constraintTop_toBottomOf="@id/tv_register2_businessHour" />
+                app:layout_constraintRight_toLeftOf="@id/tv_register2_start_colon"
+                app:layout_constraintTop_toBottomOf="@id/tv_register2_business_hour_label" />
 
             <TextView
-                android:id="@+id/tv_register2_startColon"
+                android:id="@+id/tv_register2_start_colon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -237,23 +237,23 @@
                 android:text="@string/colon"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/np_register2_startHour"
-                app:layout_constraintLeft_toRightOf="@id/np_register2_startHour"
-                app:layout_constraintRight_toLeftOf="@id/np_register2_startMinute"
-                app:layout_constraintTop_toTopOf="@id/np_register2_startHour" />
+                app:layout_constraintBottom_toBottomOf="@id/np_register2_start_hour"
+                app:layout_constraintLeft_toRightOf="@id/np_register2_start_hour"
+                app:layout_constraintRight_toLeftOf="@id/np_register2_start_minute"
+                app:layout_constraintTop_toTopOf="@id/np_register2_start_hour" />
 
             <NumberPicker
-                android:id="@+id/np_register2_startMinute"
+                android:id="@+id/np_register2_start_minute"
                 android:layout_width="30dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:theme="@style/TransparentNumberPickerTheme"
                 android:value="@={viewModel.startMinute}"
-                app:layout_constraintBottom_toBottomOf="@id/np_register2_startHour"
-                app:layout_constraintLeft_toRightOf="@id/tv_register2_startColon"
+                app:layout_constraintBottom_toBottomOf="@id/np_register2_start_hour"
+                app:layout_constraintLeft_toRightOf="@id/tv_register2_start_colon"
                 app:layout_constraintRight_toLeftOf="@id/tv_register2_tilde"
-                app:layout_constraintTop_toTopOf="@id/np_register2_startHour" />
+                app:layout_constraintTop_toTopOf="@id/np_register2_start_hour" />
 
             <TextView
                 android:id="@+id/tv_register2_tilde"
@@ -264,13 +264,13 @@
                 android:text="@string/tilde"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/np_register2_startMinute"
-                app:layout_constraintLeft_toRightOf="@id/np_register2_startMinute"
-                app:layout_constraintRight_toLeftOf="@id/np_register2_endHour"
-                app:layout_constraintTop_toTopOf="@id/np_register2_startMinute" />
+                app:layout_constraintBottom_toBottomOf="@id/np_register2_start_minute"
+                app:layout_constraintLeft_toRightOf="@id/np_register2_start_minute"
+                app:layout_constraintRight_toLeftOf="@id/np_register2_end_hour"
+                app:layout_constraintTop_toTopOf="@id/np_register2_start_minute" />
 
             <NumberPicker
-                android:id="@+id/np_register2_endHour"
+                android:id="@+id/np_register2_end_hour"
                 android:layout_width="30dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="4dp"
@@ -279,11 +279,11 @@
                 android:value="@={viewModel.endHour}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_register2_tilde"
                 app:layout_constraintLeft_toRightOf="@id/tv_register2_tilde"
-                app:layout_constraintRight_toLeftOf="@id/tv_register2_endColon"
+                app:layout_constraintRight_toLeftOf="@id/tv_register2_end_colon"
                 app:layout_constraintTop_toTopOf="@id/tv_register2_tilde" />
 
             <TextView
-                android:id="@+id/tv_register2_endColon"
+                android:id="@+id/tv_register2_end_colon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -291,23 +291,23 @@
                 android:text="@string/colon"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/np_register2_endHour"
-                app:layout_constraintLeft_toRightOf="@id/np_register2_endHour"
-                app:layout_constraintRight_toLeftOf="@id/np_register2_endMinute"
-                app:layout_constraintTop_toTopOf="@id/np_register2_endHour" />
+                app:layout_constraintBottom_toBottomOf="@id/np_register2_end_hour"
+                app:layout_constraintLeft_toRightOf="@id/np_register2_end_hour"
+                app:layout_constraintRight_toLeftOf="@id/np_register2_end_minute"
+                app:layout_constraintTop_toTopOf="@id/np_register2_end_hour" />
 
             <NumberPicker
-                android:id="@+id/np_register2_endMinute"
+                android:id="@+id/np_register2_end_minute"
                 android:layout_width="30dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:theme="@style/TransparentNumberPickerTheme"
                 android:value="@={viewModel.endMinute}"
-                app:layout_constraintBottom_toBottomOf="@id/tv_register2_endColon"
-                app:layout_constraintLeft_toRightOf="@id/tv_register2_endColon"
+                app:layout_constraintBottom_toBottomOf="@id/tv_register2_end_colon"
+                app:layout_constraintLeft_toRightOf="@id/tv_register2_end_colon"
                 app:layout_constraintRight_toRightOf="@id/gl_register2_right"
-                app:layout_constraintTop_toTopOf="@id/tv_register2_endColon" />
+                app:layout_constraintTop_toTopOf="@id/tv_register2_end_colon" />
 
             <Button
                 android:id="@+id/btn_register2_next"

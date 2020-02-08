@@ -19,7 +19,7 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tb_location.setNavigationOnClickListener { findNavController().popBackStack() }
+        tb_address_search.setNavigationOnClickListener { findNavController().popBackStack() }
 
         setupRecyclerView()
         setupToast(viewModel.toastEvent)
@@ -29,7 +29,7 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
 
     private fun setupRecyclerView() {
         val adapter = AddressListAdapter(viewModel, findNavController())
-        rv_address.adapter = adapter
-        rv_address.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+        rv_address_search.adapter = adapter
+        rv_address_search.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
     }
 }

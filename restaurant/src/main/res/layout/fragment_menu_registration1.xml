@@ -13,7 +13,7 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/tb_menuRegistration1"
+                android:id="@+id/tb_menu_registration1"
                 android:layout_width="0dp"
                 android:layout_height="?attr/actionBarSize"
                 android:elevation="8dp"
@@ -34,15 +34,15 @@
             </androidx.appcompat.widget.Toolbar>
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_menuRegistration"
+                android:id="@+id/iv_menu_registration_menu"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tb_menuRegistration1" />
+                app:layout_constraintTop_toBottomOf="@id/tb_menu_registration1" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_menuRegistration_name"
+                android:id="@+id/et_menu_registration_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -53,33 +53,33 @@
                 android:textColorHint="@color/colorGrey"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_menuRegistration" />
+                app:layout_constraintTop_toBottomOf="@id/iv_menu_registration_menu" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_menuRegistration_category"
+                android:id="@+id/et_menu_registration_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/menu_category"
                 android:textColorHint="@color/colorGrey"
                 android:textSize="18sp"
-                app:layout_constraintLeft_toLeftOf="@id/et_menuRegistration_name"
-                app:layout_constraintTop_toBottomOf="@id/et_menuRegistration_name" />
+                app:layout_constraintLeft_toLeftOf="@id/et_menu_registration_name"
+                app:layout_constraintTop_toBottomOf="@id/et_menu_registration_name" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_menuRegistration_price"
+                android:id="@+id/et_menu_registration_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
                 android:inputType="number"
                 android:minWidth="55dp"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/et_menuRegistration_category"
-                app:layout_constraintRight_toLeftOf="@id/tv_menuRegistration_won"
-                app:layout_constraintTop_toTopOf="@id/et_menuRegistration_category" />
+                app:layout_constraintBottom_toBottomOf="@id/et_menu_registration_category"
+                app:layout_constraintRight_toLeftOf="@id/tv_menu_registration_won_label"
+                app:layout_constraintTop_toTopOf="@id/et_menu_registration_category" />
 
             <TextView
-                android:id="@+id/tv_menuRegistration_won"
+                android:id="@+id/tv_menu_registration_won_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
@@ -87,9 +87,9 @@
                 android:text="@string/won"
                 android:textColorHint="@color/colorGrey"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/et_menuRegistration_category"
+                app:layout_constraintBottom_toBottomOf="@id/et_menu_registration_category"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/et_menuRegistration_category" />
+                app:layout_constraintTop_toTopOf="@id/et_menu_registration_category" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -100,10 +100,10 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                app:layout_constraintBottom_toTopOf="@id/btn_menuRegistration_next"
+                app:layout_constraintBottom_toTopOf="@id/btn_menu_registration1_next"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_menuRegistration_category"
+                app:layout_constraintTop_toBottomOf="@id/et_menu_registration_category"
                 app:layout_constraintVertical_bias="0">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -116,7 +116,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btn_menuRegistration_next"
+                android:id="@+id/btn_menu_registration1_next"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="60dp"

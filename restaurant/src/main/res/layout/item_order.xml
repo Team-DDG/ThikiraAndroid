@@ -7,7 +7,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_order_nick"
+            android:id="@+id/tv_order_item_nick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -28,12 +28,12 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/tv_order_nick"
-            app:layout_constraintLeft_toRightOf="@id/tv_order_nick"
-            app:layout_constraintTop_toTopOf="@id/tv_order_nick" />
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_item_nick"
+            app:layout_constraintLeft_toRightOf="@id/tv_order_item_nick"
+            app:layout_constraintTop_toTopOf="@id/tv_order_item_nick" />
 
         <TextView
-            android:id="@+id/tv_order_addr"
+            android:id="@+id/tv_order_item_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -45,14 +45,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_order_time"
+            android:id="@+id/tv_order_item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="@id/tv_order_nick"
-            app:layout_constraintTop_toBottomOf="@id/tv_order_nick" />
+            app:layout_constraintLeft_toLeftOf="@id/tv_order_item_nick"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_item_nick" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,22 +62,22 @@
             android:text="@string/order"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_order_time"
-            app:layout_constraintLeft_toRightOf="@id/tv_order_time"
-            app:layout_constraintTop_toTopOf="@id/tv_order_time" />
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_item_time"
+            app:layout_constraintLeft_toRightOf="@id/tv_order_item_time"
+            app:layout_constraintTop_toTopOf="@id/tv_order_item_time" />
 
         <TextView
-            android:id="@+id/tv_order_price"
+            android:id="@+id/tv_order_item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_order_won"
-            app:layout_constraintRight_toLeftOf="@id/tv_order_won"
-            app:layout_constraintTop_toTopOf="@id/tv_order_won" />
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_item_won_label"
+            app:layout_constraintRight_toLeftOf="@id/tv_order_item_won_label"
+            app:layout_constraintTop_toTopOf="@id/tv_order_item_won_label" />
 
         <TextView
-            android:id="@+id/tv_order_won"
+            android:id="@+id/tv_order_item_won_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
@@ -85,22 +85,22 @@
             android:text="@string/won"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_order_method"
-            app:layout_constraintRight_toLeftOf="@id/tv_order_method"
-            app:layout_constraintTop_toTopOf="@id/tv_order_method" />
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_item_method"
+            app:layout_constraintRight_toLeftOf="@id/tv_order_item_method"
+            app:layout_constraintTop_toTopOf="@id/tv_order_item_method" />
 
         <TextView
-            android:id="@+id/tv_order_method"
+            android:id="@+id/tv_order_item_method"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintRight_toRightOf="@id/tv_order_addr"
-            app:layout_constraintTop_toBottomOf="@id/tv_order_addr" />
+            app:layout_constraintRight_toRightOf="@id/tv_order_item_address"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_item_address" />
 
         <TextView
-            android:id="@+id/tv_order_status"
+            android:id="@+id/tv_order_item_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -111,7 +111,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_order_time" />
+            app:layout_constraintTop_toBottomOf="@id/tv_order_item_time" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
