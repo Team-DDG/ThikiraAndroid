@@ -19,10 +19,9 @@ class PasswordChangeViewModel(
     val changePwdCheck = MutableLiveData<String>()
 
     private val _toastEvent = SingleLiveEvent<Int>()
-
     val toastEvent: LiveData<Int> = _toastEvent
-    private val _dismissEvent = SingleLiveEvent<Unit>()
 
+    private val _dismissEvent = SingleLiveEvent<Unit>()
     val dismissEvent: LiveData<Unit> = _dismissEvent
 
     val isChangePwdEnabled: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {

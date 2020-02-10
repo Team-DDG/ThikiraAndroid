@@ -27,7 +27,6 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
 
         setupNavigate()
         setupImagePicker()
-
         setupToast(viewModel.toastEvent)
 
         binding.viewModel = viewModel

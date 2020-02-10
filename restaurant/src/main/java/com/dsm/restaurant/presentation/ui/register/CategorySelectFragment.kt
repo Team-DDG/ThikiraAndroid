@@ -19,8 +19,15 @@ class CategorySelectFragment : BaseFragment<FragmentCategorySelectBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tb_category_select.setNavigationOnClickListener { findNavController().popBackStack() }
+        setupNavigate()
+        setupChildView()
+    }
 
+    private fun setupNavigate() {
+        tb_category_select.setNavigationOnClickListener { findNavController().popBackStack() }
+    }
+
+    private fun setupChildView() {
         ll_category.children.forEach {
             it.setOnClickListener { view ->
                 viewModel.onSelectCategory((view as TextView).text.toString())
