@@ -26,13 +26,13 @@ class Register4FragmentTests : BaseUiTest() {
 
         onView(withId(R.id.et_register4_email)).check(matches(withText("")))
         onView(withId(R.id.et_register4_email)).check(matches(withHint(R.string.email)))
-        onView(withId(R.id.snackbar_text)).check(matches(withText(R.string.fail_blank_email)))
+        onView(withId(R.id.snackbar_text)).check(matches(withText(R.string.fail_email_blank)))
 
         onView(withId(R.id.et_register4_email)).perform(typeText("hello"), closeSoftKeyboard())
         Thread.sleep(1000)
         onView(withId(R.id.tv_register4_duplication)).perform(click())
 
-        onView(withId(R.id.snackbar_text)).check(matches(withText(R.string.fail_invalid_email)))
+        onView(withId(R.id.snackbar_text)).check(matches(withText(R.string.fail_email_invalid)))
         onView(withId(R.id.et_register4_email)).check(matches(withText("hello")))
         onView(withId(R.id.et_register4_email)).check(matches(withHint(R.string.email)))
     }
@@ -56,16 +56,16 @@ class Register4FragmentTests : BaseUiTest() {
 
         launchFragment(Register4Fragment::class.java)
 
-        onView(withId(R.id.btn_register)).check(matches(withBackground(R.drawable.bg_grey_button)))
+        onView(withId(R.id.btn_register)).check(matches(withBackground(R.drawable.bg_button_disable)))
         onView(withId(R.id.btn_register)).check(matches(withTextColor(R.color.colorGrey)))
         onView(withId(R.id.btn_register)).check(matches(not(isClickable())))
 
         onView(withId(R.id.et_register4_email)).perform(typeText("hello@gmail.com"), closeSoftKeyboard())
         onView(withId(R.id.tv_register4_duplication)).perform(click())
-        onView(withId(R.id.et_register4_pwd)).perform(typeText("password!"), pressImeActionButton())
-        onView(withId(R.id.et_register4_pwdCheck)).perform(typeText("password!"), closeSoftKeyboard())
+        onView(withId(R.id.et_register4_password)).perform(typeText("password!"), pressImeActionButton())
+        onView(withId(R.id.et_register4_password_re_type)).perform(typeText("password!"), closeSoftKeyboard())
 
-        onView(withId(R.id.btn_register)).check(matches(withBackground(R.drawable.bg_primary_light_button)))
+        onView(withId(R.id.btn_register)).check(matches(withBackground(R.drawable.bg_button_enable)))
         onView(withId(R.id.btn_register)).check(matches(withTextColor(R.color.colorPrimaryLight)))
         onView(withId(R.id.btn_register)).check(matches(isClickable()))
     }

@@ -14,9 +14,9 @@ class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tb_menuRegistration1.setNavigationOnClickListener { activity?.finish() }
+        tb_menu_registration1.setNavigationOnClickListener { activity?.finish() }
 
-        btn_menuRegistration_next.setOnClickListener {
+        btn_menu_registration1_next.setOnClickListener {
             findNavController().navigate(R.id.action_menuRegistration1Fragment_to_menuRegistration2Fragment)
         }
     }

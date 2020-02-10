@@ -27,8 +27,8 @@ class RestaurantFragmentTests : BaseUiTest() {
         onView(withId(R.id.tv_restaurant_address)).check(matches(withText("add_parcel")))
         onView(withId(R.id.tv_restaurant_area)).check(matches(withText("area1,area2,area3")))
         onView(withId(R.id.tv_restaurant_category)).check(matches(withText("category")))
-        onView(withId(R.id.tv_restaurant_minPrice)).check(matches(withText("10000")))
-        onView(withId(R.id.tv_restaurant_dayOff)).check(matches(withText("day_off")))
+        onView(withId(R.id.tv_restaurant_min_price)).check(matches(withText("10000")))
+        onView(withId(R.id.tv_restaurant_day_off)).check(matches(withText("day_off")))
         onView(withId(R.id.tv_restaurant_description)).check(matches(withText("안녕하세요 김도훈입니다")))
     }
 

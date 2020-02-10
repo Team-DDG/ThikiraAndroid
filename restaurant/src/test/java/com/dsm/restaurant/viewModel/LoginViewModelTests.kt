@@ -80,7 +80,7 @@ class LoginViewModelTests : BaseTest() {
 
             login()
 
-            toastEvent.test().assertValue(R.string.fail_login_not_found)
+            toastEvent.test().assertValue(R.string.fail_account_not_found)
         }
     }
 
@@ -101,7 +101,7 @@ class LoginViewModelTests : BaseTest() {
 
             login()
 
-            toastEvent.test().assertValue(R.string.fail_internal)
+            toastEvent.test().assertValue(R.string.fail_exception_internal)
         }
     }
 }

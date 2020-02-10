@@ -68,8 +68,8 @@
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim" />
             <action
-                android:id="@+id/action_register1Fragment_to_addressFragment"
-                app:destination="@id/addressFragment"
+                android:id="@+id/action_register1Fragment_to_addressSearchFragment"
+                app:destination="@id/addressSearchFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -89,8 +89,8 @@
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim" />
             <action
-                android:id="@+id/action_register2Fragment_to_categoryFragment"
-                app:destination="@id/categoryFragment"
+                android:id="@+id/action_register2Fragment_to_categorySelectFragment"
+                app:destination="@id/categorySelectFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -123,15 +123,15 @@
                 app:popUpToInclusive="true" />
         </fragment>
         <fragment
-            android:id="@+id/addressFragment"
-            android:name="com.dsm.restaurant.presentation.ui.register.AddressFragment"
-            android:label="AddressFragment"
-            tools:layout="@layout/fragment_address" />
+            android:id="@+id/addressSearchFragment"
+            android:name="com.dsm.restaurant.presentation.ui.register.AddressSearchFragment"
+            android:label="AddressSearchFragment"
+            tools:layout="@layout/fragment_address_search" />
         <fragment
-            android:id="@+id/categoryFragment"
-            android:name="com.dsm.restaurant.presentation.ui.register.CategoryFragment"
-            android:label="CategoryFragment"
-            tools:layout="@layout/fragment_category" />
+            android:id="@+id/categorySelectFragment"
+            android:name="com.dsm.restaurant.presentation.ui.register.CategorySelectFragment"
+            android:label="CategorySelectFragment"
+            tools:layout="@layout/fragment_category_select" />
 
     </navigation>
 </navigation>

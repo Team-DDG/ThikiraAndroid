@@ -29,7 +29,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="@drawable/ic_arrow_back_24dp"
+                app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
                 tools:targetApi="lollipop">
 
                 <TextView
@@ -43,7 +43,7 @@
             </androidx.appcompat.widget.Toolbar>
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_register1_image"
+                android:id="@+id/iv_register1_restaurant_image"
                 image="@{viewModel.imageUrl}"
                 android:layout_width="0dp"
                 android:layout_height="132dp"
@@ -57,7 +57,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tb_register1" />
 
             <TextView
-                android:id="@+id/tv_restaurantImage"
+                android:id="@+id/tv_register1_restaurant_image_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/restaurant_image"
@@ -65,27 +65,27 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:visibility="@{(viewModel.imageUrl.empty &amp;&amp; !viewModel.isUploadingImage) ? View.VISIBLE : View.INVISIBLE}"
-                app:layout_constraintBottom_toBottomOf="@id/iv_register1_image"
-                app:layout_constraintLeft_toLeftOf="@id/iv_register1_image"
-                app:layout_constraintRight_toRightOf="@id/iv_register1_image"
-                app:layout_constraintTop_toTopOf="@id/iv_register1_image" />
+                app:layout_constraintBottom_toBottomOf="@id/iv_register1_restaurant_image"
+                app:layout_constraintLeft_toLeftOf="@id/iv_register1_restaurant_image"
+                app:layout_constraintRight_toRightOf="@id/iv_register1_restaurant_image"
+                app:layout_constraintTop_toTopOf="@id/iv_register1_restaurant_image" />
 
             <ProgressBar
                 android:id="@+id/pb_register1_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="@{viewModel.isUploadingImage ? View.VISIBLE : View.INVISIBLE}"
-                app:layout_constraintBottom_toBottomOf="@id/iv_register1_image"
-                app:layout_constraintLeft_toLeftOf="@id/iv_register1_image"
-                app:layout_constraintRight_toRightOf="@id/iv_register1_image"
-                app:layout_constraintTop_toTopOf="@id/iv_register1_image" />
+                app:layout_constraintBottom_toBottomOf="@id/iv_register1_restaurant_image"
+                app:layout_constraintLeft_toLeftOf="@id/iv_register1_restaurant_image"
+                app:layout_constraintRight_toRightOf="@id/iv_register1_restaurant_image"
+                app:layout_constraintTop_toTopOf="@id/iv_register1_restaurant_image" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_register1_name"
+                android:id="@+id/et_register1_restaurant_name"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/bg_register_edittext"
+                android:background="@drawable/bg_edittext_register"
                 android:drawableStart="@drawable/ic_restaurant_grey_24dp"
                 android:drawableLeft="@drawable/ic_restaurant_grey_24dp"
                 android:drawablePadding="16dp"
@@ -101,7 +101,7 @@
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
                 app:layout_constraintRight_toRightOf="@id/gl_register1_right"
-                app:layout_constraintTop_toBottomOf="@id/iv_register1_image"
+                app:layout_constraintTop_toBottomOf="@id/iv_register1_restaurant_image"
                 tools:ignore="RtlSymmetry" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -109,32 +109,32 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
-                android:paddingEnd="18dp"
-                android:paddingRight="18dp"
-                android:background="@drawable/bg_register_edittext"
+                android:background="@drawable/bg_edittext_register"
                 android:digits="0123456789"
-                android:drawableStart="@drawable/ic_register_phone_24dp"
-                android:drawableLeft="@drawable/ic_register_phone_24dp"
+                android:drawableStart="@drawable/ic_register_phone_grey_24dp"
+                android:drawableLeft="@drawable/ic_register_phone_grey_24dp"
                 android:drawablePadding="16dp"
                 android:hint="@string/phone_number"
                 android:inputType="number"
                 android:paddingStart="24dp"
                 android:paddingLeft="24dp"
+                android:paddingEnd="18dp"
+                android:paddingRight="18dp"
+                android:singleLine="true"
                 android:text="@={viewModel.phoneNum}"
                 android:textColorHint="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
                 app:layout_constraintRight_toRightOf="@id/gl_register1_right"
-                app:layout_constraintTop_toBottomOf="@id/et_register1_name"
-                tools:ignore="RtlSymmetry"
-                android:singleLine="true"/>
+                app:layout_constraintTop_toBottomOf="@id/et_register1_restaurant_name"
+                tools:ignore="RtlSymmetry" />
 
             <Button
-                android:id="@+id/btn_register1_address"
+                android:id="@+id/btn_register1_select_address"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/bg_primary_light_button"
+                android:background="@drawable/bg_button_primary_light"
                 android:text="@string/select_location"
                 android:textColor="@color/colorPrimaryLight"
                 android:textSize="20sp"
@@ -148,14 +148,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:maxLines="3"
                 android:text="@{viewModel.address}"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
                 app:layout_constraintRight_toRightOf="@id/gl_register1_right"
-                app:layout_constraintTop_toBottomOf="@id/btn_register1_address"
-                android:gravity="center"
-                android:maxLines="3"/>
+                app:layout_constraintTop_toBottomOf="@id/btn_register1_select_address" />
 
             <TextView
                 android:id="@+id/tv_register1_default_address"
@@ -196,16 +196,16 @@
                 android:text="@string/area_divide_by_enter"
                 android:textColor="@color/colorGrey"
                 android:textSize="10sp"
+                app:layout_constraintBottom_toTopOf="@id/et_register1_area"
                 app:layout_constraintLeft_toLeftOf="@id/gl_register1_left"
-                tools:ignore="SmallSp"
-                app:layout_constraintBottom_toTopOf="@id/et_register1_area"/>
+                tools:ignore="SmallSp" />
 
             <Button
                 android:id="@+id/btn_register1_next"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="24dp"
-                android:background="@{viewModel.isNext1Enabled ? @drawable/bg_primary_light_button : @drawable/bg_grey_button}"
+                android:background="@{viewModel.isNext1Enabled ? @drawable/bg_button_enable : @drawable/bg_button_disable}"
                 android:clickable="@{viewModel.isNext1Enabled}"
                 android:text="@string/next"
                 android:textColor="@{viewModel.isNext1Enabled ? @color/colorPrimaryLight : @color/colorGrey}"

@@ -30,20 +30,20 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
         bnv_main.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.order -> switchFragment(0)
-                R.id.menu -> switchFragment(1)
-                R.id.coupon -> switchFragment(2)
-                R.id.restaurant -> switchFragment(3)
+                R.id.menu_order -> switchFragment(0)
+                R.id.menu_menu -> switchFragment(1)
+                R.id.menu_coupon -> switchFragment(2)
+                R.id.menu_restaurant -> switchFragment(3)
             }
             true
         }
 
         bnv_main.setOnNavigationItemReselectedListener {
             when (it.itemId) {
-                R.id.order -> reselectFragment(0)
-                R.id.menu -> reselectFragment(1)
-                R.id.coupon -> reselectFragment(2)
-                R.id.restaurant -> reselectFragment(3)
+                R.id.menu_order -> reselectFragment(0)
+                R.id.menu_menu -> reselectFragment(1)
+                R.id.menu_coupon -> reselectFragment(2)
+                R.id.menu_restaurant -> reselectFragment(3)
             }
         }
     }

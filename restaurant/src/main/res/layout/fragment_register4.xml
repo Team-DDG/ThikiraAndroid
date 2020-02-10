@@ -28,7 +28,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="@drawable/ic_arrow_back_24dp"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
             tools:targetApi="lollipop">
 
             <TextView
@@ -48,7 +48,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:background="@drawable/bg_register_edittext"
+            android:background="@drawable/bg_edittext_register"
             android:drawableStart="@drawable/ic_email_grey_24dp"
             android:drawableLeft="@drawable/ic_email_grey_24dp"
             android:drawablePadding="16dp"
@@ -80,17 +80,17 @@
 
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_register4_pwd"
+            android:id="@+id/et_register4_password"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/bg_register_edittext"
+            android:background="@drawable/bg_edittext_register"
             android:drawableStart="@drawable/ic_key_grey_24dp"
             android:drawableLeft="@drawable/ic_key_grey_24dp"
             android:drawablePadding="16dp"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:nextFocusDown="@id/et_register4_pwdCheck"
+            android:nextFocusDown="@id/et_register4_password_re_type"
             android:paddingStart="24dp"
             android:paddingLeft="24dp"
             android:text="@={viewModel.password}"
@@ -102,11 +102,11 @@
             tools:ignore="RtlSymmetry" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_register4_pwdCheck"
+            android:id="@+id/et_register4_password_re_type"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/bg_register_edittext"
+            android:background="@drawable/bg_edittext_register"
             android:drawableStart="@drawable/ic_key_grey_24dp"
             android:drawableLeft="@drawable/ic_key_grey_24dp"
             android:drawablePadding="16dp"
@@ -120,20 +120,20 @@
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="@id/gl_register4_left"
             app:layout_constraintRight_toRightOf="@id/gl_register4_right"
-            app:layout_constraintTop_toBottomOf="@id/et_register4_pwd"
+            app:layout_constraintTop_toBottomOf="@id/et_register4_password"
             tools:ignore="RtlSymmetry" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_register4_correct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="@id/et_register4_pwdCheck"
-            app:layout_constraintTop_toTopOf="@id/et_register4_pwdCheck"
-            app:layout_constraintBottom_toBottomOf="@id/et_register4_pwdCheck"
-            android:src="@drawable/ic_check_24dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:visibility="@{viewModel.isPasswordReTypeCorrect ? View.VISIBLE : View.INVISIBLE}"/>
+            android:src="@drawable/ic_check_grey_24dp"
+            android:visibility="@{viewModel.isPasswordReTypeCorrect ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/et_register4_password_re_type"
+            app:layout_constraintRight_toRightOf="@id/et_register4_password_re_type"
+            app:layout_constraintTop_toTopOf="@id/et_register4_password_re_type" />
 
         <Button
             android:id="@+id/btn_register"
@@ -142,7 +142,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginEnd="60dp"
             android:layout_marginBottom="24dp"
-            android:background="@{viewModel.isRegisterEnabled ? @drawable/bg_primary_light_button : @drawable/bg_grey_button}"
+            android:background="@{viewModel.isRegisterEnabled ? @drawable/bg_button_enable : @drawable/bg_button_disable}"
             android:clickable="@{viewModel.isRegisterEnabled}"
             android:onClick="@{() -> viewModel.register()}"
             android:text="@string/register_restaurant"

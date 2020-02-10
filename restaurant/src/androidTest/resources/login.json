@@ -1,4 +1,4 @@
 {
-  "accessToken": "ACCESS_TOKEN",
-  "refreshToken": "REFRESH_TOKEN"
+  "access_token": "ACCESS_TOKEN",
+  "refresh_token": "REFRESH_TOKEN"
 }

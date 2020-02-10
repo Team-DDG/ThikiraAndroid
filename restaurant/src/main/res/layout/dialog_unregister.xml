@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_unregister"
+            android:id="@+id/tv_unregister_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -27,12 +27,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_unregister_lock"
+            android:id="@+id/iv_unregister_password_confirm_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            android:src="@drawable/ic_lock_24dp"
+            android:src="@drawable/ic_lock_primary_24dp"
             app:layout_constraintBottom_toBottomOf="@id/et_unregister_password"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -50,16 +50,16 @@
             android:text="@={viewModel.password}"
             android:textColorHint="@color/colorGrey"
             android:textSize="18sp"
-            app:layout_constraintLeft_toRightOf="@id/iv_unregister_lock"
+            app:layout_constraintLeft_toRightOf="@id/iv_unregister_password_confirm_icon"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_unregister" />
+            app:layout_constraintTop_toBottomOf="@id/tv_unregister_label" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="16dp"
-            android:background="@{viewModel.isUnregisterEnabled ? @drawable/bg_primary_light_button : @drawable/bg_grey_button}"
+            android:background="@{viewModel.isUnregisterEnabled ? @drawable/bg_button_enable : @drawable/bg_button_disable}"
             android:clickable="@{viewModel.isUnregisterEnabled}"
             android:text="@string/unregister"
             android:textColor="@{viewModel.isUnregisterEnabled ? @color/colorPrimaryLight : @color/colorGrey}"

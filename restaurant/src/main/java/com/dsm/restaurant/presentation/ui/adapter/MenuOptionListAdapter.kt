@@ -19,8 +19,8 @@ class MenuOptionListAdapter : RecyclerView.Adapter<MenuOptionListAdapter.OptionH
     inner class OptionHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
             val item = optionItems[adapterPosition]
-            itemView.tv_option.text = item.option
-            itemView.tv_menu_price.text = item.price
+            itemView.tv_menu_option_item_option.text = item.option
+            itemView.tv_menu_option_item_price.text = item.price
         }
     }
 
