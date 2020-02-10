@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tb_location"
+            android:id="@+id/tb_address_search"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/white"
@@ -24,7 +24,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="@drawable/ic_arrow_back_24dp"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
             tools:targetApi="lollipop">
 
             <TextView
@@ -38,7 +38,7 @@
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_address"
+            android:id="@+id/et_address_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -56,7 +56,7 @@
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tb_location"
+            app:layout_constraintTop_toBottomOf="@id/tb_address_search"
             tools:ignore="RtlSymmetry" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -69,13 +69,13 @@
             android:clickable="@{viewModel.isAddressSearchable ? true : false}"
             android:onClick="@{() -> viewModel.onClickSearchAddress()}"
             android:padding="4dp"
-            android:src="@drawable/ic_search_24dp"
-            app:layout_constraintBottom_toBottomOf="@id/et_address"
-            app:layout_constraintRight_toRightOf="@id/et_address"
-            app:layout_constraintTop_toTopOf="@id/et_address" />
+            android:src="@drawable/ic_search_grey_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/et_address_search"
+            app:layout_constraintRight_toRightOf="@id/et_address_search"
+            app:layout_constraintTop_toTopOf="@id/et_address_search" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_address"
+            android:id="@+id/rv_address_search"
             addressList="@{viewModel.addressList}"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -84,7 +84,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_address" />
+            app:layout_constraintTop_toBottomOf="@id/et_address_search" />
 
         <ProgressBar
             android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/rv_address" />
+            app:layout_constraintTop_toTopOf="@id/rv_address_search" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

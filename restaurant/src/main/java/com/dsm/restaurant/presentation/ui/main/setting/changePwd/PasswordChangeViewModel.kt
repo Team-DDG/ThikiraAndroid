@@ -10,7 +10,7 @@ import com.dsm.restaurant.presentation.util.isValidPassword
 import com.dsm.restaurant.presentation.util.isValueBlank
 import kotlinx.coroutines.launch
 
-class ChangePwdViewModel(
+class PasswordChangeViewModel(
     private val changePwdUseCase: ChangePwdUseCase
 ) : ViewModel() {
 
@@ -19,10 +19,9 @@ class ChangePwdViewModel(
     val changePwdCheck = MutableLiveData<String>()
 
     private val _toastEvent = SingleLiveEvent<Int>()
-
     val toastEvent: LiveData<Int> = _toastEvent
-    private val _dismissEvent = SingleLiveEvent<Unit>()
 
+    private val _dismissEvent = SingleLiveEvent<Unit>()
     val dismissEvent: LiveData<Unit> = _dismissEvent
 
     val isChangePwdEnabled: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
@@ -36,7 +35,7 @@ class ChangePwdViewModel(
 
     fun changePassword() = viewModelScope.launch {
         if (changePwd.value != changePwdCheck.value) {
-            _toastEvent.value = R.string.fail_diff_retype
+            _toastEvent.value = R.string.fail_re_type_different
             return@launch
         }
 
@@ -54,9 +53,9 @@ class ChangePwdViewModel(
             _dismissEvent.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
-                is UnauthorizedException -> R.string.fail_auth_password
-                is ForbiddenException -> R.string.fail_forbidden
-                else -> R.string.fail_internal
+                is UnauthorizedException -> R.string.fail_password_auth
+                is ForbiddenException -> R.string.fail_exception_forbidden
+                else -> R.string.fail_exception_internal
             }
         }
     }

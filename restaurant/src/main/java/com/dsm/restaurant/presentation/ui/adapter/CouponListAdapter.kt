@@ -14,9 +14,9 @@ class CouponListAdapter : ListAdapter<CouponModel, CouponListAdapter.CouponHolde
     inner class CouponHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
             val item = getItem(adapterPosition)
-            itemView.tv_coupon_status.text = item.status
-            itemView.tv_coupon_date.text = item.expireDate
-            itemView.tv_coupon_price.text = item.discountPrice
+            itemView.tv_coupon_item_status.text = item.status
+            itemView.tv_coupon_item_expire_date.text = item.expireDate
+            itemView.tv_coupon_item_price.text = item.discountPrice
         }
     }
 

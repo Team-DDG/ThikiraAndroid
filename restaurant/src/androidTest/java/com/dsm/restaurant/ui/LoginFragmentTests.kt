@@ -27,14 +27,14 @@ class LoginFragmentTests : BaseUiTest() {
 
         launchFragment(LoginFragment::class.java)
 
-        onView(withId(R.id.btn_login)).check(matches(withBackground(R.drawable.bg_grey_button)))
+        onView(withId(R.id.btn_login)).check(matches(withBackground(R.drawable.bg_button_disable)))
         onView(withId(R.id.btn_login)).check(matches(withTextColor(R.color.colorGrey)))
         onView(withId(R.id.btn_login)).check(matches(not(isClickable())))
 
         onView(withId(R.id.et_login_email)).perform(typeText("hello@naver.com"), pressImeActionButton())
-        onView(withId(R.id.et_login_pwd)).perform(typeText("password!"), closeSoftKeyboard())
+        onView(withId(R.id.et_login_password)).perform(typeText("password!"), closeSoftKeyboard())
 
-        onView(withId(R.id.btn_login)).check(matches(withBackground(R.drawable.bg_primary_light_button)))
+        onView(withId(R.id.btn_login)).check(matches(withBackground(R.drawable.bg_button_enable)))
         onView(withId(R.id.btn_login)).check(matches(withTextColor(R.color.colorPrimaryLight)))
         onView(withId(R.id.btn_login)).check(matches(isClickable()))
     }
@@ -46,7 +46,7 @@ class LoginFragmentTests : BaseUiTest() {
         launchFragment(LoginFragment::class.java)
 
         onView(withId(R.id.et_login_email)).perform(typeText("hello@naver.com"), pressImeActionButton())
-        onView(withId(R.id.et_login_pwd)).perform(typeText("password!"), closeSoftKeyboard())
+        onView(withId(R.id.et_login_password)).perform(typeText("password!"), closeSoftKeyboard())
 
         onView(withId(R.id.btn_login)).perform(click())
 
@@ -60,7 +60,7 @@ class LoginFragmentTests : BaseUiTest() {
         launchFragment(LoginFragment::class.java)
 
         onView(withId(R.id.et_login_email)).perform(typeText("hello@naver.com"), pressImeActionButton())
-        onView(withId(R.id.et_login_pwd)).perform(typeText("password!"), closeSoftKeyboard())
+        onView(withId(R.id.et_login_password)).perform(typeText("password!"), closeSoftKeyboard())
 
         onView(withId(R.id.btn_login)).perform(click())
 

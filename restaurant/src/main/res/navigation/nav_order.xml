@@ -11,12 +11,12 @@
         android:label="OrderFragment"
         tools:layout="@layout/fragment_order">
         <action
-            android:id="@+id/action_orderFragment_to_orderDialog"
-            app:destination="@id/orderDialog" />
+            android:id="@+id/action_orderFragment_to_orderDetailDialog"
+            app:destination="@id/orderDetailDialog" />
     </fragment>
     <dialog
-        android:id="@+id/orderDialog"
-        android:name="com.dsm.restaurant.presentation.ui.main.order.OrderDialog"
-        android:label="OrderDialog"
-        tools:layout="@layout/dialog_order" />
+        android:id="@+id/orderDetailDialog"
+        android:name="com.dsm.restaurant.presentation.ui.main.order.OrderDetailDialog"
+        android:label="OrderDetailDialog"
+        tools:layout="@layout/dialog_order_detail" />
 </navigation>

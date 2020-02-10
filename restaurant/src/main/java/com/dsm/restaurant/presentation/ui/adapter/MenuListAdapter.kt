@@ -15,11 +15,11 @@ class MenuListAdapter : ListAdapter<MenuModel, MenuListAdapter.MenuHolder>(MenuM
     inner class MenuHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
             val item = getItem(adapterPosition)
-            itemView.tv_menu_name.text = item.name
-            itemView.tv_menu_price.text = item.price
+            itemView.tv_menu_item_name.text = item.name
+            itemView.tv_menu_item_price.text = item.price
 
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_menuFragment_to_menuDetailFragment)
+                it.findNavController().navigate(R.id.action_menuListFragment_to_menuDetailFragment)
             }
         }
     }

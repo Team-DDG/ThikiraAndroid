@@ -5,7 +5,7 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.error.exception.UnauthorizedException
 import com.dsm.restaurant.domain.interactor.ChangePwdUseCase
-import com.dsm.restaurant.presentation.ui.main.setting.changePwd.ChangePwdViewModel
+import com.dsm.restaurant.presentation.ui.main.setting.changePwd.PasswordChangeViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -15,16 +15,16 @@ import org.mockito.Mock
 import org.mockito.Mockito.`when`
 
 @ExperimentalCoroutinesApi
-class ChangePwdViewModelTests : BaseTest() {
+class PasswordChangeViewModelTests : BaseTest() {
 
     @Mock
     private lateinit var changePwdUseCase: ChangePwdUseCase
 
-    private lateinit var viewModel: ChangePwdViewModel
+    private lateinit var viewModel: PasswordChangeViewModel
 
     @Before
     fun init() {
-        viewModel = ChangePwdViewModel(changePwdUseCase)
+        viewModel = PasswordChangeViewModel(changePwdUseCase)
     }
 
     @Test
@@ -49,7 +49,7 @@ class ChangePwdViewModelTests : BaseTest() {
 
             changePassword()
 
-            toastEvent.test().assertValue(R.string.fail_diff_retype)
+            toastEvent.test().assertValue(R.string.fail_re_type_different)
         }
     }
 
@@ -102,7 +102,7 @@ class ChangePwdViewModelTests : BaseTest() {
 
             changePassword()
 
-            toastEvent.test().assertValue(R.string.fail_auth_password)
+            toastEvent.test().assertValue(R.string.fail_password_auth)
         }
     }
 
@@ -122,7 +122,7 @@ class ChangePwdViewModelTests : BaseTest() {
 
             changePassword()
 
-            toastEvent.test().assertValue(R.string.fail_forbidden)
+            toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }
     }
 }

@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_login_header"
+            android:id="@+id/tv_login_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/header_restaurant_login"
@@ -33,13 +33,13 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/bg_login_edittext"
+            android:background="@drawable/bg_edittext_login"
             android:drawableStart="@drawable/ic_email_grey5_24dp"
             android:drawableLeft="@drawable/ic_email_grey5_24dp"
             android:drawablePadding="16dp"
             android:hint="@string/email"
             android:inputType="textWebEmailAddress"
-            android:nextFocusDown="@id/et_login_pwd"
+            android:nextFocusDown="@id/et_login_password"
             android:paddingStart="24dp"
             android:paddingLeft="24dp"
             android:paddingEnd="16dp"
@@ -48,18 +48,18 @@
             android:text="@={viewModel.email}"
             android:textColorHint="@color/colorGrey5"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/et_login_pwd"
+            app:layout_constraintBottom_toTopOf="@id/et_login_password"
             app:layout_constraintLeft_toLeftOf="@id/gl_login_left"
             app:layout_constraintRight_toRightOf="@id/gl_login_right"
-            app:layout_constraintTop_toBottomOf="@id/tv_login_header"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_label"
             tools:ignore="RtlSymmetry" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_login_pwd"
+            android:id="@+id/et_login_password"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/bg_login_edittext"
+            android:background="@drawable/bg_edittext_login"
             android:drawableStart="@drawable/ic_key_grey5_24dp"
             android:drawableLeft="@drawable/ic_key_grey5_24dp"
             android:drawablePadding="16dp"
@@ -83,8 +83,9 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
+            android:background="@{viewModel.isLoginClickable ? @drawable/bg_button_enable : @drawable/bg_button_disable}"
+            android:clickable="@{viewModel.isLoginClickable}"
             android:onClick="@{() -> viewModel.login()}"
-            android:background="@{viewModel.isLoginClickable ? @drawable/bg_primary_light_button : @drawable/bg_grey_button}"
             android:text="@string/login"
             android:textColor="@{viewModel.isLoginClickable ? @color/colorPrimaryLight : @color/colorGrey}"
             android:textSize="20sp"
@@ -92,8 +93,7 @@
             app:layout_constraintBottom_toTopOf="@id/tv_login_register"
             app:layout_constraintLeft_toLeftOf="@id/gl_login_left"
             app:layout_constraintRight_toRightOf="@id/gl_login_right"
-            app:layout_constraintTop_toBottomOf="@id/et_login_pwd"
-            android:clickable="@{viewModel.isLoginClickable}" />
+            app:layout_constraintTop_toBottomOf="@id/et_login_password" />
 
         <TextView
             android:id="@+id/tv_login_register"
@@ -104,13 +104,13 @@
             android:text="@string/do_register_restaurant"
             android:textColor="@color/colorPrimaryLight"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@id/tv_login_forget"
+            app:layout_constraintBottom_toTopOf="@id/tv_login_forget_id_or_password"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
         <TextView
-            android:id="@+id/tv_login_forget"
+            android:id="@+id/tv_login_forget_id_or_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

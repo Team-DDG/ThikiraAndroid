@@ -40,9 +40,9 @@ class Register1FragmentTests : BaseUiTest() {
         launchFragment(Register1Fragment::class.java)
 
         onView(withId(R.id.tv_register1_address)).check(matches(withText("")))
-        onView(withId(R.id.btn_register1_address)).perform(click())
+        onView(withId(R.id.btn_register1_select_address)).perform(click())
 
-        verify(mockNavController).navigate(R.id.action_register1Fragment_to_addressFragment)
+        verify(mockNavController).navigate(R.id.action_register1Fragment_to_addressSearchFragment)
     }
 
     @Test

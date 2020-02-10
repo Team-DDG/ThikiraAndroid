@@ -38,8 +38,8 @@ class LoginViewModel(
             _hideKeyboardEvent.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
-                is NotFoundException -> R.string.fail_login_not_found
-                else -> R.string.fail_internal
+                is NotFoundException -> R.string.fail_account_not_found
+                else -> R.string.fail_exception_internal
             }
         }
     }

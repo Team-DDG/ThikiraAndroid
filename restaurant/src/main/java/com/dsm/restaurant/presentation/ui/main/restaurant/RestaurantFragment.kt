@@ -17,10 +17,14 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupNavigate()
+
+        binding.viewModel = viewModel
+    }
+
+    private fun setupNavigate() {
         iv_restaurant_setting.setOnClickListener {
             findNavController().navigate(R.id.action_restaurantFragment_to_settingActivity)
         }
-
-        binding.viewModel = viewModel
     }
 }
