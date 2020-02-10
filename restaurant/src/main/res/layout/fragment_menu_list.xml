@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.restaurant.presentation.ui.main.menu.menuList.MenuListViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -27,6 +34,7 @@
                 <Spinner
                     android:id="@+id/spn_menu"
                     style="@style/CustomSpinnerTheme"
+                    spinner="@{viewModel.menuCategoryList}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>

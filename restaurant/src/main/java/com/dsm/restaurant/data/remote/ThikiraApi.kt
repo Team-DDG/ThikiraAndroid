@@ -1,5 +1,6 @@
 package com.dsm.restaurant.data.remote
 
+import com.dsm.restaurant.data.remote.dto.MenuCategoryDto
 import com.dsm.restaurant.data.remote.dto.RestaurantDto
 import com.dsm.restaurant.data.remote.dto.TokenDto
 import retrofit2.http.*
@@ -21,13 +22,16 @@ interface ThikiraApi {
     @GET("auth")
     suspend fun authToken()
 
+    @FormUrlEncoded
+    @PATCH("password")
+    suspend fun changePassword(@Field("password") newPassword: String)
+
     @GET("auth/password")
     suspend fun authPassword(@Query("password") password: String)
 
     @POST("auth/login")
     suspend fun login(@Body body: Any): TokenDto
 
-    @FormUrlEncoded
-    @PATCH("password")
-    suspend fun changePassword(@Field("password") newPassword: String)
+    @GET("menu/category")
+    suspend fun getMenuCategoryList(): List<MenuCategoryDto>
 }
