@@ -17,12 +17,16 @@ class Register3Fragment : BaseFragment<FragmentRegister3Binding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupNavigate()
+
+        binding.viewModel = viewModel
+    }
+
+    private fun setupNavigate() {
         tb_register3.setNavigationOnClickListener { findNavController().popBackStack() }
 
         btn_register3_next.setOnClickListener {
             findNavController().navigate(R.id.action_register3Fragment_to_register4Fragment)
         }
-
-        binding.viewModel = viewModel
     }
 }
