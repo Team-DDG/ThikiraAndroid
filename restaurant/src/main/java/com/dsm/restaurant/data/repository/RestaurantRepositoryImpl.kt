@@ -19,6 +19,7 @@ class RestaurantRepositoryImpl(
         }
 
         restaurantDataSource.getRemoteRestaurantInfo().let {
+            restaurantDataSource.deleteLocalRestaurantInfo()
             restaurantDataSource.insertLocalRestaurantInfo(it.toLocalDto())
             return@withContext it.toModel()
         }

@@ -10,4 +10,6 @@ interface RestaurantDataSource {
     suspend fun getLocalRestaurantInfo(): RestaurantLocalDto?
 
     suspend fun insertLocalRestaurantInfo(restaurant: RestaurantLocalDto)
+
+    suspend fun deleteLocalRestaurantInfo()
 }

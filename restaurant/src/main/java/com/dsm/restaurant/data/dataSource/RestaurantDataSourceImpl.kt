@@ -32,5 +32,7 @@ class RestaurantDataSourceImpl(
         restaurantDao.insertRestaurantInfo(restaurant)
     }
 
-
+    override suspend fun deleteLocalRestaurantInfo() = withContext(ioDispatcher) {
+        restaurantDao.deleteRestaurantInfo()
+    }
 }

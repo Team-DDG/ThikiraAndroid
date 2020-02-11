@@ -1,6 +1,7 @@
 package com.dsm.restaurant.data.repository
 
 import com.dsm.restaurant.data.dataSource.MenuCategoryDataSource
+import com.dsm.restaurant.data.remote.dto.MenuCategoryDto
 import com.dsm.restaurant.domain.repository.MenuCategoryRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -14,13 +15,14 @@ class MenuCategoryRepositoryImpl(
     override suspend fun getMenuCategoryList(forceUpdate: Boolean) = withContext(ioDispatcher) {
         if (!forceUpdate) {
             menuCategoryDataSource.getLocalMenuCategoryList()?.let {
-                return@withContext it.map { it.name }
+                if (it.isNotEmpty()) return@withContext it.map { it.name }
             }
         }
 
         menuCategoryDataSource.getRemoteMenuCategoryList().let {
-            menuCategoryDataSource.insertLocalMenuCategoryList(it.map { it.toLocalDto() })
-            return@withContext menuCategoryDataSource.getRemoteMenuCategoryList().map { it.name }
+            menuCategoryDataSource.deleteAllLocalMenuCategory()
+            menuCategoryDataSource.insertLocalMenuCategoryList(it.map(MenuCategoryDto::toLocalDto))
+            return@withContext it.map { it.name }
         }
     }
 }

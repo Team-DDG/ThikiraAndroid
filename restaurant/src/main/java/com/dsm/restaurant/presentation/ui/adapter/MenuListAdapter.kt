@@ -1,22 +1,20 @@
 package com.dsm.restaurant.presentation.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.R
-import com.dsm.restaurant.trashModel.MenuModel
-import kotlinx.android.synthetic.main.item_menu.view.*
+import com.dsm.restaurant.databinding.ItemMenuBinding
+import com.dsm.restaurant.domain.model.MenuModel
 
 class MenuListAdapter : ListAdapter<MenuModel, MenuListAdapter.MenuHolder>(MenuModel.DIFF_CALLBACK) {
 
-    inner class MenuHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MenuHolder(private val binding: ItemMenuBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
             val item = getItem(adapterPosition)
-            itemView.tv_menu_item_name.text = item.name
-            itemView.tv_menu_item_price.text = item.price
+            binding.menuModel = item
 
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_menuListFragment_to_menuDetailFragment)
@@ -25,7 +23,7 @@ class MenuListAdapter : ListAdapter<MenuModel, MenuListAdapter.MenuHolder>(MenuM
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuHolder =
-        MenuHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_menu, parent, false))
+        MenuHolder(ItemMenuBinding.inflate(LayoutInflater.from(parent.context)))
 
     override fun onBindViewHolder(holder: MenuHolder, position: Int) = holder.bind()
 }
