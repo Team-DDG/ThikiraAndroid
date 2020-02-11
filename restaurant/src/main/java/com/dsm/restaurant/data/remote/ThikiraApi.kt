@@ -1,6 +1,7 @@
 package com.dsm.restaurant.data.remote
 
 import com.dsm.restaurant.data.remote.dto.MenuCategoryDto
+import com.dsm.restaurant.data.remote.dto.MenuDto
 import com.dsm.restaurant.data.remote.dto.RestaurantDto
 import com.dsm.restaurant.data.remote.dto.TokenDto
 import retrofit2.http.*
@@ -31,6 +32,9 @@ interface ThikiraApi {
 
     @POST("auth/login")
     suspend fun login(@Body body: Any): TokenDto
+
+    @GET("menu")
+    suspend fun getMenuList(@Query("menu_category_id") menuCategoryId: Int): List<MenuDto>
 
     @GET("menu/category")
     suspend fun getMenuCategoryList(): List<MenuCategoryDto>

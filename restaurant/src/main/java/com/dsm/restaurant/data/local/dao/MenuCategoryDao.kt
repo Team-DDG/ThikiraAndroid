@@ -14,4 +14,10 @@ interface MenuCategoryDao {
 
     @Query("select * from MenuCategoryLocalDto")
     suspend fun getMenuCategoryList(): List<MenuCategoryLocalDto>?
+
+    @Query("select menuCategoryId from MenuCategoryLocalDto where name = :name")
+    suspend fun getMenuCategoryIdFromName(name: String): Int
+
+    @Query("delete from MenuCategoryLocalDto")
+    suspend fun deleteAllMenuCategory()
 }

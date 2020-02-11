@@ -31,4 +31,12 @@ class MenuCategoryDataSourceImpl(
     override suspend fun insertLocalMenuCategoryList(menuCategoryList: List<MenuCategoryLocalDto>) = withContext(ioDispatcher) {
         menuCategoryDao.insertMenuCategoryList(menuCategoryList)
     }
+
+    override suspend fun deleteAllLocalMenuCategory() = withContext(ioDispatcher) {
+        menuCategoryDao.deleteAllMenuCategory()
+    }
+
+    override suspend fun getMenuCategoryIdFromName(name: String): Int = withContext(ioDispatcher) {
+        menuCategoryDao.getMenuCategoryIdFromName(name)
+    }
 }

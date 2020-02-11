@@ -46,6 +46,7 @@ ext {
     glideVersion = '4.11.0'
     navigationVersion = "2.2.0"
     roomVersion = '2.2.3'
+    debugDbVersion = '1.0.6'
     retrofitVersion = "2.7.1"
     okhttpLoggingVersion = "4.3.1"
     koinVersion = "2.0.1"

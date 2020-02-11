@@ -10,4 +10,8 @@ interface MenuCategoryDataSource {
     suspend fun getLocalMenuCategoryList(): List<MenuCategoryLocalDto>?
 
     suspend fun insertLocalMenuCategoryList(menuCategoryList: List<MenuCategoryLocalDto>)
+
+    suspend fun deleteAllLocalMenuCategory()
+
+    suspend fun getMenuCategoryIdFromName(name: String): Int
 }

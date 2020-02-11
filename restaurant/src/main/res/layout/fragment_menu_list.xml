@@ -32,9 +32,9 @@
                 android:gravity="center">
 
                 <Spinner
-                    android:id="@+id/spn_menu"
+                    android:id="@+id/spn_menu_list"
                     style="@style/CustomSpinnerTheme"
-                    spinner="@{viewModel.menuCategoryList}"
+                    spinnerEntries="@{viewModel.menuCategoryList}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -42,6 +42,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_menu_list"
+            menuList="@{viewModel.menuList}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
