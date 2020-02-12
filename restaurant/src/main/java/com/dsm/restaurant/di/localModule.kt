@@ -17,4 +17,8 @@ val localModule = module {
     }
 
     factory { get<AppDatabase>().restaurantDao() }
+
+    factory { get<AppDatabase>().menuCategoryDao() }
+
+    factory { get<AppDatabase>().menuDao() }
 }

@@ -14,4 +14,7 @@ interface RestaurantDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRestaurantInfo(restaurantLocalDto: RestaurantLocalDto)
+
+    @Query("delete from restaurant")
+    suspend fun deleteRestaurantInfo()
 }

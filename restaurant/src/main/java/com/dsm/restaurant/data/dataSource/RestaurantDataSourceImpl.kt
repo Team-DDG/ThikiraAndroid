@@ -25,20 +25,14 @@ class RestaurantDataSourceImpl(
     }
 
     override suspend fun getLocalRestaurantInfo(): RestaurantLocalDto? = withContext(ioDispatcher) {
-        try {
-            restaurantDao.getRestaurantInfo()
-        } catch (e: Exception) {
-            throw errorHandler.getNetworkException(e)
-        }
+        restaurantDao.getRestaurantInfo()
     }
 
     override suspend fun insertLocalRestaurantInfo(restaurant: RestaurantLocalDto) = withContext(ioDispatcher) {
-        try {
-            restaurantDao.insertRestaurantInfo(restaurant)
-        } catch (e: Exception) {
-            throw errorHandler.getNetworkException(e)
-        }
+        restaurantDao.insertRestaurantInfo(restaurant)
     }
 
-
+    override suspend fun deleteLocalRestaurantInfo() = withContext(ioDispatcher) {
+        restaurantDao.deleteRestaurantInfo()
+    }
 }
