@@ -6,6 +6,7 @@ import androidx.fragment.app.testing.FragmentScenario
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.IdlingRegistry
+import androidx.test.platform.app.InstrumentationRegistry
 import com.dsm.restaurant.presentation.util.EspressoIdlingResource
 import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
@@ -13,6 +14,7 @@ import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.RecordedRequest
 import org.junit.After
 import org.junit.Before
+import org.junit.BeforeClass
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import java.nio.charset.Charset
@@ -21,6 +23,11 @@ open class BaseUiTest {
 
     companion object {
         private const val MOCK_SERVER_PORT = 1313
+
+        @BeforeClass
+        fun deleteDatabaseBeforeTestCases() {
+            InstrumentationRegistry.getInstrumentation().targetContext.deleteDatabase("thikira.db")
+        }
     }
 
     private val mockServer = MockWebServer()
@@ -52,6 +59,7 @@ open class BaseUiTest {
     fun unregisterIdlingResource() {
         IdlingRegistry.getInstance().unregister(EspressoIdlingResource.countingIdlingResource)
     }
+
 
     protected fun setDispatcher(dispatcher: Dispatcher) {
         mockServer.dispatcher = dispatcher

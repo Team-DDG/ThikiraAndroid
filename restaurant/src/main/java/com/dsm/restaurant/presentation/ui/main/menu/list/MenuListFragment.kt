@@ -1,4 +1,4 @@
-package com.dsm.restaurant.presentation.ui.main.menu.menuList
+package com.dsm.restaurant.presentation.ui.main.menu.list
 
 import android.os.Bundle
 import android.view.View
