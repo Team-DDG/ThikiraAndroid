@@ -10,7 +10,7 @@ import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuListUseCase
 import com.dsm.restaurant.domain.repository.MenuCategoryRepository
 import com.dsm.restaurant.domain.repository.MenuRepository
-import com.dsm.restaurant.presentation.ui.main.menu.menuList.MenuListViewModel
+import com.dsm.restaurant.presentation.ui.main.menu.list.MenuListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

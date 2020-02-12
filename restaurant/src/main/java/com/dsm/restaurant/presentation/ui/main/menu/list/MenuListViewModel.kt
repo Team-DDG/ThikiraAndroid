@@ -1,4 +1,4 @@
-package com.dsm.restaurant.presentation.ui.main.menu.menuList
+package com.dsm.restaurant.presentation.ui.main.menu.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

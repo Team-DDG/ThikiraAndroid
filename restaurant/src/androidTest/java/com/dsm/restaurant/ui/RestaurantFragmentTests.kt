@@ -21,6 +21,8 @@ class RestaurantFragmentTests : BaseUiTest() {
 
         launchFragment(RestaurantFragment::class.java)
 
+        Thread.sleep(1000)
+
         onView(withId(R.id.tv_restaurant_time)).check(matches(withText("10:30~11:30")))
         onView(withId(R.id.tv_restaurant_phone)).check(matches(withText("phone")))
         onView(withId(R.id.tv_restaurant_email)).check(matches(withText("Email")))
@@ -32,7 +34,7 @@ class RestaurantFragmentTests : BaseUiTest() {
         onView(withId(R.id.tv_restaurant_description)).check(matches(withText("안녕하세요 김도훈입니다")))
     }
 
-    private fun getDispatcher() = object: Dispatcher() {
+    private fun getDispatcher() = object : Dispatcher() {
         override fun dispatch(request: RecordedRequest): MockResponse =
             when (Uri.parse(request.path).path) {
                 "/" -> MockResponse().setResponseCode(200).setBody(parseJsonFile("restaurant.json"))
