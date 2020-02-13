@@ -2,16 +2,19 @@ package com.dsm.restaurant.presentation.ui.main.menu.category
 
 import androidx.lifecycle.*
 import com.dsm.restaurant.R
+import com.dsm.restaurant.data.error.exception.ConflictException
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
+import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 class MenuCategoryListViewModel(
     private val getMenuCategoryListUseCase: GetMenuCategoryListUseCase,
-    private val deleteMenuCategoryListUseCase: DeleteMenuCategoryListUseCase
+    private val deleteMenuCategoryListUseCase: DeleteMenuCategoryListUseCase,
+    private val updateMenuCategoryUseCase: UpdateMenuCategoryUseCase
 ) : ViewModel() {
 
     private val _menuCategoryList = MutableLiveData<List<MenuCategoryModel>>()
@@ -25,8 +28,14 @@ class MenuCategoryListViewModel(
     private val _changeViewTypeDeleteEvent = SingleLiveEvent<Unit>()
     val changeViewTypeDeleteEvent: LiveData<Unit> = _changeViewTypeDeleteEvent
 
+    private val _changeViewTypeUpdateEvent = SingleLiveEvent<Unit>()
+    val changeViewTypeUpdateEvent: LiveData<Unit> = _changeViewTypeUpdateEvent
+
     private val _isDeleting = MutableLiveData<Boolean>(false)
+    val isDeleting: LiveData<Boolean> = _isDeleting
+
     private val _isUpdating = MutableLiveData<Boolean>(false)
+    val isUpdating: LiveData<Boolean> = _isUpdating
 
     val isSelecting: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
         addSource(_isDeleting) { value = _isDeleting.value!! || _isUpdating.value!! }
@@ -78,9 +87,33 @@ class MenuCategoryListViewModel(
         }
     }
 
+    fun onClickUpdate(updateText: String, menuCategoryId: Int) = viewModelScope.launch {
+        try {
+            updateMenuCategoryUseCase(menuCategoryId, updateText)
+
+            getMenuCategory(forceUpdate = false)
+        } catch (e: Exception) {
+            _toastEvent.value = when (e) {
+                is ForbiddenException -> R.string.fail_exception_forbidden
+                is ConflictException -> R.string.fail_category_menu_name_conflict
+                else -> R.string.fail_exception_internal
+            }
+        }
+    }
+
+    fun onStartUpdate() {
+        _isUpdating.value = false
+        _changeViewTypeNormalEvent.call()
+    }
+
     fun onStartDeleting() {
         _isDeleting.value = true
         _changeViewTypeDeleteEvent.call()
+    }
+
+    fun onStartUpdating() {
+        _isUpdating.value = true
+        _changeViewTypeUpdateEvent.call()
     }
 
     fun onClickCancel() {

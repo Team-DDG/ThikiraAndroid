@@ -7,4 +7,6 @@ interface MenuCategoryRepository {
     suspend fun getMenuCategoryList(forceUpdate: Boolean): List<MenuCategoryModel>
 
     suspend fun deleteMenuCategoryList(menuCategoryList: List<Int>)
+
+    suspend fun updateMenuCategory(menuCategoryId: Int, name: String)
 }

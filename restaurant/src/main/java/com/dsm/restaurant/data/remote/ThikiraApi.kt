@@ -41,4 +41,11 @@ interface ThikiraApi {
 
     @DELETE("menu/category/{mc_ids}")
     suspend fun deleteMenuCategoryList(@Path("mc_ids") menuCategoryIds: List<Int>)
+
+    @FormUrlEncoded
+    @PATCH("menu/category")
+    suspend fun updateMenuCategory(
+        @Field("menu_category_id") menuCategoryId: Int,
+        @Field("name") name: String
+    )
 }

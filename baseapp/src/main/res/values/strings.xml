@@ -9,6 +9,7 @@
     <string name="delete">삭제</string>
     <string name="update">수정</string>
     <string name="cancel">취소</string>
+    <string name="complete">완료</string>
 
     <string name="colon">:</string>
     <string name="tilde">~</string>
@@ -22,6 +23,7 @@
     <string name="fail_image_uploading">이미지 업로드에 실패했습니다</string>
     <string name="fail_re_type_different">비밀번호가 일치하지 않습니다</string>
     <string name="fail_account_not_found">존재하지 않는 계정입니다</string>
+    <string name="fail_category_menu_name_conflict">카테고리의 이름이 중복됩니다</string>
     <string name="fail_exception_internal">네트워크를 확인해주세요</string>
     <string name="fail_exception_forbidden">로그인이 필요합니다</string>
 
@@ -147,7 +149,7 @@
 
     <!--feature:setting-->
     <string name="setting">설정</string>
-    
+
     <string name="change_password">비밀번호 변경</string>
     <string name="update_restaurant_info">업체 정보 수정</string>
 
