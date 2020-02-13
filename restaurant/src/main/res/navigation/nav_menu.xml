@@ -24,6 +24,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_menuListFragment_to_menuCategoryListFragment"
+            app:destination="@id/menuCategoryListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/menuDetailFragment"
@@ -35,4 +42,9 @@
         android:name="com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationActivity"
         android:label="activity_menu_registration1"
         tools:layout="@layout/activity_menu_registration" />
+    <fragment
+        android:id="@+id/menuCategoryListFragment"
+        android:name="com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListFragment"
+        android:label="MenuCategoryListFragment"
+        tools:layout="@layout/fragment_menu_category_list"/>
 </navigation>

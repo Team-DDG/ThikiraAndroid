@@ -32,7 +32,7 @@ class MenuListViewModel(
 
     fun getMenuCategory(forceUpdate: Boolean) = viewModelScope.launch {
         try {
-            _menuCategoryList.value = getMenuCategoryListUseCase(forceUpdate)
+            _menuCategoryList.value = getMenuCategoryListUseCase(forceUpdate).map { it.name }
         } catch (e: Exception) {
             _menuCategoryList.value = listOf("")
         }

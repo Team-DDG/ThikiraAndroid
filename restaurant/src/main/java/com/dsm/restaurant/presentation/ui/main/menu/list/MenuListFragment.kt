@@ -3,6 +3,7 @@ package com.dsm.restaurant.presentation.ui.main.menu.list
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.PopupMenu
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.R
@@ -23,6 +24,7 @@ class MenuListFragment : BaseFragment<FragmentMenuListBinding>() {
 
         setupNavigate()
         setupSpinnerListener()
+        setupPopupMenu()
         setupRecyclerView()
         setupToast(viewModel.toastEvent)
 
@@ -46,6 +48,24 @@ class MenuListFragment : BaseFragment<FragmentMenuListBinding>() {
                 }
             }
 
+        }
+    }
+
+    private fun setupPopupMenu() {
+        iv_menu_list_popup.setOnClickListener {
+            PopupMenu(activity, it).apply {
+                menu.add(R.string.menu_category)
+
+                setOnMenuItemClickListener { menuItem ->
+                    when (menuItem.title.toString()) {
+                        getString(R.string.menu_category) ->
+                            findNavController().navigate(R.id.action_menuListFragment_to_menuCategoryListFragment)
+                    }
+                    true
+                }
+
+                show()
+            }
         }
     }
 
