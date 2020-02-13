@@ -6,11 +6,16 @@
         <variable
             name="menuCategoryModel"
             type="com.dsm.restaurant.domain.model.MenuCategoryModel" />
+
+        <variable
+            name="viewModel"
+            type="com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onClickMenuCategoryItem(menuCategoryModel)}">
 
         <TextView
             android:id="@+id/tv_menu_category_item_category"

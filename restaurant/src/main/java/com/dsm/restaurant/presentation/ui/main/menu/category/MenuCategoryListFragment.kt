@@ -37,6 +37,10 @@ class MenuCategoryListFragment : BaseFragment<FragmentMenuCategoryListBinding>()
         iv_menu_category_list_back.setOnClickListener { findNavController().popBackStack() }
 
         requireActivity().onBackPressedDispatcher.addCallback(this) { findNavController().popBackStack() }
+
+        viewModel.popBackStackEvent.observe(this) {
+            findNavController().popBackStack(R.id.menuRegistration1Fragment, false)
+        }
     }
 
     private fun setupRecyclerView() {
