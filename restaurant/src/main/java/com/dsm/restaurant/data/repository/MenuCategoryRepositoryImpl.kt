@@ -1,6 +1,7 @@
 package com.dsm.restaurant.data.repository
 
 import com.dsm.restaurant.data.dataSource.MenuCategoryDataSource
+import com.dsm.restaurant.data.local.dto.MenuCategoryLocalDto
 import com.dsm.restaurant.data.remote.dto.MenuCategoryDto
 import com.dsm.restaurant.domain.repository.MenuCategoryRepository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -15,14 +16,26 @@ class MenuCategoryRepositoryImpl(
     override suspend fun getMenuCategoryList(forceUpdate: Boolean) = withContext(ioDispatcher) {
         if (!forceUpdate) {
             menuCategoryDataSource.getLocalMenuCategoryList()?.let {
-                if (it.isNotEmpty()) return@withContext it.map { it.name }
+                if (it.isNotEmpty()) return@withContext it.map(MenuCategoryLocalDto::toModel)
             }
         }
 
         menuCategoryDataSource.getRemoteMenuCategoryList().let {
             menuCategoryDataSource.deleteAllLocalMenuCategory()
             menuCategoryDataSource.insertLocalMenuCategoryList(it.map(MenuCategoryDto::toLocalDto))
-            return@withContext it.map { it.name }
+            return@withContext it.map(MenuCategoryDto::toModel)
+        }
+    }
+
+    override suspend fun deleteMenuCategoryList(menuCategoryList: List<Int>) = withContext(ioDispatcher) {
+        try {
+            menuCategoryDataSource.deleteRemoteMenuCategoryList(menuCategoryList)
+        } catch (e: Exception) {
+            throw e // Don't delete local menu categories when remote failed!!
+        }
+
+        menuCategoryList.forEach {
+            menuCategoryDataSource.deleteLocalMenuCategory(it)
         }
     }
 }

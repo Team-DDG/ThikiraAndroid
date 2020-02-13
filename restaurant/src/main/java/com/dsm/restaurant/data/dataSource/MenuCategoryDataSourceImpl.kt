@@ -39,4 +39,16 @@ class MenuCategoryDataSourceImpl(
     override suspend fun getMenuCategoryIdFromName(name: String): Int = withContext(ioDispatcher) {
         menuCategoryDao.getMenuCategoryIdFromName(name)
     }
+
+    override suspend fun deleteRemoteMenuCategoryList(menuCategoryList: List<Int>) = withContext(ioDispatcher) {
+        try {
+            thikiraApi.deleteMenuCategoryList(menuCategoryList)
+        } catch (e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
+
+    override suspend fun deleteLocalMenuCategory(menuCategory: Int) = withContext(ioDispatcher) {
+        menuCategoryDao.deleteMenuCategory(menuCategory)
+    }
 }

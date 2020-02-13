@@ -38,4 +38,7 @@ interface ThikiraApi {
 
     @GET("menu/category")
     suspend fun getMenuCategoryList(): List<MenuCategoryDto>
+
+    @DELETE("menu/category/{mc_ids}")
+    suspend fun deleteMenuCategoryList(@Path("mc_ids") menuCategoryIds: List<Int>)
 }
