@@ -20,4 +20,7 @@ interface MenuCategoryDao {
 
     @Query("delete from MenuCategoryLocalDto")
     suspend fun deleteAllMenuCategory()
+
+    @Query("delete from MenuCategoryLocalDto where menuCategoryId = :menuCategoryId")
+    suspend fun deleteMenuCategory(menuCategoryId: Int)
 }

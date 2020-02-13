@@ -6,10 +6,12 @@ import com.dsm.restaurant.data.dataSource.MenuDataSource
 import com.dsm.restaurant.data.dataSource.MenuDataSourceImpl
 import com.dsm.restaurant.data.repository.MenuCategoryRepositoryImpl
 import com.dsm.restaurant.data.repository.MenuRepositoryImpl
+import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuListUseCase
 import com.dsm.restaurant.domain.repository.MenuCategoryRepository
 import com.dsm.restaurant.domain.repository.MenuRepository
+import com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel
 import com.dsm.restaurant.presentation.ui.main.menu.list.MenuListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -25,6 +27,8 @@ val menuModule = module {
 
     factory { GetMenuCategoryListUseCase(get()) }
 
+    factory { DeleteMenuCategoryListUseCase(get()) }
+
     /**
      * Menu
      */
@@ -34,5 +38,10 @@ val menuModule = module {
 
     factory { GetMenuListUseCase(get()) }
 
+    /**
+     * ViewModel
+     */
     viewModel { MenuListViewModel(get(), get()) }
+
+    viewModel { MenuCategoryListViewModel(get(), get()) }
 }

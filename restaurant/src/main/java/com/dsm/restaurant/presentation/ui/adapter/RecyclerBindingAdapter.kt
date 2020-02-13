@@ -4,6 +4,7 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.domain.model.AddressModel
+import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.domain.model.MenuModel
 
 @BindingAdapter("addressList")
@@ -17,5 +18,12 @@ fun RecyclerView.bindAddressList(addressListLiveData: LiveData<List<AddressModel
 fun RecyclerView.bindMenuList(menuListLiveData: LiveData<List<MenuModel>>) {
     menuListLiveData.value?.let {
         (adapter as MenuListAdapter).submitList(it)
+    }
+}
+
+@BindingAdapter("menuCategoryList")
+fun RecyclerView.bindMenuCategoryList(menuCategoryListLiveData: LiveData<List<MenuCategoryModel>>) {
+    menuCategoryListLiveData.value?.let {
+        (adapter as MenuCategoryListAdapter).submitList(it)
     }
 }
