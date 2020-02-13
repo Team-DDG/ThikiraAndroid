@@ -14,6 +14,7 @@ import com.dsm.restaurant.domain.repository.MenuCategoryRepository
 import com.dsm.restaurant.domain.repository.MenuRepository
 import com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel
 import com.dsm.restaurant.presentation.ui.main.menu.list.MenuListViewModel
+import com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -47,4 +48,6 @@ val menuModule = module {
     viewModel { MenuListViewModel(get(), get()) }
 
     viewModel { MenuCategoryListViewModel(get(), get(), get()) }
+
+    viewModel { MenuRegistrationViewModel(get()) }
 }

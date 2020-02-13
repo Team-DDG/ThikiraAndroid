@@ -91,6 +91,9 @@ dependencies {
     // firebase
     implementation "com.google.firebase:firebase-storage:$firebaseStorageVersion"
 
+    // otto
+    implementation "com.squareup:otto:$ottoVersion"
+
     // testing
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
