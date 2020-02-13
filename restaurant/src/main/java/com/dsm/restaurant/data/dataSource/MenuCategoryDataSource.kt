@@ -18,4 +18,8 @@ interface MenuCategoryDataSource {
     suspend fun deleteRemoteMenuCategoryList(menuCategoryList: List<Int>)
 
     suspend fun deleteLocalMenuCategory(menuCategory: Int)
+
+    suspend fun updateRemoteMenuCategory(name: String, menuCategoryId: Int)
+
+    suspend fun updateLocalMenuCategory(name: String, menuCategoryId: Int)
 }

@@ -6,6 +6,8 @@ import android.widget.PopupMenu
 import androidx.activity.addCallback
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentMenuCategoryListBinding
 import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter
@@ -39,16 +41,19 @@ class MenuCategoryListFragment : BaseFragment<FragmentMenuCategoryListBinding>()
 
     private fun setupRecyclerView() {
         rv_menu_category_list.adapter = MenuCategoryListAdapter(viewModel)
+        rv_menu_category_list.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
     }
 
     private fun setupPopup() {
         iv_menu_category_list_popup.setOnClickListener { view ->
             PopupMenu(activity, view).apply {
                 menu.add(R.string.delete)
+                menu.add(R.string.update)
 
                 setOnMenuItemClickListener { menuItem ->
                     when (menuItem.title) {
                         getString(R.string.delete) -> viewModel.onStartDeleting()
+                        getString(R.string.update) -> viewModel.onStartUpdating()
                     }
                     true
                 }
@@ -65,6 +70,10 @@ class MenuCategoryListFragment : BaseFragment<FragmentMenuCategoryListBinding>()
 
         viewModel.changeViewTypeDeleteEvent.observe(this) {
             (rv_menu_category_list.adapter as MenuCategoryListAdapter).viewType = MenuCategoryListAdapter.DELETE_TYPE
+        }
+
+        viewModel.changeViewTypeUpdateEvent.observe(this) {
+            (rv_menu_category_list.adapter as MenuCategoryListAdapter).viewType = MenuCategoryListAdapter.UPDATE_TYPE
         }
     }
 }

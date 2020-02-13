@@ -5,6 +5,7 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
+import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel
 import com.jraska.livedata.test
@@ -24,11 +25,14 @@ class MenuCategoryListViewModelTests : BaseTest() {
     @Mock
     private lateinit var deleteMenuCategoryListUseCase: DeleteMenuCategoryListUseCase
 
+    @Mock
+    private lateinit var updateMenuCategoryUseCase: UpdateMenuCategoryUseCase
+
     private lateinit var viewModel: MenuCategoryListViewModel
 
     @Before
     fun init() {
-        viewModel = MenuCategoryListViewModel(getMenuCategoryListUseCase, deleteMenuCategoryListUseCase)
+        viewModel = MenuCategoryListViewModel(getMenuCategoryListUseCase, deleteMenuCategoryListUseCase, updateMenuCategoryUseCase)
     }
 
     @Test
@@ -91,6 +95,29 @@ class MenuCategoryListViewModelTests : BaseTest() {
             onClickDelete()
 
             changeViewTypeNormalEvent.test().assertNoValue()
+            toastEvent.test().assertValue(R.string.fail_exception_forbidden)
+        }
+    }
+
+    @Test
+    fun updateMenuCategorySuccessTest() = runBlockingTest {
+        viewModel.run {
+            `when`(updateMenuCategoryUseCase.invoke(0, "NAME")).thenReturn(Unit)
+
+            onClickUpdate("NAME", 0)
+
+            toastEvent.test().assertNoValue()
+        }
+    }
+
+    @Test
+    fun updateMenuCategoryForbiddenTest() = runBlockingTest {
+        viewModel.run {
+            `when`(updateMenuCategoryUseCase.invoke(0, "NAME"))
+                .thenThrow(ForbiddenException(Exception()))
+
+            onClickUpdate("NAME", 0)
+
             toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }
     }

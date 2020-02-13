@@ -38,4 +38,14 @@ class MenuCategoryRepositoryImpl(
             menuCategoryDataSource.deleteLocalMenuCategory(it)
         }
     }
+
+    override suspend fun updateMenuCategory(menuCategoryId: Int, name: String) = withContext(ioDispatcher) {
+        try {
+            menuCategoryDataSource.updateRemoteMenuCategory(name, menuCategoryId)
+        } catch (e: Exception) {
+            throw e // Don't update local menu category when remote failed!!
+        }
+
+        menuCategoryDataSource.updateLocalMenuCategory(name, menuCategoryId)
+    }
 }
