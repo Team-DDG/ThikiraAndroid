@@ -6,6 +6,7 @@ import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuListUseCase
 import com.dsm.restaurant.domain.model.GroupModel
+import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.domain.model.MenuModel
 import com.dsm.restaurant.domain.model.OptionModel
 import com.dsm.restaurant.presentation.ui.main.menu.list.MenuListViewModel
@@ -60,12 +61,17 @@ class MenuListViewModelTests : BaseTest() {
     @Test
     fun getMenuCategorySuccessTest() = runBlockingTest {
         viewModel.run {
-            val response = listOf("CATEGORY1", "CATEGORY2")
+            val response = listOf(
+                MenuCategoryModel(
+                    menuCategoryId = 0,
+                    name = "NAME"
+                )
+            )
             `when`(getMenuCategoryListUseCase.invoke(true)).thenReturn(response)
 
             getMenuCategory(true)
 
-            menuCategoryList.test().assertValue(response)
+            menuCategoryList.test().assertValue(response.map { it.name })
             toastEvent.test().assertNoValue()
         }
     }
