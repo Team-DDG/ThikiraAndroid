@@ -13,7 +13,7 @@ import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.presentation.util.BusProvider
 import com.squareup.otto.Subscribe
 import kotlinx.android.synthetic.main.fragment_menu_registration1.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>() {
 
@@ -23,7 +23,7 @@ class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>
 
     override val layoutResId: Int = R.layout.fragment_menu_registration1
 
-    private val viewModel: MenuRegistrationViewModel by viewModel()
+    private val viewModel: MenuRegistrationViewModel by sharedViewModel()
 
     private var isBusRegistered = false
 
