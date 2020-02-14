@@ -86,6 +86,30 @@ class MenuRegistrationViewModel(
         _menuOptionList.value = list
     }
 
+    fun deleteGroup(position: Int) {
+        val list = _menuOptionList.value!!
+
+        var lastPosition = position
+        (position until list.size).forEach {
+            if (list[it] is MenuRegistrationOptionModel.Group || list[it] is MenuRegistrationOptionModel.AddGroup) {
+                return@forEach
+            }
+            lastPosition = it
+        }
+
+        (position..lastPosition).forEach {
+            list.removeAt(position)
+        }
+
+        _menuOptionList.value = list
+    }
+
+    fun deleteOption(position: Int) {
+        val list = _menuOptionList.value!!
+        list.removeAt(position)
+        _menuOptionList.value = list
+    }
+
     val isRegistration1NextEnable: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
         addSource(name) { value = isRegistration1Filled() }
         addSource(price) { value = isRegistration1Filled() }
