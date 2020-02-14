@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -42,14 +49,17 @@
             app:layout_constraintTop_toBottomOf="@id/tb_menu_registration2" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_menu_registration2_option"
+            menuRegistrationOptionList="@{viewModel.menuOptionList}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_menu_registration2_set_option"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_menu_registration2_set_option" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

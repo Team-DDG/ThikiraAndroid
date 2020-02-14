@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.firebase.FirebaseSource
 import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.domain.model.MenuRegistrationOptionModel
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import com.dsm.restaurant.presentation.util.isValueBlank
 
@@ -27,11 +28,20 @@ class MenuRegistrationViewModel(
     private val _menuCategoryName = MutableLiveData<String>("")
     val menuCategoryName: LiveData<String> = _menuCategoryName
 
+    private val _menuOptionList = MutableLiveData<ArrayList<MenuRegistrationOptionModel>>(arrayListOf(MenuRegistrationOptionModel.AddGroup))
+    val menuOptionList: LiveData<ArrayList<MenuRegistrationOptionModel>> = _menuOptionList
+
     private val _isImageUploading = MutableLiveData<Boolean>(false)
     val isImageUploading: LiveData<Boolean> = _isImageUploading
 
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
+
+    private val _dialogAddGroupEvent = SingleLiveEvent<Unit>()
+    val dialogAddGroupEvent: LiveData<Unit> = _dialogAddGroupEvent
+
+    private val _dialogAddOptionEvent = SingleLiveEvent<Int>()
+    val dialogAddOptionEvent: LiveData<Int> = _dialogAddOptionEvent
 
     fun setMenuCategory(menuCategoryModel: MenuCategoryModel) {
         _menuCategoryId.value = menuCategoryModel.menuCategoryId
@@ -54,6 +64,26 @@ class MenuRegistrationViewModel(
             }
 
         })
+    }
+
+    fun onClickAddGroup() {
+        _dialogAddGroupEvent.call()
+    }
+
+    fun onClickAddOption(position: Int) {
+        _dialogAddOptionEvent.value = position
+    }
+
+    fun addGroup(groupName: String, maxCount: Int) {
+        val list = _menuOptionList.value!!
+        list.add(list.size - 1, MenuRegistrationOptionModel.Group(groupName, maxCount))
+        _menuOptionList.value = list
+    }
+
+    fun addOption(name: String, price: Int, position: Int) {
+        val list = _menuOptionList.value!!
+        list.add(position + 1, MenuRegistrationOptionModel.Option(name, price))
+        _menuOptionList.value = list
     }
 
     val isRegistration1NextEnable: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
