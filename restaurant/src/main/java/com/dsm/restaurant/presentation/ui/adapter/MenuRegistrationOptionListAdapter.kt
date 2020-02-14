@@ -44,6 +44,8 @@ class MenuRegistrationOptionListAdapter(
         fun bind() {
             val item = listItems[adapterPosition] as MenuRegistrationOptionModel.Option
             binding.option = item
+            binding.position = adapterPosition
+            binding.viewModel = viewModel
         }
     }
 
