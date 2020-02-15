@@ -5,7 +5,7 @@
 
         <variable
             name="option"
-            type="com.dsm.restaurant.domain.model.MenuRegistrationOptionModel.Option" />
+            type="com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel.Option" />
 
         <variable
             name="viewModel"

@@ -16,5 +16,8 @@ interface MenuDao {
     suspend fun insertMenuList(menuList: List<MenuLocalDto>)
 
     @Query("delete from MenuLocalDto where menuCategoryId = :menuCategoryId")
-    suspend fun deleteAllMenuByMenuCategoryId(menuCategoryId: Int)  
+    suspend fun deleteAllMenuByMenuCategoryId(menuCategoryId: Int)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertMenu(menu: MenuLocalDto)
 }

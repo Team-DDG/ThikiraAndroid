@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.domain.model.AddressModel
 import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.domain.model.MenuModel
-import com.dsm.restaurant.domain.model.MenuRegistrationOptionModel
+import com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel
 
 @BindingAdapter("addressList")
 fun RecyclerView.bindAddressList(addressListLiveData: LiveData<List<AddressModel>>) {

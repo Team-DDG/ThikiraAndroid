@@ -1,17 +1,20 @@
 package com.dsm.restaurant.presentation.ui.main.menu.registration
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.dsm.restaurant.R
+import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.firebase.FirebaseSource
+import com.dsm.restaurant.domain.interactor.UploadMenuUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
-import com.dsm.restaurant.domain.model.MenuRegistrationOptionModel
+import com.dsm.restaurant.presentation.model.GroupOptionModel
+import com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel
+import com.dsm.restaurant.presentation.model.OptionModel
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import com.dsm.restaurant.presentation.util.isValueBlank
+import kotlinx.coroutines.launch
 
 class MenuRegistrationViewModel(
+    private val uploadMenuUseCase: UploadMenuUseCase,
     private val firebaseSource: FirebaseSource
 ) : ViewModel() {
 
@@ -31,6 +34,8 @@ class MenuRegistrationViewModel(
     private val _menuOptionList = MutableLiveData<ArrayList<MenuRegistrationOptionModel>>(arrayListOf(MenuRegistrationOptionModel.AddGroup))
     val menuOptionList: LiveData<ArrayList<MenuRegistrationOptionModel>> = _menuOptionList
 
+    private val groupOptionList = MutableLiveData<ArrayList<GroupOptionModel>>(arrayListOf())
+
     private val _isImageUploading = MutableLiveData<Boolean>(false)
     val isImageUploading: LiveData<Boolean> = _isImageUploading
 
@@ -42,6 +47,9 @@ class MenuRegistrationViewModel(
 
     private val _dialogAddOptionEvent = SingleLiveEvent<Int>()
     val dialogAddOptionEvent: LiveData<Int> = _dialogAddOptionEvent
+
+    private val _finishActivityEvent = SingleLiveEvent<Unit>()
+    val finishActivityEvent: LiveData<Unit> = _finishActivityEvent
 
     fun setMenuCategory(menuCategoryModel: MenuCategoryModel) {
         _menuCategoryId.value = menuCategoryModel.menuCategoryId
@@ -77,12 +85,30 @@ class MenuRegistrationViewModel(
     fun addGroup(groupName: String, maxCount: Int) {
         val list = _menuOptionList.value!!
         list.add(list.size - 1, MenuRegistrationOptionModel.Group(groupName, maxCount))
+        groupOptionList.value?.add(
+            GroupOptionModel(
+                name = groupName,
+                max_count = maxCount
+            )
+        )
         _menuOptionList.value = list
     }
 
     fun addOption(name: String, price: Int, position: Int) {
         val list = _menuOptionList.value!!
+        val groupName = (list[position] as MenuRegistrationOptionModel.Group).groupName
         list.add(position + 1, MenuRegistrationOptionModel.Option(name, price))
+        groupOptionList.value?.forEachIndexed { index, groupOption ->
+            if (groupOption.name == groupName) {
+                groupOptionList.value?.get(index)?.option?.add(
+                    OptionModel(
+                        name = name,
+                        price = price
+                    )
+                )
+                return@forEachIndexed
+            }
+        }
         _menuOptionList.value = list
     }
 
@@ -108,6 +134,29 @@ class MenuRegistrationViewModel(
         val list = _menuOptionList.value!!
         list.removeAt(position)
         _menuOptionList.value = list
+    }
+
+    fun uploadMenu() = viewModelScope.launch {
+        try {
+            uploadMenuUseCase(
+                hashMapOf(
+                    "mc_id" to menuCategoryId.value,
+                    "name" to name.value,
+                    "price" to price.value?.toInt(),
+                    "description" to description.value,
+                    "image" to imageUrl.value,
+                    "group" to groupOptionList.value
+                )
+            )
+
+            _finishActivityEvent.call()
+        } catch (e: Exception) {
+            _toastEvent.value = when (e) {
+                is ForbiddenException -> R.string.fail_exception_forbidden
+                else -> R.string.fail_exception_internal
+            }
+        }
+
     }
 
     val isRegistration1NextEnable: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {

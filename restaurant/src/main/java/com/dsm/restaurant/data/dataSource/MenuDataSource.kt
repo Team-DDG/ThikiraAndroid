@@ -12,4 +12,8 @@ interface MenuDataSource {
     suspend fun insertLocalMenuList(menuList: List<MenuLocalDto>)
 
     suspend fun deleteAllLocalMenu(menuCategoryId: Int)
+
+    suspend fun uploadRemoteMenu(body: Any)
+
+    suspend fun insertLocalMenu(menu: MenuLocalDto)
 }

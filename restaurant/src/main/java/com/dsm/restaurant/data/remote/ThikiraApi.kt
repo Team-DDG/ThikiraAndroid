@@ -48,4 +48,7 @@ interface ThikiraApi {
         @Field("menu_category_id") menuCategoryId: Int,
         @Field("name") name: String
     )
+
+    @POST("menu")
+    suspend fun uploadMenu(@Body body: Any)
 }
