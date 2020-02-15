@@ -34,4 +34,15 @@ class MenuDataSourceImpl(
         menuDao.deleteAllMenuByMenuCategoryId(menuCategoryId)
     }
 
+    override suspend fun uploadRemoteMenu(body: Any) = withContext(ioDispatcher) {
+        try {
+            thikiraApi.uploadMenu(body)
+        } catch (e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
+
+    override suspend fun insertLocalMenu(menu: MenuLocalDto) = withContext(ioDispatcher) {
+        menuDao.insertMenu(menu)
+    }
 }

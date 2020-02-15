@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.databinding.ItemMenuRegistrationAddGroupBinding
 import com.dsm.restaurant.databinding.ItemMenuRegistrationGroupBinding
 import com.dsm.restaurant.databinding.ItemMenuRegistrationOptionBinding
-import com.dsm.restaurant.domain.model.MenuRegistrationOptionModel
+import com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel
 import com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationViewModel
 
 class MenuRegistrationOptionListAdapter(

@@ -1,4 +1,4 @@
-package com.dsm.restaurant.domain.model
+package com.dsm.restaurant.presentation.model
 
 sealed class MenuRegistrationOptionModel {
 

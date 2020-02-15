@@ -6,10 +6,7 @@ import com.dsm.restaurant.data.dataSource.MenuDataSource
 import com.dsm.restaurant.data.dataSource.MenuDataSourceImpl
 import com.dsm.restaurant.data.repository.MenuCategoryRepositoryImpl
 import com.dsm.restaurant.data.repository.MenuRepositoryImpl
-import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
-import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
-import com.dsm.restaurant.domain.interactor.GetMenuListUseCase
-import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
+import com.dsm.restaurant.domain.interactor.*
 import com.dsm.restaurant.domain.repository.MenuCategoryRepository
 import com.dsm.restaurant.domain.repository.MenuRepository
 import com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel
@@ -42,6 +39,8 @@ val menuModule = module {
 
     factory { GetMenuListUseCase(get()) }
 
+    factory { UploadMenuUseCase(get()) }
+
     /**
      * ViewModel
      */
@@ -49,5 +48,5 @@ val menuModule = module {
 
     viewModel { MenuCategoryListViewModel(get(), get(), get()) }
 
-    viewModel { MenuRegistrationViewModel(get()) }
+    viewModel { MenuRegistrationViewModel(get(), get()) }
 }

@@ -11,6 +11,7 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentMenuRegistration2Binding
 import com.dsm.restaurant.presentation.ui.adapter.MenuRegistrationOptionListAdapter
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
+import com.dsm.restaurant.presentation.util.setupToast
 import kotlinx.android.synthetic.main.fragment_menu_registration2.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -24,6 +25,7 @@ class MenuRegistration2Fragment : BaseFragment<FragmentMenuRegistration2Binding>
 
         setupNavigate()
         setupRecyclerView()
+        setupToast(viewModel.toastEvent)
 
         binding.viewModel = viewModel
     }
@@ -42,6 +44,8 @@ class MenuRegistration2Fragment : BaseFragment<FragmentMenuRegistration2Binding>
                 )
             )
         }
+
+        viewModel.finishActivityEvent.observe(this) { activity?.finish() }
     }
 
     private fun setupRecyclerView() {

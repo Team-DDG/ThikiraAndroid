@@ -9,7 +9,7 @@
 
         <variable
             name="group"
-            type="com.dsm.restaurant.domain.model.MenuRegistrationOptionModel.Group" />
+            type="com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel.Group" />
 
         <variable
             name="position"

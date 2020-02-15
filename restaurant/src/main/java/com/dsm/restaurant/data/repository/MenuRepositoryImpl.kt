@@ -29,4 +29,8 @@ class MenuRepositoryImpl(
             return@withContext it.map(MenuDto::toModel)
         }
     }
+
+    override suspend fun uploadMenu(body: Any) = withContext(ioDispatcher) {
+        menuDataSource.uploadRemoteMenu(body)
+    }
 }
