@@ -6,9 +6,7 @@ import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.firebase.FirebaseSource
 import com.dsm.restaurant.domain.interactor.UploadMenuUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
-import com.dsm.restaurant.presentation.model.GroupOptionModel
-import com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel
-import com.dsm.restaurant.presentation.model.OptionModel
+import com.dsm.restaurant.presentation.ui.adapter.MenuOptionRegistrationListAdapter.MenuRegistrationOption
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import com.dsm.restaurant.presentation.util.isValueBlank
 import kotlinx.coroutines.launch
@@ -17,6 +15,21 @@ class MenuRegistrationViewModel(
     private val uploadMenuUseCase: UploadMenuUseCase,
     private val firebaseSource: FirebaseSource
 ) : ViewModel() {
+
+    data class Group(
+
+        val name: String,
+
+        val max_count: Int,
+
+        val option: ArrayList<Option> = arrayListOf()
+    )
+
+    data class Option(
+        val name: String,
+
+        val price: Int
+    )
 
     val name = MutableLiveData<String>()
     val price = MutableLiveData<String>()
@@ -31,10 +44,10 @@ class MenuRegistrationViewModel(
     private val _menuCategoryName = MutableLiveData<String>("")
     val menuCategoryName: LiveData<String> = _menuCategoryName
 
-    private val _menuOptionList = MutableLiveData<ArrayList<MenuRegistrationOptionModel>>(arrayListOf(MenuRegistrationOptionModel.AddGroup))
-    val menuOptionList: LiveData<ArrayList<MenuRegistrationOptionModel>> = _menuOptionList
+    private val _menuOptionList = MutableLiveData<ArrayList<MenuRegistrationOption>>(arrayListOf(MenuRegistrationOption.AddGroup))
+    val menuOptionList: LiveData<ArrayList<MenuRegistrationOption>> = _menuOptionList
 
-    private val groupOptionList = MutableLiveData<ArrayList<GroupOptionModel>>(arrayListOf())
+    private val groupOptionList = MutableLiveData<ArrayList<Group>>(arrayListOf())
 
     private val _isImageUploading = MutableLiveData<Boolean>(false)
     val isImageUploading: LiveData<Boolean> = _isImageUploading
@@ -84,32 +97,22 @@ class MenuRegistrationViewModel(
 
     fun addGroup(groupName: String, maxCount: Int) {
         val list = _menuOptionList.value!!
-        list.add(list.size - 1, MenuRegistrationOptionModel.Group(groupName, maxCount))
-        groupOptionList.value?.add(
-            GroupOptionModel(
-                name = groupName,
-                max_count = maxCount
-            )
-        )
+        list.add(list.size - 1, MenuRegistrationOption.Group(groupName, maxCount))
         _menuOptionList.value = list
+        groupOptionList.value?.add(Group(groupName, maxCount))
     }
 
     fun addOption(name: String, price: Int, position: Int) {
         val list = _menuOptionList.value!!
-        val groupName = (list[position] as MenuRegistrationOptionModel.Group).groupName
-        list.add(position + 1, MenuRegistrationOptionModel.Option(name, price))
+        val groupName = (list[position] as MenuRegistrationOption.Group).groupName
+        list.add(position + 1, MenuRegistrationOption.Option(name, price))
+        _menuOptionList.value = list
         groupOptionList.value?.forEachIndexed { index, groupOption ->
             if (groupOption.name == groupName) {
-                groupOptionList.value?.get(index)?.option?.add(
-                    OptionModel(
-                        name = name,
-                        price = price
-                    )
-                )
+                groupOptionList.value?.get(index)?.option?.add(Option(name, price))
                 return@forEachIndexed
             }
         }
-        _menuOptionList.value = list
     }
 
     fun deleteGroup(position: Int) {
@@ -117,23 +120,37 @@ class MenuRegistrationViewModel(
 
         var lastPosition = position
         (position until list.size).forEach {
-            if (list[it] is MenuRegistrationOptionModel.Group || list[it] is MenuRegistrationOptionModel.AddGroup) {
+            if (list[it] is MenuRegistrationOption.Group || list[it] is MenuRegistrationOption.AddGroup) {
                 return@forEach
             }
             lastPosition = it
         }
 
-        (position..lastPosition).forEach {
+        repeat((position..lastPosition).count()) {
             list.removeAt(position)
         }
 
         _menuOptionList.value = list
+
+        groupOptionList.value?.removeAt(position)
     }
 
     fun deleteOption(position: Int) {
         val list = _menuOptionList.value!!
         list.removeAt(position)
         _menuOptionList.value = list
+
+        var count = 0
+        for (i in 0 until list.size) {
+            count++
+            for (j in 0 until groupOptionList.value!![i].option.size) {
+                if (position == count) {
+                    groupOptionList.value!![i].option.removeAt(j)
+                    return
+                }
+                count++
+            }
+        }
     }
 
     fun uploadMenu() = viewModelScope.launch {

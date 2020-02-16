@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.domain.model.AddressModel
 import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.domain.model.MenuModel
-import com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel
+import com.dsm.restaurant.presentation.ui.adapter.MenuOptionRegistrationListAdapter.MenuRegistrationOption
 
 @BindingAdapter("addressList")
 fun RecyclerView.bindAddressList(addressListLiveData: LiveData<List<AddressModel>>) {
@@ -30,8 +30,8 @@ fun RecyclerView.bindMenuCategoryList(menuCategoryListLiveData: LiveData<List<Me
 }
 
 @BindingAdapter("menuRegistrationOptionList")
-fun RecyclerView.bindMenuRegistrationOptionList(menuRegistrationOptionListLiveData: LiveData<ArrayList<MenuRegistrationOptionModel>>) {
+fun RecyclerView.bindMenuRegistrationOptionList(menuRegistrationOptionListLiveData: LiveData<ArrayList<MenuRegistrationOption>>) {
     menuRegistrationOptionListLiveData.value?.let {
-        (adapter as MenuRegistrationOptionListAdapter).listItems = it
+        (adapter as MenuOptionRegistrationListAdapter).listItems = it
     }
 }
