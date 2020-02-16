@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -39,7 +48,30 @@
                 android:layout_height="200dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tb_menu_registration1" />
+                app:layout_constraintTop_toBottomOf="@id/tb_menu_registration1"
+                image="@{viewModel.imageUrl}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_image"
+                android:textColor="@color/colorGrey"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="@{viewModel.imageUrl.empty ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_menu_registration_menu"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_menu_registration_menu" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.isImageUploading ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_menu_registration_menu"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_menu_registration_menu" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_menu_registration_name"
@@ -50,46 +82,49 @@
                 android:layout_marginTop="16dp"
                 android:hint="@string/menu_name"
                 android:minWidth="128dp"
+                android:text="@={viewModel.name}"
                 android:textColorHint="@color/colorGrey"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_menu_registration_menu" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_menu_registration_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/menu_category"
-                android:textColorHint="@color/colorGrey"
-                android:textSize="18sp"
-                app:layout_constraintLeft_toLeftOf="@id/et_menu_registration_name"
-                app:layout_constraintTop_toBottomOf="@id/et_menu_registration_name" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_menu_registration_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:digits="0123456789"
                 android:inputType="number"
+                android:text="@={viewModel.price}"
                 android:minWidth="55dp"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/et_menu_registration_category"
-                app:layout_constraintRight_toLeftOf="@id/tv_menu_registration_won_label"
-                app:layout_constraintTop_toTopOf="@id/et_menu_registration_category" />
+                app:layout_constraintLeft_toLeftOf="@id/et_menu_registration_name"
+                app:layout_constraintTop_toBottomOf="@id/et_menu_registration_name" />
 
             <TextView
                 android:id="@+id/tv_menu_registration_won_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginRight="24dp"
                 android:text="@string/won"
                 android:textColorHint="@color/colorGrey"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/et_menu_registration_category"
+                app:layout_constraintBottom_toBottomOf="@id/et_menu_registration_price"
+                app:layout_constraintLeft_toRightOf="@id/et_menu_registration_price" />
+
+            <Button
+                android:id="@+id/btn_menu_registration1_menu_category"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:background="@{viewModel.menuCategoryName.empty ? @drawable/bg_button_disable : @drawable/bg_button_enable}"
+                android:text="@{viewModel.menuCategoryName.empty ? @string/menu_category : viewModel.menuCategoryName}"
+                android:textColor="@{viewModel.menuCategoryName.empty ? @color/colorGrey : @color/colorPrimary}"
+                app:layout_constraintLeft_toLeftOf="@id/et_menu_registration_price"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/et_menu_registration_category" />
+                app:layout_constraintTop_toBottomOf="@id/et_menu_registration_price" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -103,7 +138,7 @@
                 app:layout_constraintBottom_toTopOf="@id/btn_menu_registration1_next"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_menu_registration_category"
+                app:layout_constraintTop_toBottomOf="@id/btn_menu_registration1_menu_category"
                 app:layout_constraintVertical_bias="0">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -111,6 +146,7 @@
                     android:layout_height="match_parent"
                     android:gravity="top"
                     android:hint="@string/explain_menu"
+                    android:text="@={viewModel.description}"
                     android:textColorHint="@color/colorGrey"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -124,9 +160,10 @@
                 android:layout_marginEnd="60dp"
                 android:layout_marginRight="60dp"
                 android:layout_marginBottom="24dp"
-                android:background="@drawable/bg_button_primary_light"
+                android:background="@{viewModel.isRegistration1NextEnable ? @drawable/bg_button_enable : @drawable/bg_button_disable}"
+                android:clickable="@{viewModel.isRegistration1NextEnable}"
                 android:text="@string/next"
-                android:textColor="@color/colorPrimaryLight"
+                android:textColor="@{viewModel.isRegistration1NextEnable ? @color/colorPrimary : @color/colorGrey}"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
