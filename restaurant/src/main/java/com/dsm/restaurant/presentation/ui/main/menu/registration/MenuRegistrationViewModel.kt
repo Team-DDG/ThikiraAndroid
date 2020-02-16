@@ -47,7 +47,7 @@ class MenuRegistrationViewModel(
     private val _menuOptionList = MutableLiveData<ArrayList<MenuRegistrationOption>>(arrayListOf(MenuRegistrationOption.AddGroup))
     val menuOptionList: LiveData<ArrayList<MenuRegistrationOption>> = _menuOptionList
 
-    private val groupOptionList = MutableLiveData<ArrayList<Group>>(arrayListOf())
+    val groupOptionList = MutableLiveData<ArrayList<Group>>(arrayListOf())
 
     private val _isImageUploading = MutableLiveData<Boolean>(false)
     val isImageUploading: LiveData<Boolean> = _isImageUploading
