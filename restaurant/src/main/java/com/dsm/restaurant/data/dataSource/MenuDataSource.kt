@@ -13,7 +13,7 @@ interface MenuDataSource {
 
     suspend fun deleteAllLocalMenu(menuCategoryId: Int)
 
-    suspend fun uploadRemoteMenu(body: Any)
+    suspend fun uploadRemoteMenu(body: Any): Int
 
     suspend fun insertLocalMenu(menu: MenuLocalDto)
 }
