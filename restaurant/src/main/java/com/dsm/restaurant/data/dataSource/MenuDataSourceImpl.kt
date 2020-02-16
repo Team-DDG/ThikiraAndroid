@@ -36,7 +36,7 @@ class MenuDataSourceImpl(
 
     override suspend fun uploadRemoteMenu(body: Any) = withContext(ioDispatcher) {
         try {
-            thikiraApi.uploadMenu(body)
+            thikiraApi.uploadMenu(body).getValue("m_id")
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }

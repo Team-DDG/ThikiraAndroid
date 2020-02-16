@@ -50,5 +50,5 @@ interface ThikiraApi {
     )
 
     @POST("menu")
-    suspend fun uploadMenu(@Body body: Any)
+    suspend fun uploadMenu(@Body body: Any) : HashMap<String, Int>
 }
