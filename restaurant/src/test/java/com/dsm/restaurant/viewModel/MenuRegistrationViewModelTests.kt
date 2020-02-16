@@ -49,8 +49,6 @@ class MenuRegistrationViewModelTests : BaseTest() {
             description.value = "DESCRIPTION"
             addGroup("GROUP_NAME", 2)
 
-            uploadMenu()
-
             `when`(
                 uploadMenuUseCase.invoke(
                     hashMapOf(
@@ -63,6 +61,8 @@ class MenuRegistrationViewModelTests : BaseTest() {
                     )
                 )
             ).thenReturn(Unit)
+
+            uploadMenu()
 
             finishActivityEvent.test().assertHasValue()
         }
@@ -80,8 +80,6 @@ class MenuRegistrationViewModelTests : BaseTest() {
             description.value = "DESCRIPTION"
             addGroup("GROUP_NAME", 2)
 
-            uploadMenu()
-
             `when`(
                 uploadMenuUseCase.invoke(
                     hashMapOf(
@@ -95,8 +93,9 @@ class MenuRegistrationViewModelTests : BaseTest() {
                 )
             ).thenThrow(ForbiddenException(Exception()))
 
+            uploadMenu()
+
             toastEvent.test().assertValue(R.string.fail_exception_forbidden)
-            finishActivityEvent.test().assertNoValue()
         }
     }
 }
