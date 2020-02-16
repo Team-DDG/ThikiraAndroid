@@ -1,5 +1,6 @@
 package com.dsm.restaurant.presentation.ui.main.menu.category
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ConflictException
@@ -8,6 +9,7 @@ import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.presentation.util.BusProvider
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
@@ -20,7 +22,7 @@ class MenuCategoryListViewModel(
     private val _menuCategoryList = MutableLiveData<List<MenuCategoryModel>>()
     val menuCategoryList: LiveData<List<MenuCategoryModel>> = _menuCategoryList
 
-    private val selectedMenuCategoryList = MutableLiveData<ArrayList<Int>>().apply { value = arrayListOf() }
+    private val selectedMenuCategoryList = MutableLiveData<ArrayList<Int>>(arrayListOf())
 
     private val _changeViewTypeNormalEvent = SingleLiveEvent<Unit>()
     val changeViewTypeNormalEvent: LiveData<Unit> = _changeViewTypeNormalEvent
@@ -45,6 +47,9 @@ class MenuCategoryListViewModel(
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
 
+    private val _popBackStackEvent = SingleLiveEvent<Unit>()
+    val popBackStackEvent: LiveData<Unit> = _popBackStackEvent
+
     init {
         getMenuCategory(forceUpdate = true)
     }
@@ -68,6 +73,12 @@ class MenuCategoryListViewModel(
             selectedMenuCategoryList.value!!.remove(menuCategoryId)
         else
             selectedMenuCategoryList.value!!.add(menuCategoryId)
+    }
+
+    fun onClickMenuCategoryItem(menuCategoryModel: MenuCategoryModel) {
+        Log.d("DEBUGLOG", "menuCategoryListViewModel $menuCategoryModel")
+        BusProvider.getInstance().post(menuCategoryModel)
+        _popBackStackEvent.call()
     }
 
     fun onClickDelete() = viewModelScope.launch {

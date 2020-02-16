@@ -17,10 +17,35 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_menuRegistration1Fragment_to_menuCategoryListFragment"
+            app:destination="@id/menuCategoryListFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuRegistration2Fragment"
         android:name="com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistration2Fragment"
         android:label="MenuRegistration2Fragment"
-        tools:layout="@layout/fragment_menu_registration2" />
+        tools:layout="@layout/fragment_menu_registration2">
+        <action
+            android:id="@+id/action_menuRegistration2Fragment_to_menuOptionAddGroupDialog"
+            app:destination="@id/menuOptionAddGroupDialog" />
+        <action
+            android:id="@+id/action_menuRegistration2Fragment_to_menuOptionAddOptionDialog"
+            app:destination="@id/menuOptionAddOptionDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuCategoryListFragment"
+        android:name="com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListFragment"
+        android:label="MenuCategoryListFragment"
+        tools:layout="@layout/fragment_menu_category_list" />
+    <dialog
+        android:id="@+id/menuOptionAddGroupDialog"
+        android:name="com.dsm.restaurant.presentation.ui.main.menu.registration.MenuOptionAddGroupDialog"
+        android:label="MenuOptionAddGroupDialog"
+        tools:layout="@layout/dialog_menu_option_add_group" />
+    <dialog
+        android:id="@+id/menuOptionAddOptionDialog"
+        android:name="com.dsm.restaurant.presentation.ui.main.menu.registration.MenuOptionAddOptionDialog"
+        android:label="MenuOptionAddOptionDialog"
+        tools:layout="@layout/dialog_menu_option_add_option" />
 </navigation>

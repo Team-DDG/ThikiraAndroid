@@ -29,6 +29,7 @@ class MenuCategoryListAdapter(
     inner class MenuCategoryHolder(val binding: ItemMenuCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
             binding.menuCategoryModel = getItem(adapterPosition)
+            binding.viewModel = viewModel
         }
     }
 
