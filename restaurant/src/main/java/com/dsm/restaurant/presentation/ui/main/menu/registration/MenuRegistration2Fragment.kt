@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentMenuRegistration2Binding
-import com.dsm.restaurant.presentation.ui.adapter.MenuRegistrationOptionListAdapter
+import com.dsm.restaurant.presentation.ui.adapter.MenuOptionRegistrationListAdapter
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.presentation.util.setupToast
 import kotlinx.android.synthetic.main.fragment_menu_registration2.*
@@ -49,7 +49,7 @@ class MenuRegistration2Fragment : BaseFragment<FragmentMenuRegistration2Binding>
     }
 
     private fun setupRecyclerView() {
-        rv_menu_registration2_option.adapter = MenuRegistrationOptionListAdapter(viewModel)
+        rv_menu_registration2_option.adapter = MenuOptionRegistrationListAdapter(viewModel)
         rv_menu_registration2_option.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
     }
 }
