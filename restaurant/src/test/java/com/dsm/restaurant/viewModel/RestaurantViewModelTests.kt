@@ -5,7 +5,7 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.domain.interactor.GetRestaurantInfoUseCase
 import com.dsm.restaurant.domain.model.RestaurantModel
-import com.dsm.restaurant.presentation.ui.main.restaurant.RestaurantViewModel
+import com.dsm.restaurant.presentation.ui.restaurant.RestaurantViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -33,15 +33,14 @@ class RestaurantViewModelTests : BaseTest() {
             val response = RestaurantModel(
                 image = "IMAGE",
                 description = "DESCRIPTION",
-                closeTime = "23:30",
-                openTime = "10:30",
-                offlinePayment = true,
-                onlinePayment = true,
+                businessHour = "23:30~24:00",
+                isOfflinePayment = true,
+                isOnlinePayment = true,
                 dayOff = "DAY_OFF",
                 minPrice = 1000,
                 address = "ADDRESS",
                 roadAddress = "ROAD_ADDRESS",
-                area = "area1,area2,area3",
+                deliverableArea = "area1,area2,area3",
                 category = "CATEGORY",
                 name = "NAME",
                 phone = "010-1111-2222",

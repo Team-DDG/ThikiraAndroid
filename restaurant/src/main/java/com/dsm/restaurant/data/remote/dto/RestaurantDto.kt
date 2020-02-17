@@ -18,7 +18,8 @@ data class RestaurantDto(
     @SerializedName("add_parcel")
     val address: String,
 
-    val area: Array<String>,
+    @SerializedName("area")
+    val deliverableArea: Array<String>,
 
     val category: String,
 
@@ -29,10 +30,10 @@ data class RestaurantDto(
     val dayOff: String,
 
     @SerializedName("online_payment")
-    val onlinePayment: Boolean,
+    val isOnlinePayment: Boolean,
 
     @SerializedName("offline_payment")
-    val offlinePayment: Boolean,
+    val isOfflinePayment: Boolean,
 
     @SerializedName("open_time")
     val openTime: String,
@@ -50,14 +51,13 @@ data class RestaurantDto(
         phone = phone,
         roadAddress = roadAddress,
         address = address,
-        area = area.reduce { q, w -> "$q,$w" },
+        deliverableArea = deliverableArea.reduce { q, w -> "$q, $w" },
         category = category,
         minPrice = minPrice,
         dayOff = dayOff,
-        onlinePayment = onlinePayment,
-        offlinePayment = offlinePayment,
-        openTime = openTime,
-        closeTime = closeTime,
+        isOnlinePayment = isOnlinePayment,
+        isOfflinePayment = isOfflinePayment,
+        businessHour = "$openTime~$closeTime",
         description = description,
         email = email
     )
@@ -68,12 +68,12 @@ data class RestaurantDto(
         phone = phone,
         roadAddress = roadAddress,
         address = address,
-        area = area.reduce { q, w -> "$q,$w" },
+        deliverableArea = deliverableArea.reduce { q, w -> "$q, $w" },
         category = category,
         minPrice = minPrice,
         dayOff = dayOff,
-        onlinePayment = onlinePayment,
-        offlinePayment = offlinePayment,
+        isOnlinePayment = isOnlinePayment,
+        isOfflinePayment = isOfflinePayment,
         openTime = openTime,
         closeTime = closeTime,
         description = description,

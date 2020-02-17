@@ -13,13 +13,13 @@ interface MenuCategoryDataSource {
 
     suspend fun deleteAllLocalMenuCategory()
 
-    suspend fun getMenuCategoryIdFromName(name: String): Int
+    suspend fun getLocalMenuCategoryIdByName(name: String): Int
 
     suspend fun deleteRemoteMenuCategoryList(menuCategoryList: List<Int>)
 
     suspend fun deleteLocalMenuCategory(menuCategory: Int)
 
-    suspend fun updateRemoteMenuCategory(name: String, menuCategoryId: Int)
+    suspend fun updateRemoteMenuCategory(menuCategoryId: Int, name: String)
 
-    suspend fun updateLocalMenuCategory(name: String, menuCategoryId: Int)
+    suspend fun updateLocalMenuCategory(menuCategoryId: Int, name: String)
 }

@@ -5,7 +5,7 @@ import com.dsm.restaurant.data.dataSource.RestaurantDataSourceImpl
 import com.dsm.restaurant.data.repository.RestaurantRepositoryImpl
 import com.dsm.restaurant.domain.interactor.GetRestaurantInfoUseCase
 import com.dsm.restaurant.domain.repository.RestaurantRepository
-import com.dsm.restaurant.presentation.ui.main.restaurant.RestaurantViewModel
+import com.dsm.restaurant.presentation.ui.restaurant.RestaurantViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

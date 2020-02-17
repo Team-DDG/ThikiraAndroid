@@ -6,22 +6,21 @@ import com.google.gson.annotations.SerializedName
 data class AddressDto(
 
     @SerializedName("items")
-    val results: List<AddressItems>
+    val results: List<AddressItemDto>
 ) {
-    fun mapToModel() =
-        results.map {
-            AddressModel(
-                title = it.title,
-                address = it.address,
-                roadAddress = it.roadAddress
-            )
-        }
+    fun toModel() = results.map(AddressItemDto::toModel)
 }
 
-data class AddressItems(
+data class AddressItemDto(
     val title: String,
 
     val address: String,
 
     val roadAddress: String
-)
+) {
+    fun toModel() = AddressModel(
+        title = title,
+        address = address,
+        roadAddress = roadAddress
+    )
+}

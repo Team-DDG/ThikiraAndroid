@@ -4,8 +4,8 @@ import com.dsm.restaurant.BaseTest
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.error.exception.UnauthorizedException
-import com.dsm.restaurant.domain.interactor.ChangePwdUseCase
-import com.dsm.restaurant.presentation.ui.main.setting.changePwd.PasswordChangeViewModel
+import com.dsm.restaurant.domain.interactor.ChangePasswordUseCase
+import com.dsm.restaurant.presentation.ui.setting.changePwd.PasswordChangeViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -18,13 +18,13 @@ import org.mockito.Mockito.`when`
 class PasswordChangeViewModelTests : BaseTest() {
 
     @Mock
-    private lateinit var changePwdUseCase: ChangePwdUseCase
+    private lateinit var changePasswordUseCase: ChangePasswordUseCase
 
     private lateinit var viewModel: PasswordChangeViewModel
 
     @Before
     fun init() {
-        viewModel = PasswordChangeViewModel(changePwdUseCase)
+        viewModel = PasswordChangeViewModel(changePasswordUseCase)
     }
 
     @Test
@@ -74,7 +74,7 @@ class PasswordChangeViewModelTests : BaseTest() {
             changePwdCheck.value = "password!"
 
             `when`(
-                changePwdUseCase.invoke(
+                changePasswordUseCase.invoke(
                     originalPwd.value ?: "",
                     changePwd.value ?: ""
                 )
@@ -94,7 +94,7 @@ class PasswordChangeViewModelTests : BaseTest() {
             changePwdCheck.value = "password!"
 
             `when`(
-                changePwdUseCase.invoke(
+                changePasswordUseCase.invoke(
                     originalPwd.value ?: "",
                     changePwd.value ?: ""
                 )
@@ -114,7 +114,7 @@ class PasswordChangeViewModelTests : BaseTest() {
             changePwdCheck.value = "password!"
 
             `when`(
-                changePwdUseCase.invoke(
+                changePasswordUseCase.invoke(
                     originalPwd.value ?: "",
                     changePwd.value ?: ""
                 )

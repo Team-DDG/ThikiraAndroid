@@ -7,17 +7,22 @@ class FirebaseSourceImpl : FirebaseSource {
 
     private val firebaseStorage: FirebaseStorage by lazy { FirebaseStorage.getInstance() }
 
-    override fun uploadImage(imagePath: String, uploadListener: FirebaseSource.UploadListener) {
+    override fun uploadImage(
+        imagePath: String,
+        onSuccess: (imagePath: String) -> Unit,
+        onFailure: (exception: Exception) -> Unit,
+        onComplete: () -> Unit
+    ) {
         val uploadRef = firebaseStorage.reference
             .child("/restaurant")
             .child(System.currentTimeMillis().toString() + ".png")
 
         uploadRef.putStream(FileInputStream(imagePath))
             .addOnSuccessListener {
-                uploadRef.downloadUrl.addOnSuccessListener { uploadListener.onSuccess(it.toString()) }
+                uploadRef.downloadUrl.addOnSuccessListener { onSuccess(it.toString()) }
             }
-            .addOnFailureListener { uploadListener.onFailure(it) }
-            .addOnCompleteListener { uploadListener.onComplete() }
+            .addOnFailureListener { onFailure(it) }
+            .addOnCompleteListener { onComplete() }
     }
 
 }

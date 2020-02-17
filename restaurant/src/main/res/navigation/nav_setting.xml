@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.dsm.restaurant.presentation.ui.main.setting.SettingFragment"
+        android:name="com.dsm.restaurant.presentation.ui.setting.SettingFragment"
         android:label="SettingFragment"
         tools:layout="@layout/fragment_setting">
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <dialog
         android:id="@+id/passwordChangeDialog"
-        android:name="com.dsm.restaurant.presentation.ui.main.setting.changePwd.PasswordChangeDialog"
+        android:name="com.dsm.restaurant.presentation.ui.setting.changePwd.PasswordChangeDialog"
         android:label="PasswordChangeDialog"
         tools:layout="@layout/dialog_password_change" />
     <dialog
         android:id="@+id/unregisterDialog"
-        android:name="com.dsm.restaurant.presentation.ui.main.setting.unregister.UnregisterDialog"
+        android:name="com.dsm.restaurant.presentation.ui.setting.unregister.UnregisterDialog"
         android:label="UnregisterDialog"
         tools:layout="@layout/dialog_unregister" />
 </navigation>

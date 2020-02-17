@@ -5,9 +5,9 @@ import com.dsm.restaurant.data.dataSource.AccountDataSourceImpl
 import com.dsm.restaurant.data.repository.AccountRepositoryImpl
 import com.dsm.restaurant.domain.interactor.*
 import com.dsm.restaurant.domain.repository.AccountRepository
-import com.dsm.restaurant.presentation.ui.main.setting.changePwd.PasswordChangeViewModel
-import com.dsm.restaurant.presentation.ui.main.setting.unregister.UnregisterViewModel
 import com.dsm.restaurant.presentation.ui.register.RegisterViewModel
+import com.dsm.restaurant.presentation.ui.setting.changePwd.PasswordChangeViewModel
+import com.dsm.restaurant.presentation.ui.setting.unregister.UnregisterViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -18,7 +18,7 @@ val accountModule = module {
     factory<AccountRepository> { AccountRepositoryImpl(get()) }
 
     // register
-    factory { CheckEmailUseCase(get()) }
+    factory { ConfirmEmailDuplicationUseCase(get()) }
 
     factory { SearchAddressUseCase(get()) }
 
@@ -32,7 +32,7 @@ val accountModule = module {
     viewModel { UnregisterViewModel(get()) }
 
     // change password
-    factory { ChangePwdUseCase(get(), get()) }
+    factory { ChangePasswordUseCase(get(), get()) }
 
     viewModel { PasswordChangeViewModel(get()) }
 }

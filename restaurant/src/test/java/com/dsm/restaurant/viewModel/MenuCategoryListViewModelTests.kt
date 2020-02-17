@@ -7,7 +7,7 @@ import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
-import com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel
+import com.dsm.restaurant.presentation.ui.menu.category.MenuCategoryListViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

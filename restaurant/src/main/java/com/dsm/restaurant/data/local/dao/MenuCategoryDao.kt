@@ -12,18 +12,18 @@ interface MenuCategoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMenuCategoryList(menuCategoryList: List<MenuCategoryLocalDto>)
 
-    @Query("select * from MenuCategoryLocalDto")
+    @Query("select * from MenuCategory")
     suspend fun getMenuCategoryList(): List<MenuCategoryLocalDto>?
 
-    @Query("select menuCategoryId from MenuCategoryLocalDto where name = :name")
-    suspend fun getMenuCategoryIdFromName(name: String): Int
+    @Query("select menuCategoryId from MenuCategory where name = :name")
+    suspend fun getMenuCategoryIdByName(name: String): Int
 
-    @Query("delete from MenuCategoryLocalDto")
+    @Query("delete from MenuCategory")
     suspend fun deleteAllMenuCategory()
 
-    @Query("delete from MenuCategoryLocalDto where menuCategoryId = :menuCategoryId")
+    @Query("delete from MenuCategory where menuCategoryId = :menuCategoryId")
     suspend fun deleteMenuCategory(menuCategoryId: Int)
 
-    @Query("update MenuCategoryLocalDto set name = :name where menuCategoryId = :menuCategoryId")
+    @Query("update MenuCategory set name = :name where menuCategoryId = :menuCategoryId")
     suspend fun updateMenuCategory(name: String, menuCategoryId: Int)
 }

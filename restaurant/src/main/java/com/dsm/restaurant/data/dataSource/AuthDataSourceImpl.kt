@@ -29,9 +29,9 @@ class AuthDataSourceImpl(
         }
     }
 
-    override suspend fun authPassword(password: String) = withContext(ioDispatcher) {
+    override suspend fun confirmPassword(password: String) = withContext(ioDispatcher) {
         try {
-            thikiraApi.authPassword(password)
+            thikiraApi.confirmPassword(password)
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }

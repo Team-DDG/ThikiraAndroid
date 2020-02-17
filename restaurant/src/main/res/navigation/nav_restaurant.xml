@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/restaurantFragment"
-        android:name="com.dsm.restaurant.presentation.ui.main.restaurant.RestaurantFragment"
+        android:name="com.dsm.restaurant.presentation.ui.restaurant.RestaurantFragment"
         android:label="RestaurantFragment"
         tools:layout="@layout/fragment_restaurant" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <activity
         android:id="@+id/settingActivity"
-        android:name="com.dsm.restaurant.presentation.ui.main.setting.SettingActivity"
+        android:name="com.dsm.restaurant.presentation.ui.setting.SettingActivity"
         android:label="activity_setting"
         tools:layout="@layout/activity_setting" />
 </navigation>

@@ -12,7 +12,7 @@ class LoginViewModel(
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
-    // 양방향 바인딩을 위한 노출
+    // two-way binding
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
@@ -44,6 +44,9 @@ class LoginViewModel(
         }
     }
 
+    /**
+     * button enable
+     */
     val isLoginClickable = MediatorLiveData<Boolean>().apply {
         addSource(email) { value = !email.isValueBlank() && !password.isValueBlank() }
         addSource(password) { value = !email.isValueBlank() && !password.isValueBlank() }

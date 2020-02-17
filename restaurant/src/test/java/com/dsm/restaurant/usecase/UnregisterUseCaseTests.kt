@@ -32,17 +32,17 @@ class UnregisterUseCaseTests {
 
     @Test
     fun unregisterSuccessTest() = runBlocking {
-        `when`(authRepository.authPassword("PASSWORD")).thenReturn(Unit)
+        `when`(authRepository.confirmPassword("PASSWORD")).thenReturn(Unit)
         `when`(accountRepository.unregister()).thenReturn(Unit)
         usecase.invoke("PASSWORD")
 
-        verify(authRepository).authPassword("PASSWORD")
+        verify(authRepository).confirmPassword("PASSWORD")
         verify(accountRepository).unregister()
     }
 
     @Test
     fun authPasswordFailedTest() = runBlocking {
-        `when`(authRepository.authPassword("PASSWORD"))
+        `when`(authRepository.confirmPassword("PASSWORD"))
             .thenThrow(UnauthorizedException(Exception()))
 
         try {
@@ -56,7 +56,7 @@ class UnregisterUseCaseTests {
 
     @Test
     fun unregisterFailedTest() = runBlocking {
-        `when`(authRepository.authPassword("PASSWORD")).thenReturn(Unit)
+        `when`(authRepository.confirmPassword("PASSWORD")).thenReturn(Unit)
         `when`(accountRepository.unregister()).thenThrow(ForbiddenException(Exception()))
 
         try {
@@ -64,7 +64,7 @@ class UnregisterUseCaseTests {
         } catch (e: Exception) {
             assert(e is ForbiddenException)
         } finally {
-            verify(authRepository).authPassword("PASSWORD")
+            verify(authRepository).confirmPassword("PASSWORD")
         }
     }
 }

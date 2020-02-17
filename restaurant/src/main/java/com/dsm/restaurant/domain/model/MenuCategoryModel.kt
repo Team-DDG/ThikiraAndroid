@@ -4,7 +4,6 @@ import androidx.recyclerview.widget.DiffUtil
 
 data class MenuCategoryModel(
 
-
     val menuCategoryId: Int,
 
     val name: String

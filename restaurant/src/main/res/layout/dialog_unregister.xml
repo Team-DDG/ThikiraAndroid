@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.dsm.restaurant.presentation.ui.main.setting.unregister.UnregisterViewModel" />
+            type="com.dsm.restaurant.presentation.ui.setting.unregister.UnregisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

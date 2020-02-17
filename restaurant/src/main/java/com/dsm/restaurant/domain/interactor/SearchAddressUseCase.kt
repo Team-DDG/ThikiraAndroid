@@ -1,12 +1,12 @@
 package com.dsm.restaurant.domain.interactor
 
-import com.dsm.restaurant.domain.repository.AccountRepository
+import com.dsm.restaurant.domain.repository.AddressRepository
 import com.dsm.restaurant.presentation.util.wrapEspressoIdlingResource
 
 class SearchAddressUseCase(
-    private val accountRepository: AccountRepository
+    private val addressRepository: AddressRepository
 ) {
     suspend operator fun invoke(query: String) = wrapEspressoIdlingResource {
-        accountRepository.searchAddress(query)
+        addressRepository.searchAddress(query)
     }
 }
