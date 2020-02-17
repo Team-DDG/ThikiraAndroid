@@ -2,7 +2,7 @@ package com.dsm.restaurant.presentation.ui.login
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentLoginBinding
@@ -32,12 +32,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             findNavController().navigate(R.id.action_loginFragment_to_nav_register)
         }
 
-        viewModel.navigateMainEvent.observe(this, Observer {
+        viewModel.navigateMainEvent.observe(this) {
             findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-        })
+        }
     }
 
     private fun setupKeyboard() {
-        viewModel.hideKeyboardEvent.observe(this, Observer { hideKeyboard() })
+        viewModel.hideKeyboardEvent.observe(this) { hideKeyboard() }
     }
 }

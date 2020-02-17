@@ -4,17 +4,20 @@ import androidx.lifecycle.*
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ConflictException
 import com.dsm.restaurant.data.firebase.FirebaseSource
-import com.dsm.restaurant.domain.interactor.CheckEmailUseCase
+import com.dsm.restaurant.domain.interactor.ConfirmEmailDuplicationUseCase
 import com.dsm.restaurant.domain.interactor.RegisterUseCase
 import com.dsm.restaurant.domain.interactor.SearchAddressUseCase
 import com.dsm.restaurant.domain.model.AddressModel
-import com.dsm.restaurant.presentation.util.*
+import com.dsm.restaurant.presentation.util.SingleLiveEvent
+import com.dsm.restaurant.presentation.util.isValidEmail
+import com.dsm.restaurant.presentation.util.isValidPassword
+import com.dsm.restaurant.presentation.util.isValueBlank
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
 class RegisterViewModel(
-    private val checkEmailUseCase: CheckEmailUseCase,
+    private val confirmEmailDuplicationUseCase: ConfirmEmailDuplicationUseCase,
     private val searchAddressUseCase: SearchAddressUseCase,
     private val registerUseCase: RegisterUseCase,
     private val firebaseSource: FirebaseSource
@@ -107,22 +110,11 @@ class RegisterViewModel(
 
     fun uploadImage(imagePath: String) {
         _isUploadingImage.value = true
-        EspressoIdlingResource.increment()
-        firebaseSource.uploadImage(imagePath, object : FirebaseSource.UploadListener {
-            override fun onSuccess(imageUrl: String) {
-                _imageUrl.value = imageUrl
-            }
-
-            override fun onFailure(exception: java.lang.Exception) {
-                _toastEvent.value = R.string.fail_image_uploading
-            }
-
-            override fun onComplete() {
-                _isUploadingImage.value = false
-                EspressoIdlingResource.decrement()
-            }
-
-        })
+        firebaseSource.uploadImage(imagePath,
+            onSuccess = { _imageUrl.value = it },
+            onFailure = { _toastEvent.value = R.string.fail_image_uploading },
+            onComplete = { _isUploadingImage.value = false }
+        )
     }
 
     /**
@@ -178,7 +170,7 @@ class RegisterViewModel(
 
     private fun checkEmailDuplication(email: String) = viewModelScope.launch {
         try {
-            checkEmailUseCase(email)
+            confirmEmailDuplicationUseCase(email)
             _toastEvent.value = R.string.success_email_duplication_check
 
             this@RegisterViewModel.email.value = ""

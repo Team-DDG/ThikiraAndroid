@@ -7,7 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.dsm.restaurant.BaseUiTest
 import com.dsm.restaurant.R
-import com.dsm.restaurant.presentation.ui.main.restaurant.RestaurantFragment
+import com.dsm.restaurant.presentation.ui.restaurant.RestaurantFragment
 import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.RecordedRequest

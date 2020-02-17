@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel" />
+            type="com.dsm.restaurant.presentation.ui.menu.category.MenuCategoryListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

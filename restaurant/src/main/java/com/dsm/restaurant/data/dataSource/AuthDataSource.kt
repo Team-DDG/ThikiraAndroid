@@ -8,5 +8,5 @@ interface AuthDataSource {
 
     suspend fun login(body: Any): TokenDto
 
-    suspend fun authPassword(password: String)
+    suspend fun confirmPassword(password: String)
 }

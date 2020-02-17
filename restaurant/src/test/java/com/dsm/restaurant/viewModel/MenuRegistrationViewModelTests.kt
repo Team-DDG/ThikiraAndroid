@@ -6,17 +6,14 @@ import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.firebase.FirebaseSource
 import com.dsm.restaurant.domain.interactor.UploadMenuUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
-import com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationViewModel
+import com.dsm.restaurant.presentation.ui.menu.registration.MenuRegistrationViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentCaptor
-import org.mockito.Captor
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
 
 @ExperimentalCoroutinesApi
 class MenuRegistrationViewModelTests : BaseTest() {
@@ -29,9 +26,6 @@ class MenuRegistrationViewModelTests : BaseTest() {
 
     private lateinit var viewModel: MenuRegistrationViewModel
 
-    @Captor
-    private lateinit var uploadListener: ArgumentCaptor<FirebaseSource.UploadListener>
-
     @Before
     fun init() {
         viewModel = MenuRegistrationViewModel(uploadMenuUseCase, firebaseSource)
@@ -41,8 +35,6 @@ class MenuRegistrationViewModelTests : BaseTest() {
     fun uploadMenuSuccessTest() = runBlockingTest {
         viewModel.run {
             uploadImage("IMAGE_PATH")
-            verify(firebaseSource).uploadImage(safeEq("IMAGE_PATH"), capture(uploadListener))
-            uploadListener.value.onSuccess("IMAGE_URL")
             setMenuCategory(MenuCategoryModel(0, "CATEGORY_NAME"))
             name.value = "NAME"
             price.value = "100"
@@ -72,8 +64,6 @@ class MenuRegistrationViewModelTests : BaseTest() {
     fun uploadMenuForbiddenTest() = runBlockingTest {
         viewModel.run {
             uploadImage("IMAGE_PATH")
-            verify(firebaseSource).uploadImage(safeEq("IMAGE_PATH"), capture(uploadListener))
-            uploadListener.value.onSuccess("IMAGE_URL")
             setMenuCategory(MenuCategoryModel(0, "CATEGORY_NAME"))
             name.value = "NAME"
             price.value = "100"

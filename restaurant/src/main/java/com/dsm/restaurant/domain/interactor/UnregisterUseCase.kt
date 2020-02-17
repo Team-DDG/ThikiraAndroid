@@ -9,7 +9,7 @@ class UnregisterUseCase(
     private val authRepository: AuthRepository
 ) {
     suspend operator fun invoke(password: String) = wrapEspressoIdlingResource {
-        authRepository.authPassword(password)
+        authRepository.confirmPassword(password)
         accountRepository.unregister()
     }
 }

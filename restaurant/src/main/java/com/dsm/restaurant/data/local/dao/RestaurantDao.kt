@@ -9,12 +9,12 @@ import com.dsm.restaurant.data.local.dto.RestaurantLocalDto
 @Dao
 interface RestaurantDao {
 
-    @Query("select * from restaurant")
+    @Query("select * from Restaurant")
     suspend fun getRestaurantInfo(): RestaurantLocalDto?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRestaurantInfo(restaurantLocalDto: RestaurantLocalDto)
 
-    @Query("delete from restaurant")
+    @Query("delete from Restaurant")
     suspend fun deleteRestaurantInfo()
 }

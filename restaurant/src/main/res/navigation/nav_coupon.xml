@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/couponListFragment"
-        android:name="com.dsm.restaurant.presentation.ui.main.coupon.CouponListFragment"
+        android:name="com.dsm.restaurant.presentation.ui.coupon.CouponListFragment"
         android:label="CouponListFragment"
         tools:layout="@layout/fragment_coupon_list">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <dialog
         android:id="@+id/couponIssueDialog"
-        android:name="com.dsm.restaurant.presentation.ui.main.coupon.CouponIssueDialog"
+        android:name="com.dsm.restaurant.presentation.ui.coupon.CouponIssueDialog"
         android:label="CouponIssueDialog"
         tools:layout="@layout/dialog_coupon_issue"/>
 </navigation>

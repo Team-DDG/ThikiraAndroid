@@ -18,7 +18,7 @@ data class RestaurantLocalDto(
 
     val address: String,
 
-    val area: String,
+    val deliverableArea: String,
 
     val category: String,
 
@@ -26,9 +26,9 @@ data class RestaurantLocalDto(
 
     val dayOff: String,
 
-    val onlinePayment: Boolean,
+    val isOnlinePayment: Boolean,
 
-    val offlinePayment: Boolean,
+    val isOfflinePayment: Boolean,
 
     val openTime: String,
 
@@ -44,14 +44,13 @@ data class RestaurantLocalDto(
         phone = phone,
         roadAddress = roadAddress,
         address = address,
-        area = area,
+        deliverableArea = deliverableArea,
         category = category,
         minPrice = minPrice,
         dayOff = dayOff,
-        onlinePayment = onlinePayment,
-        offlinePayment = offlinePayment,
-        openTime = openTime,
-        closeTime = closeTime,
+        isOnlinePayment = isOnlinePayment,
+        isOfflinePayment = isOfflinePayment,
+        businessHour = "$openTime~$closeTime",
         description = description,
         email = email
     )
