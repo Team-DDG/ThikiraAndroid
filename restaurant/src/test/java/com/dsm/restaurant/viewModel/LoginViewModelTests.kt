@@ -56,7 +56,7 @@ class LoginViewModelTests : BaseTest() {
                 )
             ).thenReturn(Unit)
 
-            login()
+            onClickLogin()
 
             navigateMainEvent.test().assertHasValue()
             hideKeyboardEvent.test().assertHasValue()
@@ -78,7 +78,7 @@ class LoginViewModelTests : BaseTest() {
                 )
             ).thenThrow(NotFoundException(Exception()))
 
-            login()
+            onClickLogin()
 
             toastEvent.test().assertValue(R.string.fail_account_not_found)
         }
@@ -99,7 +99,7 @@ class LoginViewModelTests : BaseTest() {
                 )
             ).thenThrow(InternalException(Exception()))
 
-            login()
+            onClickLogin()
 
             toastEvent.test().assertValue(R.string.fail_exception_internal)
         }

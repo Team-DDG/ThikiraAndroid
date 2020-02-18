@@ -7,6 +7,7 @@ import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter.Companion.NORMAL_TYPE
 import com.dsm.restaurant.presentation.ui.menu.category.MenuCategoryListViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -70,13 +71,13 @@ class MenuCategoryListViewModelTests : BaseTest() {
         viewModel.run {
             `when`(deleteMenuCategoryListUseCase.invoke(listOf(0, 1, 2))).thenReturn(Unit)
 
-            onDeleteCheck(0)
-            onDeleteCheck(1)
-            onDeleteCheck(2)
+            onClickDeleteCheckbox(0)
+            onClickDeleteCheckbox(1)
+            onClickDeleteCheckbox(2)
 
             onClickDelete()
 
-            changeViewTypeNormalEvent.test().assertHasValue()
+            changeViewTypeEvent.test().assertValue(NORMAL_TYPE)
             isSelecting.test().assertValue(false)
             toastEvent.test().assertNoValue()
         }
@@ -88,13 +89,12 @@ class MenuCategoryListViewModelTests : BaseTest() {
             `when`(deleteMenuCategoryListUseCase.invoke(listOf(0, 1, 2)))
                 .thenThrow(ForbiddenException(Exception()))
 
-            onDeleteCheck(0)
-            onDeleteCheck(1)
-            onDeleteCheck(2)
+            onClickDeleteCheckbox(0)
+            onClickDeleteCheckbox(1)
+            onClickDeleteCheckbox(2)
 
             onClickDelete()
 
-            changeViewTypeNormalEvent.test().assertNoValue()
             toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }
     }

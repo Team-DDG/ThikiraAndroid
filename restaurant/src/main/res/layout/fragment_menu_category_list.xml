@@ -97,19 +97,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="@id/iv_menu_category_list_popup"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{() -> viewModel.onStartUpdate()}"
-                    android:text="@string/complete"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:visibility="@{viewModel.isUpdating ? View.VISIBLE : View.INVISIBLE}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="@id/tv_menu_category_list_delete"
-                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
 

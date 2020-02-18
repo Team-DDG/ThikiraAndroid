@@ -8,7 +8,6 @@ import com.dsm.restaurant.data.firebase.FirebaseSource
 import com.dsm.restaurant.domain.interactor.ConfirmEmailDuplicationUseCase
 import com.dsm.restaurant.domain.interactor.RegisterUseCase
 import com.dsm.restaurant.domain.interactor.SearchAddressUseCase
-import com.dsm.restaurant.domain.model.AddressModel
 import com.dsm.restaurant.presentation.ui.register.RegisterViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -17,7 +16,6 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -40,7 +38,7 @@ class RegisterViewModelTests : BaseTest() {
 
     @Before
     fun init() {
-        viewModel = RegisterViewModel(confirmEmailDuplicationUseCase, searchAddressUseCase, registerUseCase, firebaseSource)
+        viewModel = RegisterViewModel(confirmEmailDuplicationUseCase, registerUseCase, firebaseSource)
     }
 
     @Test
@@ -54,11 +52,11 @@ class RegisterViewModelTests : BaseTest() {
             endHour.value = 2
             endMinute.value = 0
 
-            isNext2Enabled.test().assertValue(true)
+            isNext2Clickable.test().assertValue(true)
 
             endHour.value = 1
 
-            isNext2Enabled.test().assertValue(false)
+            isNext2Clickable.test().assertValue(false)
         }
     }
 
@@ -66,10 +64,10 @@ class RegisterViewModelTests : BaseTest() {
     fun isNext3EnabledTest() {
         viewModel.run {
             description.value = ""
-            isNext3Enabled.test().assertValue(false)
+            isNext3Clickable.test().assertValue(false)
 
             description.value = "DESCRIPTION"
-            isNext3Enabled.test().assertValue(true)
+            isNext3Clickable.test().assertValue(true)
         }
     }
 
@@ -78,15 +76,15 @@ class RegisterViewModelTests : BaseTest() {
         viewModel.run {
             email.value = "email@gmail.com"
             `when`(confirmEmailDuplicationUseCase.invoke(email.value!!)).thenReturn(Unit)
-            checkEmail()
+            onClickDuplicationCheck()
             password.value = "PASSWORD"
             reTypePwd.value = "PASSWORD"
 
-            isRegisterEnabled.test().assertValue(true)
+            isRegisterClickable.test().assertValue(true)
 
             password.value = ""
 
-            isRegisterEnabled.test().assertValue(false)
+            isRegisterClickable.test().assertValue(false)
         }
     }
 
@@ -102,7 +100,7 @@ class RegisterViewModelTests : BaseTest() {
             endHour.value = 5
             endMinute.value = 0
 
-            isStoreHoursValid.test().assertValue(false)
+            isBusinessHourValid.test().assertValue(false)
         }
     }
 
@@ -114,52 +112,7 @@ class RegisterViewModelTests : BaseTest() {
             endHour.value = 10
             endMinute.value = 0
 
-            isStoreHoursValid.test().assertValue(true)
-        }
-    }
-
-    /**
-     * 주소 검색 및 선택
-     */
-    @Test
-    fun isAddressSearchableTest() {
-        viewModel.run {
-            addressSearch.value = ""
-            isAddressSearchable.test().assertValue(false)
-
-            addressSearch.value = "대덕소프트웨어"
-            isAddressSearchable.test().assertValue(true)
-        }
-    }
-
-    @Test
-    fun searchAddressSuccessTest() = runBlockingTest {
-        viewModel.run {
-            addressSearch.value = "SEARCH"
-
-            val result = listOf(AddressModel("title", "address", "roadAddress"))
-            `when`(searchAddressUseCase.invoke(addressSearch.value!!))
-                .thenReturn(result)
-
-            onClickSearchAddress()
-
-            verify(searchAddressUseCase).invoke("SEARCH")
-            addressList.test().assertValue(result)
-            isSearchingAddress.test().assertValue(false)
-        }
-    }
-
-    @Test
-    fun searchAddressFailedTest() = runBlockingTest {
-        viewModel.run {
-            addressSearch.value = "SEARCH"
-            `when`(searchAddressUseCase.invoke(addressSearch.value!!))
-                .thenThrow(InternalException(Exception()))
-
-            onClickSearchAddress()
-
-            isSearchingAddress.test().assertValue(false)
-            toastEvent.test().assertValue(R.string.fail_exception_internal)
+            isBusinessHourValid.test().assertValue(true)
         }
     }
 
@@ -171,7 +124,7 @@ class RegisterViewModelTests : BaseTest() {
         viewModel.run {
             email.value = ""
 
-            checkEmail()
+            onClickDuplicationCheck()
 
             snackbarEvent.test().assertValue(R.string.fail_email_blank)
         }
@@ -182,7 +135,7 @@ class RegisterViewModelTests : BaseTest() {
         viewModel.run {
             email.value = "test@naver."
 
-            checkEmail()
+            onClickDuplicationCheck()
 
             snackbarEvent.test().assertValue(R.string.fail_email_invalid)
         }
@@ -195,7 +148,7 @@ class RegisterViewModelTests : BaseTest() {
 
             `when`(confirmEmailDuplicationUseCase.invoke(email.value!!)).thenReturn(Unit)
 
-            checkEmail()
+            onClickDuplicationCheck()
 
             toastEvent.test().assertValue(R.string.success_email_duplication_check)
             animatePassword.test().assertHasValue()
@@ -211,7 +164,7 @@ class RegisterViewModelTests : BaseTest() {
             `when`(confirmEmailDuplicationUseCase.invoke(email.value!!))
                 .thenThrow(ConflictException(Exception()))
 
-            checkEmail()
+            onClickDuplicationCheck()
 
             toastEvent.test().assertValue(R.string.fail_email_conflict)
         }
@@ -240,7 +193,7 @@ class RegisterViewModelTests : BaseTest() {
             setIsOfflineEnable(true)
             setIsOnlineEnable(true)
 
-            onSelectRestaurantAddress("ADDRESS", "ROAD_ADDRESS")
+            setAddress("ADDRESS", "ROAD_ADDRESS")
 
             viewModel.uploadImage("imagepath")
 
@@ -270,10 +223,10 @@ class RegisterViewModelTests : BaseTest() {
                 )
             ).thenReturn(Unit)
 
-            register()
+            onClickRegister()
 
             toastEvent.test().assertValue(R.string.success_register_restaurant)
-            popToLoginEvent.test().assertHasValue()
+            navigateLogin.test().assertHasValue()
         }
     }
 
@@ -297,7 +250,7 @@ class RegisterViewModelTests : BaseTest() {
             setIsOfflineEnable(true)
             setIsOnlineEnable(true)
 
-            onSelectRestaurantAddress("ADDRESS", "ROAD_ADDRESS")
+            setAddress("ADDRESS", "ROAD_ADDRESS")
 
             viewModel.uploadImage("imagepath")
 
@@ -327,7 +280,7 @@ class RegisterViewModelTests : BaseTest() {
                 )
             ).thenThrow(InternalException(Exception()))
 
-            register()
+            onClickRegister()
 
             toastEvent.test().assertValue(R.string.fail_exception_internal)
         }

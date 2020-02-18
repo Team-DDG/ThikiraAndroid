@@ -32,7 +32,7 @@ class SplashViewModelTests : BaseTest() {
 
             authToken()
 
-            navigateToMainEvent.test().assertHasValue()
+            navigateMainEvent.test().assertHasValue()
         }
     }
 
@@ -43,7 +43,7 @@ class SplashViewModelTests : BaseTest() {
 
             authToken()
 
-            navigateToLoginEvent.test().assertHasValue()
+            navigateLoginEvent.test().assertHasValue()
         }
     }
 }

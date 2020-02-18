@@ -85,7 +85,7 @@
             android:layout_marginTop="16dp"
             android:background="@{viewModel.isLoginClickable ? @drawable/bg_button_enable : @drawable/bg_button_disable}"
             android:clickable="@{viewModel.isLoginClickable}"
-            android:onClick="@{() -> viewModel.login()}"
+            android:onClick="@{() -> viewModel.onClickLogin()}"
             android:text="@string/login"
             android:textColor="@{viewModel.isLoginClickable ? @color/colorPrimaryLight : @color/colorGrey}"
             android:textSize="20sp"

@@ -8,8 +8,11 @@ import androidx.navigation.fragment.findNavController
 import com.dsm.mediapicker.MediaPicker
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentRegister1Binding
+import com.dsm.restaurant.domain.model.AddressModel
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
+import com.dsm.restaurant.presentation.util.BusProvider
 import com.dsm.restaurant.presentation.util.setupToast
+import com.squareup.otto.Subscribe
 import kotlinx.android.synthetic.main.fragment_register1.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -55,10 +58,28 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
                 .start(IMAGE_CODE)
         }
 
+    @Subscribe
+    fun subscribeAddress(address: AddressModel) {
+        viewModel.setAddress(
+            address = address.address,
+            roadAddress = address.roadAddress
+        )
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == IMAGE_CODE && resultCode == RESULT_OK) {
             val imagePath = data?.getStringArrayListExtra("result")
             viewModel.uploadImage(imagePath?.get(0) ?: "")
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        BusProvider.getInstance().register(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        BusProvider.getInstance().unregister(this)
     }
 }

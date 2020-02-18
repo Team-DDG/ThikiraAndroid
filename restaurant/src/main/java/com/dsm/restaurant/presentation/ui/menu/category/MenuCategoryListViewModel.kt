@@ -1,6 +1,5 @@
 package com.dsm.restaurant.presentation.ui.menu.category
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ConflictException
@@ -9,6 +8,9 @@ import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter.Companion.DELETE_TYPE
+import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter.Companion.NORMAL_TYPE
+import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter.Companion.UPDATE_TYPE
 import com.dsm.restaurant.presentation.util.BusProvider
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import kotlinx.coroutines.launch
@@ -24,14 +26,8 @@ class MenuCategoryListViewModel(
 
     private val selectedMenuCategoryList = MutableLiveData<ArrayList<Int>>(arrayListOf())
 
-    private val _changeViewTypeNormalEvent = SingleLiveEvent<Unit>()
-    val changeViewTypeNormalEvent: LiveData<Unit> = _changeViewTypeNormalEvent
-
-    private val _changeViewTypeDeleteEvent = SingleLiveEvent<Unit>()
-    val changeViewTypeDeleteEvent: LiveData<Unit> = _changeViewTypeDeleteEvent
-
-    private val _changeViewTypeUpdateEvent = SingleLiveEvent<Unit>()
-    val changeViewTypeUpdateEvent: LiveData<Unit> = _changeViewTypeUpdateEvent
+    private val _changeViewTypeEvent = SingleLiveEvent<Int>()
+    val changeViewTypeEvent: LiveData<Int> = _changeViewTypeEvent
 
     private val _isDeleting = MutableLiveData<Boolean>(false)
     val isDeleting: LiveData<Boolean> = _isDeleting
@@ -65,20 +61,19 @@ class MenuCategoryListViewModel(
         }
     }
 
+    fun onClickMenuCategoryItem(menuCategoryModel: MenuCategoryModel) {
+        BusProvider.getInstance().post(menuCategoryModel)
+        _popBackStackEvent.call()
+    }
+
     fun isSelectedItem(menuCategoryId: Int): Boolean =
         selectedMenuCategoryList.value?.contains(menuCategoryId) ?: false
 
-    fun onDeleteCheck(menuCategoryId: Int) {
+    fun onClickDeleteCheckbox(menuCategoryId: Int) {
         if (selectedMenuCategoryList.value!!.contains(menuCategoryId))
             selectedMenuCategoryList.value!!.remove(menuCategoryId)
         else
             selectedMenuCategoryList.value!!.add(menuCategoryId)
-    }
-
-    fun onClickMenuCategoryItem(menuCategoryModel: MenuCategoryModel) {
-        Log.d("DEBUGLOG", "menuCategoryListViewModel $menuCategoryModel")
-        BusProvider.getInstance().post(menuCategoryModel)
-        _popBackStackEvent.call()
     }
 
     fun onClickDelete() = viewModelScope.launch {
@@ -86,7 +81,7 @@ class MenuCategoryListViewModel(
 
         try {
             deleteMenuCategoryListUseCase(selectedMenuCategoryList.value!!)
-            _changeViewTypeNormalEvent.call()
+            _changeViewTypeEvent.value = NORMAL_TYPE
             _isDeleting.value = false
 
             getMenuCategory(forceUpdate = false)
@@ -112,24 +107,19 @@ class MenuCategoryListViewModel(
         }
     }
 
-    fun onStartUpdate() {
-        _isUpdating.value = false
-        _changeViewTypeNormalEvent.call()
-    }
-
-    fun onStartDeleting() {
+    fun onClickStartDelete() {
         _isDeleting.value = true
-        _changeViewTypeDeleteEvent.call()
+        _changeViewTypeEvent.value = DELETE_TYPE
     }
 
-    fun onStartUpdating() {
+    fun onClickStartUpdate() {
         _isUpdating.value = true
-        _changeViewTypeUpdateEvent.call()
+        _changeViewTypeEvent.value = UPDATE_TYPE
     }
 
     fun onClickCancel() {
         _isDeleting.value = false
         _isUpdating.value = false
-        _changeViewTypeNormalEvent.call()
+        _changeViewTypeEvent.value = NORMAL_TYPE
     }
 }

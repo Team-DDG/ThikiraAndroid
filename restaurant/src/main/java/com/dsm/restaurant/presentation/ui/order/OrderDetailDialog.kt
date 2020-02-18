@@ -16,6 +16,10 @@ class OrderDetailDialog : BaseDialog<DialogOrderDetailBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
         val adapter = OrderedListAdapter()
         rv_order_detail_ordered.adapter = adapter
 

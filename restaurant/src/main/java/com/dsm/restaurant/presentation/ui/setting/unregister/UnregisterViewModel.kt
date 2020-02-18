@@ -14,17 +14,17 @@ class UnregisterViewModel(
 
     val password = MutableLiveData<String>("")
 
-    val isUnregisterEnabled: LiveData<Boolean> = Transformations.map(password) { it != "" }
-
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
 
     private val _dismissEvent = SingleLiveEvent<Unit>()
     val dismissEvent: LiveData<Unit> = _dismissEvent
 
+    val isUnregisterClickable: LiveData<Boolean> = Transformations.map(password) { it != "" }
+
     fun unregister() = viewModelScope.launch {
         try {
-            unregisterUseCase(password.value ?: "")
+            unregisterUseCase(password.value!!)
 
             _dismissEvent.call()
         } catch (e: Exception) {

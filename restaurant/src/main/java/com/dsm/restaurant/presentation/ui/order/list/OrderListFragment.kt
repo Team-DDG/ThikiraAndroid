@@ -15,6 +15,10 @@ class OrderListFragment : BaseFragment<FragmentOrderListBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
         val adapter = OrderListAdapter()
         rv_order_list.adapter = adapter
 

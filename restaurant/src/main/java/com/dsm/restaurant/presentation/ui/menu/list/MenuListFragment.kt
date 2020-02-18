@@ -2,7 +2,6 @@ package com.dsm.restaurant.presentation.ui.menu.list
 
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
 import android.widget.PopupMenu
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +9,7 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentMenuListBinding
 import com.dsm.restaurant.presentation.ui.adapter.MenuListAdapter
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
+import com.dsm.restaurant.presentation.util.onItemSelectedListener
 import com.dsm.restaurant.presentation.util.setupToast
 import kotlinx.android.synthetic.main.fragment_menu_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,16 +38,8 @@ class MenuListFragment : BaseFragment<FragmentMenuListBinding>() {
     }
 
     private fun setupSpinnerListener() {
-        spn_menu_list.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                parent?.selectedItem?.toString()?.let {
-                    viewModel.getMenuList(it, false)
-                }
-            }
-
+        spn_menu_list.onItemSelectedListener {
+            viewModel.getMenuList(it, false)
         }
     }
 
