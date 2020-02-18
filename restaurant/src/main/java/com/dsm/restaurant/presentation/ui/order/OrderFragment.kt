@@ -15,6 +15,10 @@ class OrderFragment : BaseFragment<FragmentOrderBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViewPager()
+    }
+
+    private fun setupViewPager() {
         val adapter = OrderPagerAdapter(childFragmentManager, lifecycle)
         vp_order.adapter = adapter
         vp_order.setCurrentItem(adapter.getLastItemIndex(), false)

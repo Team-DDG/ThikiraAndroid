@@ -4,14 +4,19 @@
     <data>
 
         <variable
-            name="address"
+            name="addressModel"
             type="com.dsm.restaurant.domain.model.AddressModel" />
+
+        <variable
+            name="viewModel"
+            type="com.dsm.restaurant.presentation.ui.address.AddressSearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onClickAddressItem(addressModel)}">
 
         <TextView
             android:id="@+id/tv_address_item_title"
@@ -20,7 +25,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
-            android:text='@{address.title.replace("&lt;b>", "").replace("&lt;/b>", "")}'
+            android:text='@{addressModel.title.replace("&lt;b>", "").replace("&lt;/b>", "")}'
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -57,7 +62,7 @@
             android:layout_marginLeft="4dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            android:text="@{address.address}"
+            android:text="@{addressModel.address}"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintLeft_toRightOf="@id/tv_address_item_address_colon"
@@ -94,7 +99,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
             android:layout_marginBottom="24dp"
-            android:text="@{address.roadAddress}"
+            android:text="@{addressModel.roadAddress}"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"

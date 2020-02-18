@@ -20,7 +20,7 @@ class MenuCategoryListAdapter(
         const val UPDATE_TYPE = 2
     }
 
-    var viewType = NORMAL_TYPE
+    var listViewType = NORMAL_TYPE
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -35,8 +35,8 @@ class MenuCategoryListAdapter(
 
     inner class DeleteMenuCategoryHolder(val binding: ItemMenuCategoryDeleteBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-            binding.viewModel = viewModel
             binding.menuCategoryModel = getItem(adapterPosition)
+            binding.viewModel = viewModel
         }
     }
 
@@ -79,5 +79,5 @@ class MenuCategoryListAdapter(
             else -> Unit
         }
 
-    override fun getItemViewType(position: Int): Int = viewType
+    override fun getItemViewType(position: Int): Int = listViewType
 }

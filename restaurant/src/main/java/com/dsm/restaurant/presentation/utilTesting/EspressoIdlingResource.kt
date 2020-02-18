@@ -1,4 +1,4 @@
-package com.dsm.restaurant.presentation.util
+package com.dsm.restaurant.presentation.utilTesting
 
 object EspressoIdlingResource {
 

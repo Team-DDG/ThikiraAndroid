@@ -14,6 +14,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupNavigate()
+    }
+
+    private fun setupNavigate() {
         tb_setting.setNavigationOnClickListener { activity?.finish() }
 
         tv_setting_change_password.setOnClickListener {

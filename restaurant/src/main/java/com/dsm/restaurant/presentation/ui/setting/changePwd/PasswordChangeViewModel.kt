@@ -7,16 +7,15 @@ import com.dsm.restaurant.data.error.exception.UnauthorizedException
 import com.dsm.restaurant.domain.interactor.ChangePasswordUseCase
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import com.dsm.restaurant.presentation.util.isValidPassword
-import com.dsm.restaurant.presentation.util.isValueBlank
 import kotlinx.coroutines.launch
 
 class PasswordChangeViewModel(
     private val changePasswordUseCase: ChangePasswordUseCase
 ) : ViewModel() {
 
-    val originalPwd = MutableLiveData<String>()
-    val changePwd = MutableLiveData<String>()
-    val changePwdCheck = MutableLiveData<String>()
+    val originalPassword = MutableLiveData<String>()
+    val newPassword = MutableLiveData<String>()
+    val newPasswordReType = MutableLiveData<String>()
 
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
@@ -24,30 +23,34 @@ class PasswordChangeViewModel(
     private val _dismissEvent = SingleLiveEvent<Unit>()
     val dismissEvent: LiveData<Unit> = _dismissEvent
 
-    val isChangePwdEnabled: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
-        addSource(originalPwd) { value = isChangePwdFilled() }
-        addSource(changePwd) { value = isChangePwdFilled() }
-        addSource(changePwdCheck) { value = isChangePwdFilled() }
+    val isPasswordChangeClickable: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
+        addSource(originalPassword) { value = isPasswordChangeFilled() }
+        addSource(newPassword) { value = isPasswordChangeFilled() }
+        addSource(newPasswordReType) { value = isPasswordChangeFilled() }
     }
 
-    private fun isChangePwdFilled() =
-        !originalPwd.isValueBlank() && !changePwd.isValueBlank() && !changePwdCheck.isValueBlank()
+    private fun isPasswordChangeFilled() =
+        !originalPassword.value.isNullOrBlank() && !newPassword.value.isNullOrBlank() && !newPasswordReType.value.isNullOrBlank()
 
-    fun changePassword() = viewModelScope.launch {
-        if (changePwd.value != changePwdCheck.value) {
+    fun onClickChangePassword() {
+        if (newPassword.value != newPasswordReType.value) {
             _toastEvent.value = R.string.fail_re_type_different
-            return@launch
+            return
         }
 
-        if (!isValidPassword(changePwd.value!!)) {
+        if (!isValidPassword(newPassword.value!!)) {
             _toastEvent.value = R.string.fail_password_invalid
-            return@launch
+            return
         }
 
+        changePassword()
+    }
+
+    private fun changePassword() = viewModelScope.launch {
         try {
             changePasswordUseCase(
-                originalPwd.value ?: "",
-                changePwd.value ?: ""
+                originalPassword.value ?: "",
+                newPassword.value ?: ""
             )
 
             _dismissEvent.call()

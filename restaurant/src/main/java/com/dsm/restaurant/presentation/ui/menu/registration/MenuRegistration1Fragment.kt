@@ -25,14 +25,8 @@ class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>
 
     private val viewModel: MenuRegistrationViewModel by sharedViewModel()
 
-    private var isBusRegistered = false
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (!isBusRegistered) {
-            BusProvider.getInstance().register(this)
-            isBusRegistered = !isBusRegistered
-        }
 
         setupImagePicker()
         setupNavigate()
@@ -74,8 +68,13 @@ class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        BusProvider.getInstance().register(this)
+    }
+
     override fun onDestroy() {
-        BusProvider.getInstance().unregister(this)
         super.onDestroy()
+        BusProvider.getInstance().unregister(this)
     }
 }

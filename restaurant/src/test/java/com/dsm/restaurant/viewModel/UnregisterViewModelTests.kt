@@ -32,10 +32,10 @@ class UnregisterViewModelTests : BaseTest() {
     fun isUnregisterEnabledTest() = runBlockingTest {
         viewModel.run {
             password.value = "PASSWORD"
-            isUnregisterEnabled.test().assertValue(true)
+            isUnregisterClickable.test().assertValue(true)
 
             password.value = ""
-            isUnregisterEnabled.test().assertValue(false)
+            isUnregisterClickable.test().assertValue(false)
         }
     }
 

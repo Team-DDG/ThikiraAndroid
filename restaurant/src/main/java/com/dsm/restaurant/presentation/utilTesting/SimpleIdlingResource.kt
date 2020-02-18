@@ -1,4 +1,4 @@
-package com.dsm.restaurant.presentation.util
+package com.dsm.restaurant.presentation.utilTesting
 
 import androidx.test.espresso.IdlingResource
 import java.util.concurrent.atomic.AtomicInteger

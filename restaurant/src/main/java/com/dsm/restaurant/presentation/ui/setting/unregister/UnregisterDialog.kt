@@ -18,7 +18,6 @@ class UnregisterDialog : BaseDialog<DialogUnregisterBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.dismissEvent.observe(this) { dismiss() }
-
         setupToast(viewModel.toastEvent)
 
         binding.viewModel = viewModel

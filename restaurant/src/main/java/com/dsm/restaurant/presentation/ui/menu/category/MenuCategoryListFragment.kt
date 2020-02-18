@@ -56,8 +56,8 @@ class MenuCategoryListFragment : BaseFragment<FragmentMenuCategoryListBinding>()
 
                 setOnMenuItemClickListener { menuItem ->
                     when (menuItem.title) {
-                        getString(R.string.delete) -> viewModel.onStartDeleting()
-                        getString(R.string.update) -> viewModel.onStartUpdating()
+                        getString(R.string.delete) -> viewModel.onClickStartDelete()
+                        getString(R.string.update) -> viewModel.onClickStartUpdate()
                     }
                     true
                 }
@@ -68,16 +68,8 @@ class MenuCategoryListFragment : BaseFragment<FragmentMenuCategoryListBinding>()
     }
 
     private fun setupViewType() {
-        viewModel.changeViewTypeNormalEvent.observe(this) {
-            (rv_menu_category_list.adapter as MenuCategoryListAdapter).viewType = MenuCategoryListAdapter.NORMAL_TYPE
-        }
-
-        viewModel.changeViewTypeDeleteEvent.observe(this) {
-            (rv_menu_category_list.adapter as MenuCategoryListAdapter).viewType = MenuCategoryListAdapter.DELETE_TYPE
-        }
-
-        viewModel.changeViewTypeUpdateEvent.observe(this) {
-            (rv_menu_category_list.adapter as MenuCategoryListAdapter).viewType = MenuCategoryListAdapter.UPDATE_TYPE
+        viewModel.changeViewTypeEvent.observe(this) {
+            (rv_menu_category_list.adapter as MenuCategoryListAdapter).listViewType = it
         }
     }
 }

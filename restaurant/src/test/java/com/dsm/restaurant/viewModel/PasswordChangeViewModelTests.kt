@@ -30,24 +30,24 @@ class PasswordChangeViewModelTests : BaseTest() {
     @Test
     fun isChangePwdEnabledTest() {
         viewModel.run {
-            originalPwd.value = "ORIGINAL_PASSWORD"
-            changePwd.value = "PASSWORD"
-            changePwdCheck.value = "PASSWORD"
-            isChangePwdEnabled.test().assertValue(true)
+            originalPassword.value = "ORIGINAL_PASSWORD"
+            newPassword.value = "PASSWORD"
+            newPasswordReType.value = "PASSWORD"
+            isPasswordChangeClickable.test().assertValue(true)
 
-            changePwdCheck.value = ""
-            isChangePwdEnabled.test().assertValue(false)
+            newPasswordReType.value = ""
+            isPasswordChangeClickable.test().assertValue(false)
         }
     }
 
     @Test
     fun passwordDiffTest() {
         viewModel.run {
-            originalPwd.value = "ORIGINAL_PASSWORD"
-            changePwd.value = "PASSWORD"
-            changePwdCheck.value = "DIFF_PASSWORD"
+            originalPassword.value = "ORIGINAL_PASSWORD"
+            newPassword.value = "PASSWORD"
+            newPasswordReType.value = "DIFF_PASSWORD"
 
-            changePassword()
+            onClickChangePassword()
 
             toastEvent.test().assertValue(R.string.fail_re_type_different)
         }
@@ -56,11 +56,11 @@ class PasswordChangeViewModelTests : BaseTest() {
     @Test
     fun passwordInvalidTest() {
         viewModel.run {
-            originalPwd.value = "ORIGINAL_PASSWORD"
-            changePwd.value = "invalid"
-            changePwdCheck.value = "invalid"
+            originalPassword.value = "ORIGINAL_PASSWORD"
+            newPassword.value = "invalid"
+            newPasswordReType.value = "invalid"
 
-            changePassword()
+            onClickChangePassword()
 
             toastEvent.test().assertValue(R.string.fail_password_invalid)
         }
@@ -69,18 +69,18 @@ class PasswordChangeViewModelTests : BaseTest() {
     @Test
     fun changePasswordSuccessTest() = runBlockingTest {
         viewModel.run {
-            originalPwd.value = "ORIGINAL_PASSWORD"
-            changePwd.value = "password!"
-            changePwdCheck.value = "password!"
+            originalPassword.value = "ORIGINAL_PASSWORD"
+            newPassword.value = "password!"
+            newPasswordReType.value = "password!"
 
             `when`(
                 changePasswordUseCase.invoke(
-                    originalPwd.value ?: "",
-                    changePwd.value ?: ""
+                    originalPassword.value ?: "",
+                    newPassword.value ?: ""
                 )
             ).thenReturn(Unit)
 
-            changePassword()
+            onClickChangePassword()
 
             dismissEvent.test().assertHasValue()
         }
@@ -89,18 +89,18 @@ class PasswordChangeViewModelTests : BaseTest() {
     @Test
     fun changePasswordUnauthorizedTest() = runBlockingTest {
         viewModel.run {
-            originalPwd.value = "ORIGINAL_PASSWORD"
-            changePwd.value = "password!"
-            changePwdCheck.value = "password!"
+            originalPassword.value = "ORIGINAL_PASSWORD"
+            newPassword.value = "password!"
+            newPasswordReType.value = "password!"
 
             `when`(
                 changePasswordUseCase.invoke(
-                    originalPwd.value ?: "",
-                    changePwd.value ?: ""
+                    originalPassword.value ?: "",
+                    newPassword.value ?: ""
                 )
             ).thenThrow(UnauthorizedException(Exception()))
 
-            changePassword()
+            onClickChangePassword()
 
             toastEvent.test().assertValue(R.string.fail_password_auth)
         }
@@ -109,18 +109,18 @@ class PasswordChangeViewModelTests : BaseTest() {
     @Test
     fun changePasswordForbiddenTest() = runBlockingTest {
         viewModel.run {
-            originalPwd.value = "ORIGINAL_PASSWORD"
-            changePwd.value = "password!"
-            changePwdCheck.value = "password!"
+            originalPassword.value = "ORIGINAL_PASSWORD"
+            newPassword.value = "password!"
+            newPasswordReType.value = "password!"
 
             `when`(
                 changePasswordUseCase.invoke(
-                    originalPwd.value ?: "",
-                    changePwd.value ?: ""
+                    originalPassword.value ?: "",
+                    newPassword.value ?: ""
                 )
             ).thenThrow(ForbiddenException(Exception()))
 
-            changePassword()
+            onClickChangePassword()
 
             toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }

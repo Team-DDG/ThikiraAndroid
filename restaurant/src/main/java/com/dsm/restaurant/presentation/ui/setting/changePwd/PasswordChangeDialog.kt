@@ -18,7 +18,6 @@ class PasswordChangeDialog : BaseDialog<DialogPasswordChangeBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.dismissEvent.observe(this) { dismiss() }
-
         setupToast(viewModel.toastEvent)
 
         binding.viewModel = viewModel

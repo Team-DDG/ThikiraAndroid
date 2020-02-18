@@ -8,7 +8,6 @@ import com.dsm.restaurant.domain.interactor.UploadMenuUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.ui.adapter.MenuOptionRegistrationListAdapter.MenuRegistrationOption
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
-import com.dsm.restaurant.presentation.util.isValueBlank
 import kotlinx.coroutines.launch
 
 class MenuRegistrationViewModel(
@@ -177,6 +176,6 @@ class MenuRegistrationViewModel(
     }
 
     private fun isRegistration1Filled(): Boolean =
-        !(name.isValueBlank() || price.isValueBlank() || description.isValueBlank()
-                || imageUrl.isValueBlank() || menuCategoryName.isValueBlank())
+        !(name.value.isNullOrBlank() || price.value.isNullOrBlank() || description.value.isNullOrBlank()
+                || imageUrl.value.isNullOrBlank() || menuCategoryName.value.isNullOrBlank())
 }
