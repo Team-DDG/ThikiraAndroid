@@ -12,14 +12,6 @@ class AccountDataSourceImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : AccountDataSource {
 
-    override suspend fun confirmEmailDuplication(email: String) = withContext(ioDispatcher) {
-        try {
-            thikiraApi.confirmEmailDuplication(email)
-        } catch (e: Exception) {
-            throw errorHandler.getNetworkException(e)
-        }
-    }
-
     override suspend fun register(body: Any) = withContext(ioDispatcher) {
         try {
             thikiraApi.register(body)
