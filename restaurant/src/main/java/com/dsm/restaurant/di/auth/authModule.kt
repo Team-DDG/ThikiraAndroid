@@ -4,6 +4,7 @@ import com.dsm.restaurant.data.dataSource.AuthDataSource
 import com.dsm.restaurant.data.dataSource.AuthDataSourceImpl
 import com.dsm.restaurant.data.repository.AuthRepositoryImpl
 import com.dsm.restaurant.domain.interactor.AuthTokenUseCase
+import com.dsm.restaurant.domain.interactor.ConfirmEmailDuplicationUseCase
 import com.dsm.restaurant.domain.interactor.LoginUseCase
 import com.dsm.restaurant.domain.repository.AuthRepository
 import com.dsm.restaurant.presentation.ui.login.LoginViewModel
@@ -16,6 +17,8 @@ val authModule = module {
     factory<AuthDataSource> { AuthDataSourceImpl(get(), get()) }
 
     factory<AuthRepository> { AuthRepositoryImpl(get(), get()) }
+
+    factory { ConfirmEmailDuplicationUseCase(get()) }
 
     // login
     factory { LoginUseCase(get()) }

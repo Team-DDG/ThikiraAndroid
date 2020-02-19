@@ -21,6 +21,14 @@ class AuthDataSourceImpl(
         }
     }
 
+    override suspend fun confirmEmailDuplication(email: String) = withContext(ioDispatcher) {
+        try {
+            thikiraApi.confirmEmailDuplication(email)
+        } catch (e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
+
     override suspend fun login(body: Any): TokenDto = withContext(ioDispatcher) {
         try {
             thikiraApi.login(body)

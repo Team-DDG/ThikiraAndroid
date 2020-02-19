@@ -17,6 +17,10 @@ class AuthRepositoryImpl(
         authDataSource.authToken()
     }
 
+    override suspend fun confirmEmailDuplication(email: String) = withContext(ioDispatcher) {
+        authDataSource.confirmEmailDuplication(email)
+    }
+
     override suspend fun confirmPassword(password: String) = withContext(ioDispatcher) {
         authDataSource.confirmPassword(password)
     }
