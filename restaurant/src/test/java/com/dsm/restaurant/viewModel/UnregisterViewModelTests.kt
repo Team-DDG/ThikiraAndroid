@@ -5,7 +5,7 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.error.exception.UnauthorizedException
 import com.dsm.restaurant.domain.interactor.UnregisterUseCase
-import com.dsm.restaurant.presentation.ui.main.setting.unregister.UnregisterViewModel
+import com.dsm.restaurant.presentation.ui.setting.unregister.UnregisterViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -32,10 +32,10 @@ class UnregisterViewModelTests : BaseTest() {
     fun isUnregisterEnabledTest() = runBlockingTest {
         viewModel.run {
             password.value = "PASSWORD"
-            isUnregisterEnabled.test().assertValue(true)
+            isUnregisterClickable.test().assertValue(true)
 
             password.value = ""
-            isUnregisterEnabled.test().assertValue(false)
+            isUnregisterClickable.test().assertValue(false)
         }
     }
 

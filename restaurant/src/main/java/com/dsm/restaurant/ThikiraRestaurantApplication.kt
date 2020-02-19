@@ -2,6 +2,7 @@ package com.dsm.restaurant
 
 import android.app.Application
 import com.dsm.restaurant.di.account.accountModule
+import com.dsm.restaurant.di.address.addressModule
 import com.dsm.restaurant.di.auth.authModule
 import com.dsm.restaurant.di.localModule
 import com.dsm.restaurant.di.menu.menuModule
@@ -23,6 +24,7 @@ open class ThikiraRestaurantApplication : Application() {
                     localModule,
 
                     accountModule,
+                    addressModule,
                     authModule,
                     restaurantModule,
                     menuModule

@@ -5,14 +5,13 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.NotFoundException
 import com.dsm.restaurant.domain.interactor.LoginUseCase
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
-import com.dsm.restaurant.presentation.util.isValueBlank
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
-    // 양방향 바인딩을 위한 노출
+    // two-way binding
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
@@ -25,7 +24,7 @@ class LoginViewModel(
     private val _hideKeyboardEvent = SingleLiveEvent<Unit>()
     val hideKeyboardEvent: LiveData<Unit> = _hideKeyboardEvent
 
-    fun login() = viewModelScope.launch {
+    fun onClickLogin() = viewModelScope.launch {
         try {
             loginUseCase(
                 hashMapOf(
@@ -44,8 +43,11 @@ class LoginViewModel(
         }
     }
 
+    /**
+     * button enable
+     */
     val isLoginClickable = MediatorLiveData<Boolean>().apply {
-        addSource(email) { value = !email.isValueBlank() && !password.isValueBlank() }
-        addSource(password) { value = !email.isValueBlank() && !password.isValueBlank() }
+        addSource(email) { value = !email.value.isNullOrBlank() && !password.value.isNullOrBlank() }
+        addSource(password) { value = !email.value.isNullOrBlank() && !password.value.isNullOrBlank() }
     }
 }

@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationViewModel" />
+            type="com.dsm.restaurant.presentation.ui.menu.registration.MenuRegistrationViewModel" />
 
         <variable
             name="position"

@@ -8,7 +8,7 @@ import com.dsm.restaurant.databinding.ItemMenuCategoryBinding
 import com.dsm.restaurant.databinding.ItemMenuCategoryDeleteBinding
 import com.dsm.restaurant.databinding.ItemMenuCategoryUpdateBinding
 import com.dsm.restaurant.domain.model.MenuCategoryModel
-import com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel
+import com.dsm.restaurant.presentation.ui.menu.category.MenuCategoryListViewModel
 
 class MenuCategoryListAdapter(
     private val viewModel: MenuCategoryListViewModel
@@ -20,7 +20,7 @@ class MenuCategoryListAdapter(
         const val UPDATE_TYPE = 2
     }
 
-    var viewType = NORMAL_TYPE
+    var listViewType = NORMAL_TYPE
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -35,8 +35,8 @@ class MenuCategoryListAdapter(
 
     inner class DeleteMenuCategoryHolder(val binding: ItemMenuCategoryDeleteBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-            binding.viewModel = viewModel
             binding.menuCategoryModel = getItem(adapterPosition)
+            binding.viewModel = viewModel
         }
     }
 
@@ -60,13 +60,16 @@ class MenuCategoryListAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
-        when (viewType) {
-            NORMAL_TYPE -> MenuCategoryHolder(ItemMenuCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-            DELETE_TYPE -> DeleteMenuCategoryHolder(ItemMenuCategoryDeleteBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-            UPDATE_TYPE -> UpdateMenuCategoryHolder(ItemMenuCategoryUpdateBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-            else -> MenuCategoryHolder(ItemMenuCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return when (viewType) {
+            NORMAL_TYPE -> MenuCategoryHolder(ItemMenuCategoryBinding.inflate(inflater, parent, false))
+            DELETE_TYPE -> DeleteMenuCategoryHolder(ItemMenuCategoryDeleteBinding.inflate(inflater, parent, false))
+            UPDATE_TYPE -> UpdateMenuCategoryHolder(ItemMenuCategoryUpdateBinding.inflate(inflater, parent, false))
+            else -> MenuCategoryHolder(ItemMenuCategoryBinding.inflate(inflater, parent, false))
         }
+    }
+
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
         when (holder) {
@@ -76,5 +79,5 @@ class MenuCategoryListAdapter(
             else -> Unit
         }
 
-    override fun getItemViewType(position: Int): Int = viewType
+    override fun getItemViewType(position: Int): Int = listViewType
 }

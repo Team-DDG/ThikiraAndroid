@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.dsm.restaurant.domain.model.MenuCategoryModel
 
-@Entity
+@Entity(tableName = "MenuCategory")
 data class MenuCategoryLocalDto(
 
     @PrimaryKey

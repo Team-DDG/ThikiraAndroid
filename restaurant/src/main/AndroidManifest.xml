@@ -17,9 +17,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".presentation.ui.main.setting.SettingActivity" />
+        <activity android:name=".presentation.ui.setting.SettingActivity" />
         <activity
-            android:name=".presentation.ui.main.menu.registration.MenuRegistrationActivity"
+            android:name=".presentation.ui.menu.registration.MenuRegistrationActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.ui.MainActivity"

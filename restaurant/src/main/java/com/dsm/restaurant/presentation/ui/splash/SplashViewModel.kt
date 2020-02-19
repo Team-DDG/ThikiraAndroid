@@ -11,11 +11,11 @@ class SplashViewModel(
     private val authTokenUseCase: AuthTokenUseCase
 ) : ViewModel() {
 
-    private val _navigateToMainEvent = SingleLiveEvent<Unit>()
-    val navigateToMainEvent: LiveData<Unit> = _navigateToMainEvent
+    private val _navigateMainEvent = SingleLiveEvent<Unit>()
+    val navigateMainEvent: LiveData<Unit> = _navigateMainEvent
 
-    private val _navigateToLoginEvent = SingleLiveEvent<Unit>()
-    val navigateToLoginEvent: LiveData<Unit> = _navigateToLoginEvent
+    private val _navigateLoginEvent = SingleLiveEvent<Unit>()
+    val navigateLoginEvent: LiveData<Unit> = _navigateLoginEvent
 
     init {
         authToken()
@@ -25,9 +25,9 @@ class SplashViewModel(
         try {
             authTokenUseCase()
 
-            _navigateToMainEvent.call()
+            _navigateMainEvent.call()
         } catch (e: Exception) {
-            _navigateToLoginEvent.call()
+            _navigateLoginEvent.call()
         }
     }
 }

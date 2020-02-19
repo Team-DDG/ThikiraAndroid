@@ -12,7 +12,7 @@ data class RestaurantModel(
 
     val address: String,
 
-    val area: String,
+    val deliverableArea: String,
 
     val category: String,
 
@@ -20,13 +20,11 @@ data class RestaurantModel(
 
     val dayOff: String,
 
-    val onlinePayment: Boolean,
+    val isOnlinePayment: Boolean,
 
-    val offlinePayment: Boolean,
+    val isOfflinePayment: Boolean,
 
-    val openTime: String,
-
-    val closeTime: String,
+    val businessHour: String,
 
     val description: String,
 

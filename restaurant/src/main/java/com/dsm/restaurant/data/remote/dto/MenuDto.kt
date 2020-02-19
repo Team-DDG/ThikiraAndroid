@@ -1,8 +1,8 @@
 package com.dsm.restaurant.data.remote.dto
 
-import com.dsm.restaurant.data.local.dto.GroupLocalItem
+import com.dsm.restaurant.data.local.dto.GroupLocalDto
 import com.dsm.restaurant.data.local.dto.MenuLocalDto
-import com.dsm.restaurant.data.local.dto.OptionLocalItem
+import com.dsm.restaurant.data.local.dto.OptionLocalDto
 import com.dsm.restaurant.domain.model.GroupModel
 import com.dsm.restaurant.domain.model.MenuModel
 import com.dsm.restaurant.domain.model.OptionModel
@@ -21,7 +21,7 @@ data class MenuDto(
 
     val image: String,
 
-    val group: List<GroupItem>
+    val group: List<GroupDto>
 ) {
     fun toLocalDto(menuCategoryId: Int) = MenuLocalDto(
         menuId = menuId,
@@ -30,20 +30,7 @@ data class MenuDto(
         price = price,
         description = description,
         image = image,
-        group = group.map { group ->
-            GroupLocalItem(
-                groupId = group.groupId,
-                name = group.name,
-                maxCount = group.maxCount,
-                option = group.option.map { option ->
-                    OptionLocalItem(
-                        optionId = option.optionId,
-                        name = option.name,
-                        price = option.price
-                    )
-                }
-            )
-        }
+        group = group.map(GroupDto::toLocalDto)
     )
 
     fun toModel() = MenuModel(
@@ -52,24 +39,11 @@ data class MenuDto(
         price = price,
         description = description,
         image = image,
-        group = group.map { group ->
-            GroupModel(
-                groupId = group.groupId,
-                name = group.name,
-                maxCount = group.maxCount,
-                option = group.option.map { option ->
-                    OptionModel(
-                        optionId = option.optionId,
-                        name = option.name,
-                        price = option.price
-                    )
-                }
-            )
-        }
+        group = group.map(GroupDto::toModel)
     )
 }
 
-data class GroupItem(
+data class GroupDto(
 
     @SerializedName("group_id")
     val groupId: Int,
@@ -79,10 +53,24 @@ data class GroupItem(
     @SerializedName("max_count")
     val maxCount: Int,
 
-    val option: List<OptionItem>
-)
+    val option: List<OptionDto>
+) {
+    fun toLocalDto() = GroupLocalDto(
+        groupId = groupId,
+        name = name,
+        maxCount = maxCount,
+        option = option.map(OptionDto::toLocalDto)
+    )
 
-data class OptionItem(
+    fun toModel() = GroupModel(
+        groupId = groupId,
+        name = name,
+        maxCount = maxCount,
+        option = option.map(OptionDto::toModel)
+    )
+}
+
+data class OptionDto(
 
     @SerializedName("option_id")
     val optionId: Int,
@@ -90,4 +78,16 @@ data class OptionItem(
     val name: String,
 
     val price: Int
-)
+) {
+    fun toLocalDto() = OptionLocalDto(
+        optionId = optionId,
+        name = name,
+        price = price
+    )
+
+    fun toModel() = OptionModel(
+        optionId = optionId,
+        name = name,
+        price = price
+    )
+}
