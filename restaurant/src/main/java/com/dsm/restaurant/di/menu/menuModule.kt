@@ -9,9 +9,9 @@ import com.dsm.restaurant.data.repository.MenuRepositoryImpl
 import com.dsm.restaurant.domain.interactor.*
 import com.dsm.restaurant.domain.repository.MenuCategoryRepository
 import com.dsm.restaurant.domain.repository.MenuRepository
-import com.dsm.restaurant.presentation.ui.main.menu.category.MenuCategoryListViewModel
-import com.dsm.restaurant.presentation.ui.main.menu.list.MenuListViewModel
-import com.dsm.restaurant.presentation.ui.main.menu.registration.MenuRegistrationViewModel
+import com.dsm.restaurant.presentation.ui.menu.category.MenuCategoryListViewModel
+import com.dsm.restaurant.presentation.ui.menu.list.MenuListViewModel
+import com.dsm.restaurant.presentation.ui.menu.registration.MenuRegistrationViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

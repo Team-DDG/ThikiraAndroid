@@ -2,7 +2,7 @@ package com.dsm.restaurant.presentation.ui.splash
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentSplashBinding
@@ -21,12 +21,12 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     }
 
     private fun setupNavigate() {
-        viewModel.navigateToLoginEvent.observe(this, Observer {
+        viewModel.navigateLoginEvent.observe(this) {
             findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-        })
+        }
 
-        viewModel.navigateToMainEvent.observe(this, Observer {
+        viewModel.navigateMainEvent.observe(this) {
             findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
-        })
+        }
     }
 }

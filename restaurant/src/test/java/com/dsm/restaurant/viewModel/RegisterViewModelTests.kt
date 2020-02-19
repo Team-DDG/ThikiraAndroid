@@ -5,21 +5,17 @@ import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ConflictException
 import com.dsm.restaurant.data.error.exception.InternalException
 import com.dsm.restaurant.data.firebase.FirebaseSource
-import com.dsm.restaurant.domain.interactor.CheckEmailUseCase
+import com.dsm.restaurant.domain.interactor.ConfirmEmailDuplicationUseCase
 import com.dsm.restaurant.domain.interactor.RegisterUseCase
 import com.dsm.restaurant.domain.interactor.SearchAddressUseCase
-import com.dsm.restaurant.domain.model.AddressModel
 import com.dsm.restaurant.presentation.ui.register.RegisterViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentCaptor
-import org.mockito.Captor
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,7 +23,7 @@ import java.util.*
 class RegisterViewModelTests : BaseTest() {
 
     @Mock
-    private lateinit var checkEmailUseCase: CheckEmailUseCase
+    private lateinit var confirmEmailDuplicationUseCase: ConfirmEmailDuplicationUseCase
 
     @Mock
     private lateinit var searchAddressUseCase: SearchAddressUseCase
@@ -38,41 +34,11 @@ class RegisterViewModelTests : BaseTest() {
     @Mock
     private lateinit var firebaseSource: FirebaseSource
 
-    @Captor
-    private lateinit var uploadListener: ArgumentCaptor<FirebaseSource.UploadListener>
-
     private lateinit var viewModel: RegisterViewModel
 
     @Before
     fun init() {
-        viewModel = RegisterViewModel(checkEmailUseCase, searchAddressUseCase, registerUseCase, firebaseSource)
-    }
-
-    /**
-     * 버튼 활성화 체크
-     */
-    @Test
-    fun isNext1EnabledTest() {
-        viewModel.uploadImage("imagepath")
-        verify(firebaseSource).uploadImage(safeEq("imagepath"), capture(uploadListener))
-        uploadListener.value.onSuccess("imageurl")
-
-        viewModel.onSelectRestaurantAddress("ADDRESS", "ROAD_ADDRESS")
-
-        viewModel.run {
-            isNext1Enabled.test().assertValue(false)
-
-            restaurantName.value = "RESTAURANT_NAME"
-            phoneNum.value = "PHONE_NUM"
-            area.value = listOf("AREA")
-            email.value = "example@naver.com"
-
-            isNext1Enabled.test().assertValue(true)
-
-            restaurantName.value = ""
-
-            isNext1Enabled.test().assertValue(false)
-        }
+        viewModel = RegisterViewModel(confirmEmailDuplicationUseCase, registerUseCase, firebaseSource)
     }
 
     @Test
@@ -86,11 +52,11 @@ class RegisterViewModelTests : BaseTest() {
             endHour.value = 2
             endMinute.value = 0
 
-            isNext2Enabled.test().assertValue(true)
+            isNext2Clickable.test().assertValue(true)
 
             endHour.value = 1
 
-            isNext2Enabled.test().assertValue(false)
+            isNext2Clickable.test().assertValue(false)
         }
     }
 
@@ -98,10 +64,10 @@ class RegisterViewModelTests : BaseTest() {
     fun isNext3EnabledTest() {
         viewModel.run {
             description.value = ""
-            isNext3Enabled.test().assertValue(false)
+            isNext3Clickable.test().assertValue(false)
 
             description.value = "DESCRIPTION"
-            isNext3Enabled.test().assertValue(true)
+            isNext3Clickable.test().assertValue(true)
         }
     }
 
@@ -109,16 +75,16 @@ class RegisterViewModelTests : BaseTest() {
     fun isRegisterEnabledTest() = runBlockingTest {
         viewModel.run {
             email.value = "email@gmail.com"
-            `when`(checkEmailUseCase.invoke(email.value!!)).thenReturn(Unit)
-            checkEmail()
+            `when`(confirmEmailDuplicationUseCase.invoke(email.value!!)).thenReturn(Unit)
+            onClickDuplicationCheck()
             password.value = "PASSWORD"
             reTypePwd.value = "PASSWORD"
 
-            isRegisterEnabled.test().assertValue(true)
+            isRegisterClickable.test().assertValue(true)
 
             password.value = ""
 
-            isRegisterEnabled.test().assertValue(false)
+            isRegisterClickable.test().assertValue(false)
         }
     }
 
@@ -134,7 +100,7 @@ class RegisterViewModelTests : BaseTest() {
             endHour.value = 5
             endMinute.value = 0
 
-            isStoreHoursValid.test().assertValue(false)
+            isBusinessHourValid.test().assertValue(false)
         }
     }
 
@@ -146,81 +112,7 @@ class RegisterViewModelTests : BaseTest() {
             endHour.value = 10
             endMinute.value = 0
 
-            isStoreHoursValid.test().assertValue(true)
-        }
-    }
-
-    /**
-     * 파이어베이스 이미지 업로드
-     */
-    @Test
-    fun imageUploadSuccessTest() {
-        viewModel.uploadImage("imagepath")
-        viewModel.isUploadingImage.test().assertValue(true)
-
-        verify(firebaseSource).uploadImage(safeEq("imagepath"), capture(uploadListener))
-
-        uploadListener.value.onSuccess("imageurl")
-        viewModel.imageUrl.test().assertValue("imageurl")
-        uploadListener.value.onComplete()
-        viewModel.isUploadingImage.test().assertValue(false)
-    }
-
-    @Test
-    fun imageUploadFailedTest() {
-        viewModel.uploadImage("imagepath")
-        viewModel.isUploadingImage.test().assertValue(true)
-
-        verify(firebaseSource).uploadImage(safeEq("imagepath"), capture(uploadListener))
-
-        uploadListener.value.onFailure(Exception())
-        viewModel.toastEvent.test().assertValue(R.string.fail_image_uploading)
-        uploadListener.value.onComplete()
-        viewModel.isUploadingImage.test().assertValue(false)
-    }
-
-    /**
-     * 주소 검색 및 선택
-     */
-    @Test
-    fun isAddressSearchableTest() {
-        viewModel.run {
-            addressSearch.value = ""
-            isAddressSearchable.test().assertValue(false)
-
-            addressSearch.value = "대덕소프트웨어"
-            isAddressSearchable.test().assertValue(true)
-        }
-    }
-
-    @Test
-    fun searchAddressSuccessTest() = runBlockingTest {
-        viewModel.run {
-            addressSearch.value = "SEARCH"
-
-            val result = listOf(AddressModel("title", "address", "roadAddress"))
-            `when`(searchAddressUseCase.invoke(addressSearch.value!!))
-                .thenReturn(result)
-
-            onClickSearchAddress()
-
-            verify(searchAddressUseCase).invoke("SEARCH")
-            addressList.test().assertValue(result)
-            isSearchingAddress.test().assertValue(false)
-        }
-    }
-
-    @Test
-    fun searchAddressFailedTest() = runBlockingTest {
-        viewModel.run {
-            addressSearch.value = "SEARCH"
-            `when`(searchAddressUseCase.invoke(addressSearch.value!!))
-                .thenThrow(InternalException(Exception()))
-
-            onClickSearchAddress()
-
-            isSearchingAddress.test().assertValue(false)
-            toastEvent.test().assertValue(R.string.fail_exception_internal)
+            isBusinessHourValid.test().assertValue(true)
         }
     }
 
@@ -232,7 +124,7 @@ class RegisterViewModelTests : BaseTest() {
         viewModel.run {
             email.value = ""
 
-            checkEmail()
+            onClickDuplicationCheck()
 
             snackbarEvent.test().assertValue(R.string.fail_email_blank)
         }
@@ -243,7 +135,7 @@ class RegisterViewModelTests : BaseTest() {
         viewModel.run {
             email.value = "test@naver."
 
-            checkEmail()
+            onClickDuplicationCheck()
 
             snackbarEvent.test().assertValue(R.string.fail_email_invalid)
         }
@@ -254,9 +146,9 @@ class RegisterViewModelTests : BaseTest() {
         viewModel.run {
             email.value = "test@naver.com"
 
-            `when`(checkEmailUseCase.invoke(email.value!!)).thenReturn(Unit)
+            `when`(confirmEmailDuplicationUseCase.invoke(email.value!!)).thenReturn(Unit)
 
-            checkEmail()
+            onClickDuplicationCheck()
 
             toastEvent.test().assertValue(R.string.success_email_duplication_check)
             animatePassword.test().assertHasValue()
@@ -269,10 +161,10 @@ class RegisterViewModelTests : BaseTest() {
         viewModel.run {
             email.value = "test@naver.com"
 
-            `when`(checkEmailUseCase.invoke(email.value!!))
+            `when`(confirmEmailDuplicationUseCase.invoke(email.value!!))
                 .thenThrow(ConflictException(Exception()))
 
-            checkEmail()
+            onClickDuplicationCheck()
 
             toastEvent.test().assertValue(R.string.fail_email_conflict)
         }
@@ -301,11 +193,9 @@ class RegisterViewModelTests : BaseTest() {
             setIsOfflineEnable(true)
             setIsOnlineEnable(true)
 
-            onSelectRestaurantAddress("ADDRESS", "ROAD_ADDRESS")
+            setAddress("ADDRESS", "ROAD_ADDRESS")
 
             viewModel.uploadImage("imagepath")
-            verify(firebaseSource).uploadImage(safeEq("imagepath"), capture(uploadListener))
-            uploadListener.value.onSuccess("imageurl")
 
             val startTime = parseTimeToDate(startHour.value!!, startMinute.value!!)
             val endTime = parseTimeToDate(endHour.value!!, endMinute.value!!)
@@ -333,10 +223,10 @@ class RegisterViewModelTests : BaseTest() {
                 )
             ).thenReturn(Unit)
 
-            register()
+            onClickRegister()
 
             toastEvent.test().assertValue(R.string.success_register_restaurant)
-            popToLoginEvent.test().assertHasValue()
+            navigateLogin.test().assertHasValue()
         }
     }
 
@@ -360,11 +250,9 @@ class RegisterViewModelTests : BaseTest() {
             setIsOfflineEnable(true)
             setIsOnlineEnable(true)
 
-            onSelectRestaurantAddress("ADDRESS", "ROAD_ADDRESS")
+            setAddress("ADDRESS", "ROAD_ADDRESS")
 
             viewModel.uploadImage("imagepath")
-            verify(firebaseSource).uploadImage(safeEq("imagepath"), capture(uploadListener))
-            uploadListener.value.onSuccess("imageurl")
 
             val startTime = parseTimeToDate(startHour.value!!, startMinute.value!!)
             val endTime = parseTimeToDate(endHour.value!!, endMinute.value!!)
@@ -392,7 +280,7 @@ class RegisterViewModelTests : BaseTest() {
                 )
             ).thenThrow(InternalException(Exception()))
 
-            register()
+            onClickRegister()
 
             toastEvent.test().assertValue(R.string.fail_exception_internal)
         }

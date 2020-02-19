@@ -17,8 +17,8 @@ class AuthRepositoryImpl(
         authDataSource.authToken()
     }
 
-    override suspend fun authPassword(password: String) = withContext(ioDispatcher) {
-        authDataSource.authPassword(password)
+    override suspend fun confirmPassword(password: String) = withContext(ioDispatcher) {
+        authDataSource.confirmPassword(password)
     }
 
     override suspend fun login(body: Any) = withContext(ioDispatcher) {

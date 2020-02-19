@@ -24,6 +24,7 @@ class TokenInterceptor(
 
         return if (response.code == 403) {
             val refreshResponse = tokenApi.refreshToken(refreshToken).execute()
+
             if (refreshResponse.code() == 200) {
                 val newToken = refreshResponse.body()?.get("accessToken") ?: ""
                 prefStorage.setAccessToken(newToken)

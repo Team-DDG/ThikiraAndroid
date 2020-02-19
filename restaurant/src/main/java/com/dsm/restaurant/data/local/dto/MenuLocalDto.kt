@@ -6,7 +6,7 @@ import com.dsm.restaurant.domain.model.GroupModel
 import com.dsm.restaurant.domain.model.MenuModel
 import com.dsm.restaurant.domain.model.OptionModel
 
-@Entity
+@Entity(tableName = "Menu")
 data class MenuLocalDto(
 
     @PrimaryKey
@@ -22,7 +22,7 @@ data class MenuLocalDto(
 
     val image: String,
 
-    val group: List<GroupLocalItem>
+    val group: List<GroupLocalDto>
 ) {
     fun toModel() = MenuModel(
         menuId = menuId,
@@ -30,24 +30,11 @@ data class MenuLocalDto(
         price = price,
         description = description,
         image = image,
-        group = group.map { group ->
-            GroupModel(
-                groupId = group.groupId,
-                name = group.name,
-                maxCount = group.maxCount,
-                option = group.option.map { option ->
-                    OptionModel(
-                        optionId = option.optionId,
-                        name = option.name,
-                        price = option.price
-                    )
-                }
-            )
-        }
+        group = group.map(GroupLocalDto::toModel)
     )
 }
 
-data class GroupLocalItem(
+data class GroupLocalDto(
 
     val groupId: Int,
 
@@ -55,14 +42,27 @@ data class GroupLocalItem(
 
     val maxCount: Int,
 
-    val option: List<OptionLocalItem>
-)
+    val option: List<OptionLocalDto>
+) {
+    fun toModel() = GroupModel(
+        groupId = groupId,
+        name = name,
+        maxCount = maxCount,
+        option = option.map(OptionLocalDto::toModel)
+    )
+}
 
-data class OptionLocalItem(
+data class OptionLocalDto(
 
     val optionId: Int,
 
     val name: String,
 
     val price: Int
-)
+) {
+    fun toModel() = OptionModel(
+        optionId = optionId,
+        price = price,
+        name = name
+    )
+}

@@ -1,7 +1,7 @@
 package com.dsm.restaurant.domain.interactor
 
 import com.dsm.restaurant.domain.repository.AuthRepository
-import com.dsm.restaurant.presentation.util.wrapEspressoIdlingResource
+import com.dsm.restaurant.presentation.utilTesting.wrapEspressoIdlingResource
 
 class LoginUseCase(
     private val authRepository: AuthRepository

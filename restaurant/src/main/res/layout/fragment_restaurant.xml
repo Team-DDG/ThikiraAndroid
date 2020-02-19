@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.dsm.restaurant.presentation.ui.main.restaurant.RestaurantViewModel" />
+            type="com.dsm.restaurant.presentation.ui.restaurant.RestaurantViewModel" />
     </data>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:text='@{viewModel.restaurantInfo.openTime + "~" + viewModel.restaurantInfo.closeTime}'
+                android:text='@{viewModel.restaurantInfo.businessHour}'
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_time_icon"
@@ -161,7 +161,7 @@
                 android:id="@+id/tv_restaurant_area"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.restaurantInfo.area}"
+                android:text="@{viewModel.restaurantInfo.deliverableArea}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_area_icon"

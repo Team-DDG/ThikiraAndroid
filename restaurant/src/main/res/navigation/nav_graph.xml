@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.dsm.restaurant.presentation.ui.main.MainFragment"
+        android:name="com.dsm.restaurant.presentation.ui.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" />
     <navigation
@@ -124,7 +124,7 @@
         </fragment>
         <fragment
             android:id="@+id/addressSearchFragment"
-            android:name="com.dsm.restaurant.presentation.ui.register.AddressSearchFragment"
+            android:name="com.dsm.restaurant.presentation.ui.address.AddressSearchFragment"
             android:label="AddressSearchFragment"
             tools:layout="@layout/fragment_address_search" />
         <fragment

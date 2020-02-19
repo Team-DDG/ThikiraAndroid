@@ -2,12 +2,12 @@ package com.dsm.restaurant.repository
 
 import com.dsm.restaurant.data.dataSource.MenuCategoryDataSource
 import com.dsm.restaurant.data.dataSource.MenuDataSource
-import com.dsm.restaurant.data.local.dto.GroupLocalItem
+import com.dsm.restaurant.data.local.dto.GroupLocalDto
 import com.dsm.restaurant.data.local.dto.MenuLocalDto
-import com.dsm.restaurant.data.local.dto.OptionLocalItem
-import com.dsm.restaurant.data.remote.dto.GroupItem
+import com.dsm.restaurant.data.local.dto.OptionLocalDto
+import com.dsm.restaurant.data.remote.dto.GroupDto
 import com.dsm.restaurant.data.remote.dto.MenuDto
-import com.dsm.restaurant.data.remote.dto.OptionItem
+import com.dsm.restaurant.data.remote.dto.OptionDto
 import com.dsm.restaurant.data.repository.MenuRepositoryImpl
 import com.dsm.restaurant.domain.repository.MenuRepository
 import kotlinx.coroutines.runBlocking
@@ -42,12 +42,12 @@ class MenuRepositoryTests {
             description = "DESCRIPTION",
             menuCategoryId = 0,
             group = listOf(
-                GroupLocalItem(
+                GroupLocalDto(
                     groupId = 0,
                     name = "NAME",
                     maxCount = 2,
                     option = listOf(
-                        OptionLocalItem(
+                        OptionLocalDto(
                             optionId = 0,
                             name = "NAME",
                             price = 1000
@@ -66,12 +66,12 @@ class MenuRepositoryTests {
             image = "IMAGE",
             description = "DESCRIPTION",
             group = listOf(
-                GroupItem(
+                GroupDto(
                     groupId = 0,
                     name = "NAME",
                     maxCount = 2,
                     option = listOf(
-                        OptionItem(
+                        OptionDto(
                             optionId = 0,
                             name = "NAME",
                             price = 1000
@@ -85,12 +85,12 @@ class MenuRepositoryTests {
     @Test
     fun `when force update false, local menu list not empty`() {
         runBlocking {
-            `when`(menuCategoryDataSource.getMenuCategoryIdFromName("CATEGORY_NAME")).thenReturn(0)
+            `when`(menuCategoryDataSource.getLocalMenuCategoryIdByName("CATEGORY_NAME")).thenReturn(0)
             `when`(menuDataSource.getLocalMenuList(0)).thenReturn(localMenuListResponse)
 
             menuRepository.getMenuList("CATEGORY_NAME", false)
 
-            verify(menuCategoryDataSource).getMenuCategoryIdFromName("CATEGORY_NAME")
+            verify(menuCategoryDataSource).getLocalMenuCategoryIdByName("CATEGORY_NAME")
             verify(menuDataSource).getLocalMenuList(0)
 
             verifyNoMoreInteractions(menuDataSource)
@@ -100,13 +100,13 @@ class MenuRepositoryTests {
     @Test
     fun `when force update false, local menu list empty`() {
         runBlocking {
-            `when`(menuCategoryDataSource.getMenuCategoryIdFromName("CATEGORY_NAME")).thenReturn(0)
+            `when`(menuCategoryDataSource.getLocalMenuCategoryIdByName("CATEGORY_NAME")).thenReturn(0)
             `when`(menuDataSource.getLocalMenuList(0)).thenReturn(emptyList())
             `when`(menuDataSource.getRemoteMenuList(0)).thenReturn(remoteMenuListResponse)
 
             menuRepository.getMenuList("CATEGORY_NAME", false)
 
-            verify(menuCategoryDataSource).getMenuCategoryIdFromName("CATEGORY_NAME")
+            verify(menuCategoryDataSource).getLocalMenuCategoryIdByName("CATEGORY_NAME")
             verify(menuDataSource).getRemoteMenuList(0)
             verify(menuDataSource).deleteAllLocalMenu(0)
             verify(menuDataSource).insertLocalMenuList(remoteMenuListResponse.map { it.toLocalDto(0) })
@@ -116,7 +116,7 @@ class MenuRepositoryTests {
     @Test
     fun `when force update true`() {
         runBlocking {
-            `when`(menuCategoryDataSource.getMenuCategoryIdFromName("CATEGORY_NAME")).thenReturn(0)
+            `when`(menuCategoryDataSource.getLocalMenuCategoryIdByName("CATEGORY_NAME")).thenReturn(0)
             `when`(menuDataSource.getRemoteMenuList(0)).thenReturn(remoteMenuListResponse)
 
             menuRepository.getMenuList("CATEGORY_NAME", false)

@@ -17,7 +17,7 @@ class MenuRepositoryImpl(
 ) : MenuRepository {
 
     override suspend fun getMenuList(categoryName: String, forceUpdate: Boolean) = withContext(ioDispatcher) {
-        val menuCategoryId = menuCategoryDataSource.getMenuCategoryIdFromName(categoryName)
+        val menuCategoryId = menuCategoryDataSource.getLocalMenuCategoryIdByName(categoryName)
         if (!forceUpdate) {
             menuDataSource.getLocalMenuList(menuCategoryId)?.let {
                 if (it.isNotEmpty()) return@withContext it.map(MenuLocalDto::toModel)
@@ -32,16 +32,12 @@ class MenuRepositoryImpl(
     }
 
     override suspend fun uploadMenu(body: Any) = withContext(ioDispatcher) {
-        try {
-            val menuId = menuDataSource.uploadRemoteMenu(body)
+        val menuId = menuDataSource.uploadRemoteMenu(body)
 
-            (body as MutableMap<String, Any>)["menuId"] = menuId
+        (body as MutableMap<String, Any>)["menuId"] = menuId
 
-            menuDataSource.insertLocalMenu(Gson().run {
-                fromJson(toJsonTree(body), MenuLocalDto::class.java)
-            })
-        } catch (e: Exception) {
-            throw e
-        }
+        menuDataSource.insertLocalMenu(Gson().run {
+            fromJson(toJsonTree(body), MenuLocalDto::class.java)
+        })
     }
 }

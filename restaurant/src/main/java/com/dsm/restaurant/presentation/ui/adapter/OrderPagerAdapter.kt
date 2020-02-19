@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.dsm.restaurant.presentation.ui.main.order.list.OrderListFragment
+import com.dsm.restaurant.presentation.ui.order.list.OrderListFragment
 import java.text.SimpleDateFormat
 import java.util.*
 

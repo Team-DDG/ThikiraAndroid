@@ -9,7 +9,7 @@ import com.dsm.restaurant.domain.model.GroupModel
 import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.domain.model.MenuModel
 import com.dsm.restaurant.domain.model.OptionModel
-import com.dsm.restaurant.presentation.ui.main.menu.list.MenuListViewModel
+import com.dsm.restaurant.presentation.ui.menu.list.MenuListViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

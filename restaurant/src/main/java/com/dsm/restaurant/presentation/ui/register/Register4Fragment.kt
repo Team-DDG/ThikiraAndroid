@@ -2,7 +2,7 @@ package com.dsm.restaurant.presentation.ui.register
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentRegister4Binding
@@ -34,8 +34,8 @@ class Register4Fragment : BaseFragment<FragmentRegister4Binding>() {
             findNavController().popBackStack(R.id.loginFragment, true)
         }
 
-        viewModel.popToLoginEvent.observe(this, Observer {
+        viewModel.navigateLogin.observe(this) {
             findNavController().navigate(R.id.action_register4Fragment_to_loginFragment)
-        })
+        }
     }
 }

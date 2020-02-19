@@ -28,24 +28,14 @@ class MenuCategoryRepositoryImpl(
     }
 
     override suspend fun deleteMenuCategoryList(menuCategoryList: List<Int>) = withContext(ioDispatcher) {
-        try {
-            menuCategoryDataSource.deleteRemoteMenuCategoryList(menuCategoryList)
-        } catch (e: Exception) {
-            throw e // Don't delete local menu categories when remote failed!!
-        }
-
+        menuCategoryDataSource.deleteRemoteMenuCategoryList(menuCategoryList)
         menuCategoryList.forEach {
             menuCategoryDataSource.deleteLocalMenuCategory(it)
         }
     }
 
     override suspend fun updateMenuCategory(menuCategoryId: Int, name: String) = withContext(ioDispatcher) {
-        try {
-            menuCategoryDataSource.updateRemoteMenuCategory(name, menuCategoryId)
-        } catch (e: Exception) {
-            throw e // Don't update local menu category when remote failed!!
-        }
-
-        menuCategoryDataSource.updateLocalMenuCategory(name, menuCategoryId)
+        menuCategoryDataSource.updateRemoteMenuCategory(menuCategoryId, name)
+        menuCategoryDataSource.updateLocalMenuCategory(menuCategoryId, name)
     }
 }
