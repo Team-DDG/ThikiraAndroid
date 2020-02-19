@@ -11,10 +11,6 @@ class AccountRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : AccountRepository {
 
-    override suspend fun confirmEmailDuplication(email: String) = withContext(ioDispatcher) {
-        accountDataSource.confirmEmailDuplication(email)
-    }
-
     override suspend fun register(body: Any) = withContext(ioDispatcher) {
         accountDataSource.register(body)
     }

@@ -11,10 +11,7 @@ interface ThikiraApi {
     @GET("/")
     suspend fun getRestaurantInfo(): RestaurantDto
 
-    @GET("check_email")
-    suspend fun confirmEmailDuplication(@Query("email") email: String)
-
-    @POST("sign_up")
+    @POST("create")
     suspend fun register(@Body body: Any)
 
     @DELETE("leave")
@@ -33,14 +30,17 @@ interface ThikiraApi {
     @GET("auth/password")
     suspend fun confirmPassword(@Query("password") password: String)
 
-    @POST("auth/login")
+    @GET("auth/email")
+    suspend fun confirmEmailDuplication(@Query("email") email: String)
+
+    @POST("auth/sign_in")
     suspend fun login(@Body body: Any): TokenDto
 
     /**
      * menu
      */
     @GET("menu")
-    suspend fun getMenuList(@Query("menu_category_id") menuCategoryId: Int): List<MenuDto>
+    suspend fun getMenuList(@Query("mc_id") menuCategoryId: Int): List<MenuDto>
 
     @GET("menu/category")
     suspend fun getMenuCategoryList(): List<MenuCategoryDto>
@@ -57,7 +57,7 @@ interface ThikiraApi {
     @FormUrlEncoded
     @PATCH("menu/category")
     suspend fun updateMenuCategory(
-        @Field("menu_category_id") menuCategoryId: Int,
+        @Field("mc_id") menuCategoryId: Int,
         @Field("name") name: String
     )
 }

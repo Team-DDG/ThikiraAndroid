@@ -4,7 +4,6 @@ import com.dsm.restaurant.data.dataSource.AccountDataSource
 import com.dsm.restaurant.data.dataSource.AccountDataSourceImpl
 import com.dsm.restaurant.data.repository.AccountRepositoryImpl
 import com.dsm.restaurant.domain.interactor.ChangePasswordUseCase
-import com.dsm.restaurant.domain.interactor.ConfirmEmailDuplicationUseCase
 import com.dsm.restaurant.domain.interactor.RegisterUseCase
 import com.dsm.restaurant.domain.interactor.UnregisterUseCase
 import com.dsm.restaurant.domain.repository.AccountRepository
@@ -21,8 +20,6 @@ val accountModule = module {
     factory<AccountRepository> { AccountRepositoryImpl(get()) }
 
     // register
-    factory { ConfirmEmailDuplicationUseCase(get()) }
-
     factory { RegisterUseCase(get()) }
 
     viewModel { RegisterViewModel(get(), get(), get()) }
