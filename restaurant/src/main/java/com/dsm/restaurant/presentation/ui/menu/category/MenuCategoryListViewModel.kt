@@ -25,8 +25,6 @@ class MenuCategoryListViewModel(
     private val _menuCategoryList = MutableLiveData<List<MenuCategoryModel>>()
     val menuCategoryList: LiveData<List<MenuCategoryModel>> = _menuCategoryList
 
-    private val selectedMenuCategoryList = MutableLiveData<ArrayList<Int>>(arrayListOf())
-
     private val _changeViewTypeEvent = SingleLiveEvent<Int>()
     val changeViewTypeEvent: LiveData<Int> = _changeViewTypeEvent
 
@@ -34,7 +32,6 @@ class MenuCategoryListViewModel(
     val isDeleting: LiveData<Boolean> = _isDeleting
 
     private val _isUpdating = MutableLiveData<Boolean>(false)
-    val isUpdating: LiveData<Boolean> = _isUpdating
 
     val isSelecting: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
         addSource(_isDeleting) { value = _isDeleting.value!! || _isUpdating.value!! }
@@ -67,21 +64,19 @@ class MenuCategoryListViewModel(
         _popBackStackEvent.call()
     }
 
-    fun isSelectedItem(menuCategoryId: Int): Boolean =
-        selectedMenuCategoryList.value?.contains(menuCategoryId) ?: false
-
-    fun onClickDeleteCheckbox(menuCategoryId: Int) {
-        if (selectedMenuCategoryList.value!!.contains(menuCategoryId))
-            selectedMenuCategoryList.value!!.remove(menuCategoryId)
-        else
-            selectedMenuCategoryList.value!!.add(menuCategoryId)
+    fun onClickDeleteCheckbox(position: Int) {
+        val list = menuCategoryList.value!!
+        list[position].isChecked = !list[position].isChecked
+        _menuCategoryList.value = list
     }
 
     fun onClickDelete() = viewModelScope.launch {
-        if (selectedMenuCategoryList.value!!.isEmpty()) return@launch
-
         try {
-            deleteMenuCategoryListUseCase(selectedMenuCategoryList.value!!)
+            deleteMenuCategoryListUseCase(
+                menuCategoryList.value!!
+                    .filter { it.isChecked }
+                    .map { it.menuCategoryId }
+            )
             _changeViewTypeEvent.value = NORMAL_TYPE
             _isDeleting.value = false
 

@@ -6,7 +6,9 @@ data class MenuCategoryModel(
 
     val menuCategoryId: Int,
 
-    val name: String
+    val name: String,
+
+    var isChecked: Boolean = false
 ) {
 
     companion object {
@@ -15,7 +17,7 @@ data class MenuCategoryModel(
                 oldItem.menuCategoryId == newItem.menuCategoryId
 
             override fun areContentsTheSame(oldItem: MenuCategoryModel, newItem: MenuCategoryModel): Boolean =
-                oldItem.name == newItem.name
+                oldItem.name == newItem.name && oldItem.isChecked == newItem.isChecked
 
         }
     }
