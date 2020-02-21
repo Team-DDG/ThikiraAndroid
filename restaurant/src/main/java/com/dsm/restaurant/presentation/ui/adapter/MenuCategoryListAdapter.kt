@@ -37,6 +37,7 @@ class MenuCategoryListAdapter(
         fun bind() {
             binding.menuCategoryModel = getItem(adapterPosition)
             binding.viewModel = viewModel
+            binding.position = adapterPosition
         }
     }
 

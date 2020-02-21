@@ -50,7 +50,6 @@ class MenuCategoryListViewModelTests : BaseTest() {
             getMenuCategory(true)
 
             menuCategoryList.test().assertValue(response.map(MenuCategoryEntity::toModel))
-            toastEvent.test().assertNoValue()
         }
     }
 
@@ -69,44 +68,34 @@ class MenuCategoryListViewModelTests : BaseTest() {
     @Test
     fun deleteMenuCategoryListSuccessTest() = runBlockingTest {
         viewModel.run {
-            `when`(deleteMenuCategoryListUseCase.invoke(listOf(0, 1, 2))).thenReturn(Unit)
-
+            `when`(getMenuCategoryListUseCase.invoke(true)).thenReturn(
+                listOf(MenuCategoryEntity(0, "NAME"))
+            )
+            getMenuCategory(true)
             onClickDeleteCheckbox(0)
-            onClickDeleteCheckbox(1)
-            onClickDeleteCheckbox(2)
+            `when`(deleteMenuCategoryListUseCase.invoke(menuCategoryList.value!!.filter { it.isChecked }.map { it.menuCategoryId })).thenReturn(Unit)
 
             onClickDelete()
 
             changeViewTypeEvent.test().assertValue(NORMAL_TYPE)
             isSelecting.test().assertValue(false)
-            toastEvent.test().assertNoValue()
         }
     }
 
     @Test
     fun deleteMenuCategoryListForbiddenTest() = runBlockingTest {
         viewModel.run {
-            `when`(deleteMenuCategoryListUseCase.invoke(listOf(0, 1, 2)))
-                .thenThrow(ForbiddenException(Exception()))
-
+            `when`(getMenuCategoryListUseCase.invoke(true)).thenReturn(
+                listOf(MenuCategoryEntity(0, "NAME"))
+            )
+            getMenuCategory(true)
             onClickDeleteCheckbox(0)
-            onClickDeleteCheckbox(1)
-            onClickDeleteCheckbox(2)
+            `when`(deleteMenuCategoryListUseCase.invoke(menuCategoryList.value!!.filter { it.isChecked }.map { it.menuCategoryId }))
+                .thenThrow(ForbiddenException(Exception()))
 
             onClickDelete()
 
             toastEvent.test().assertValue(R.string.fail_exception_forbidden)
-        }
-    }
-
-    @Test
-    fun updateMenuCategorySuccessTest() = runBlockingTest {
-        viewModel.run {
-            `when`(updateMenuCategoryUseCase.invoke(0, "NAME")).thenReturn(Unit)
-
-            onClickUpdate("NAME", 0)
-
-            toastEvent.test().assertNoValue()
         }
     }
 
