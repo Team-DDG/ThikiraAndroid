@@ -3,12 +3,12 @@ package com.dsm.restaurant.viewModel
 import com.dsm.restaurant.BaseTest
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
+import com.dsm.restaurant.domain.entity.GroupEntity
+import com.dsm.restaurant.domain.entity.MenuCategoryEntity
+import com.dsm.restaurant.domain.entity.MenuEntity
+import com.dsm.restaurant.domain.entity.OptionEntity
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuListUseCase
-import com.dsm.restaurant.domain.model.GroupModel
-import com.dsm.restaurant.domain.model.MenuCategoryModel
-import com.dsm.restaurant.domain.model.MenuModel
-import com.dsm.restaurant.domain.model.OptionModel
 import com.dsm.restaurant.presentation.ui.menu.list.MenuListViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -35,19 +35,19 @@ class MenuListViewModelTests : BaseTest() {
     }
 
     val menuListResponse = listOf(
-        MenuModel(
+        MenuEntity(
             menuId = 0,
             description = "description",
             image = "image",
             name = "name",
             price = 1000,
             group = listOf(
-                GroupModel(
+                GroupEntity(
                     groupId = 0,
                     name = "name",
                     maxCount = 2,
                     option = listOf(
-                        OptionModel(
+                        OptionEntity(
                             optionId = 0,
                             name = "name",
                             price = 1000
@@ -62,7 +62,7 @@ class MenuListViewModelTests : BaseTest() {
     fun getMenuCategorySuccessTest() = runBlockingTest {
         viewModel.run {
             val response = listOf(
-                MenuCategoryModel(
+                MenuCategoryEntity(
                     menuCategoryId = 0,
                     name = "NAME"
                 )
@@ -96,7 +96,7 @@ class MenuListViewModelTests : BaseTest() {
 
             getMenuList("CATEGORY_NAME", true)
 
-            menuList.test().assertValue(menuListResponse)
+            menuList.test().assertValue(menuListResponse.map(MenuEntity::toModel))
             toastEvent.test().assertNoValue()
         }
     }

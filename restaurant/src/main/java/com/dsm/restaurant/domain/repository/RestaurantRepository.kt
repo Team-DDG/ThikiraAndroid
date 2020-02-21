@@ -1,8 +1,8 @@
 package com.dsm.restaurant.domain.repository
 
-import com.dsm.restaurant.domain.model.RestaurantModel
+import com.dsm.restaurant.domain.entity.RestaurantEntity
 
 interface RestaurantRepository {
 
-    suspend fun getRestaurantInfo(forceUpdate: Boolean): RestaurantModel
+    suspend fun getRestaurantInfo(forceUpdate: Boolean): RestaurantEntity
 }

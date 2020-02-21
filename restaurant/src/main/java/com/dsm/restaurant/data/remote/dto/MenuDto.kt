@@ -3,9 +3,9 @@ package com.dsm.restaurant.data.remote.dto
 import com.dsm.restaurant.data.local.dto.GroupLocalDto
 import com.dsm.restaurant.data.local.dto.MenuLocalDto
 import com.dsm.restaurant.data.local.dto.OptionLocalDto
-import com.dsm.restaurant.domain.model.GroupModel
-import com.dsm.restaurant.domain.model.MenuModel
-import com.dsm.restaurant.domain.model.OptionModel
+import com.dsm.restaurant.domain.entity.GroupEntity
+import com.dsm.restaurant.domain.entity.MenuEntity
+import com.dsm.restaurant.domain.entity.OptionEntity
 import com.google.gson.annotations.SerializedName
 
 data class MenuDto(
@@ -33,13 +33,13 @@ data class MenuDto(
         group = group.map(GroupDto::toLocalDto)
     )
 
-    fun toModel() = MenuModel(
+    fun toEntity() = MenuEntity(
         menuId = menuId,
         name = name,
         price = price,
         description = description,
         image = image,
-        group = group.map(GroupDto::toModel)
+        group = group.map(GroupDto::toEntity)
     )
 }
 
@@ -62,11 +62,11 @@ data class GroupDto(
         option = option.map(OptionDto::toLocalDto)
     )
 
-    fun toModel() = GroupModel(
+    fun toEntity() = GroupEntity(
         groupId = groupId,
         name = name,
         maxCount = maxCount,
-        option = option.map(OptionDto::toModel)
+        option = option.map(OptionDto::toEntity)
     )
 }
 
@@ -85,7 +85,7 @@ data class OptionDto(
         price = price
     )
 
-    fun toModel() = OptionModel(
+    fun toEntity() = OptionEntity(
         optionId = optionId,
         name = name,
         price = price

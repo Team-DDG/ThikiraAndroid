@@ -2,7 +2,7 @@ package com.dsm.restaurant.data.local.dto
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.domain.entity.MenuCategoryEntity
 
 @Entity(tableName = "MenuCategory")
 data class MenuCategoryLocalDto(
@@ -12,7 +12,7 @@ data class MenuCategoryLocalDto(
 
     val name: String
 ) {
-    fun toModel() = MenuCategoryModel(
+    fun toEntity() = MenuCategoryEntity(
         menuCategoryId = menuCategoryId,
         name = name
     )

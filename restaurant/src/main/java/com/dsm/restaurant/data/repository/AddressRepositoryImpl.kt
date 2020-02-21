@@ -1,7 +1,7 @@
 package com.dsm.restaurant.data.repository
 
 import com.dsm.restaurant.data.dataSource.AddressDataSource
-import com.dsm.restaurant.domain.model.AddressModel
+import com.dsm.restaurant.domain.entity.AddressEntity
 import com.dsm.restaurant.domain.repository.AddressRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +12,7 @@ class AddressRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : AddressRepository {
 
-    override suspend fun searchAddress(query: String): List<AddressModel> = withContext(ioDispatcher) {
-        addressDataSource.searchAddress(query).toModel()
+    override suspend fun searchAddress(query: String): List<AddressEntity> = withContext(ioDispatcher) {
+        addressDataSource.searchAddress(query).toEntity()
     }
 }

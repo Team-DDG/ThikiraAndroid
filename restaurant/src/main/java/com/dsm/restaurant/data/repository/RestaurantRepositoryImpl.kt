@@ -14,14 +14,14 @@ class RestaurantRepositoryImpl(
     override suspend fun getRestaurantInfo(forceUpdate: Boolean) = withContext(ioDispatcher) {
         if (!forceUpdate) {
             restaurantDataSource.getLocalRestaurantInfo()?.let {
-                return@withContext it.toModel()
+                return@withContext it.toEntity()
             }
         }
 
         restaurantDataSource.getRemoteRestaurantInfo().let {
             restaurantDataSource.deleteLocalRestaurantInfo()
             restaurantDataSource.insertLocalRestaurantInfo(it.toLocalDto())
-            return@withContext it.toModel()
+            return@withContext it.toEntity()
         }
     }
 }

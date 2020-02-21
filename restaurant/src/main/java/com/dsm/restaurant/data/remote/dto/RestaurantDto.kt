@@ -1,7 +1,7 @@
 package com.dsm.restaurant.data.remote.dto
 
 import com.dsm.restaurant.data.local.dto.RestaurantLocalDto
-import com.dsm.restaurant.domain.model.RestaurantModel
+import com.dsm.restaurant.domain.entity.RestaurantEntity
 import com.google.gson.annotations.SerializedName
 
 data class RestaurantDto(
@@ -45,7 +45,7 @@ data class RestaurantDto(
 
     val email: String
 ) {
-    fun toModel() = RestaurantModel(
+    fun toEntity() = RestaurantEntity(
         image = image,
         name = name,
         phone = phone,

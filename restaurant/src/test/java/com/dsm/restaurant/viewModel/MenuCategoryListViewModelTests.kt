@@ -3,10 +3,10 @@ package com.dsm.restaurant.viewModel
 import com.dsm.restaurant.BaseTest
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
+import com.dsm.restaurant.domain.entity.MenuCategoryEntity
 import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
-import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter.Companion.NORMAL_TYPE
 import com.dsm.restaurant.presentation.ui.menu.category.MenuCategoryListViewModel
 import com.jraska.livedata.test
@@ -40,7 +40,7 @@ class MenuCategoryListViewModelTests : BaseTest() {
     fun getMenuCategorySuccessTest() = runBlockingTest {
         viewModel.run {
             val response = listOf(
-                MenuCategoryModel(
+                MenuCategoryEntity(
                     menuCategoryId = 0,
                     name = "NAME"
                 )
@@ -49,7 +49,7 @@ class MenuCategoryListViewModelTests : BaseTest() {
 
             getMenuCategory(true)
 
-            menuCategoryList.test().assertValue(response)
+            menuCategoryList.test().assertValue(response.map(MenuCategoryEntity::toModel))
             toastEvent.test().assertNoValue()
         }
     }

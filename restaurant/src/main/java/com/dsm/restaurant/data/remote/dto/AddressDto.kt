@@ -1,6 +1,6 @@
 package com.dsm.restaurant.data.remote.dto
 
-import com.dsm.restaurant.domain.model.AddressModel
+import com.dsm.restaurant.domain.entity.AddressEntity
 import com.google.gson.annotations.SerializedName
 
 data class AddressDto(
@@ -8,7 +8,7 @@ data class AddressDto(
     @SerializedName("items")
     val results: List<AddressItemDto>
 ) {
-    fun toModel() = results.map(AddressItemDto::toModel)
+    fun toEntity() = results.map(AddressItemDto::toModel)
 }
 
 data class AddressItemDto(
@@ -18,7 +18,7 @@ data class AddressItemDto(
 
     val roadAddress: String
 ) {
-    fun toModel() = AddressModel(
+    fun toModel() = AddressEntity(
         title = title,
         address = address,
         roadAddress = roadAddress

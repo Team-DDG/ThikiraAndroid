@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.dsm.mediapicker.MediaPicker
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentMenuRegistration1Binding
-import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.domain.entity.MenuCategoryEntity
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.presentation.util.BusProvider
 import com.squareup.otto.Subscribe
@@ -58,7 +58,7 @@ class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>
     }
 
     @Subscribe
-    fun subscribeMenuCategory(menuCategoryModel: MenuCategoryModel) {
+    fun subscribeMenuCategory(menuCategoryModel: MenuCategoryEntity) {
         viewModel.setMenuCategory(menuCategoryModel)
     }
 

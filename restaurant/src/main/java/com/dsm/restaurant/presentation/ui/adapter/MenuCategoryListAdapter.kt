@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.databinding.ItemMenuCategoryBinding
 import com.dsm.restaurant.databinding.ItemMenuCategoryDeleteBinding
 import com.dsm.restaurant.databinding.ItemMenuCategoryUpdateBinding
-import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.presentation.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.ui.menu.category.MenuCategoryListViewModel
 
 class MenuCategoryListAdapter(
