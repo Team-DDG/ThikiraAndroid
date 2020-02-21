@@ -3,7 +3,7 @@ package com.dsm.restaurant.presentation.ui.menu.registration
 import androidx.lifecycle.*
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
-import com.dsm.restaurant.data.firebase.FirebaseSource
+import com.dsm.restaurant.data.firebase.FirebaseStorageSource
 import com.dsm.restaurant.domain.interactor.UploadMenuUseCase
 import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.ui.adapter.MenuOptionRegistrationListAdapter.MenuRegistrationOption
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class MenuRegistrationViewModel(
     private val uploadMenuUseCase: UploadMenuUseCase,
-    private val firebaseSource: FirebaseSource
+    private val firebaseStorageSource: FirebaseStorageSource
 ) : ViewModel() {
 
     data class Group(
@@ -70,7 +70,7 @@ class MenuRegistrationViewModel(
 
     fun uploadImage(imagePath: String) {
         _isImageUploading.value = true
-        firebaseSource.uploadImage(
+        firebaseStorageSource.uploadImage(
             imagePath,
             onSuccess = { _imageUrl.value = it },
             onFailure = { _toastEvent.value = R.string.fail_image_uploading },
