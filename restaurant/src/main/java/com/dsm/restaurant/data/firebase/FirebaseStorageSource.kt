@@ -3,7 +3,17 @@ package com.dsm.restaurant.data.firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.FileInputStream
 
-class FirebaseSourceImpl : FirebaseSource {
+interface FirebaseStorageSource {
+
+    fun uploadImage(
+        imagePath: String,
+        onSuccess: (imagePath: String) -> Unit = {},
+        onFailure: (exception: Exception) -> Unit = {},
+        onComplete: () -> Unit = {}
+    )
+}
+
+class FirebaseStorageSourceImpl : FirebaseStorageSource {
 
     private val firebaseStorage: FirebaseStorage by lazy { FirebaseStorage.getInstance() }
 
