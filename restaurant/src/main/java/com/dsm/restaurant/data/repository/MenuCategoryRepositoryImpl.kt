@@ -16,14 +16,14 @@ class MenuCategoryRepositoryImpl(
     override suspend fun getMenuCategoryList(forceUpdate: Boolean) = withContext(ioDispatcher) {
         if (!forceUpdate) {
             menuCategoryDataSource.getLocalMenuCategoryList()?.let {
-                if (it.isNotEmpty()) return@withContext it.map(MenuCategoryLocalDto::toModel)
+                if (it.isNotEmpty()) return@withContext it.map(MenuCategoryLocalDto::toEntity)
             }
         }
 
         menuCategoryDataSource.getRemoteMenuCategoryList().let {
             menuCategoryDataSource.deleteAllLocalMenuCategory()
             menuCategoryDataSource.insertLocalMenuCategoryList(it.map(MenuCategoryDto::toLocalDto))
-            return@withContext it.map(MenuCategoryDto::toModel)
+            return@withContext it.map(MenuCategoryDto::toEntity)
         }
     }
 

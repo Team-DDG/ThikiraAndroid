@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.dsm.mediapicker.MediaPicker
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.FragmentRegister1Binding
-import com.dsm.restaurant.domain.model.AddressModel
+import com.dsm.restaurant.presentation.model.AddressModel
 import com.dsm.restaurant.presentation.ui.base.BaseFragment
 import com.dsm.restaurant.presentation.util.BusProvider
 import com.dsm.restaurant.presentation.util.setupToast

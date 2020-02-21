@@ -3,8 +3,8 @@ package com.dsm.restaurant.viewModel
 import com.dsm.restaurant.BaseTest
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
+import com.dsm.restaurant.domain.entity.RestaurantEntity
 import com.dsm.restaurant.domain.interactor.GetRestaurantInfoUseCase
-import com.dsm.restaurant.domain.model.RestaurantModel
 import com.dsm.restaurant.presentation.ui.restaurant.RestaurantViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -30,7 +30,7 @@ class RestaurantViewModelTests : BaseTest() {
     @Test
     fun loadRestaurantInfoSuccessTest() = runBlockingTest {
         viewModel.run {
-            val response = RestaurantModel(
+            val response = RestaurantEntity(
                 image = "IMAGE",
                 description = "DESCRIPTION",
                 businessHour = "23:30~24:00",
@@ -51,7 +51,7 @@ class RestaurantViewModelTests : BaseTest() {
 
             loadRestaurantInfo(true)
 
-            restaurantInfo.test().assertValue(response)
+            restaurantInfo.test().assertValue(response.toModel())
         }
     }
 

@@ -3,10 +3,10 @@ package com.dsm.restaurant.presentation.ui.adapter
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.dsm.restaurant.domain.model.AddressModel
-import com.dsm.restaurant.domain.model.MenuCategoryModel
-import com.dsm.restaurant.domain.model.MenuModel
-import com.dsm.restaurant.presentation.ui.adapter.MenuOptionRegistrationListAdapter.MenuRegistrationOption
+import com.dsm.restaurant.domain.entity.MenuRegistrationOptionModel
+import com.dsm.restaurant.presentation.model.AddressModel
+import com.dsm.restaurant.presentation.model.MenuCategoryModel
+import com.dsm.restaurant.presentation.model.MenuModel
 
 @BindingAdapter("addressList")
 fun RecyclerView.bindAddressList(addressListLiveData: LiveData<List<AddressModel>>) {
@@ -30,7 +30,7 @@ fun RecyclerView.bindMenuCategoryList(menuCategoryListLiveData: LiveData<List<Me
 }
 
 @BindingAdapter("menuRegistrationOptionList")
-fun RecyclerView.bindMenuRegistrationOptionList(menuRegistrationOptionListLiveData: LiveData<ArrayList<MenuRegistrationOption>>) {
+fun RecyclerView.bindMenuRegistrationOptionList(menuRegistrationOptionListLiveData: LiveData<ArrayList<MenuRegistrationOptionModel>>) {
     menuRegistrationOptionListLiveData.value?.let {
         (adapter as MenuOptionRegistrationListAdapter).listItems = it
     }

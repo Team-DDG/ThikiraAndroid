@@ -4,10 +4,11 @@ import androidx.lifecycle.*
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ConflictException
 import com.dsm.restaurant.data.error.exception.ForbiddenException
+import com.dsm.restaurant.domain.entity.MenuCategoryEntity
 import com.dsm.restaurant.domain.interactor.DeleteMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.UpdateMenuCategoryUseCase
-import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.presentation.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter.Companion.DELETE_TYPE
 import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter.Companion.NORMAL_TYPE
 import com.dsm.restaurant.presentation.ui.adapter.MenuCategoryListAdapter.Companion.UPDATE_TYPE
@@ -52,7 +53,7 @@ class MenuCategoryListViewModel(
 
     fun getMenuCategory(forceUpdate: Boolean) = viewModelScope.launch {
         try {
-            _menuCategoryList.value = getMenuCategoryListUseCase(forceUpdate)
+            _menuCategoryList.value = getMenuCategoryListUseCase(forceUpdate).map(MenuCategoryEntity::toModel)
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
                 is ForbiddenException -> R.string.fail_exception_forbidden

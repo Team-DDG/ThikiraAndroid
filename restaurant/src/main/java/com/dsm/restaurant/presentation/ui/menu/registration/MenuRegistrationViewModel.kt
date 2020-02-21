@@ -4,9 +4,10 @@ import androidx.lifecycle.*
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.firebase.FirebaseStorageSource
+import com.dsm.restaurant.domain.entity.MenuCategoryEntity
+import com.dsm.restaurant.domain.entity.MenuRegistrationOptionModel
+import com.dsm.restaurant.domain.entity.MenuRegistrationOptionModel.AddGroup
 import com.dsm.restaurant.domain.interactor.UploadMenuUseCase
-import com.dsm.restaurant.domain.model.MenuCategoryModel
-import com.dsm.restaurant.presentation.ui.adapter.MenuOptionRegistrationListAdapter.MenuRegistrationOption
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
@@ -43,8 +44,8 @@ class MenuRegistrationViewModel(
     private val _menuCategoryName = MutableLiveData<String>("")
     val menuCategoryName: LiveData<String> = _menuCategoryName
 
-    private val _menuOptionList = MutableLiveData<ArrayList<MenuRegistrationOption>>(arrayListOf(MenuRegistrationOption.AddGroup))
-    val menuOptionList: LiveData<ArrayList<MenuRegistrationOption>> = _menuOptionList
+    private val _menuOptionList = MutableLiveData<ArrayList<MenuRegistrationOptionModel>>(arrayListOf(AddGroup))
+    val menuOptionList: LiveData<ArrayList<MenuRegistrationOptionModel>> = _menuOptionList
 
     val groupOptionList = MutableLiveData<ArrayList<Group>>(arrayListOf())
 
@@ -63,7 +64,7 @@ class MenuRegistrationViewModel(
     private val _finishActivityEvent = SingleLiveEvent<Unit>()
     val finishActivityEvent: LiveData<Unit> = _finishActivityEvent
 
-    fun setMenuCategory(menuCategoryModel: MenuCategoryModel) {
+    fun setMenuCategory(menuCategoryModel: MenuCategoryEntity) {
         _menuCategoryId.value = menuCategoryModel.menuCategoryId
         _menuCategoryName.value = menuCategoryModel.name
     }
@@ -88,15 +89,15 @@ class MenuRegistrationViewModel(
 
     fun addGroup(groupName: String, maxCount: Int) {
         val list = _menuOptionList.value!!
-        list.add(list.size - 1, MenuRegistrationOption.Group(groupName, maxCount))
+        list.add(list.size - 1, MenuRegistrationOptionModel.Group(groupName, maxCount))
         _menuOptionList.value = list
         groupOptionList.value?.add(Group(groupName, maxCount))
     }
 
     fun addOption(name: String, price: Int, position: Int) {
         val list = _menuOptionList.value!!
-        val groupName = (list[position] as MenuRegistrationOption.Group).groupName
-        list.add(position + 1, MenuRegistrationOption.Option(name, price))
+        val groupName = (list[position] as MenuRegistrationOptionModel.Group).groupName
+        list.add(position + 1, MenuRegistrationOptionModel.Option(name, price))
         _menuOptionList.value = list
         groupOptionList.value?.forEachIndexed { index, groupOption ->
             if (groupOption.name == groupName) {
@@ -111,7 +112,7 @@ class MenuRegistrationViewModel(
 
         var lastPosition = position
         (position until list.size).forEach {
-            if (list[it] is MenuRegistrationOption.Group || list[it] is MenuRegistrationOption.AddGroup) {
+            if (list[it] is MenuRegistrationOptionModel.Group || list[it] is AddGroup) {
                 return@forEach
             }
             lastPosition = it

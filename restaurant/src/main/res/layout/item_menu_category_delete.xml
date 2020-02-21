@@ -5,7 +5,7 @@
 
         <variable
             name="menuCategoryModel"
-            type="com.dsm.restaurant.domain.model.MenuCategoryModel" />
+            type="com.dsm.restaurant.presentation.model.MenuCategoryModel" />
 
         <variable
             name="viewModel"

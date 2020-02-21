@@ -1,6 +1,8 @@
-package com.dsm.restaurant.domain.model
+package com.dsm.restaurant.domain.entity
 
-data class RestaurantModel(
+import com.dsm.restaurant.presentation.model.RestaurantModel
+
+data class RestaurantEntity(
 
     val image: String,
 
@@ -29,4 +31,8 @@ data class RestaurantModel(
     val description: String,
 
     val email: String
-)
+) {
+    fun toModel() = RestaurantModel(
+        image, name, phone, roadAddress, address, deliverableArea, category, minPrice, dayOff, isOnlinePayment, isOfflinePayment, businessHour, description, email
+    )
+}

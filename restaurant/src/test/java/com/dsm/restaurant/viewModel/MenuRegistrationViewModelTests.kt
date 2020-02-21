@@ -4,8 +4,8 @@ import com.dsm.restaurant.BaseTest
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.firebase.FirebaseStorageSource
+import com.dsm.restaurant.domain.entity.MenuCategoryEntity
 import com.dsm.restaurant.domain.interactor.UploadMenuUseCase
-import com.dsm.restaurant.domain.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.ui.menu.registration.MenuRegistrationViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -35,7 +35,7 @@ class MenuRegistrationViewModelTests : BaseTest() {
     fun uploadMenuSuccessTest() = runBlockingTest {
         viewModel.run {
             uploadImage("IMAGE_PATH")
-            setMenuCategory(MenuCategoryModel(0, "CATEGORY_NAME"))
+            setMenuCategory(MenuCategoryEntity(0, "CATEGORY_NAME"))
             name.value = "NAME"
             price.value = "100"
             description.value = "DESCRIPTION"
@@ -64,7 +64,7 @@ class MenuRegistrationViewModelTests : BaseTest() {
     fun uploadMenuForbiddenTest() = runBlockingTest {
         viewModel.run {
             uploadImage("IMAGE_PATH")
-            setMenuCategory(MenuCategoryModel(0, "CATEGORY_NAME"))
+            setMenuCategory(MenuCategoryEntity(0, "CATEGORY_NAME"))
             name.value = "NAME"
             price.value = "100"
             description.value = "DESCRIPTION"

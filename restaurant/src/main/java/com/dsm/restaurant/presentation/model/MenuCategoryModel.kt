@@ -1,4 +1,4 @@
-package com.dsm.restaurant.domain.model
+package com.dsm.restaurant.presentation.model
 
 import androidx.recyclerview.widget.DiffUtil
 
@@ -8,8 +8,9 @@ data class MenuCategoryModel(
 
     val name: String
 ) {
+
     companion object {
-        val DIFF_CALLBACK = object: DiffUtil.ItemCallback<MenuCategoryModel>() {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MenuCategoryModel>() {
             override fun areItemsTheSame(oldItem: MenuCategoryModel, newItem: MenuCategoryModel): Boolean =
                 oldItem.menuCategoryId == newItem.menuCategoryId
 

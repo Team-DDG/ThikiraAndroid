@@ -20,14 +20,14 @@ class MenuRepositoryImpl(
         val menuCategoryId = menuCategoryDataSource.getLocalMenuCategoryIdByName(categoryName)
         if (!forceUpdate) {
             menuDataSource.getLocalMenuList(menuCategoryId)?.let {
-                if (it.isNotEmpty()) return@withContext it.map(MenuLocalDto::toModel)
+                if (it.isNotEmpty()) return@withContext it.map(MenuLocalDto::toEntity)
             }
         }
 
         menuDataSource.getRemoteMenuList(menuCategoryId).let {
             menuDataSource.deleteAllLocalMenu(menuCategoryId)
             menuDataSource.insertLocalMenuList(it.map { it.toLocalDto(menuCategoryId) })
-            return@withContext it.map(MenuDto::toModel)
+            return@withContext it.map(MenuDto::toEntity)
         }
     }
 

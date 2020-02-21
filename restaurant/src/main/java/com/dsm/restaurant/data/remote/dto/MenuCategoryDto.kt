@@ -1,7 +1,7 @@
 package com.dsm.restaurant.data.remote.dto
 
 import com.dsm.restaurant.data.local.dto.MenuCategoryLocalDto
-import com.dsm.restaurant.domain.model.MenuCategoryModel
+import com.dsm.restaurant.domain.entity.MenuCategoryEntity
 import com.google.gson.annotations.SerializedName
 
 data class MenuCategoryDto(
@@ -17,7 +17,7 @@ data class MenuCategoryDto(
         name = name
     )
 
-    fun toModel() = MenuCategoryModel(
+    fun toEntity() = MenuCategoryEntity(
         menuCategoryId = menuCategoryId,
         name = name
     )
