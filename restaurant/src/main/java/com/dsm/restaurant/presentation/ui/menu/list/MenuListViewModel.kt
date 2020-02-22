@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsm.baseapp.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
+import com.dsm.restaurant.domain.entity.MenuEntity
 import com.dsm.restaurant.domain.interactor.GetMenuCategoryListUseCase
 import com.dsm.restaurant.domain.interactor.GetMenuListUseCase
-import com.dsm.restaurant.domain.model.MenuModel
+import com.dsm.restaurant.presentation.model.MenuModel
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
@@ -40,7 +41,7 @@ class MenuListViewModel(
 
     fun getMenuList(categoryName: String, forceUpdate: Boolean) = viewModelScope.launch {
         try {
-            _menuList.value = getMenuListUseCase(categoryName, forceUpdate)
+            _menuList.value = getMenuListUseCase(categoryName, forceUpdate).map(MenuEntity::toModel)
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
                 is ForbiddenException -> R.string.fail_exception_forbidden

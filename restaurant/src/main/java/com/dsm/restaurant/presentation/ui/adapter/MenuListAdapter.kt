@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.R
 import com.dsm.restaurant.databinding.ItemMenuBinding
-import com.dsm.restaurant.domain.model.MenuModel
+import com.dsm.restaurant.presentation.model.MenuModel
 
 class MenuListAdapter : RecyclerView.Adapter<MenuListAdapter.MenuHolder>() {
 

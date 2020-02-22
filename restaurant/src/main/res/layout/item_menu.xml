@@ -5,7 +5,7 @@
 
         <variable
             name="menuModel"
-            type="com.dsm.restaurant.domain.model.MenuModel" />
+            type="com.dsm.restaurant.presentation.model.MenuModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

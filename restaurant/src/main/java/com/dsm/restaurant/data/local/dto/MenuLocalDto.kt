@@ -2,9 +2,9 @@ package com.dsm.restaurant.data.local.dto
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.dsm.restaurant.domain.model.GroupModel
-import com.dsm.restaurant.domain.model.MenuModel
-import com.dsm.restaurant.domain.model.OptionModel
+import com.dsm.restaurant.domain.entity.GroupEntity
+import com.dsm.restaurant.domain.entity.MenuEntity
+import com.dsm.restaurant.domain.entity.OptionEntity
 
 @Entity(tableName = "Menu")
 data class MenuLocalDto(
@@ -24,13 +24,13 @@ data class MenuLocalDto(
 
     val group: List<GroupLocalDto>
 ) {
-    fun toModel() = MenuModel(
+    fun toEntity() = MenuEntity(
         menuId = menuId,
         name = name,
         price = price,
         description = description,
         image = image,
-        group = group.map(GroupLocalDto::toModel)
+        group = group.map(GroupLocalDto::toEntity)
     )
 }
 
@@ -44,11 +44,11 @@ data class GroupLocalDto(
 
     val option: List<OptionLocalDto>
 ) {
-    fun toModel() = GroupModel(
+    fun toEntity() = GroupEntity(
         groupId = groupId,
         name = name,
         maxCount = maxCount,
-        option = option.map(OptionLocalDto::toModel)
+        option = option.map(OptionLocalDto::toEntity)
     )
 }
 
@@ -60,7 +60,7 @@ data class OptionLocalDto(
 
     val price: Int
 ) {
-    fun toModel() = OptionModel(
+    fun toEntity() = OptionEntity(
         optionId = optionId,
         price = price,
         name = name

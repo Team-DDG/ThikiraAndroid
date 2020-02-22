@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.databinding.ItemAddressBinding
-import com.dsm.restaurant.domain.model.AddressModel
+import com.dsm.restaurant.presentation.model.AddressModel
 import com.dsm.restaurant.presentation.ui.address.AddressSearchViewModel
 
 class AddressListAdapter(

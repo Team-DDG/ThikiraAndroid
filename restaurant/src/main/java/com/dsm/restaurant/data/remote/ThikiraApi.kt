@@ -46,7 +46,7 @@ interface ThikiraApi {
     suspend fun getMenuCategoryList(): List<MenuCategoryDto>
 
     @POST("menu")
-    suspend fun uploadMenu(@Body body: Any) : HashMap<String, Int>
+    suspend fun uploadMenu(@Body body: Any)
 
     /**
      * menu category

@@ -10,6 +10,10 @@
         <variable
             name="position"
             type="Integer" />
+
+        <variable
+            name="groupName"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -36,7 +40,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:onClick="@{() -> viewModel.addOption(etMenuOptionAddOptionName.getText().toString(), Integer.parseInt(etMenuOptionAddOptionPrice.getText().toString()), position)}"
+            android:onClick="@{() -> viewModel.onClickAddOption(etMenuOptionAddOptionName.getText().toString(), Integer.parseInt(etMenuOptionAddOptionPrice.getText().toString()), position, groupName)}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_menu_option_add_option_price" />
