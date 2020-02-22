@@ -70,7 +70,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="18dp"
             android:background="@drawable/bg_button_enable"
-            android:onClick="@{() -> viewModel.uploadMenu()}"
+            android:onClick="@{() -> viewModel.onClickUploadMenu()}"
             android:text="@string/menu_registration"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"

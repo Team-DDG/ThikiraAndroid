@@ -3,10 +3,10 @@ package com.dsm.restaurant.presentation.ui.adapter
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.dsm.restaurant.domain.entity.MenuRegistrationOptionModel
 import com.dsm.restaurant.presentation.model.AddressModel
 import com.dsm.restaurant.presentation.model.MenuCategoryModel
 import com.dsm.restaurant.presentation.model.MenuModel
+import com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel
 
 @BindingAdapter("addressList")
 fun RecyclerView.bindAddressList(addressListLiveData: LiveData<List<AddressModel>>) {
