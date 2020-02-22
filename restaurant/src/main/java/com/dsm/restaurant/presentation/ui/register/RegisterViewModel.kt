@@ -3,7 +3,7 @@ package com.dsm.restaurant.presentation.ui.register
 import androidx.lifecycle.*
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ConflictException
-import com.dsm.restaurant.data.firebase.FirebaseSource
+import com.dsm.restaurant.data.firebase.FirebaseStorageSource
 import com.dsm.restaurant.domain.interactor.ConfirmEmailDuplicationUseCase
 import com.dsm.restaurant.domain.interactor.RegisterUseCase
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
@@ -16,7 +16,7 @@ import java.util.*
 class RegisterViewModel(
     private val confirmEmailDuplicationUseCase: ConfirmEmailDuplicationUseCase,
     private val registerUseCase: RegisterUseCase,
-    private val firebaseSource: FirebaseSource
+    private val firebaseStorageSource: FirebaseStorageSource
 ) : ViewModel() {
 
     private val _imageUrl = MutableLiveData<String>("")
@@ -111,7 +111,7 @@ class RegisterViewModel(
 
     fun uploadImage(imagePath: String) {
         _isUploadingImage.value = true
-        firebaseSource.uploadImage(
+        firebaseStorageSource.uploadImage(
             imagePath,
             onSuccess = { _imageUrl.value = it },
             onFailure = { _toastEvent.value = R.string.fail_image_uploading },

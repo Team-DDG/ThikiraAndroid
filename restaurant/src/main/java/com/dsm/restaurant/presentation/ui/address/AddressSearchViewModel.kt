@@ -2,8 +2,9 @@ package com.dsm.restaurant.presentation.ui.address
 
 import androidx.lifecycle.*
 import com.dsm.restaurant.R
+import com.dsm.restaurant.domain.entity.AddressEntity
 import com.dsm.restaurant.domain.interactor.SearchAddressUseCase
-import com.dsm.restaurant.domain.model.AddressModel
+import com.dsm.restaurant.presentation.model.AddressModel
 import com.dsm.restaurant.presentation.util.BusProvider
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import kotlinx.coroutines.launch
@@ -31,7 +32,7 @@ class AddressSearchViewModel(
     fun onClickSearchAddress() = viewModelScope.launch {
         _isSearchingAddress.value = true
         try {
-            _addressList.value = searchAddressUseCase(addressSearch.value ?: "")
+            _addressList.value = searchAddressUseCase(addressSearch.value ?: "").map(AddressEntity::toModel)
         } catch (e: Exception) {
             _toastEvent.value = R.string.fail_exception_internal
         } finally {

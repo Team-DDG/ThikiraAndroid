@@ -4,8 +4,8 @@ import com.dsm.restaurant.data.dataSource.MenuCategoryDataSource
 import com.dsm.restaurant.data.dataSource.MenuDataSource
 import com.dsm.restaurant.data.local.dto.MenuLocalDto
 import com.dsm.restaurant.data.remote.dto.MenuDto
+import com.dsm.restaurant.domain.entity.MenuRegistrationEntity
 import com.dsm.restaurant.domain.repository.MenuRepository
-import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -20,24 +20,18 @@ class MenuRepositoryImpl(
         val menuCategoryId = menuCategoryDataSource.getLocalMenuCategoryIdByName(categoryName)
         if (!forceUpdate) {
             menuDataSource.getLocalMenuList(menuCategoryId)?.let {
-                if (it.isNotEmpty()) return@withContext it.map(MenuLocalDto::toModel)
+                if (it.isNotEmpty()) return@withContext it.map(MenuLocalDto::toEntity)
             }
         }
 
         menuDataSource.getRemoteMenuList(menuCategoryId).let {
             menuDataSource.deleteAllLocalMenu(menuCategoryId)
             menuDataSource.insertLocalMenuList(it.map { it.toLocalDto(menuCategoryId) })
-            return@withContext it.map(MenuDto::toModel)
+            return@withContext it.map(MenuDto::toEntity)
         }
     }
 
-    override suspend fun uploadMenu(body: Any) = withContext(ioDispatcher) {
-        val menuId = menuDataSource.uploadRemoteMenu(body)
-
-        (body as MutableMap<String, Any>)["menuId"] = menuId
-
-        menuDataSource.insertLocalMenu(Gson().run {
-            fromJson(toJsonTree(body), MenuLocalDto::class.java)
-        })
+    override suspend fun uploadMenu(menuRegistrationEntity: MenuRegistrationEntity) = withContext(ioDispatcher) {
+        menuDataSource.uploadRemoteMenu(menuRegistrationEntity.toDto())
     }
 }

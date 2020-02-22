@@ -40,7 +40,8 @@ class MenuRegistration2Fragment : BaseFragment<FragmentMenuRegistration2Binding>
         viewModel.dialogAddOptionEvent.observe(this) {
             findNavController().navigate(
                 R.id.action_menuRegistration2Fragment_to_menuOptionAddOptionDialog, bundleOf(
-                    "position" to it
+                    "position" to it.first,
+                    "groupName" to it.second
                 )
             )
         }

@@ -16,6 +16,7 @@ class MenuOptionAddOptionDialog : BaseDialog<DialogMenuOptionAddOptionBinding>()
         super.onViewCreated(view, savedInstanceState)
 
         binding.position = arguments!!.getInt("position")
+        binding.groupName = arguments!!.getString("groupName")
         binding.viewModel = viewModel
     }
 }

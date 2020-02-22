@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dsm.restaurant.databinding.ItemMenuOptionRegistrationAddGroupBinding
 import com.dsm.restaurant.databinding.ItemMenuOptionRegistrationGroupBinding
 import com.dsm.restaurant.databinding.ItemMenuOptionRegistrationOptionBinding
+import com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel
+import com.dsm.restaurant.presentation.model.MenuRegistrationOptionModel.*
 import com.dsm.restaurant.presentation.ui.menu.registration.MenuRegistrationViewModel
 
 class MenuOptionRegistrationListAdapter(
@@ -18,16 +20,7 @@ class MenuOptionRegistrationListAdapter(
         private const val TYPE_OPTION = 2
     }
 
-    sealed class MenuRegistrationOption {
-
-        data class Group(val groupName: String, val maxCount: Int) : MenuRegistrationOption()
-
-        data class Option(val optionName: String, val price: Int) : MenuRegistrationOption()
-
-        object AddGroup : MenuRegistrationOption()
-    }
-
-    var listItems = arrayListOf<MenuRegistrationOption>()
+    var listItems = arrayListOf<MenuRegistrationOptionModel>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -41,7 +34,7 @@ class MenuOptionRegistrationListAdapter(
 
     inner class GroupHolder(val binding: ItemMenuOptionRegistrationGroupBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-            val item = listItems[adapterPosition] as MenuRegistrationOption.Group
+            val item = listItems[adapterPosition] as Group
             binding.viewModel = viewModel
             binding.position = adapterPosition
             binding.group = item
@@ -50,7 +43,7 @@ class MenuOptionRegistrationListAdapter(
 
     inner class OptionHolder(val binding: ItemMenuOptionRegistrationOptionBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-            val item = listItems[adapterPosition] as MenuRegistrationOption.Option
+            val item = listItems[adapterPosition] as Option
             binding.option = item
             binding.position = adapterPosition
             binding.viewModel = viewModel
@@ -79,9 +72,9 @@ class MenuOptionRegistrationListAdapter(
 
     override fun getItemViewType(position: Int): Int =
         when (listItems[position]) {
-            is MenuRegistrationOption.AddGroup -> TYPE_ADD_GROUP
-            is MenuRegistrationOption.Group -> TYPE_GROUP
-            is MenuRegistrationOption.Option -> TYPE_OPTION
+            is AddGroup -> TYPE_ADD_GROUP
+            is Group -> TYPE_GROUP
+            is Option -> TYPE_OPTION
         }
 }
 

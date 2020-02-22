@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.domain.interactor.GetRestaurantInfoUseCase
-import com.dsm.restaurant.domain.model.RestaurantModel
+import com.dsm.restaurant.presentation.model.RestaurantModel
 import com.dsm.restaurant.presentation.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
@@ -27,7 +27,7 @@ class RestaurantViewModel(
 
     fun loadRestaurantInfo(forceUpdate: Boolean) = viewModelScope.launch {
         try {
-            _restaurantInfo.value = getRestaurantInfoUseCase(forceUpdate)
+            _restaurantInfo.value = getRestaurantInfoUseCase(forceUpdate).toModel()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
                 is ForbiddenException -> R.string.fail_exception_forbidden

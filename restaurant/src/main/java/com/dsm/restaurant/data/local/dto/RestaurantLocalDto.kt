@@ -2,7 +2,7 @@ package com.dsm.restaurant.data.local.dto
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.dsm.restaurant.domain.model.RestaurantModel
+import com.dsm.restaurant.domain.entity.RestaurantEntity
 
 @Entity(tableName = "Restaurant")
 data class RestaurantLocalDto(
@@ -38,7 +38,7 @@ data class RestaurantLocalDto(
 
     val email: String
 ) {
-    fun toModel() = RestaurantModel(
+    fun toEntity() = RestaurantEntity(
         image = image,
         name = name,
         phone = phone,

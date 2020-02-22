@@ -5,7 +5,7 @@
 
         <variable
             name="addressModel"
-            type="com.dsm.restaurant.domain.model.AddressModel" />
+            type="com.dsm.restaurant.presentation.model.AddressModel" />
 
         <variable
             name="viewModel"

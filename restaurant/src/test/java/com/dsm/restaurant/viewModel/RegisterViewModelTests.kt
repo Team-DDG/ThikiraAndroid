@@ -4,7 +4,7 @@ import com.dsm.restaurant.BaseTest
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ConflictException
 import com.dsm.restaurant.data.error.exception.InternalException
-import com.dsm.restaurant.data.firebase.FirebaseSource
+import com.dsm.restaurant.data.firebase.FirebaseStorageSource
 import com.dsm.restaurant.domain.interactor.ConfirmEmailDuplicationUseCase
 import com.dsm.restaurant.domain.interactor.RegisterUseCase
 import com.dsm.restaurant.domain.interactor.SearchAddressUseCase
@@ -32,13 +32,13 @@ class RegisterViewModelTests : BaseTest() {
     private lateinit var registerUseCase: RegisterUseCase
 
     @Mock
-    private lateinit var firebaseSource: FirebaseSource
+    private lateinit var firebaseStorageSource: FirebaseStorageSource
 
     private lateinit var viewModel: RegisterViewModel
 
     @Before
     fun init() {
-        viewModel = RegisterViewModel(confirmEmailDuplicationUseCase, registerUseCase, firebaseSource)
+        viewModel = RegisterViewModel(confirmEmailDuplicationUseCase, registerUseCase, firebaseStorageSource)
     }
 
     @Test

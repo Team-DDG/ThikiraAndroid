@@ -9,11 +9,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "user/build.gradle" }}-{{ checksum "restaurant/build.gradle" }}
-
-      - run:
-          name: Test
-          command: echo $CIRCLE_BRANCH
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant/build.gradle" }}
 
       - run:
           name: Chmod permissions
@@ -29,7 +25,7 @@ jobs:
 
       - run:
           name: Download Dependencies
-          command: ./gradlew androidDependencies
+          command: ./gradlew restaurant:androidDependencies
 
       - save_cache:
           paths:
@@ -38,29 +34,18 @@ jobs:
 
       - run:
           name: Run Build
-          command: ./gradlew lint assembleDebug
+          command: ./gradlew restaurant:lint restaurant:assembleDebug
 
       - run:
           name: Run Tests
-          command: ./gradlew test
-
-      - store_artifacts:
-          path: user/build/reports
-          destination: user/reports
+          command: ./gradlew restaurant:test
 
       - store_artifacts:
           path: restaurant/build/reports
           destination: restaurant/reports
 
       - store_test_results:
-          path: user/build/test-results
-
-      - store_test_results:
           path: restaurant/build/test-results
-
-      - store_artifacts:
-          path: user/build/outputs/apk
-          destination: user/apks
 
       - store_artifacts:
           path: restaurant/build/outputs/apk
