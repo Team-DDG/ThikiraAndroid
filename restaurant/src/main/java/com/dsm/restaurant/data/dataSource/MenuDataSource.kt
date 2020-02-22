@@ -5,6 +5,7 @@ import com.dsm.restaurant.data.local.dao.MenuDao
 import com.dsm.restaurant.data.local.dto.MenuLocalDto
 import com.dsm.restaurant.data.remote.ThikiraApi
 import com.dsm.restaurant.data.remote.dto.MenuDto
+import com.dsm.restaurant.data.remote.dto.MenuRegistrationDto
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -19,9 +20,7 @@ interface MenuDataSource {
 
     suspend fun deleteAllLocalMenu(menuCategoryId: Int)
 
-    suspend fun uploadRemoteMenu(body: Any): Int
-
-    suspend fun insertLocalMenu(menu: MenuLocalDto)
+    suspend fun uploadRemoteMenu(menuRegistrationDto: MenuRegistrationDto)
 }
 
 class MenuDataSourceImpl(
@@ -50,15 +49,11 @@ class MenuDataSourceImpl(
         menuDao.deleteAllMenuByMenuCategoryId(menuCategoryId)
     }
 
-    override suspend fun uploadRemoteMenu(body: Any) = withContext(ioDispatcher) {
+    override suspend fun uploadRemoteMenu(menuRegistrationDto: MenuRegistrationDto) = withContext(ioDispatcher) {
         try {
-            thikiraApi.uploadMenu(body).getValue("m_id")
+            thikiraApi.uploadMenu(menuRegistrationDto)
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }
-    }
-
-    override suspend fun insertLocalMenu(menu: MenuLocalDto) = withContext(ioDispatcher) {
-        menuDao.insertMenu(menu)
     }
 }

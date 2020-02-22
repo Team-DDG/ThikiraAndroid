@@ -4,8 +4,9 @@ import com.dsm.restaurant.BaseTest
 import com.dsm.restaurant.R
 import com.dsm.restaurant.data.error.exception.ForbiddenException
 import com.dsm.restaurant.data.firebase.FirebaseStorageSource
-import com.dsm.restaurant.domain.entity.MenuCategoryEntity
 import com.dsm.restaurant.domain.interactor.UploadMenuUseCase
+import com.dsm.restaurant.presentation.model.MenuCategoryModel
+import com.dsm.restaurant.presentation.model.MenuRegistrationModel
 import com.dsm.restaurant.presentation.ui.menu.registration.MenuRegistrationViewModel
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -35,26 +36,26 @@ class MenuRegistrationViewModelTests : BaseTest() {
     fun uploadMenuSuccessTest() = runBlockingTest {
         viewModel.run {
             uploadImage("IMAGE_PATH")
-            setMenuCategory(MenuCategoryEntity(0, "CATEGORY_NAME"))
+            setMenuCategory(MenuCategoryModel(0, "CATEGORY_NAME"))
             name.value = "NAME"
             price.value = "100"
             description.value = "DESCRIPTION"
-            addGroup("GROUP_NAME", 2)
+            onClickAddGroup("GROUP_NAME", 2)
 
             `when`(
                 uploadMenuUseCase.invoke(
-                    hashMapOf(
-                        "mc_id" to menuCategoryId.value,
-                        "name" to name.value,
-                        "price" to price.value?.toInt(),
-                        "description" to description.value,
-                        "image" to imageUrl.value,
-                        "group" to groupOptionList.value
-                    )
+                    MenuRegistrationModel(
+                        menuCategoryId = menuCategoryId.value!!,
+                        name = name.value!!,
+                        price = price.value!!.toInt(),
+                        description = description.value!!,
+                        image = imageUrl.value!!,
+                        group = menuOptionList.value!!
+                    ).toEntity()
                 )
             ).thenReturn(Unit)
 
-            uploadMenu()
+            onClickUploadMenu()
 
             finishActivityEvent.test().assertHasValue()
         }
@@ -64,26 +65,26 @@ class MenuRegistrationViewModelTests : BaseTest() {
     fun uploadMenuForbiddenTest() = runBlockingTest {
         viewModel.run {
             uploadImage("IMAGE_PATH")
-            setMenuCategory(MenuCategoryEntity(0, "CATEGORY_NAME"))
+            setMenuCategory(MenuCategoryModel(0, "CATEGORY_NAME"))
             name.value = "NAME"
             price.value = "100"
             description.value = "DESCRIPTION"
-            addGroup("GROUP_NAME", 2)
+            onClickAddGroup("GROUP_NAME", 2)
 
             `when`(
                 uploadMenuUseCase.invoke(
-                    hashMapOf(
-                        "mc_id" to menuCategoryId.value,
-                        "name" to name.value,
-                        "price" to price.value?.toInt(),
-                        "description" to description.value,
-                        "image" to imageUrl.value,
-                        "group" to groupOptionList.value
-                    )
+                    MenuRegistrationModel(
+                        menuCategoryId = menuCategoryId.value!!,
+                        name = name.value!!,
+                        price = price.value!!.toInt(),
+                        description = description.value!!,
+                        image = imageUrl.value!!,
+                        group = menuOptionList.value!!
+                    ).toEntity()
                 )
             ).thenThrow(ForbiddenException(Exception()))
 
-            uploadMenu()
+            onClickUploadMenu()
 
             toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }
