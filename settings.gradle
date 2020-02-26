@@ -1,4 +1,5 @@
-include ':BuildSrc'
+include ':restaurant-app:data:pref'
+include 'buildSrc'
 include ':restaurant-app:model'
 include ':restaurant-app:feature:system'
 include ':restaurant-app:base'
