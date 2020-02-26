@@ -11,8 +11,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/BuildSrc" />
             <option value="$PROJECT_DIR$/baseapp" />
+            <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/restaurant" />
             <option value="$PROJECT_DIR$/restaurant-app" />
             <option value="$PROJECT_DIR$/restaurant-app/base" />
@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/restaurant-app/data/api" />
             <option value="$PROJECT_DIR$/restaurant-app/data/db" />
             <option value="$PROJECT_DIR$/restaurant-app/data/firebase" />
+            <option value="$PROJECT_DIR$/restaurant-app/data/pref" />
             <option value="$PROJECT_DIR$/restaurant-app/data/repository" />
             <option value="$PROJECT_DIR$/restaurant-app/feature" />
             <option value="$PROJECT_DIR$/restaurant-app/feature/account" />
