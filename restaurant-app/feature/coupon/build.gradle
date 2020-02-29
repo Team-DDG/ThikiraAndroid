@@ -10,7 +10,11 @@ android.dataBinding.enabled = true
 dependencies {
     implementation project(path: ':restaurant-app:coreComponent:androidComponent')
 
+    implementation Dep.material
+
     implementation Dep.Kotlin.kotlin
 
     implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+    implementation Dep.AndroidX.recyclerView
 }

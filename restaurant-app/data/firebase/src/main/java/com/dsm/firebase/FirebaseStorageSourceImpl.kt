@@ -11,7 +11,6 @@ class FirebaseStorageSourceImpl : FirebaseStorageSource {
     private val firebaseStorage: FirebaseStorage by lazy { FirebaseStorage.getInstance() }
 
     override suspend fun uploadImage(imagePath: String) = suspendCancellableCoroutine<String> { cout ->
-
         val uploadRef = firebaseStorage.reference
             .child("/restaurant")
             .child("${System.currentTimeMillis()}.png")

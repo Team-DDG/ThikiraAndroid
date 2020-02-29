@@ -23,6 +23,7 @@ object Dep {
         const val appCompat = "androidx.appcompat:appcompat:1.1.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
         const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
+        const val viewPager = "androidx.viewpager2:viewpager2:1.0.0"
 
         object Room {
             private const val version = "2.2.3"

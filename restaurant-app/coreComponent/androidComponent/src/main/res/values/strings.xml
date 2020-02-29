@@ -9,4 +9,9 @@
     <string name="do_register_restaurant">업체 등록하기</string>
     <string name="do_select_location">위치 선택하기</string>
     <string name="do_select_category">카테고리 선택하기</string>
+
+    <string name="menu">메뉴</string>
+    <string name="order">주문</string>
+    <string name="restaurant">업체</string>
+    <string name="coupon">쿠폰</string>
 </resources>

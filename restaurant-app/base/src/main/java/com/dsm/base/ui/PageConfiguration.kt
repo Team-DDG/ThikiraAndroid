@@ -22,6 +22,12 @@ enum class PageConfiguration(
     REGISTER4(R.id.register4Fragment),
     CATEGORY_SELECT(R.id.categorySelectFragment),
     ADDRESS_SEARCH(R.id.addressSearchFragment),
+
+    ORDER(R.id.orderFragment, hideToolbar = true),
+    MENU(R.id.menuFragment, hideToolbar = true),
+    COUPON(R.id.couponFragment, isTopLevel = true),
+    RESTAURANT(R.id.restaurantFragment, hideToolbar = true),
+
     OTHER(-1);
 
     companion object {

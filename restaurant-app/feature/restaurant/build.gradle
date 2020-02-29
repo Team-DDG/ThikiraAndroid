@@ -14,4 +14,7 @@ dependencies {
 
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
+
+    implementation Dep.AndroidX.Navigation.fragmentKtx
+    implementation Dep.AndroidX.Navigation.uiKtx
 }

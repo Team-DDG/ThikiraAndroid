@@ -5,13 +5,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import com.dsm.base.ui.PageConfiguration
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View.OnLayoutChangeListener {
-
-    private val fragment: View by lazy { findViewById<View>(R.id.fragment_root_nav_host) }
+class MainActivity : AppCompatActivity() {
 
     private val navController: NavController by lazy {
         NavHostFragment.findNavController(supportFragmentManager.findFragmentById(R.id.fragment_root_nav_host) as NavHostFragment)
@@ -25,21 +24,22 @@ class MainActivity : AppCompatActivity(), View.OnLayoutChangeListener {
     }
 
     private fun setupToolbar() {
-        tb_main.setNavigationOnClickListener {
-            onBackPressed()
-        }
+        tb_main.setNavigationOnClickListener { onBackPressed() }
 
-        navController.addOnDestinationChangedListener { _, _, _ ->
-            fragment.addOnLayoutChangeListener(this)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.mainFragment) {
+                tb_main.visibility = View.GONE
+                return@addOnDestinationChangedListener
+            }
+            changeToolbarByDestination(destination)
         }
     }
 
-    override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
-        val destination = navController.currentDestination!!
+    internal fun changeToolbarByDestination(destination: NavDestination) {
         val config = PageConfiguration.getConfiguration(destination.id)
 
         tb_main.visibility =
-            if (config.hideToolbar) View.INVISIBLE
+            if (config.hideToolbar) View.GONE
             else View.VISIBLE
 
         tb_main.navigationIcon =
@@ -47,7 +47,5 @@ class MainActivity : AppCompatActivity(), View.OnLayoutChangeListener {
             else null
 
         tv_title.text = destination.label
-
-        fragment.removeOnLayoutChangeListener(this)
     }
 }
