@@ -16,6 +16,8 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.authToken()
+
         setupNavigateEvent(viewModel.navigateEvent)
     }
 }

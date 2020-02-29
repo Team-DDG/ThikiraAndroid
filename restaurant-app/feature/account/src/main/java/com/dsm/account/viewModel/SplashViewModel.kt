@@ -17,10 +17,10 @@ class SplashViewModel(
     val navigateEvent: LiveData<Int> = _navigateEvent
 
     init {
-        authToken()
+//        authToken()
     }
 
-    private fun authToken() = viewModelScope.launch {
+    fun authToken() = viewModelScope.launch {
         try {
             delay(1000)
             authRepository.authToken()
