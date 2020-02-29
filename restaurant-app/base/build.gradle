@@ -2,6 +2,7 @@ import dependencies.Versions
 import dependencies.Dep
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -14,6 +15,8 @@ android {
         targetSdkVersion Versions.targetSdkVersion
         versionCode Versions.versionCode
         versionName Versions.versionName
+
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -37,9 +40,38 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
+    implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+
+    implementation project(path: ':restaurant-app:model')
+
+    implementation project(path: ':restaurant-app:data:api')
+    implementation project(path: ':restaurant-app:data:db')
+    implementation project(path: ':restaurant-app:data:repository')
+    implementation project(path: ':restaurant-app:data:error')
+    implementation project(path: ':restaurant-app:data:pref')
+    implementation project(path: ':restaurant-app:data:firebase')
+
+    implementation project(path: ':restaurant-app:feature:menu')
+    implementation project(path: ':restaurant-app:feature:coupon')
+    implementation project(path: ':restaurant-app:feature:account')
+    implementation project(path: ':restaurant-app:feature:order')
+    implementation project(path: ':restaurant-app:feature:restaurant')
+    implementation project(path: ':restaurant-app:feature:setting')
+    implementation project(path: ':restaurant-app:feature:address')
+
     // kotlin
     implementation Dep.Kotlin.kotlin
 
@@ -47,4 +79,9 @@ dependencies {
     implementation Dep.AndroidX.coreKtx
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
+
+    implementation Dep.AndroidX.Navigation.fragmentKtx
+    implementation Dep.AndroidX.Navigation.uiKtx
+
+    implementation Dep.AndroidX.Koin.viewModel
 }

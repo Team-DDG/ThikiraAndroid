@@ -16,12 +16,10 @@
     <string name="plus">+</string>
 
     <!--fail message-->
-    <string name="fail_email_blank">이메일이 공백입니다</string>
     <string name="fail_email_invalid">유효하지 않은 이메일입니다</string>
     <string name="fail_email_conflict">이미 존재하는 이메일입니다</string>
     <string name="fail_password_auth">비밀번호가 틀렸습니다</string>
     <string name="fail_password_invalid">유효하지 않은 비밀번호입니다</string>
-    <string name="fail_image_uploading">이미지 업로드에 실패했습니다</string>
     <string name="fail_re_type_different">비밀번호가 일치하지 않습니다</string>
     <string name="fail_account_not_found">존재하지 않는 계정입니다</string>
     <string name="fail_category_menu_name_conflict">카테고리의 이름이 중복됩니다</string>

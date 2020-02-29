@@ -7,10 +7,12 @@ apply plugin: 'kotlin-android-extensions'
 apply from:rootProject.file('gradle/android.gradle')
 
 dependencies {
+    implementation project(path: ':restaurant-app:data:pref')
     implementation project(path: ':restaurant-app:data:db')
     implementation project(path: ':restaurant-app:data:api')
     implementation project(path: ':restaurant-app:model')
 
     // kotlin
     implementation Dep.Kotlin.kotlin
+    implementation Dep.Kotlin.coroutineCore
 }

@@ -10,12 +10,7 @@ class FirebaseStorageSourceImpl : FirebaseStorageSource {
 
     private val firebaseStorage: FirebaseStorage by lazy { FirebaseStorage.getInstance() }
 
-    override suspend fun uploadImage(
-        imagePath: String,
-        onSuccess: (imageUrl: String) -> Unit,
-        onFailure: (Throwable) -> Unit,
-        onComplete: () -> Unit
-    ) = suspendCancellableCoroutine<Unit> { cout ->
+    override suspend fun uploadImage(imagePath: String) = suspendCancellableCoroutine<String> { cout ->
 
         val uploadRef = firebaseStorage.reference
             .child("/restaurant")
@@ -24,14 +19,9 @@ class FirebaseStorageSourceImpl : FirebaseStorageSource {
         uploadRef.putStream(FileInputStream(imagePath))
             .addOnSuccessListener {
                 uploadRef.downloadUrl.addOnSuccessListener {
-                    onSuccess(it.toString())
-                    cout.resume(Unit)
+                    cout.resume(it.toString())
                 }
             }
-            .addOnFailureListener {
-                onFailure(it)
-                cout.resumeWithException(it)
-            }
-            .addOnCompleteListener { onComplete() }
+            .addOnFailureListener { cout.resumeWithException(it) }
     }
 }

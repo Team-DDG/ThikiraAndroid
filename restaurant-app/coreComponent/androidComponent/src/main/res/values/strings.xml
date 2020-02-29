@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="colon">:</string>
+    <string name="tilde">~</string>
+    <string name="plus">+</string>
+
+    <string name="fail_exception_internal">네트워크를 확인해주세요</string>
+
+    <string name="do_register_restaurant">업체 등록하기</string>
+    <string name="do_select_location">위치 선택하기</string>
+    <string name="do_select_category">카테고리 선택하기</string>
+</resources>

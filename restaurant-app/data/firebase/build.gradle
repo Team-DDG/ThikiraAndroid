@@ -7,12 +7,12 @@ apply plugin: 'kotlin-android-extensions'
 apply from: rootProject.file('gradle/android.gradle')
 
 dependencies {
-    // kotlin
     implementation Dep.Kotlin.kotlin
     implementation Dep.Kotlin.coroutineCore
 
-    // firebase
     implementation Dep.Firebase.storage
+
+    implementation Dep.AndroidX.Koin.viewModel
 }
 
 apply plugin: 'com.google.gms.google-services'

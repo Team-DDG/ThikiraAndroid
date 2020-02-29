@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ml_register4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/motion_register4">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_register4"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            android:elevation="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            tools:targetApi="lollipop">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/do_register_restaurant"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_register4_email"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/bg_edittext_register"
+            android:drawableStart="@drawable/ic_email_grey_24dp"
+            android:drawableLeft="@drawable/ic_email_grey_24dp"
+            android:drawablePadding="16dp"
+            android:inputType="textWebEmailAddress"
+            android:paddingStart="24dp"
+            android:paddingLeft="24dp"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register4_left"
+            app:layout_constraintRight_toLeftOf="@id/tv_register4_duplication"
+            app:layout_constraintTop_toBottomOf="@id/tb_register4"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/tv_register4_duplication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="2dp"
+            android:text="@string/check_conflict"
+            android:textColor="@color/colorGrey"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_register4_email"
+            app:layout_constraintRight_toRightOf="@id/gl_register4_right"
+            app:layout_constraintTop_toTopOf="@id/et_register4_email" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_register4_password"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_edittext_register"
+            android:drawableStart="@drawable/ic_key_grey_24dp"
+            android:drawableLeft="@drawable/ic_key_grey_24dp"
+            android:drawablePadding="16dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:nextFocusDown="@id/et_register4_password_re_type"
+            android:paddingStart="24dp"
+            android:paddingLeft="24dp"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register4_left"
+            app:layout_constraintRight_toRightOf="@id/gl_register4_right"
+            app:layout_constraintTop_toBottomOf="@id/et_register4_email"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_register4_password_re_type"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_edittext_register"
+            android:drawableStart="@drawable/ic_key_grey_24dp"
+            android:drawableLeft="@drawable/ic_key_grey_24dp"
+            android:drawablePadding="16dp"
+            android:hint="@string/password_check"
+            android:inputType="textPassword"
+            android:paddingStart="24dp"
+            android:paddingLeft="24dp"
+            android:paddingEnd="24dp"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/gl_register4_left"
+            app:layout_constraintRight_toRightOf="@id/gl_register4_right"
+            app:layout_constraintTop_toBottomOf="@id/et_register4_password"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_register4_correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_check_grey_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/et_register4_password_re_type"
+            app:layout_constraintRight_toRightOf="@id/et_register4_password_re_type"
+            app:layout_constraintTop_toTopOf="@id/et_register4_password_re_type" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/register_restaurant"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_register4_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="28dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_register4_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="28dp" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

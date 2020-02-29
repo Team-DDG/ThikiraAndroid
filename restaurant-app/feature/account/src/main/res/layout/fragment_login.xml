@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.account.viewModel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/header_restaurant_login"
+            android:textColor="@color/colorPrimary"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/et_email"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_email"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_edittext_login"
+            android:drawableStart="@drawable/ic_email_grey5_24dp"
+            android:drawableLeft="@drawable/ic_email_grey5_24dp"
+            android:drawablePadding="16dp"
+            android:hint="@string/email"
+            android:inputType="textWebEmailAddress"
+            android:nextFocusDown="@id/et_password"
+            android:paddingStart="24dp"
+            android:paddingLeft="24dp"
+            android:paddingEnd="16dp"
+            android:paddingRight="16dp"
+            android:singleLine="true"
+            android:text="@={viewModel.email}"
+            android:textColorHint="@color/colorGrey5"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/et_password"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_header" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_edittext_login"
+            android:drawableStart="@drawable/ic_key_grey5_24dp"
+            android:drawableLeft="@drawable/ic_key_grey5_24dp"
+            android:drawablePadding="16dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingStart="24dp"
+            android:paddingLeft="24dp"
+            android:paddingEnd="16dp"
+            android:paddingRight="16dp"
+            android:text="@={viewModel.password}"
+            android:textColorHint="@color/colorGrey5"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/btn_login"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+        <com.dsm.androidcomponent.view.EnableButton
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/login"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:enable="@{viewModel.isLoginEnable}"
+            app:enableBackground="@drawable/bg_button_primary_light"
+            app:enableTextColor="@color/colorPrimaryLight"
+            app:layout_constraintBottom_toTopOf="@id/tv_to_register"
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/et_password"
+            android:onClick="@{() -> viewModel.onClickLogin()}"/>
+
+        <TextView
+            android:id="@+id/tv_to_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="6dp"
+            android:text="@string/do_register_restaurant"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_to_forget"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+        <TextView
+            android:id="@+id/tv_to_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/forget_id_or_password"
+            android:textColor="@color/colorGrey5"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_to_register" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="60dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="60dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

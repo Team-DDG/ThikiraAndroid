@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.address.viewModel.AddressSearchViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:hint="@string/search_address"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingEnd="50dp"
+            android:paddingRight="50dp"
+            android:singleLine="true"
+            android:text="@={viewModel.query}"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="@{viewModel.isAddressSearchEnable}"
+            android:onClick="@{() -> viewModel.onClickSearchAddress()}"
+            android:padding="4dp"
+            android:src="@drawable/ic_search_grey_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/et_search"
+            app:layout_constraintRight_toRightOf="@id/et_search"
+            app:layout_constraintTop_toTopOf="@id/et_search" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_address"
+            addresses="@{viewModel.addresses}"
+            viewModel="@{viewModel}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="18dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isSearching ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rv_address" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
