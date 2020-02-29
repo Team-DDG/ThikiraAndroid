@@ -1,0 +1,31 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: rootProject.file('gradle/android.gradle')
+android.dataBinding.enabled = true
+
+dependencies {
+    implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+    implementation project(path: ':restaurant-app:model')
+
+    implementation Dep.Kotlin.kotlin
+    implementation Dep.AndroidX.coreKtx
+
+    implementation Dep.AndroidX.LifeCycle.viewModelKtx
+    implementation Dep.AndroidX.LifeCycle.liveDataKtx
+
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+    implementation Dep.AndroidX.recyclerView
+
+    implementation Dep.AndroidX.Koin.viewModel
+
+    implementation Dep.AndroidX.Navigation.fragmentKtx
+
+    implementation Dep.Groupie.groupie
+    implementation Dep.Groupie.dataBinding
+}

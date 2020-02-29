@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "Menu",
-    primaryKeys = ["menuId", "menuCategoryId"],
     foreignKeys = [
         ForeignKey(
             entity = MenuCategoryEntity::class,

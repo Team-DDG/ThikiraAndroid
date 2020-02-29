@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dsm.account.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dsm.account.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_register1Fragment"
+            app:destination="@id/register1Fragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register1Fragment"
+        android:name="com.dsm.account.Register1Fragment"
+        android:label="@string/do_register_restaurant">
+        <action
+            android:id="@+id/action_register1Fragment_to_register2Fragment"
+            app:destination="@id/register2Fragment" />
+        <action
+            android:id="@+id/action_register1Fragment_to_addressSearchFragment"
+            app:destination="@id/addressSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register2Fragment"
+        android:name="com.dsm.account.Register2Fragment"
+        android:label="@string/do_register_restaurant">
+        <action
+            android:id="@+id/action_register2Fragment_to_categorySelectFragment"
+            app:destination="@id/categorySelectFragment" />
+        <action
+            android:id="@+id/action_register2Fragment_to_register3Fragment"
+            app:destination="@id/register3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register3Fragment"
+        android:name="com.dsm.account.Register3Fragment"
+        android:label="@string/do_register_restaurant">
+        <action
+            android:id="@+id/action_register3Fragment_to_register4Fragment"
+            app:destination="@id/register4Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register4Fragment"
+        android:name="com.dsm.account.Register4Fragment"
+        android:label="@string/do_register_restaurant">
+        <action
+            android:id="@+id/action_register4Fragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categorySelectFragment"
+        android:name="com.dsm.account.CategorySelectFragment"
+        android:label="@string/do_select_category" />
+    <fragment
+        android:id="@+id/addressSearchFragment"
+        android:name="com.dsm.address.AddressSearchFragment"
+        android:label="@string/do_select_location" />
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.dsm.base.MainFragment"
+        android:label="MainFragment" />
+</navigation>

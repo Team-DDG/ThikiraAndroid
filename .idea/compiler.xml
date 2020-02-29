@@ -4,8 +4,10 @@
     <bytecodeTargetLevel>
       <module name="BuildSrc" target="1.7" />
       <module name="buildSrc" target="1.7" />
+      <module name="coreComponent" target="1.7" />
       <module name="data" target="1.7" />
       <module name="db" target="1.7" />
+      <module name="error" target="1.7" />
       <module name="feature" target="1.7" />
       <module name="restaurant-app" target="1.7" />
       <module name="restaurant-domain" target="1.7" />
