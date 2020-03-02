@@ -15,4 +15,6 @@ dependencies {
     // kotlin
     implementation Dep.Kotlin.kotlin
     implementation Dep.Kotlin.coroutineCore
+
+    implementation Dep.AndroidX.LifeCycle.liveDataKtx
 }

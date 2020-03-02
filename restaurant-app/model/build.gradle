@@ -8,4 +8,6 @@ apply from:rootProject.file('gradle/android.gradle')
 
 dependencies {
     implementation Dep.Kotlin.kotlin
+
+    implementation Dep.AndroidX.LifeCycle.liveDataKtx
 }
