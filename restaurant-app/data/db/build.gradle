@@ -8,13 +8,13 @@ apply plugin: 'kotlin-android-extensions'
 apply from:rootProject.file('gradle/android.gradle')
 
 dependencies {
-    // kotlin
     implementation Dep.Kotlin.kotlin
 
-    // room
     implementation Dep.AndroidX.Room.runtime
     implementation Dep.AndroidX.Room.ktx
     kapt Dep.AndroidX.Room.compiler
+
+    implementation Dep.AndroidX.LifeCycle.liveDataKtx
 
     implementation Dep.Retrofit.gson
 }

@@ -40,10 +40,10 @@ interface ThikiraApi {
      * menu
      */
     @GET("menu")
-    suspend fun getMenuList(@Query("mc_id") menuCategoryId: Int): List<MenuResponse>
+    suspend fun getMenus(@Query("mc_id") menuCategoryId: Int): List<MenuResponse>
 
     @GET("menu/category")
-    suspend fun getMenuCategoryList(): List<MenuCategoryResponse>
+    suspend fun getMenuCategories(): List<MenuCategoryResponse>
 
     @POST("menu")
     suspend fun uploadMenu(@Body body: Any)
@@ -52,11 +52,11 @@ interface ThikiraApi {
      * menu category
      */
     @DELETE("menu/category/{mc_ids}")
-    suspend fun deleteMenuCategoryList(@Path("mc_ids") menuCategoryIds: List<Int>)
+    suspend fun deleteMenuCategories(@Path("mc_ids") menuCategoryIds: List<Int>)
 
     @FormUrlEncoded
     @PATCH("menu/category")
-    suspend fun updateMenuCategory(
+    suspend fun updateMenuCategoryName(
         @Field("mc_id") menuCategoryId: Int,
         @Field("name") name: String
     )
