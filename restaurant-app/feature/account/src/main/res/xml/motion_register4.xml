@@ -4,64 +4,64 @@
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/et_register4_password"
+            android:id="@+id/et_password"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:alpha="0.0"
             app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_register4_email" />
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
 
         <Constraint
-            android:id="@+id/et_register4_password_re_type"
+            android:id="@+id/et_password_retype"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:alpha="0.0"
-            app:layout_constraintLeft_toLeftOf="@id/et_register4_password"
-            app:layout_constraintTop_toBottomOf="@id/et_register4_password" />
+            app:layout_constraintLeft_toLeftOf="@id/et_password"
+            app:layout_constraintTop_toBottomOf="@id/et_password" />
 
         <Constraint
-            android:id="@+id/iv_register4_correct"
+            android:id="@+id/iv_password_correct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="0.0"
-            app:layout_constraintBottom_toBottomOf="@id/et_register4_password_re_type"
+            app:layout_constraintBottom_toBottomOf="@id/et_password_retype"
             app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/et_register4_password_re_type" />
+            app:layout_constraintTop_toTopOf="@id/et_password_retype" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/et_register4_password"
+            android:id="@+id/et_password"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:alpha="1.0"
-            app:layout_constraintLeft_toLeftOf="@id/gl_register4_left"
-            app:layout_constraintRight_toRightOf="@id/gl_register4_right"
-            app:layout_constraintTop_toBottomOf="@id/et_register4_email" />
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
 
         <Constraint
-            android:id="@+id/et_register4_password_re_type"
+            android:id="@+id/et_password_retype"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:alpha="1.0"
-            app:layout_constraintLeft_toLeftOf="@id/gl_register4_left"
-            app:layout_constraintRight_toRightOf="@id/gl_register4_right"
-            app:layout_constraintTop_toBottomOf="@id/et_register4_password" />
+            app:layout_constraintLeft_toLeftOf="@id/gl_left"
+            app:layout_constraintRight_toRightOf="@id/gl_right"
+            app:layout_constraintTop_toBottomOf="@id/et_password" />
 
         <Constraint
-            android:id="@+id/iv_register4_correct"
+            android:id="@+id/iv_password_correct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:alpha="1.0"
-            app:layout_constraintBottom_toBottomOf="@id/et_register4_password_re_type"
-            app:layout_constraintRight_toRightOf="@id/et_register4_password_re_type"
-            app:layout_constraintTop_toTopOf="@id/et_register4_password_re_type" />
+            app:layout_constraintBottom_toBottomOf="@id/et_password_retype"
+            app:layout_constraintRight_toRightOf="@id/et_password_retype"
+            app:layout_constraintTop_toTopOf="@id/et_password_retype" />
     </ConstraintSet>
 
     <Transition
