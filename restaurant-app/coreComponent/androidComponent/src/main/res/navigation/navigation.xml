@@ -11,12 +11,12 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popUpTo="@id/mainFragment"
+            app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -28,7 +28,9 @@
             app:destination="@id/register1Fragment" />
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/register1Fragment"
@@ -63,11 +65,7 @@
     <fragment
         android:id="@+id/register4Fragment"
         android:name="com.dsm.account.Register4Fragment"
-        android:label="@string/do_register_restaurant">
-        <action
-            android:id="@+id/action_register4Fragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        android:label="@string/do_register_restaurant" />
     <fragment
         android:id="@+id/categorySelectFragment"
         android:name="com.dsm.account.CategorySelectFragment"
@@ -80,14 +78,52 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.dsm.base.MainFragment"
-        android:label="MainFragment" >
+        android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_menuRegistration1Fragment"
+            app:destination="@id/menuRegistration1Fragment" />
     </fragment>
 
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.dsm.setting.SettingFragment"
-        android:label="SettingTest"/>
+        android:label="SettingTest" />
+
+    <fragment
+        android:id="@+id/menuRegistration1Fragment"
+        android:name="com.dsm.menu.MenuRegistration1Fragment"
+        android:label="@string/menu_registration">
+        <action
+            android:id="@+id/action_menuRegistration1Fragment_to_menuCategoryFragment"
+            app:destination="@id/menuCategoryFragment" />
+        <action
+            android:id="@+id/action_menuRegistration1Fragment_to_menuRegistration2Fragment"
+            app:destination="@id/menuRegistration2Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuRegistration2Fragment"
+        android:name="com.dsm.menu.MenuRegistration2Fragment"
+        android:label="@string/menu_registration">
+        <action
+            android:id="@+id/action_menuRegistration2Fragment_to_addOptionDialog"
+            app:destination="@id/addOptionDialog" />
+        <action
+            android:id="@+id/action_menuRegistration2Fragment_to_addGroupDialog"
+            app:destination="@id/addGroupDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuCategoryFragment"
+        android:name="com.dsm.menu.MenuCategoryFragment" />
+
+    <dialog
+        android:id="@+id/addGroupDialog"
+        android:name="com.dsm.menu.AddGroupDialog" />
+    <dialog
+        android:id="@+id/addOptionDialog"
+        android:name="com.dsm.menu.AddOptionDialog" />
 </navigation>

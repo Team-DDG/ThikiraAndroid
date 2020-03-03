@@ -1,11 +1,14 @@
 import dependencies.Dep
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
-apply from:rootProject.file('gradle/android.gradle')
+apply from: rootProject.file('gradle/android.gradle')
+android.defaultConfig.javaCompileOptions.annotationProcessorOptions.arguments = [
+        "room.incremental": "true"
+]
 
 dependencies {
     implementation Dep.Kotlin.kotlin
@@ -15,6 +18,13 @@ dependencies {
     kapt Dep.AndroidX.Room.compiler
 
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
+    kapt Dep.AndroidX.LifeCycle.compiler
+
+    implementation Dep.AndroidX.Koin.viewModel
 
     implementation Dep.Retrofit.gson
+}
+
+repositories {
+    google()
 }

@@ -20,7 +20,8 @@ import com.google.gson.reflect.TypeToken
         MenuCategoryEntity::class,
         MenuEntity::class
     ],
-    version = 4
+    version = 4,
+    exportSchema = false
 )
 @TypeConverters(DatabaseConverters::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -34,10 +35,18 @@ abstract class AppDatabase : RoomDatabase() {
 
 class DatabaseConverters {
     @TypeConverter
-    fun fromStringToGroupList(from: String): List<GroupItem> =
+    fun fromStringToGroups(from: String): List<GroupItem> =
         Gson().fromJson(from, object : TypeToken<List<GroupItem>>() {}.type)
 
     @TypeConverter
-    fun fromGroupListToString(from: List<GroupItem>): String =
+    fun fromGroupsToString(from: List<GroupItem>): String =
+        Gson().toJson(from)
+
+    @TypeConverter
+    fun fromStringToMenuCategories(from: String): List<MenuCategoryEntity> =
+        Gson().fromJson(from, object : TypeToken<List<MenuCategoryEntity>>() {}.type)
+
+    @TypeConverter
+    fun fromMenuCategoriesToString(from: List<MenuCategoryEntity>): String =
         Gson().toJson(from)
 }

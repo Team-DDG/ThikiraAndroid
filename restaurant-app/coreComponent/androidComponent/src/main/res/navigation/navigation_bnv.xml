@@ -12,7 +12,12 @@
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.dsm.menu.MenuFragment"
-        android:label="@string/menu" />
+        android:label="@string/menu">
+
+        <action
+            android:id="@+id/action_menuFragment_to_menuCategoryFragment"
+            app:destination="@id/menuCategoryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/couponFragment"
@@ -23,4 +28,8 @@
         android:id="@+id/restaurantFragment"
         android:name="com.dsm.restaurant.RestaurantFragment"
         android:label="@string/restaurant" />
+
+    <fragment
+        android:id="@+id/menuCategoryFragment"
+        android:name="com.dsm.menu.MenuCategoryFragment" />
 </navigation>

@@ -16,7 +16,7 @@ internal fun MenuCategoryResponse.toMenuCategory() =
         name = name
     )
 
-internal fun MenuCategoryResponse.toEntity() =
+internal fun MenuCategoryResponse.toMenuEntity() =
     MenuCategoryEntity(
         menuCategoryId = menuCategoryId,
         name = name

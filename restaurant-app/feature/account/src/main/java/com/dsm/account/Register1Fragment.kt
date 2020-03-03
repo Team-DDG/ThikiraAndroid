@@ -4,13 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dsm.account.databinding.FragmentRegister1Binding
 import com.dsm.account.viewModel.RegisterViewModel
 import com.dsm.address.viewModel.AddressSearchViewModel
 import com.dsm.androidcomponent.base.BaseFragment
-import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
 import com.dsm.mediapicker.MediaPicker
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -37,9 +36,9 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
     }
 
     private fun setupAddress() {
-        addressSearchViewModel.selectedAddress.observe(viewLifecycleOwner, Observer {
+        addressSearchViewModel.selectedAddress.observe(this) {
             registerViewModel.setAddress(it)
-        })
+        }
     }
 
     private fun setupMediaPicker() {
@@ -62,14 +61,12 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
         binding.btnNext.setOnClickListener {
             findNavController().navigate(R.id.action_register1Fragment_to_register2Fragment)
         }
-
-        setupNavigateEvent(registerViewModel.navigateEvent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == IMAGE_CODE && resultCode == Activity.RESULT_OK) {
             val imageUrl = data?.getStringArrayListExtra("result")?.get(0) ?: ""
-            registerViewModel.setImageUrl(imageUrl)
+            registerViewModel.uploadImage(imageUrl)
         }
     }
 }

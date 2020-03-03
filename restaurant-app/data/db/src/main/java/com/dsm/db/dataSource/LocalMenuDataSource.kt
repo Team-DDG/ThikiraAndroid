@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 
 interface LocalMenuDataSource {
 
-    suspend fun observeMenusById(menuCategoryId: Int): LiveData<List<MenuEntity>>
+    fun observeMenusById(menuCategoryId: Int): LiveData<List<MenuEntity>>
 
     suspend fun getMenusById(menuCategoryId: Int): List<MenuEntity>
 
@@ -23,9 +23,8 @@ class LocalMenuDataSourceImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : LocalMenuDataSource {
 
-    override suspend fun observeMenusById(menuCategoryId: Int) = withContext(ioDispatcher) {
+    override fun observeMenusById(menuCategoryId: Int) =
         menuDao.observeMenusById(menuCategoryId)
-    }
 
     override suspend fun getMenusById(menuCategoryId: Int) = withContext(ioDispatcher) {
         menuDao.menusById(menuCategoryId)
