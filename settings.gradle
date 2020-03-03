@@ -1,3 +1,4 @@
+include ':restaurant-app:coreComponent:testComponent'
 include ':restaurant-app:data:error'
 include ':restaurant-app:feature:address'
 include ':restaurant-app:coreComponent:androidComponent'
