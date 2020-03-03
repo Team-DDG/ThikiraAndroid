@@ -24,7 +24,6 @@
     <string name="fail_account_not_found">존재하지 않는 계정입니다</string>
     <string name="fail_category_menu_name_conflict">카테고리의 이름이 중복됩니다</string>
     <string name="fail_exception_internal">네트워크를 확인해주세요</string>
-    <string name="fail_exception_forbidden">로그인이 필요합니다</string>
 
     <!--success message-->
     <string name="success_email_duplication_check">사용 가능한 이메일입니다</string>

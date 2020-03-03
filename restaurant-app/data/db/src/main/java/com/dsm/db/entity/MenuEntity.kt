@@ -1,5 +1,6 @@
 package com.dsm.db.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
@@ -22,6 +23,7 @@ data class MenuEntity(
     @PrimaryKey
     val menuId: Int,
 
+    @ColumnInfo(index = true)
     val menuCategoryId: Int,
 
     val name: String,

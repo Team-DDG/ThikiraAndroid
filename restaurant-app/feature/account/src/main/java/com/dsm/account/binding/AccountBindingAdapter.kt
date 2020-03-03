@@ -1,4 +1,4 @@
-package com.dsm.account.util
+package com.dsm.account.binding
 
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.databinding.BindingAdapter

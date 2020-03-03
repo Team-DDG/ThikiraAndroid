@@ -42,6 +42,8 @@ object Dep {
             private const val version = "2.2.0"
             const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
             const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
+            const val roomKtx = "androidx.lifecycle:lifecycle-room-ktx:$version"
+            const val compiler = "androidx.lifecycle:lifecycle-compiler:$version"
         }
 
         object Koin {

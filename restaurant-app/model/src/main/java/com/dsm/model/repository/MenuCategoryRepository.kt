@@ -5,9 +5,11 @@ import com.dsm.model.MenuCategory
 
 interface MenuCategoryRepository {
 
-    suspend fun observeMenuCategories(): LiveData<List<MenuCategory>>
+    fun observeMenuCategories(): LiveData<List<MenuCategory>>
 
     suspend fun getMenuCategories(forceUpdate: Boolean): List<MenuCategory>
+
+    suspend fun refreshMenuCategories()
 
     suspend fun deleteMenuCategories(menuCategoriesId: List<Int>)
 

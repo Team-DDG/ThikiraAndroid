@@ -28,6 +28,9 @@ enum class PageConfiguration(
     COUPON(R.id.couponFragment, isTopLevel = true),
     RESTAURANT(R.id.restaurantFragment, hideToolbar = true),
 
+    MENU_CATEGORY(R.id.menuCategoryFragment, hideToolbar = true),
+    MENU_REGISTRATION1(R.id.menuRegistration1Fragment),
+
     OTHER(-1);
 
     companion object {

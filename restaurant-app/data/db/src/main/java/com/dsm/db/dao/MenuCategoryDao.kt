@@ -11,7 +11,7 @@ import com.dsm.db.entity.MenuCategoryEntity
 interface MenuCategoryDao {
 
     @Query("select * from MenuCategory")
-    suspend fun observeMenuCategories(): LiveData<List<MenuCategoryEntity>>
+    fun observeMenuCategories(): LiveData<List<MenuCategoryEntity>>
 
     @Query("select * from MenuCategory")
     suspend fun menuCategories(): List<MenuCategoryEntity>

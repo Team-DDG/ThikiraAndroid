@@ -84,11 +84,8 @@ class RegisterViewModel(
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
 
-    private val _animatePasswordView = SingleLiveEvent<Unit>()
-    val animatePasswordView: LiveData<Unit> = _animatePasswordView
-
-    private val _navigateEvent = SingleLiveEvent<Int>()
-    val navigateEvent: LiveData<Int> = _navigateEvent
+    private val _popToLoginEvent = SingleLiveEvent<Unit>()
+    val popToLoginEvent: LiveData<Unit> = _popToLoginEvent
 
     private val _isUploadingImage = MutableLiveData<Boolean>(false)
     val isUploadingImage: LiveData<Boolean> = _isUploadingImage
@@ -107,10 +104,6 @@ class RegisterViewModel(
 
     fun setIsOnline(value: Boolean) {
         _isOnlineEnable.value = value
-    }
-
-    fun setImageUrl(imageUrl: String) {
-        _imageUrl.value = imageUrl
     }
 
     fun uploadImage(imagePath: String) = viewModelScope.launch {
@@ -147,7 +140,6 @@ class RegisterViewModel(
 
             this@RegisterViewModel.email.value = ""
             _duplicateCheckedEmail.value = email
-            _animatePasswordView.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
                 is ConflictException -> R.string.fail_email_conflict
@@ -197,7 +189,7 @@ class RegisterViewModel(
             )
 
             _toastEvent.value = R.string.success_register_restaurant
-            _navigateEvent.value = R.id.action_register4Fragment_to_loginFragment
+            _popToLoginEvent.call()
         } catch (e: Exception) {
             _toastEvent.value = R.string.fail_exception_internal
         }
