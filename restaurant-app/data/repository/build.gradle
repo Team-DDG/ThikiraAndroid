@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-apply from:rootProject.file('gradle/android.gradle')
+apply from: rootProject.file('gradle/android.gradle')
 
 dependencies {
     implementation project(path: ':restaurant-app:data:pref')
@@ -17,4 +17,6 @@ dependencies {
     implementation Dep.Kotlin.coroutineCore
 
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
+
+    implementation Dep.AndroidX.Koin.viewModel
 }
