@@ -1,10 +1,13 @@
 package com.dsm.base
 
 import android.app.Application
+import com.dsm.account.di.accountModule
+import com.dsm.address.di.addressModule
 import com.dsm.api.di.apiModule
-import com.dsm.base.di.*
 import com.dsm.db.di.dbModule
+import com.dsm.di.repositoryModule
 import com.dsm.firebase.di.firebaseModule
+import com.dsm.menu.di.menuModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -17,14 +20,15 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 listOf(
+                    // data
                     apiModule,
                     firebaseModule,
                     dbModule,
+                    repositoryModule,
 
-                    authModule,
-                    addressModule,
+                    // feature
                     accountModule,
-                    menuCategoryModule,
+                    addressModule,
                     menuModule
                 )
             )
