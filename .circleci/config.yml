@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant-app/base/build.gradle" }}
 
       - run:
           name: Chmod permissions
@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Google Services
-          command: echo $GOOGLE_SERVICES | base64 --decode > ${HOME}/code/restaurant/google-services.json
+          command: echo $GOOGLE_SERVICES | base64 --decode > ${HOME}/code/restaurant-app/data/firebase/google-services.json
 
       - run:
           name: API Keys
@@ -25,28 +25,28 @@ jobs:
 
       - run:
           name: Download Dependencies
-          command: ./gradlew restaurant:androidDependencies
+          command: ./gradlew restaurant-app:base:androidDependencies
 
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "user/build.gradle" }}-{{ checksum "restaurant/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant-app/base/build.gradle" }}
 
       - run:
           name: Run Build
-          command: ./gradlew restaurant:lint restaurant:assembleDebug
+          command: ./gradlew restaurant-app:base:lint restaurant-app:base:assembleDebug
 
       - run:
           name: Run Tests
-          command: ./gradlew restaurant:test
+          command: ./gradlew restaurant-app:base:test
 
       - store_artifacts:
-          path: restaurant/build/reports
+          path: restaurant-app/base/build/reports
           destination: restaurant/reports
 
       - store_test_results:
-          path: restaurant/build/test-results
+          path: restaurant-app/base/build/test-results
 
       - store_artifacts:
-          path: restaurant/build/outputs/apk
+          path: restaurant-app/baes/build/outputs/apk
           destination: restaurant/apks

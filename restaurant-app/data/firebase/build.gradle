@@ -1,0 +1,18 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: rootProject.file('gradle/android.gradle')
+
+dependencies {
+    implementation Dep.Kotlin.kotlin
+    implementation Dep.Kotlin.coroutineCore
+
+    implementation Dep.Firebase.storage
+
+    implementation Dep.AndroidX.Koin.viewModel
+}
+
+apply plugin: 'com.google.gms.google-services'

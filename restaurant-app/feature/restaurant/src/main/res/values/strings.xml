@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="day_off">휴무일</string>
+    <string name="check_review">리뷰 보기</string>
+    <string name="category">카테고리</string>
+    <string name="min_price">최소 주문 금액</string>
+</resources>
