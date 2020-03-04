@@ -17,9 +17,7 @@ jobs:
 
       - run:
           name: Google Services
-          command:
-            - echo $GOOGLE_SERVICES | base64 --decode > ${HOME}/code/restaurant-app/data/firebase/google-services.json
-            - echo $GOOGLE_SERVICES | base64 --decode > ${HOME}/code/restaurant-app/data/google-services.json
+          command: echo $GOOGLE_SERVICES | base64 --decode > ${HOME}/code/restaurant-app/data/google-services.json
 
       - run:
           name: API Keys
