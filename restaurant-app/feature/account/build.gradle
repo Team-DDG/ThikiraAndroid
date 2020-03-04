@@ -10,6 +10,7 @@ android.dataBinding.enabled = true
 
 dependencies {
     implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+    debugImplementation project(path: ':restaurant-app:coreComponent:testComponent')
 
     implementation project(path: ':restaurant-app:model')
 
@@ -35,4 +36,9 @@ dependencies {
 
     implementation Dep.AndroidX.Koin.viewModel
 
+    testImplementation Dep.Test.mockitoCore
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.liveDataTesting
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.mockitoInline
 }

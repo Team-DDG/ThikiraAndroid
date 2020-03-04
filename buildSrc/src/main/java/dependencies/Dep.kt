@@ -77,4 +77,13 @@ object Dep {
         const val glide = "com.github.bumptech.glide:glide:$version"
         const val compiler = "com.github.bumptech.glide:compiler:$version"
     }
+
+    object Test {
+        const val junit = "junit:junit:4.12"
+        const val mockitoCore = "org.mockito:mockito-core:2.21.0"
+        const val mockitoInline = "org.mockito:mockito-inline:3.2.4"
+        const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3"
+        const val coreTesting =  "androidx.arch.core:core-testing:2.1.0"
+        const val liveDataTesting =  "com.jraska.livedata:testing-ktx:1.1.0"
+    }
 }

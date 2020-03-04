@@ -31,11 +31,15 @@ class MenuCategoryViewModel(
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
 
+    fun setViewType(type: MenuCategoryViewType) {
+        _viewType.value = type
+    }
+
     init {
         loadMenuCategories(true)
     }
 
-    private fun loadMenuCategories(forceUpdate: Boolean) {
+    fun loadMenuCategories(forceUpdate: Boolean) {
         _forceUpdate.value = forceUpdate
     }
 
@@ -48,10 +52,6 @@ class MenuCategoryViewModel(
                 else -> R.string.fail_exception_internal
             }
         }
-    }
-
-    fun setViewType(type: MenuCategoryViewType) {
-        _viewType.value = type
     }
 
     fun onClickDeleteCheckBox(menuCategoryId: Int, isChecked: Boolean) {
