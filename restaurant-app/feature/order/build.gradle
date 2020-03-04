@@ -1,0 +1,18 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from:rootProject.file('gradle/android.gradle')
+android.dataBinding.enabled = true
+
+dependencies {
+    implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+
+    implementation Dep.Kotlin.kotlin
+
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+    implementation Dep.AndroidX.viewPager
+}

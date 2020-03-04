@@ -1,0 +1,37 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: rootProject.file('gradle/android.gradle')
+
+android {
+    defaultConfig {
+        def apikeyPropertiesFile = rootProject.file('apikey.properties')
+        def apikeyProperties = new Properties()
+        apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
+        buildConfigField("String", "NAVER_CLIENT_ID", apikeyProperties['NAVER_CLIENT_ID'])
+        buildConfigField("String", "NAVER_CLIENT_SECRET", apikeyProperties['NAVER_CLIENT_SECRET'])
+    }
+}
+
+dependencies {
+    implementation project(path: ':restaurant-app:data:pref')
+    implementation project(path: ':restaurant-app:data:error')
+
+    // kotlin
+    implementation Dep.Kotlin.kotlin
+    implementation Dep.Kotlin.coroutineCore
+
+    // retrofit
+    implementation Dep.Retrofit.retrofit
+    implementation Dep.Retrofit.gson
+
+    // okhttp
+    implementation Dep.OkHttp.logging
+
+    // AndroidX
+    implementation Dep.AndroidX.Koin.viewModel
+}

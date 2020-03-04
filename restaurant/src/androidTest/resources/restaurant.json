@@ -1,0 +1,22 @@
+{
+  "image": "image",
+  "name": "name",
+  "phone": "phone",
+  "add_street": "add_street",
+  "add_parcel": "add_parcel",
+  "area": [
+    "area1",
+    "area2",
+    "area3"
+  ],
+  "category": "category",
+  "min_price": 10000,
+  "day_off": "day_off",
+  "online_payment": true,
+  "offline_payment": false,
+  "open_time": "10:30",
+  "close_time": "11:30",
+  "description": "안녕하세요 김도훈입니다",
+  "create_time": "Thu Feb 06 2020 15:35:39 GMT+0900 (KST)",
+  "email": "Email"
+}

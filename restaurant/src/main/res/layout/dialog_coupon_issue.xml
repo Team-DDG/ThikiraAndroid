@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_coupon_issue_red_bar"
+            android:layout_width="48dp"
+            android:layout_height="0dp"
+            android:background="@color/colorRed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_coupon_issue_coupon_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/coupon"
+            android:textColor="@color/colorRed"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/view_coupon_issue_red_bar"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_coupon_issue_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:minWidth="128dp"
+            app:backgroundTint="@color/colorRed"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@id/view_coupon_issue_red_bar"
+            app:layout_constraintRight_toLeftOf="@id/tv_coupon_issue_won_label"
+            app:layout_constraintTop_toBottomOf="@id/tv_coupon_issue_coupon_label" />
+
+        <TextView
+            android:id="@+id/tv_coupon_issue_won_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/won"
+            android:textColor="@color/colorRed"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/et_coupon_issue_price"
+            app:layout_constraintLeft_toRightOf="@id/et_coupon_issue_price"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/et_coupon_issue_price" />
+
+        <TextView
+            android:id="@+id/tv_coupon_issue_period_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/period_setting"
+            android:textColor="@color/colorRed"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/view_coupon_issue_red_bar"
+            app:layout_constraintTop_toBottomOf="@id/et_coupon_issue_price" />
+
+        <Button
+            android:id="@+id/btn_coupon_issue_issue"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_button_enable"
+            android:text="@string/publish"
+            android:textColor="@color/colorRed"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="do_select_location">위치 선택하기</string>
+    <string name="search_address">주소 검색</string>
+
+    <string name="parcel_addr">지번</string>
+    <string name="road_addr">도로명</string>
+</resources>
