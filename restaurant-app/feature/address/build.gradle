@@ -10,6 +10,8 @@ android.dataBinding.enabled = true
 
 dependencies {
     implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+    debugImplementation project(path: ':restaurant-app:coreComponent:testComponent')
+
     implementation project(path: ':restaurant-app:model')
 
     implementation Dep.Kotlin.kotlin
@@ -28,4 +30,10 @@ dependencies {
 
     implementation Dep.Groupie.groupie
     implementation Dep.Groupie.dataBinding
+
+    testImplementation Dep.Test.mockitoCore
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.liveDataTesting
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.mockitoInline
 }
