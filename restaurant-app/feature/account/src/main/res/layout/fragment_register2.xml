@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.account.viewModel.RegisterViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlSymmetry">
+
+            <Button
+                android:id="@+id/btn_select_category"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_button_primary_light"
+                android:text="@{viewModel.category == null ? @string/select_category : viewModel.category}"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_min_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:digits="0123456789"
+                android:hint="@string/delivery_min_price"
+                android:inputType="number"
+                android:paddingStart="8dp"
+                android:paddingLeft="8dp"
+                android:text="@={viewModel.minPrice}"
+                android:textColorHint="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toBottomOf="@id/btn_select_category" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_day_off"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/day_off"
+                android:paddingStart="8dp"
+                android:paddingLeft="8dp"
+                android:text="@={viewModel.dayOff}"
+                android:textColorHint="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toBottomOf="@id/et_min_price" />
+
+            <TextView
+                android:id="@+id/tv_offline_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:text="@string/offline_payment"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/et_day_off" />
+
+            <RadioGroup
+                android:id="@+id/rg_offline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/tv_offline_label"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toTopOf="@id/tv_offline_label">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rbtn_left"
+                    android:button="@null"
+                    android:checked="@{viewModel.isOfflineEnable ? true : false}"
+                    android:onClick="@{() -> viewModel.setIsOffline(true)}"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/accept"
+                    android:textColor="@drawable/selector_rbtn_textcolor"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rbtn_right"
+                    android:button="@null"
+                    android:checked="@{viewModel.isOfflineEnable ? false : true}"
+                    android:onClick="@{() -> viewModel.setIsOffline(false)}"
+                    android:paddingStart="12dp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/refuse"
+                    android:textColor="@drawable/selector_rbtn_textcolor"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_online_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/online_payment"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/rg_offline" />
+
+            <RadioGroup
+                android:id="@+id/tv_online"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/tv_online_label"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toTopOf="@id/tv_online_label">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rbtn_left"
+                    android:button="@null"
+                    android:checked="@{viewModel.isOnlineEnable ? true : false}"
+                    android:onClick="@{() -> viewModel.setIsOnline(true)}"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/accept"
+                    android:textColor="@drawable/selector_rbtn_textcolor"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rbtn_right"
+                    android:button="@null"
+                    android:checked="@{viewModel.isOnlineEnable ? false : true}"
+                    android:onClick="@{() -> viewModel.setIsOnline(false)}"
+                    android:paddingStart="12dp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/refuse"
+                    android:textColor="@drawable/selector_rbtn_textcolor"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_business_hour_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:text="@string/business_hour"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_online" />
+
+            <NumberPicker
+                android:id="@+id/np_start_hour"
+                android:layout_width="30dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="8dp"
+                android:theme="@style/TransparentNumberPickerTheme"
+                android:value="@={viewModel.startHour}"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintRight_toLeftOf="@id/tv_start_colon"
+                app:layout_constraintTop_toBottomOf="@id/tv_business_hour_label" />
+
+            <TextView
+                android:id="@+id/tv_start_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:text="@string/colon"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/np_start_hour"
+                app:layout_constraintLeft_toRightOf="@id/np_start_hour"
+                app:layout_constraintRight_toLeftOf="@id/np_start_minute"
+                app:layout_constraintTop_toTopOf="@id/np_start_hour" />
+
+            <NumberPicker
+                android:id="@+id/np_start_minute"
+                android:layout_width="30dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:theme="@style/TransparentNumberPickerTheme"
+                android:value="@={viewModel.startMinute}"
+                app:layout_constraintBottom_toBottomOf="@id/np_start_hour"
+                app:layout_constraintLeft_toRightOf="@id/tv_start_colon"
+                app:layout_constraintRight_toLeftOf="@id/tv_tilde"
+                app:layout_constraintTop_toTopOf="@id/np_start_hour" />
+
+            <TextView
+                android:id="@+id/tv_tilde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:text="@string/tilde"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/np_start_minute"
+                app:layout_constraintLeft_toRightOf="@id/np_start_minute"
+                app:layout_constraintRight_toLeftOf="@id/np_end_hour"
+                app:layout_constraintTop_toTopOf="@id/np_start_minute" />
+
+            <NumberPicker
+                android:id="@+id/np_end_hour"
+                android:layout_width="30dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:theme="@style/TransparentNumberPickerTheme"
+                android:value="@={viewModel.endHour}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_tilde"
+                app:layout_constraintLeft_toRightOf="@id/tv_tilde"
+                app:layout_constraintRight_toLeftOf="@id/tv_end_colon"
+                app:layout_constraintTop_toTopOf="@id/tv_tilde" />
+
+            <TextView
+                android:id="@+id/tv_end_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:text="@string/colon"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/np_end_hour"
+                app:layout_constraintLeft_toRightOf="@id/np_end_hour"
+                app:layout_constraintRight_toLeftOf="@id/np_end_minute"
+                app:layout_constraintTop_toTopOf="@id/np_end_hour" />
+
+            <NumberPicker
+                android:id="@+id/np_end_minute"
+                android:layout_width="30dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:theme="@style/TransparentNumberPickerTheme"
+                android:value="@={viewModel.endMinute}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_end_colon"
+                app:layout_constraintLeft_toRightOf="@id/tv_end_colon"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toTopOf="@id/tv_end_colon" />
+
+            <com.dsm.androidcomponent.view.EnableButton
+                android:id="@+id/btn_next"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/next"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:enable="@{viewModel.isNext2Enable}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toBottomOf="@id/np_start_hour"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="60dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="60dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "187128403337",
+    "firebase_url": "https://thikiraandroid.firebaseio.com",
+    "project_id": "thikiraandroid",
+    "storage_bucket": "thikiraandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187128403337:android:2d0665edc18d70672a3d58",
+        "android_client_info": {
+          "package_name": "com.dsm.restaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187128403337-o7p8rqne6prrlkp748k3mbvo1mec0g97.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dsm.restaurant",
+            "certificate_hash": "4a050792d40c483a206f3c72d0e24c836fd13b53"
+          }
+        },
+        {
+          "client_id": "187128403337-jhq8dohvv48aahpd32ko80qg9dahrehg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dsm.restaurant",
+            "certificate_hash": "eda4f295f2c546ce3948372eadcbcde039af3ea3"
+          }
+        },
+        {
+          "client_id": "187128403337-o9k8r0ti9nfnf84rj2rodon5c0fhako4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoBeAwsUUzsSqdILi4Vk9SDEkmB1E_wPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187128403337-o9k8r0ti9nfnf84rj2rodon5c0fhako4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
