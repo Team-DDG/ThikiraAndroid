@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.menu.viewModel.MenuRegistrationViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_menu"
+                image="@{viewModel.imageUrl}"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_image"
+                android:textColor="@color/colorGrey"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="@{viewModel.imageUrl == null ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_menu"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_menu" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.isImageUploading ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_menu"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_menu" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/menu_name"
+                android:minWidth="128dp"
+                android:text="@={viewModel.name}"
+                android:textColorHint="@color/colorGrey"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_menu" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:digits="0123456789"
+                android:inputType="number"
+                android:minWidth="55dp"
+                android:text="@={viewModel.price}"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/et_name"
+                app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+            <TextView
+                android:id="@+id/tv_won_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/won"
+                android:textColorHint="@color/colorGrey"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/et_price"
+                app:layout_constraintLeft_toRightOf="@id/et_price" />
+
+            <Button
+                android:id="@+id/btn_menu_category"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:background="@{viewModel.menuCategory == null ? @drawable/bg_button_disable : @drawable/bg_button_enable}"
+                android:text="@{viewModel.menuCategory == null ? @string/menu_category : viewModel.menuCategory.name}"
+                android:textColor="@{viewModel.menuCategory == null ? @color/colorGrey : @color/colorPrimary}"
+                app:layout_constraintLeft_toLeftOf="@id/et_price"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_price" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintBottom_toTopOf="@id/btn_next"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_menu_category"
+                app:layout_constraintVertical_bias="0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:hint="@string/explain_menu"
+                    android:text="@={viewModel.description}"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.dsm.androidcomponent.view.EnableButton
+                android:id="@+id/btn_next"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/next"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:enable="@{viewModel.isNextEnable}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

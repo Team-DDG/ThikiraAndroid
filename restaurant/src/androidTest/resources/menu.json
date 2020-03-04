@@ -1,0 +1,45 @@
+[
+  {
+    "menu_id": 0,
+    "name": "스모크 치킨",
+    "price": 18000,
+    "description": "물참나무 향 솔솔~ 담백한 엉치살 구",
+    "image": 0,
+    "group": [
+      {
+        "group_id": 1,
+        "name": "치킨 유형",
+        "max_count": 2,
+        "option": [
+          {
+            "option_id": 1,
+            "name": "순살",
+            "price": 1000
+          },
+          {
+            "option_id": 2,
+            "name": "뼈",
+            "price": 0
+          }
+        ]
+      },
+      {
+        "group_id": 2,
+        "name": "소스",
+        "max_count": 0,
+        "option": [
+          {
+            "option_id": 3,
+            "name": "갈릭 소스",
+            "price": 500
+          },
+          {
+            "option_id": 4,
+            "name": "양념 소스",
+            "price": 500
+          }
+        ]
+      }
+    ]
+  }
+]

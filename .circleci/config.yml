@@ -5,40 +5,49 @@ jobs:
     docker:
       - image: circleci/android:api-29
     environment:
-      JVM_OPTS: -Xmx3200m
+      JVM_OPTS: -Xmx2048m
+      GRADLE_OPTS: -Xmx1536m -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "user/build.gradle" }}-{{ checksum "restaurant/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant-app/base/build.gradle" }}
+
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
+
+      - run:
+          name: Google Services
+          command: echo $GOOGLE_SERVICES | base64 --decode > ${HOME}/code/restaurant-app/data/google-services.json
+
+      - run:
+          name: API Keys
+          command: echo $API_KEYS | base64 --decode > ${HOME}/code/apikey.properties
+
       - run:
           name: Download Dependencies
-          command: ./gradlew androidDependencies
+          command: ./gradlew restaurant-app:base:androidDependencies
+
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "user/build.gradle" }}-{{ checksum "restaurant/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant-app/base/build.gradle" }}
+
       - run:
           name: Run Build
-          command: ./gradlew lint assembleDebug
+          command: ./gradlew restaurant-app:base:lint restaurant-app:base:assembleDebug
+
       - run:
           name: Run Tests
-          command: ./gradlew test
+          command: ./gradlew restaurant-app:base:test
+
       - store_artifacts:
-          path: user/build/reports
-          destination: user/reports
-      - store_artifacts:
-          path: restaurant/build/reports
+          path: restaurant-app/base/build/reports
           destination: restaurant/reports
+
       - store_test_results:
-          path: user/build/test-results
-      - store_test_results:
-          path: restaurant/build/test-results
+          path: restaurant-app/base/build/test-results
+
       - store_artifacts:
-          path: user/build/outputs/apk
-          destination: user/apks
-      - store_artifacts:
-          path: restaurant/build/outputs/apk
+          path: restaurant-app/baes/build/outputs/apk
           destination: restaurant/apks

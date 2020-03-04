@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tb_restaurant"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="lollipop">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorRed"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:src="@drawable/ic_settings_grey_24dp" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_restaurant_image"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tb_restaurant" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_time_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_clock_grey_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_restaurant_image" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_time_icon"
+                app:layout_constraintLeft_toRightOf="@id/iv_time_icon"
+                app:layout_constraintTop_toTopOf="@id/iv_time_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_review"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/iv_time_icon"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toTopOf="@id/iv_time_icon" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_phone_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_phone_grey_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_time_icon" />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_phone_icon"
+                app:layout_constraintLeft_toLeftOf="@id/tv_time"
+                app:layout_constraintTop_toTopOf="@id/iv_phone_icon" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_email_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_email_grey_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_phone_icon" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_email_icon"
+                app:layout_constraintLeft_toLeftOf="@id/tv_phone"
+                app:layout_constraintTop_toTopOf="@id/iv_email_icon" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_address_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_location_grey_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_email_icon" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_address_icon"
+                app:layout_constraintLeft_toLeftOf="@id/tv_time"
+                app:layout_constraintTop_toTopOf="@id/iv_address_icon" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_area_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_area_grey_24dp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/iv_address_icon" />
+
+            <TextView
+                android:id="@+id/tv_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_area_icon"
+                app:layout_constraintLeft_toLeftOf="@id/tv_time"
+                app:layout_constraintTop_toTopOf="@id/iv_area_icon" />
+
+            <View
+                android:id="@+id/view_line1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="14dp"
+                android:background="#E0E0E0"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toBottomOf="@id/iv_area_icon" />
+
+            <TextView
+                android:id="@+id/tv_category_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/category"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/view_line1" />
+
+            <TextView
+                android:id="@+id/tv_category_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/colon"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_category_label"
+                app:layout_constraintLeft_toRightOf="@id/tv_category_label"
+                app:layout_constraintTop_toTopOf="@id/tv_category_label" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_category_colon"
+                app:layout_constraintLeft_toRightOf="@id/tv_category_colon"
+                app:layout_constraintTop_toTopOf="@id/tv_category_colon" />
+
+            <TextView
+                android:id="@+id/tv_min_price_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/min_price"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/tv_category_label" />
+
+            <TextView
+                android:id="@+id/tv_min_price_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/colon"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_min_price_label"
+                app:layout_constraintLeft_toRightOf="@id/tv_min_price_label"
+                app:layout_constraintTop_toTopOf="@id/tv_min_price_label" />
+
+            <TextView
+                android:id="@+id/tv_min_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_min_price_colon"
+                app:layout_constraintLeft_toRightOf="@id/tv_min_price_colon"
+                app:layout_constraintTop_toTopOf="@id/tv_min_price_colon" />
+
+            <TextView
+                android:id="@+id/tv_day_off_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/day_off"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/tv_min_price_label" />
+
+            <TextView
+                android:id="@+id/tv_day_off_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/colon"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_day_off_label"
+                app:layout_constraintLeft_toRightOf="@id/tv_day_off_label"
+                app:layout_constraintTop_toTopOf="@id/tv_day_off_label" />
+
+            <TextView
+                android:id="@+id/tv_day_off"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_day_off_colon"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toTopOf="@id/tv_day_off_colon" />
+
+            <View
+                android:id="@+id/view_line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#E0E0E0"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toBottomOf="@id/tv_day_off" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/gl_left"
+                app:layout_constraintRight_toRightOf="@id/gl_right"
+                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="24dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="24dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
