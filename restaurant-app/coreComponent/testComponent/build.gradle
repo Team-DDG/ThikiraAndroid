@@ -11,6 +11,4 @@ dependencies {
 
     debugImplementation Dep.Test.coroutinesTest
     debugImplementation Dep.Test.coreTesting
-    debugImplementation Dep.Test.mockitoCore
-    debugImplementation Dep.Test.junit
 }
