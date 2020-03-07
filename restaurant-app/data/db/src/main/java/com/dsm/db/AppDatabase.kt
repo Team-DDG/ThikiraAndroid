@@ -20,7 +20,7 @@ import java.util.*
         MenuEntity::class,
         CouponEntity::class
     ],
-    version = 5,
+    version = 6,
     exportSchema = false
 )
 @TypeConverters(DatabaseConverters::class)
