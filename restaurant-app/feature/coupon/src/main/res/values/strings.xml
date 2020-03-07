@@ -2,4 +2,12 @@
 <resources>
     <string name="period_setting">기간 설정</string>
     <string name="issue">발행</string>
+
+    <string name="coupon">쿠폰</string>
+    <string name="expire">만료</string>
+
+    <string name="won_discount_price">원 할인 쿠폰</string>
+    
+    <string name="issue_coupon">발행 중인 쿠폰</string>
+    <string name="end_of_issue_coupon">발행 종료 쿠폰</string>
 </resources>

@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/couponFragment"
         android:name="com.dsm.coupon.CouponFragment"
-        android:label="@string/coupon" >
+        android:label="@string/coupon">
         <action
             android:id="@+id/action_couponFragment_to_couponIssueDialog"
             app:destination="@id/couponIssueDialog" />
@@ -39,5 +39,6 @@
 
     <dialog
         android:id="@+id/couponIssueDialog"
-        android:name="com.dsm.coupon.CouponIssueDialog" />
+        android:name="com.dsm.coupon.CouponIssueDialog"
+        android:label="@string/coupon" />
 </navigation>
