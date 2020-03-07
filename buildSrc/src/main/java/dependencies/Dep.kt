@@ -33,9 +33,10 @@ object Dep {
         }
 
         object Navigation {
-            private const val version = "2.2.0"
+            private const val version = "2.3.0-alpha01"
             const val fragmentKtx = "androidx.navigation:navigation-fragment-ktx:$version"
             const val uiKtx = "androidx.navigation:navigation-ui-ktx:$version"
+            const val dynamicFeature = "androidx.navigation:navigation-dynamic-features-fragment:$version"
         }
 
         object LifeCycle {
@@ -83,7 +84,7 @@ object Dep {
         const val mockitoCore = "org.mockito:mockito-core:2.21.0"
         const val mockitoInline = "org.mockito:mockito-inline:3.2.4"
         const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3"
-        const val coreTesting =  "androidx.arch.core:core-testing:2.1.0"
-        const val liveDataTesting =  "com.jraska.livedata:testing-ktx:1.1.0"
+        const val coreTesting = "androidx.arch.core:core-testing:2.1.0"
+        const val liveDataTesting = "com.jraska.livedata:testing-ktx:1.1.0"
     }
 }

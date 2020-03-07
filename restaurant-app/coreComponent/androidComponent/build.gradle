@@ -18,8 +18,9 @@ dependencies {
 
     implementation Dep.AndroidX.appCompat
 
-    implementation Dep.AndroidX.Navigation.uiKtx
-    implementation Dep.AndroidX.Navigation.fragmentKtx
+    api Dep.AndroidX.Navigation.uiKtx
+    api Dep.AndroidX.Navigation.fragmentKtx
+    api Dep.AndroidX.Navigation.dynamicFeature
 
     implementation Dep.Glide.glide
     kapt Dep.Glide.compiler

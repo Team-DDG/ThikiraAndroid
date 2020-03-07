@@ -80,17 +80,9 @@
         android:name="com.dsm.base.MainFragment"
         android:label="MainFragment">
         <action
-            android:id="@+id/action_mainFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_menuRegistration1Fragment"
             app:destination="@id/menuRegistration1Fragment" />
     </fragment>
-
-    <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.dsm.setting.SettingFragment"
-        android:label="SettingTest" />
 
     <fragment
         android:id="@+id/menuRegistration1Fragment"
@@ -126,4 +118,9 @@
     <dialog
         android:id="@+id/addOptionDialog"
         android:name="com.dsm.menu.AddOptionDialog" />
+
+    <fragment
+        app:moduleName="setting"
+        android:id="@+id/settingFragment"
+        android:name="com.dsm.setting.SettingFragment"/>
 </navigation>

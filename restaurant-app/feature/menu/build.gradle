@@ -29,9 +29,6 @@ dependencies {
     implementation Dep.AndroidX.constraintLayout
     implementation Dep.AndroidX.recyclerView
 
-    implementation Dep.AndroidX.Navigation.uiKtx
-    implementation Dep.AndroidX.Navigation.fragmentKtx
-
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
     implementation Dep.AndroidX.LifeCycle.viewModelKtx
 
