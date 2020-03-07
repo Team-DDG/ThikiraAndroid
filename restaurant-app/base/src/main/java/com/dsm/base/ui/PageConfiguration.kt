@@ -31,6 +31,8 @@ enum class PageConfiguration(
     MENU_CATEGORY(R.id.menuCategoryFragment, hideToolbar = true),
     MENU_REGISTRATION1(R.id.menuRegistration1Fragment),
 
+    COUPON_ISSUE(R.id.couponIssueDialog, isTopLevel = true),
+
     OTHER(-1);
 
     companion object {

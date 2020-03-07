@@ -4,23 +4,23 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
+import com.dsm.db.dao.CouponDao
 import com.dsm.db.dao.MenuCategoryDao
 import com.dsm.db.dao.MenuDao
 import com.dsm.db.dao.RestaurantDao
-import com.dsm.db.entity.GroupItem
-import com.dsm.db.entity.MenuCategoryEntity
-import com.dsm.db.entity.MenuEntity
-import com.dsm.db.entity.RestaurantEntity
+import com.dsm.db.entity.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.util.*
 
 @Database(
     entities = [
         RestaurantEntity::class,
         MenuCategoryEntity::class,
-        MenuEntity::class
+        MenuEntity::class,
+        CouponEntity::class
     ],
-    version = 4,
+    version = 6,
     exportSchema = false
 )
 @TypeConverters(DatabaseConverters::class)
@@ -31,6 +31,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun menuCategoryDao(): MenuCategoryDao
 
     abstract fun menuDao(): MenuDao
+
+    abstract fun couponDao(): CouponDao
 }
 
 class DatabaseConverters {
@@ -49,4 +51,10 @@ class DatabaseConverters {
     @TypeConverter
     fun fromMenuCategoriesToString(from: List<MenuCategoryEntity>): String =
         Gson().toJson(from)
+
+    @TypeConverter
+    fun fromLongToDate(from: Long) = Date(from)
+
+    @TypeConverter
+    fun fromDateToLong(from: Date) = from.time
 }
