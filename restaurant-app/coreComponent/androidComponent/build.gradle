@@ -16,7 +16,6 @@ android {
 dependencies {
     implementation Dep.Kotlin.kotlin
 
-    // AndroidX
     implementation Dep.AndroidX.appCompat
 
     implementation Dep.AndroidX.Navigation.uiKtx
