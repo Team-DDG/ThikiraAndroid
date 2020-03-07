@@ -4,6 +4,7 @@ import android.app.Application
 import com.dsm.account.di.accountModule
 import com.dsm.address.di.addressModule
 import com.dsm.api.di.apiModule
+import com.dsm.coupon.di.couponModule
 import com.dsm.db.di.dbModule
 import com.dsm.di.repositoryModule
 import com.dsm.firebase.di.firebaseModule
@@ -29,7 +30,8 @@ class App : Application() {
                     // feature
                     accountModule,
                     addressModule,
-                    menuModule
+                    menuModule,
+                    couponModule
                 )
             )
         }

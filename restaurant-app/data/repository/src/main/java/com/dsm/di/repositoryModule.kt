@@ -15,4 +15,6 @@ val repositoryModule = module {
     factory<MenuCategoryRepository> { MenuCategoryRepositoryImpl(get(), get()) }
 
     factory<MenuRepository> { MenuRepositoryImpl(get(), get()) }
+
+    factory<CouponRepository> { CouponRepositoryImpl(get(), get()) }
 }

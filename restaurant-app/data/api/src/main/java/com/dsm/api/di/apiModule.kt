@@ -3,6 +3,7 @@ package com.dsm.api.di
 import com.dsm.api.NaverApi
 import com.dsm.api.ThikiraApi
 import com.dsm.api.TokenApi
+import com.dsm.api.dataSource.*
 import com.dsm.api.error.ErrorHandlerImpl
 import com.dsm.api.interceptor.NaverInterceptor
 import com.dsm.api.interceptor.TokenInterceptor
@@ -57,4 +58,19 @@ val apiModule = module {
     single<ErrorHandler> { ErrorHandlerImpl() }
 
     single<PrefStorage> { PrefStorageImpl(get()) }
+
+    /**
+     * data sources
+     */
+    factory<RemoteAccountDataSource> { RemoteAccountDataSourceImpl(get(), get()) }
+
+    factory<RemoteAddressDataSource> { RemoteAddressDataSourceImpl(get()) }
+
+    factory<RemoteAuthDataSource> { RemoteAuthDataSourceImpl(get(), get()) }
+
+    factory<RemoteCouponDataSource> { RemoteCouponDataSourceImpl(get(), get()) }
+
+    factory<RemoteMenuCategoryDataSource> { RemoteMenuCategoryDataSourceImpl(get(), get()) }
+
+    factory<RemoteMenuDataSource> { RemoteMenuDataSourceImpl(get(), get()) }
 }

@@ -5,6 +5,7 @@ import com.dsm.api.response.MenuResponse
 import com.dsm.api.response.RestaurantResponse
 import com.dsm.api.response.TokenResponse
 import retrofit2.http.*
+import java.util.*
 
 interface ThikiraApi {
 
@@ -59,5 +60,15 @@ interface ThikiraApi {
     suspend fun updateMenuCategoryName(
         @Field("mc_id") menuCategoryId: Int,
         @Field("name") name: String
+    )
+
+    /**
+     * coupon
+     */
+    @FormUrlEncoded
+    @POST("coupon")
+    suspend fun issueCoupon(
+        @Field("expired_day") expireDate: Date,
+        @Field("discount_amount") price: Int
     )
 }
