@@ -13,6 +13,4 @@ dependencies {
     debugImplementation Dep.Test.coreTesting
     debugImplementation Dep.Test.mockitoCore
     debugImplementation Dep.Test.junit
-    debugImplementation Dep.Test.liveDataTesting
-    debugImplementation Dep.Test.mockitoInline
 }
