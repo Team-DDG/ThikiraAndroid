@@ -120,7 +120,17 @@
         android:name="com.dsm.menu.AddOptionDialog" />
 
     <fragment
-        app:moduleName="setting"
         android:id="@+id/settingFragment"
-        android:name="com.dsm.setting.SettingFragment"/>
+        android:name="com.dsm.setting.SettingFragment"
+        android:label="@string/setting"
+        app:moduleName="setting">
+        <action
+            android:id="@+id/action_settingFragment_to_passwordChangeViewModel"
+            app:destination="@id/passwordChangeViewModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passwordChangeViewModel"
+        android:name="com.dsm.setting.PasswordChangeFragment"
+        android:label="@string/change_password" />
 </navigation>

@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="fail_password_auth">비밀번호가 틀렸습니다</string>
+    <string name="fail_re_type_different">비밀번호가 일치하지 않습니다</string>
+    <string name="fail_password_invalid">유효하지 않은 비밀번호입니다</string>
+
     <string name="change_password">비밀번호 변경</string>
     <string name="update_restaurant_info">업체 정보 수정</string>
 
     <string name="unregister">탈퇴</string>
     <string name="unregister_restaurant">업체 등록 해제</string>
     <string name="ask_unregister">정말로 탈퇴하시겠어요?</string>
+
+    <string name="original_password">기존 비밀번호</string>
+    <string name="new_password">신규 비밀번호</string>
+    <string name="new_password_retype">신규 비밀번호 확인</string>
 </resources>
