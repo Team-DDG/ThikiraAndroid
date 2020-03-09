@@ -23,6 +23,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
         binding.tvChangePassword.setOnClickListener {
             findNavController().navigate(com.dsm.androidcomponent.R.id.action_settingFragment_to_passwordChangeViewModel)
         }
+
+        binding.tvUnregister.setOnClickListener {
+            findNavController().navigate(com.dsm.androidcomponent.R.id.action_settingFragment_to_unregisterDialog)
+        }
     }
 
     override fun onDestroy() {

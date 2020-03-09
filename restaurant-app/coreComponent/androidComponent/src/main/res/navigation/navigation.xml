@@ -127,10 +127,24 @@
         <action
             android:id="@+id/action_settingFragment_to_passwordChangeViewModel"
             app:destination="@id/passwordChangeViewModel" />
+        <action
+            android:id="@+id/action_settingFragment_to_unregisterDialog"
+            app:destination="@id/unregisterDialog" />
     </fragment>
 
     <fragment
         android:id="@+id/passwordChangeViewModel"
         android:name="com.dsm.setting.PasswordChangeFragment"
         android:label="@string/change_password" />
+
+    <dialog
+        android:id="@+id/unregisterDialog"
+        android:name="com.dsm.setting.UnregisterDialog"
+        android:label="">
+        <action
+            android:id="@+id/action_unregisterDialog_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/unregisterDialog"
+            app:popUpToInclusive="true" />
+    </dialog>
 </navigation>
