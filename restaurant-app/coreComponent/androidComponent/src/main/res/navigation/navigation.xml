@@ -130,6 +130,9 @@
         <action
             android:id="@+id/action_settingFragment_to_unregisterDialog"
             app:destination="@id/unregisterDialog" />
+        <action
+            android:id="@+id/action_settingFragment_to_addressChangeFragment"
+            app:destination="@id/addressChangeFragment" />
     </fragment>
 
     <fragment
@@ -147,4 +150,13 @@
             app:popUpTo="@id/unregisterDialog"
             app:popUpToInclusive="true" />
     </dialog>
+
+    <fragment
+        android:id="@+id/addressChangeFragment"
+        android:name="com.dsm.setting.AddressChangeFragment"
+        android:label="" >
+        <action
+            android:id="@+id/action_addressChangeFragment_to_addressSearchFragment"
+            app:destination="@id/addressSearchFragment" />
+    </fragment>
 </navigation>

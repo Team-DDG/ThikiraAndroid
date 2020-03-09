@@ -15,4 +15,10 @@
     <string name="original_password">기존 비밀번호</string>
     <string name="new_password">신규 비밀번호</string>
     <string name="new_password_retype">신규 비밀번호 확인</string>
+
+    <string name="change_address">주소 변경</string>
+    <string name="search_new_address">새로운 주소 검색</string>
+    <string name="current_address">현재 주소</string>
+    <string name="road_address">도로명 주소</string>
+    <string name="new_address">새로운 주소</string>
 </resources>

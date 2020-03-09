@@ -3,6 +3,7 @@ import dependencies.Dep
 apply plugin: 'com.android.dynamic-feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 apply from:rootProject.file('gradle/android-dynamic-module.gradle')
 android.dataBinding.enabled = true
@@ -12,6 +13,8 @@ dependencies {
     implementation project(path: ':restaurant-app:model')
 
     implementation project(path: ':restaurant-app:data:error')
+    \
+    implementation project(path: ':restaurant-app:feature:address')
 
     implementation project(path: ':restaurant-app:coreComponent:androidComponent')
     implementation project(path: ':restaurant-app:coreComponent:testComponent')

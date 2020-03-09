@@ -22,6 +22,13 @@ interface ThikiraApi {
     @PATCH("password")
     suspend fun changePassword(@Field("password") newPassword: String)
 
+    @FormUrlEncoded
+    @PATCH("address")
+    suspend fun changeAddress(
+        @Field("add_parcel") address: String,
+        @Field("add_street") roadAddress: String
+    )
+
     /**
      * auth
      */
