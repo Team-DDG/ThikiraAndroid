@@ -1,10 +1,11 @@
 package com.dsm.api.error
 
+import com.dsm.error.ErrorHandler
 import com.dsm.error.exception.*
 import retrofit2.HttpException
 import java.net.HttpURLConnection
 
-class ErrorHandlerImpl : com.dsm.error.ErrorHandler {
+class ErrorHandlerImpl : ErrorHandler {
 
     override fun getNetworkException(throwable: Throwable) =
         when (throwable) {

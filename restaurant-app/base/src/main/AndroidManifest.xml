@@ -10,6 +10,7 @@
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@drawable/ic_logo"
+        android:extractNativeLibs="false"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
