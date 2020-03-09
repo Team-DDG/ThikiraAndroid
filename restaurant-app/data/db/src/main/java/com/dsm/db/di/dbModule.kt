@@ -29,4 +29,6 @@ val dbModule = module {
     factory<LocalMenuCategoryDataSource> { LocalMenuCategoryDataSourceImpl(get()) }
 
     factory<LocalMenuDataSource> { LocalMenuDataSourceImpl(get()) }
+
+    factory<LocalRestaurantDataSource> { LocalRestaurantDataSourceImpl(get()) }
 }
