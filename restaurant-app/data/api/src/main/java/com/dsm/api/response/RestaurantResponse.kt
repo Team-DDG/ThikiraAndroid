@@ -17,7 +17,7 @@ data class RestaurantResponse(
     val address: String,
 
     @SerializedName("area")
-    val deliverableArea: Array<String>,
+    val deliverableArea: String,
 
     val category: String,
 

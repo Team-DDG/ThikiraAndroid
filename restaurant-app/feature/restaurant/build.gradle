@@ -9,6 +9,11 @@ android.dataBinding.enabled = true
 
 dependencies {
     implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+    implementation project(path: ':restaurant-app:coreComponent:testComponent')
+
+    implementation project(path: ':restaurant-app:model')
+
+    implementation project(path: ':restaurant-app:data:error')
 
     implementation Dep.Kotlin.kotlin
 
@@ -17,4 +22,14 @@ dependencies {
 
     implementation Dep.AndroidX.Navigation.fragmentKtx
     implementation Dep.AndroidX.Navigation.uiKtx
+
+    implementation Dep.AndroidX.LifeCycle.liveDataKtx
+
+    implementation Dep.AndroidX.Koin.viewModel
+
+    testImplementation Dep.Test.mockitoCore
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.liveDataTesting
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.mockitoInline
 }
