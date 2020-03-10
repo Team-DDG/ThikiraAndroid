@@ -18,5 +18,5 @@ val repositoryModule = module {
 
     factory<CouponRepository> { CouponRepositoryImpl(get(), get()) }
 
-    factory<RestaurantRepository> { RestaurantRepositoryImpl(get()) }
+    factory<RestaurantRepository> { RestaurantRepositoryImpl(get(), get()) }
 }
