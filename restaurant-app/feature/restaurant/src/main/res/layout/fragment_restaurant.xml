@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dsm.restaurant.viewModel.RestaurantViewModel" />
+    </data>
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -41,6 +48,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_restaurant_image"
+                image="@{viewModel.restaurant.image}"
                 android:layout_width="0dp"
                 android:layout_height="160dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -62,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
+                android:text="@{viewModel.restaurantTime}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_time_icon"
@@ -92,6 +101,7 @@
                 android:id="@+id/tv_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurant.phone}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_phone_icon"
@@ -111,6 +121,7 @@
                 android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurant.email}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_email_icon"
@@ -130,6 +141,7 @@
                 android:id="@+id/tv_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurant.address}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_address_icon"
@@ -149,6 +161,7 @@
                 android:id="@+id/tv_area"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurant.deliverableArea}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_area_icon"
@@ -191,6 +204,7 @@
                 android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurant.category}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_category_colon"
@@ -223,6 +237,7 @@
                 android:id="@+id/tv_min_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{String.valueOf(viewModel.restaurant.minPrice)}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_min_price_colon"
@@ -255,6 +270,7 @@
                 android:id="@+id/tv_day_off"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.restaurant.dayOff}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toRightOf="@id/tv_day_off_colon"
@@ -276,6 +292,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:text="@{viewModel.restaurant.description}"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="@id/gl_left"

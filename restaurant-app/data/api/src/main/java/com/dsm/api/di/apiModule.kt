@@ -73,4 +73,6 @@ val apiModule = module {
     factory<RemoteMenuCategoryDataSource> { RemoteMenuCategoryDataSourceImpl(get(), get()) }
 
     factory<RemoteMenuDataSource> { RemoteMenuDataSourceImpl(get(), get()) }
+
+    factory<RemoteRestaurantDataSource> { RemoteRestaurantDataSourceImpl(get(), get()) }
 }
