@@ -8,7 +8,7 @@ val repositoryModule = module {
 
     factory<AccountRepository> { AccountRepositoryImpl(get()) }
 
-    factory<AddressRepository> { AddressRepositoryImpl(get()) }
+    factory<AddressRepository> { AddressRepositoryImpl(get(), get()) }
 
     factory<AuthRepository> { AuthRepositoryImpl(get(), get()) }
 
@@ -17,4 +17,6 @@ val repositoryModule = module {
     factory<MenuRepository> { MenuRepositoryImpl(get(), get()) }
 
     factory<CouponRepository> { CouponRepositoryImpl(get(), get()) }
+
+    factory<RestaurantRepository> { RestaurantRepositoryImpl(get()) }
 }

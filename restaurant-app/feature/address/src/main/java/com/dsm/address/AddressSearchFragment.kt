@@ -6,6 +6,7 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dsm.address.databinding.FragmentAddressSearchBinding
 import com.dsm.address.viewModel.AddressSearchViewModel
+import com.dsm.address.viewModel.AddressSelectViewModel
 import com.dsm.androidcomponent.base.BaseFragment
 import com.dsm.androidcomponent.ext.setupToastEvent
 import com.xwray.groupie.GroupAdapter
@@ -17,11 +18,14 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
 
     private val viewModel: AddressSearchViewModel by sharedViewModel()
 
+    private val addressSelectViewModel: AddressSelectViewModel by sharedViewModel()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupNavigate()
         setupRecyclerView()
+        setupAddressSelect()
         setupToastEvent(viewModel.toastEvent)
 
         binding.viewModel = viewModel
@@ -33,5 +37,11 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
 
     private fun setupRecyclerView() {
         binding.rvAddress.adapter = GroupAdapter<GroupieViewHolder>()
+    }
+
+    private fun setupAddressSelect() {
+        viewModel.selectedAddress.observe(this) {
+            addressSelectViewModel.selectAddress(it)
+        }
     }
 }

@@ -31,12 +31,10 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
-            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -47,9 +45,11 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
+    dynamicFeatures = [':restaurant-app:feature:setting']
 }
 
 dependencies {
+    api 'androidx.core:core-ktx:1.2.0'
     implementation project(path: ':restaurant-app:coreComponent:androidComponent')
 
     implementation project(path: ':restaurant-app:model')
@@ -66,7 +66,6 @@ dependencies {
     implementation project(path: ':restaurant-app:feature:account')
     implementation project(path: ':restaurant-app:feature:order')
     implementation project(path: ':restaurant-app:feature:restaurant')
-    implementation project(path: ':restaurant-app:feature:setting')
     implementation project(path: ':restaurant-app:feature:address')
 
     // kotlin

@@ -13,7 +13,7 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.ivSetting.setOnClickListener {
-            parentFragment!!.parentFragment!!.findNavController().navigate(R.id.action_mainFragment_to_settingFragment)
+            parentFragment!!.parentFragment!!.findNavController().navigate(R.id.settingFragment)
         }
     }
 }

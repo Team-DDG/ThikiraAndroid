@@ -1,17 +1,34 @@
 import dependencies.Dep
 
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.dynamic-feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
-apply from:rootProject.file('gradle/android.gradle')
+apply from:rootProject.file('gradle/android-dynamic-module.gradle')
 android.dataBinding.enabled = true
 
 dependencies {
+    implementation project(path: ':restaurant-app:base')
+    implementation project(path: ':restaurant-app:model')
+
+    implementation project(path: ':restaurant-app:data:error')
+    \
+    implementation project(path: ':restaurant-app:feature:address')
+
     implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+    implementation project(path: ':restaurant-app:coreComponent:testComponent')
 
     implementation Dep.Kotlin.kotlin
 
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
+
+    implementation Dep.AndroidX.Koin.viewModel
+
+    testImplementation Dep.Test.mockitoCore
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.liveDataTesting
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.mockitoInline
 }

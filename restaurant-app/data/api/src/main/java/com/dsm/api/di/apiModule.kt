@@ -64,7 +64,7 @@ val apiModule = module {
      */
     factory<RemoteAccountDataSource> { RemoteAccountDataSourceImpl(get(), get()) }
 
-    factory<RemoteAddressDataSource> { RemoteAddressDataSourceImpl(get()) }
+    factory<RemoteAddressDataSource> { RemoteAddressDataSourceImpl(get(), get(), get()) }
 
     factory<RemoteAuthDataSource> { RemoteAuthDataSourceImpl(get(), get()) }
 

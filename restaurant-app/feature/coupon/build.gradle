@@ -32,9 +32,6 @@ dependencies {
     implementation Dep.AndroidX.LifeCycle.viewModelKtx
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
 
-    implementation Dep.AndroidX.Navigation.fragmentKtx
-    implementation Dep.AndroidX.Navigation.uiKtx
-
     testImplementation Dep.Test.mockitoCore
     testImplementation Dep.Test.junit
     testImplementation Dep.Test.liveDataTesting

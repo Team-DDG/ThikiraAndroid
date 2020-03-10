@@ -26,8 +26,6 @@ dependencies {
 
     implementation Dep.AndroidX.Koin.viewModel
 
-    implementation Dep.AndroidX.Navigation.fragmentKtx
-
     implementation Dep.Groupie.groupie
     implementation Dep.Groupie.dataBinding
 
