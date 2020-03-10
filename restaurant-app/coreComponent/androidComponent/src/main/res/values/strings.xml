@@ -16,6 +16,9 @@
     <string name="restaurant">업체</string>
     <string name="coupon">쿠폰</string>
 
+    <string name="setting">설정</string>
+    <string name="change_password">비밀번호 변경</string>
+
     <string name="menu_registration">메뉴 등록</string>
 
     <string name="won">원</string>

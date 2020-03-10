@@ -80,17 +80,9 @@
         android:name="com.dsm.base.MainFragment"
         android:label="MainFragment">
         <action
-            android:id="@+id/action_mainFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_menuRegistration1Fragment"
             app:destination="@id/menuRegistration1Fragment" />
     </fragment>
-
-    <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.dsm.setting.SettingFragment"
-        android:label="SettingTest" />
 
     <fragment
         android:id="@+id/menuRegistration1Fragment"
@@ -126,4 +118,45 @@
     <dialog
         android:id="@+id/addOptionDialog"
         android:name="com.dsm.menu.AddOptionDialog" />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.dsm.setting.SettingFragment"
+        android:label="@string/setting"
+        app:moduleName="setting">
+        <action
+            android:id="@+id/action_settingFragment_to_passwordChangeViewModel"
+            app:destination="@id/passwordChangeViewModel" />
+        <action
+            android:id="@+id/action_settingFragment_to_unregisterDialog"
+            app:destination="@id/unregisterDialog" />
+        <action
+            android:id="@+id/action_settingFragment_to_addressChangeFragment"
+            app:destination="@id/addressChangeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passwordChangeViewModel"
+        android:name="com.dsm.setting.PasswordChangeFragment"
+        android:label="@string/change_password" />
+
+    <dialog
+        android:id="@+id/unregisterDialog"
+        android:name="com.dsm.setting.UnregisterDialog"
+        android:label="">
+        <action
+            android:id="@+id/action_unregisterDialog_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/unregisterDialog"
+            app:popUpToInclusive="true" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/addressChangeFragment"
+        android:name="com.dsm.setting.AddressChangeFragment"
+        android:label="" >
+        <action
+            android:id="@+id/action_addressChangeFragment_to_addressSearchFragment"
+            app:destination="@id/addressSearchFragment" />
+    </fragment>
 </navigation>

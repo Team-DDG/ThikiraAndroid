@@ -1,5 +1,6 @@
 package com.dsm.db.entity
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -12,10 +13,6 @@ data class RestaurantEntity(
     val image: String,
 
     val phone: String,
-
-    val roadAddress: String,
-
-    val address: String,
 
     val deliverableArea: String,
 
@@ -35,5 +32,8 @@ data class RestaurantEntity(
 
     val description: String,
 
-    val email: String
+    val email: String,
+
+    @Embedded
+    val address: AddressEntity
 )

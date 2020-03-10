@@ -2,8 +2,8 @@ import dependencies.Dep
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 apply from: rootProject.file('gradle/android.gradle')
 
@@ -18,8 +18,9 @@ dependencies {
 
     implementation Dep.AndroidX.appCompat
 
-    implementation Dep.AndroidX.Navigation.uiKtx
-    implementation Dep.AndroidX.Navigation.fragmentKtx
+    api Dep.AndroidX.Navigation.uiKtx
+    api Dep.AndroidX.Navigation.fragmentKtx
+    api Dep.AndroidX.Navigation.dynamicFeature
 
     implementation Dep.Glide.glide
     kapt Dep.Glide.compiler
