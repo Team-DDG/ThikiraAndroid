@@ -9,6 +9,7 @@ import com.dsm.db.di.dbModule
 import com.dsm.di.repositoryModule
 import com.dsm.firebase.di.firebaseModule
 import com.dsm.menu.di.menuModule
+import com.dsm.order.di.orderModule
 import com.dsm.restaurant.di.restaurantModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -33,7 +34,8 @@ class App : Application() {
                     addressModule,
                     menuModule,
                     couponModule,
-                    restaurantModule
+                    restaurantModule,
+                    orderModule
                 )
             )
         }
