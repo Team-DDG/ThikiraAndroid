@@ -68,10 +68,8 @@ dependencies {
     implementation project(path: ':restaurant-app:feature:restaurant')
     implementation project(path: ':restaurant-app:feature:address')
 
-    // kotlin
     implementation Dep.Kotlin.kotlin
 
-    // AndroidX
     implementation Dep.AndroidX.coreKtx
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout

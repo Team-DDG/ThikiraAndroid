@@ -3,16 +3,35 @@ import dependencies.Dep
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
-apply from:rootProject.file('gradle/android.gradle')
+apply from: rootProject.file('gradle/android.gradle')
 android.dataBinding.enabled = true
 
 dependencies {
     implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+    implementation project(path: ':restaurant-app:coreComponent:testComponent')
+
+    implementation project(path: ':restaurant-app:data:error')
+
+    implementation project(path: ':restaurant-app:model')
 
     implementation Dep.Kotlin.kotlin
+
+    implementation Dep.Groupie.groupie
+    implementation Dep.Groupie.dataBinding
 
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
     implementation Dep.AndroidX.viewPager
+
+    implementation Dep.AndroidX.Koin.viewModel
+
+    implementation Dep.AndroidX.LifeCycle.liveDataKtx
+
+    testImplementation Dep.Test.mockitoCore
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.liveDataTesting
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.mockitoInline
 }

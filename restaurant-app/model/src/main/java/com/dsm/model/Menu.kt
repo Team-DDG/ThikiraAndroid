@@ -12,10 +12,10 @@ data class Menu(
 
     val image: String,
 
-    val group: List<Group>
+    val group: List<MenuGroupItem>
 )
 
-data class Group(
+data class MenuGroupItem(
 
     val groupId: Int,
 
@@ -23,10 +23,10 @@ data class Group(
 
     val maxCount: Int,
 
-    val option: List<Option>
+    val option: List<MenuOptionItem>
 )
 
-data class Option(
+data class MenuOptionItem(
 
     val optionId: Int,
 

@@ -1,12 +1,10 @@
 package com.dsm.mapper
 
 import com.dsm.api.response.MenuResponse
-import com.dsm.db.entity.GroupItem
 import com.dsm.db.entity.MenuEntity
-import com.dsm.db.entity.OptionItem
-import com.dsm.model.Group
 import com.dsm.model.Menu
-import com.dsm.model.Option
+import com.dsm.model.MenuGroupItem
+import com.dsm.model.MenuOptionItem
 
 internal fun MenuEntity.toMenu() =
     Menu(
@@ -16,12 +14,12 @@ internal fun MenuEntity.toMenu() =
         price = price,
         image = image,
         group = group.map { groupItem ->
-            Group(
+            MenuGroupItem(
                 groupId = groupItem.groupId,
                 name = groupItem.name,
                 maxCount = groupItem.maxCount,
                 option = groupItem.option.map { optionItem ->
-                    Option(
+                    MenuOptionItem(
                         optionId = optionItem.optionId,
                         name = optionItem.name,
                         price = optionItem.price
@@ -40,12 +38,12 @@ internal fun MenuResponse.toMenuEntity(menuCategoryId: Int): MenuEntity =
         price = price,
         image = image,
         group = group.map { groupItem ->
-            GroupItem(
+            com.dsm.db.entity.MenuGroupItem(
                 groupId = groupItem.groupId,
                 name = groupItem.name,
                 maxCount = groupItem.maxCount,
                 option = groupItem.option.map { optionItem ->
-                    OptionItem(
+                    com.dsm.db.entity.MenuOptionItem(
                         optionId = optionItem.optionId,
                         name = optionItem.name,
                         price = optionItem.price
