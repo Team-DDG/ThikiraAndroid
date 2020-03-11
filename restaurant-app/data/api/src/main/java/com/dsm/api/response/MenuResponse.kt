@@ -15,10 +15,10 @@ data class MenuResponse(
 
     val image: String,
 
-    val group: List<GroupItem>
+    val group: List<MenuGroupItem>
 )
 
-data class GroupItem(
+data class MenuGroupItem(
 
     @SerializedName("group_id")
     val groupId: Int,
@@ -28,10 +28,10 @@ data class GroupItem(
     @SerializedName("max_count")
     val maxCount: Int,
 
-    val option: List<OptionItem>
+    val option: List<MenuOptionItem>
 )
 
-data class OptionItem(
+data class MenuOptionItem(
 
     @SerializedName("option_id")
     val optionId: Int,

@@ -78,4 +78,10 @@ interface ThikiraApi {
 
     @GET("coupon")
     suspend fun getCoupons(): List<CouponResponse>
+
+    /**
+     * order
+     */
+    @GET("order")
+    suspend fun getOrders(@Query("date") date: Date): List<OrderResponse>
 }

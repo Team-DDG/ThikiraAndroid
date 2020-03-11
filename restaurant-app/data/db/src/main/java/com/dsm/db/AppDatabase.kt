@@ -20,7 +20,7 @@ import java.util.*
         MenuEntity::class,
         CouponEntity::class
     ],
-    version = 6,
+    version = 11,
     exportSchema = false
 )
 @TypeConverters(DatabaseConverters::class)
@@ -37,19 +37,11 @@ abstract class AppDatabase : RoomDatabase() {
 
 class DatabaseConverters {
     @TypeConverter
-    fun fromStringToGroups(from: String): List<GroupItem> =
-        Gson().fromJson(from, object : TypeToken<List<GroupItem>>() {}.type)
+    fun fromStringToMenuGroups(from: String): List<MenuGroupItem> =
+        Gson().fromJson(from, object : TypeToken<List<MenuGroupItem>>() {}.type)
 
     @TypeConverter
-    fun fromGroupsToString(from: List<GroupItem>): String =
-        Gson().toJson(from)
-
-    @TypeConverter
-    fun fromStringToMenuCategories(from: String): List<MenuCategoryEntity> =
-        Gson().fromJson(from, object : TypeToken<List<MenuCategoryEntity>>() {}.type)
-
-    @TypeConverter
-    fun fromMenuCategoriesToString(from: List<MenuCategoryEntity>): String =
+    fun fromMenuGroupsToString(from: List<MenuGroupItem>): String =
         Gson().toJson(from)
 
     @TypeConverter
