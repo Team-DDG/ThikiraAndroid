@@ -1,7 +1,5 @@
 package com.dsm.account
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.observe
@@ -15,10 +13,6 @@ import com.dsm.mediapicker.MediaPicker
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
-    companion object {
-        private const val IMAGE_CODE = 100
-    }
-
     override val layoutResId: Int = R.layout.fragment_register1
 
     private val registerViewModel: RegisterViewModel by sharedViewModel()
@@ -43,13 +37,13 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
 
     private fun setupMediaPicker() {
         binding.ivRestaurantImage.setOnClickListener {
-            MediaPicker.createImage(this)
+            MediaPicker.withContext(activity)
                 .single()
                 .theme(R.style.AppTheme)
                 .toolbarBackgroundColor(R.color.colorPrimaryLight)
-                .toolbarTextColor(R.color.colorPickerWhite)
+                .toolbarTextColor(R.color.colorMediaPickerWhite)
                 .toolbarTitle(getString(R.string.restaurant_image))
-                .start(IMAGE_CODE)
+                .start { registerViewModel.uploadImage(it[0]) }
         }
     }
 
@@ -60,13 +54,6 @@ class Register1Fragment : BaseFragment<FragmentRegister1Binding>() {
 
         binding.btnNext.setOnClickListener {
             findNavController().navigate(R.id.action_register1Fragment_to_register2Fragment)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == IMAGE_CODE && resultCode == Activity.RESULT_OK) {
-            val imageUrl = data?.getStringArrayListExtra("result")?.get(0) ?: ""
-            registerViewModel.uploadImage(imageUrl)
         }
     }
 }
