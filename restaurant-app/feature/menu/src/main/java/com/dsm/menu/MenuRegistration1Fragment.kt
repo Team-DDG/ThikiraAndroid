@@ -1,7 +1,5 @@
 package com.dsm.menu
 
-import android.app.Activity.RESULT_OK
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.observe
@@ -15,10 +13,6 @@ import com.dsm.menu.viewModel.MenuRegistrationViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>() {
-    companion object {
-        private const val IMAGE_CODE = 101
-    }
-
     override val layoutResId: Int = R.layout.fragment_menu_registration1
 
     private val viewModel: MenuRegistrationViewModel by sharedViewModel()
@@ -53,20 +47,13 @@ class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>
 
     private fun setupMediaPicker() {
         binding.ivMenu.setOnClickListener {
-            MediaPicker.createImage(this)
+            MediaPicker.withContext(activity)
                 .single()
                 .theme(R.style.AppTheme)
                 .toolbarBackgroundColor(R.color.colorPrimaryLight)
-                .toolbarTextColor(R.color.colorPickerWhite)
+                .toolbarTextColor(R.color.colorMediaPickerWhite)
                 .toolbarTitle(getString(R.string.select_image))
-                .start(IMAGE_CODE)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == IMAGE_CODE && resultCode == RESULT_OK) {
-            val imagePath = data?.getStringArrayListExtra("result")?.get(0) ?: ""
-            viewModel.uploadImage(imagePath)
+                .start { viewModel.uploadImage(it[0]) }
         }
     }
 }
