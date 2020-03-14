@@ -3,7 +3,7 @@ package dependencies
 object Dep {
     const val tagEditText = "com.github.mabbas007:TagsEditText:1.0.5"
     const val material = "com.google.android.material:material:1.1.0"
-    const val mediaPicker = "com.github.kimdohun0104:MediaPicker:1.0.54"
+    const val mediaPicker = "com.github.kimdohun0104:MediaPicker:1.1.0"
 
     object GradlePlugin {
         const val gradle = "com.android.tools.build:gradle:3.5.3"
