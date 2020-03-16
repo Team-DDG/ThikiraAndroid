@@ -7,14 +7,12 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.androidcomponent.R
 import com.dsm.menu.adapter.MenuOptionListAdapter
-import com.dsm.menu.item.MenuCategoryDeleteItem
-import com.dsm.menu.item.MenuCategoryItem
-import com.dsm.menu.item.MenuCategoryUpdateItem
-import com.dsm.menu.item.MenuItem
+import com.dsm.menu.item.*
 import com.dsm.menu.viewModel.MenuCategorySelectViewModel
 import com.dsm.menu.viewModel.MenuCategoryViewModel
 import com.dsm.model.Menu
 import com.dsm.model.MenuCategory
+import com.dsm.model.MenuGroupItem
 import com.dsm.model.MenuOption
 import com.xwray.groupie.GroupAdapter
 
@@ -64,5 +62,19 @@ internal fun RecyclerView.bindOptions(
 ) {
     optionsLiveData.value?.let {
         (this.adapter as MenuOptionListAdapter).listItems = it
+    }
+}
+
+@BindingAdapter("menuDetailOptions")
+internal fun RecyclerView.bindMenuDetailOptions(
+    menuGroups: List<MenuGroupItem>
+) {
+    (this.adapter as? GroupAdapter)?.let { adapter ->
+        menuGroups.forEach { groupItem ->
+            adapter.add(MenuDetailGroupItem(groupItem))
+            groupItem.option.forEach { optionItem ->
+                adapter.add(MenuDetailOptionItem(optionItem))
+            }
+        }
     }
 }

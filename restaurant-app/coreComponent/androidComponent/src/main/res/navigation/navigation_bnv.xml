@@ -17,7 +17,14 @@
         <action
             android:id="@+id/action_menuFragment_to_menuCategoryFragment"
             app:destination="@id/menuCategoryFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuDetailFragment"
+            app:destination="@id/menuDetailFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/menuDetailFragment"
+        android:name="com.dsm.menu.MenuDetailFragment" />
 
     <fragment
         android:id="@+id/couponFragment"
