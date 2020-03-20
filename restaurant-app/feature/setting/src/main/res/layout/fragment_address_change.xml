@@ -14,6 +14,15 @@
         android:layout_height="match_parent"
         app:layoutDescription="@xml/motion_change_address">
 
+        <com.dsm.androidcomponent.view.DefaultToolbar
+            android:id="@+id/tb_address_change"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/change_address" />
+
         <TextView
             android:id="@+id/tv_current_address_label"
             android:layout_width="wrap_content"
@@ -26,7 +35,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tb_address_change" />
 
         <TextView
             android:id="@+id/tv_current_address"

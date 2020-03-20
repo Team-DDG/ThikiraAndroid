@@ -18,7 +18,7 @@ class MenuItem(
         viewBinding.root.setOnClickListener {
             it.findNavController().navigate(
                 R.id.action_menuFragment_to_menuDetailFragment,
-                bundleOf("detail" to menu)
+                bundleOf("menu" to menu)
             )
         }
     }

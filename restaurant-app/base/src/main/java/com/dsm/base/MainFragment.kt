@@ -23,16 +23,9 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupBnv()
-        setupToolbar()
     }
 
     private fun setupBnv() {
         bnv_main.setupWithNavController(navController)
-    }
-
-    private fun setupToolbar() {
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            (activity as MainActivity).changeToolbarByDestination(destination)
-        }
     }
 }

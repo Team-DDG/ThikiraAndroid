@@ -27,6 +27,9 @@ class LoginViewModel(
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
 
+    private val _hideKeyEvent = SingleLiveEvent<Unit>()
+    val hideKeyEvent: LiveData<Unit> = _hideKeyEvent
+
     fun onClickLogin() = viewModelScope.launch {
         try {
             authRepository.login(
@@ -37,6 +40,7 @@ class LoginViewModel(
             )
 
             _navigateEvent.value = R.id.action_loginFragment_to_mainFragment
+            _hideKeyEvent.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
                 is NotFoundException -> R.string.fail_account_not_found
