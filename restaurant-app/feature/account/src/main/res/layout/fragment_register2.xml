@@ -22,6 +22,15 @@
             android:layout_height="wrap_content"
             tools:ignore="RtlSymmetry">
 
+            <com.dsm.androidcomponent.view.DefaultToolbar
+                android:id="@+id/tb_register2"
+                android:layout_width="0dp"
+                android:layout_height="?actionBarSize"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@string/register_restaurant" />
+
             <Button
                 android:id="@+id/btn_select_category"
                 android:layout_width="0dp"
@@ -34,7 +43,7 @@
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="@id/gl_left"
                 app:layout_constraintRight_toRightOf="@id/gl_right"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/tb_register2" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_min_price"

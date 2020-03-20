@@ -11,11 +11,10 @@ import com.xwray.groupie.GroupieViewHolder
 class MenuDetailFragment : BaseFragment<FragmentMenuDetailBinding>() {
     override val layoutResId: Int = R.layout.fragment_menu_detail
 
-    private val menu: Menu by lazy { arguments?.getSerializable("detail") as Menu }
+    private val menu: Menu by lazy { arguments?.getSerializable("menu") as Menu }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = menu.name
 
         setupRecyclerView()
 

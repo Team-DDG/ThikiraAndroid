@@ -31,6 +31,7 @@
     <string name="default_location">대한민국 어딘가에 존재하는 배달집</string>
 
     <string name="next">다음으로</string>
+    <string name="do_register_restaurant">업체 등록하기</string>
 
     <string name="select_category">카테고리 선택</string>
     <string name="delivery_min_price">배달 최소 주문 금액</string>
