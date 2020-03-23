@@ -30,7 +30,7 @@ class UnregisterViewModel(
             authRepository.confirmPassword(password.value!!)
             accountRepository.unregister()
 
-            _navigateEvent.value = R.id.action_unregisterDialog_to_loginFragment
+            _navigateEvent.value = R.id.action_unregisterDialog_to_nav_graph
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
                 is UnauthorizedException -> com.dsm.setting.R.string.fail_password_auth

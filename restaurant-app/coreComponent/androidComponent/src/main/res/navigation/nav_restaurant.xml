@@ -31,8 +31,8 @@
         android:id="@+id/unregisterDialog"
         android:name="com.dsm.setting.UnregisterDialog">
         <action
-            android:id="@+id/action_unregisterDialog_to_loginFragment"
-            app:destination="@id/loginFragment"
+            android:id="@+id/action_unregisterDialog_to_nav_graph"
+            app:destination="@id/nav_graph"
             app:popUpTo="@id/unregisterDialog"
             app:popUpToInclusive="true" />
     </dialog>
@@ -45,4 +45,9 @@
             app:destination="@id/addressSearchFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/addressSearchFragment"
+        android:name="com.dsm.address.AddressSearchFragment" />
+
+    <include app:graph="@navigation/nav_graph" />
 </navigation>

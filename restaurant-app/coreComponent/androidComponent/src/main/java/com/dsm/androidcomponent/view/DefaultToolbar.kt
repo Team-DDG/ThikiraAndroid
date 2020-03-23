@@ -1,5 +1,6 @@
 package com.dsm.androidcomponent.view
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.navigation.findNavController
 import com.dsm.androidcomponent.R
 import kotlinx.android.synthetic.main.layout_default_toolbar.view.*
 
+@SuppressLint("recycle")
 class DefaultToolbar(context: Context, attrs: AttributeSet) : @JvmOverloads LinearLayout(context, attrs) {
 
     val view: View
@@ -34,5 +36,11 @@ class DefaultToolbar(context: Context, attrs: AttributeSet) : @JvmOverloads Line
 
     fun setTitle(@StringRes title: Int) {
         view.tv_title.text = context.getString(title)
+    }
+
+    fun setNavigationClickListener(listener: () -> Unit) {
+        view.tb_default_toolbar.setNavigationOnClickListener {
+            listener.invoke()
+        }
     }
 }

@@ -34,7 +34,7 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
 
     private fun setupNavigate() {
         binding.fabMenu.setOnClickListener {
-            parentFragment?.parentFragment?.findNavController()?.navigate(R.id.action_mainFragment_to_menuRegistration1Fragment)
+            findNavController().navigate(R.id.action_menuFragment_to_menuRegistration1Fragment)
         }
     }
 

@@ -5,17 +5,22 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.dsm.androidcomponent.R
 import com.dsm.androidcomponent.base.BaseFragment
+import com.dsm.androidcomponent.view.BnvViewModel
 import com.dsm.setting.databinding.FragmentSettingBinding
 import com.dsm.setting.di.settingModule
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
 class SettingFragment : BaseFragment<FragmentSettingBinding>() {
     override val layoutResId: Int = com.dsm.setting.R.layout.fragment_setting
 
+    private val bnvViewModel: BnvViewModel by sharedViewModel()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadKoinModules(settingModule)
+        bnvViewModel.hideBnv()
 
         setupNavigate()
     }
@@ -37,5 +42,6 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
     override fun onDestroy() {
         super.onDestroy()
         unloadKoinModules(settingModule)
+        bnvViewModel.showBnv()
     }
 }
