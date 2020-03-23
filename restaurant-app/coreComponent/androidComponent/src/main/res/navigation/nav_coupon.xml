@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coupon"
+    app:startDestination="@id/couponFragment">
+
+    <fragment
+        android:id="@+id/couponFragment"
+        android:name="com.dsm.coupon.CouponFragment">
+        <action
+            android:id="@+id/action_couponFragment_to_couponIssueDialog"
+            app:destination="@id/couponIssueDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/couponIssueDialog"
+        android:name="com.dsm.coupon.CouponIssueDialog" />
+</navigation>

@@ -5,16 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
-
-    private val navController: NavController by lazy {
-        (childFragmentManager.findFragmentById(R.id.fragment_nav_host) as NavHostFragment).navController
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_main, container, false)
@@ -26,6 +19,19 @@ class MainFragment : Fragment() {
     }
 
     private fun setupBnv() {
-        bnv_main.setupWithNavController(navController)
+        bnv_main.setupWithNavController(
+            listOf(R.navigation.nav_order, R.navigation.nav_menu, R.navigation.nav_coupon, R.navigation.nav_restaurant),
+            childFragmentManager,
+            R.id.fragment_nav_host,
+            activity!!.intent
+        )
+    }
+
+    fun hideBnv() {
+        bnv_main.visibility = View.GONE
+    }
+
+    fun showBnv() {
+        bnv_main.visibility = View.VISIBLE
     }
 }
