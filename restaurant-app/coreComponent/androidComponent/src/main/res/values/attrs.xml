@@ -7,4 +7,8 @@
         <attr name="enableTextColor" format="integer|reference" />
         <attr name="disableTextColor" format="integer|reference" />
     </declare-styleable>
+    <declare-styleable name="DefaultToolbar">
+        <attr name="title" format="string|reference" />
+        <attr name="isTopLevel" format="boolean" />
+    </declare-styleable>
 </resources>

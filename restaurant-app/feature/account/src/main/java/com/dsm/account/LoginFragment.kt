@@ -2,10 +2,12 @@ package com.dsm.account
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dsm.account.databinding.FragmentLoginBinding
 import com.dsm.account.viewModel.LoginViewModel
 import com.dsm.androidcomponent.base.BaseFragment
+import com.dsm.androidcomponent.ext.hideKeyboard
 import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -20,6 +22,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
         setupNavigate()
         setupToastEvent(viewModel.toastEvent)
+
+        viewModel.hideKeyEvent.observe(this) { hideKeyboard() }
 
         binding.viewModel = viewModel
     }

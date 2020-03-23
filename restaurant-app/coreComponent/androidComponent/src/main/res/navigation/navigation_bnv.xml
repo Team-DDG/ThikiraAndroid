@@ -6,23 +6,35 @@
 
     <fragment
         android:id="@+id/orderFragment"
-        android:name="com.dsm.order.OrderFragment"
-        android:label="@string/order" />
+        android:name="com.dsm.order.OrderFragment" >
+        <action
+            android:id="@+id/action_orderFragment_to_orderDetailDialog"
+            app:destination="@id/orderDetailDialog" />
+    </fragment>
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.dsm.menu.MenuFragment"
-        android:label="@string/menu">
+        android:name="com.dsm.menu.MenuFragment">
 
         <action
             android:id="@+id/action_menuFragment_to_menuCategoryFragment"
             app:destination="@id/menuCategoryFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuDetailFragment"
+            app:destination="@id/menuDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuDetailFragment"
+        android:name="com.dsm.menu.MenuDetailFragment">
+        <argument
+            android:name="menu"
+            app:argType="com.dsm.model.Menu"/>
     </fragment>
 
     <fragment
         android:id="@+id/couponFragment"
-        android:name="com.dsm.coupon.CouponFragment"
-        android:label="@string/coupon">
+        android:name="com.dsm.coupon.CouponFragment">
         <action
             android:id="@+id/action_couponFragment_to_couponIssueDialog"
             app:destination="@id/couponIssueDialog" />
@@ -30,8 +42,7 @@
 
     <fragment
         android:id="@+id/restaurantFragment"
-        android:name="com.dsm.restaurant.RestaurantFragment"
-        android:label="@string/restaurant" />
+        android:name="com.dsm.restaurant.RestaurantFragment"/>
 
     <fragment
         android:id="@+id/menuCategoryFragment"
@@ -39,6 +50,8 @@
 
     <dialog
         android:id="@+id/couponIssueDialog"
-        android:name="com.dsm.coupon.CouponIssueDialog"
-        android:label="@string/coupon" />
+        android:name="com.dsm.coupon.CouponIssueDialog"/>
+    <dialog
+        android:id="@+id/orderDetailDialog"
+        android:name="com.dsm.order.OrderDetailDialog" />
 </navigation>

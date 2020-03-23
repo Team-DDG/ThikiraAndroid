@@ -1,5 +1,6 @@
 package com.dsm.model
 
+import java.io.Serializable
 import java.util.*
 
 data class Order(
@@ -19,7 +20,7 @@ data class Order(
     val totalPrice: Int,
 
     val nick: String
-)
+) : Serializable
 
 data class OrderDetailItem(
 

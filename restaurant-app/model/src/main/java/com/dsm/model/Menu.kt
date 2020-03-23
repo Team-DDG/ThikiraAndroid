@@ -1,5 +1,7 @@
 package com.dsm.model
 
+import java.io.Serializable
+
 data class Menu(
 
     val menuId: Int,
@@ -13,7 +15,7 @@ data class Menu(
     val image: String,
 
     val group: List<MenuGroupItem>
-)
+) : Serializable
 
 data class MenuGroupItem(
 
