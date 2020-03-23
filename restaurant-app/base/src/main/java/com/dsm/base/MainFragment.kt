@@ -1,21 +1,25 @@
 package com.dsm.base
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.dsm.androidcomponent.base.BaseFragment
+import com.dsm.androidcomponent.view.BnvViewModel
+import com.dsm.base.databinding.FragmentMainBinding
 import kotlinx.android.synthetic.main.fragment_main.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class MainFragment : Fragment() {
+class MainFragment : BaseFragment<FragmentMainBinding>() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_main, container, false)
+    override val layoutResId: Int = R.layout.fragment_main
+
+    private val bnvViewModel: BnvViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupBnv()
+
+        binding.bnvViewModel = bnvViewModel
     }
 
     private fun setupBnv() {
@@ -25,13 +29,5 @@ class MainFragment : Fragment() {
             R.id.fragment_nav_host,
             activity!!.intent
         )
-    }
-
-    fun hideBnv() {
-        bnv_main.visibility = View.GONE
-    }
-
-    fun showBnv() {
-        bnv_main.visibility = View.VISIBLE
     }
 }
