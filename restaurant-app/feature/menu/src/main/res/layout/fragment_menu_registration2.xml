@@ -13,6 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.dsm.androidcomponent.view.DefaultToolbar
+            android:id="@+id/tb_menu_registration2"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/do_menu_registration" />
+
         <TextView
             android:id="@+id/tv_set_option"
             android:layout_width="wrap_content"
@@ -24,7 +33,7 @@
             android:textColor="@color/colorGrey"
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tb_menu_registration2" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_option"

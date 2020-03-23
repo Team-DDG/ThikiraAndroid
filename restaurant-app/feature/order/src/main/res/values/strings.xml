@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="order">주문</string>
     <string name="sir">님</string>
+
+    <string name="receipt">영수증</string>
+    <string name="receipt_restaurant_name">업체명: </string>
+    <string name="receipt_address">주소: </string>
+    <string name="receipt_date_of_sale">판매일: </string>
+    <string name="total_price">합계 금액</string>
+    <string name="discount_price">할인 금액</string>
+    <string name="final_price">최종 금액</string>
+    <string name="delivery_complete">배달 완료</string>
+    <string name="call">전화 걸기</string>
 </resources>

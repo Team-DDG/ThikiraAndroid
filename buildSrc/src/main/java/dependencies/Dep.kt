@@ -9,6 +9,7 @@ object Dep {
         const val gradle = "com.android.tools.build:gradle:3.5.3"
         const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.version}"
         const val googleService = "com.google.gms:google-services:4.3.3"
+        const val safeArgsPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${AndroidX.Navigation.version}"
     }
 
     object Kotlin {
@@ -33,7 +34,7 @@ object Dep {
         }
 
         object Navigation {
-            private const val version = "2.3.0-alpha01"
+            const val version = "2.3.0-alpha01"
             const val fragmentKtx = "androidx.navigation:navigation-fragment-ktx:$version"
             const val uiKtx = "androidx.navigation:navigation-ui-ktx:$version"
             const val dynamicFeature = "androidx.navigation:navigation-dynamic-features-fragment:$version"

@@ -6,8 +6,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.dsm.account.SplashFragment"
-        android:label="SplashFragment">
+        android:name="com.dsm.account.SplashFragment">
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -21,8 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.dsm.account.LoginFragment"
-        android:label="LoginFragment">
+        android:name="com.dsm.account.LoginFragment">
         <action
             android:id="@+id/action_loginFragment_to_register1Fragment"
             app:destination="@id/register1Fragment" />
@@ -34,8 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/register1Fragment"
-        android:name="com.dsm.account.Register1Fragment"
-        android:label="@string/do_register_restaurant">
+        android:name="com.dsm.account.Register1Fragment">
         <action
             android:id="@+id/action_register1Fragment_to_register2Fragment"
             app:destination="@id/register2Fragment" />
@@ -45,8 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/register2Fragment"
-        android:name="com.dsm.account.Register2Fragment"
-        android:label="@string/do_register_restaurant">
+        android:name="com.dsm.account.Register2Fragment">
         <action
             android:id="@+id/action_register2Fragment_to_categorySelectFragment"
             app:destination="@id/categorySelectFragment" />
@@ -56,29 +52,24 @@
     </fragment>
     <fragment
         android:id="@+id/register3Fragment"
-        android:name="com.dsm.account.Register3Fragment"
-        android:label="@string/do_register_restaurant">
+        android:name="com.dsm.account.Register3Fragment">
         <action
             android:id="@+id/action_register3Fragment_to_register4Fragment"
             app:destination="@id/register4Fragment" />
     </fragment>
     <fragment
         android:id="@+id/register4Fragment"
-        android:name="com.dsm.account.Register4Fragment"
-        android:label="@string/do_register_restaurant" />
+        android:name="com.dsm.account.Register4Fragment"/>
     <fragment
         android:id="@+id/categorySelectFragment"
-        android:name="com.dsm.account.CategorySelectFragment"
-        android:label="@string/do_select_category" />
+        android:name="com.dsm.account.CategorySelectFragment" />
     <fragment
         android:id="@+id/addressSearchFragment"
-        android:name="com.dsm.address.AddressSearchFragment"
-        android:label="@string/do_select_location" />
+        android:name="com.dsm.address.AddressSearchFragment"/>
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.dsm.base.MainFragment"
-        android:label="MainFragment">
+        android:name="com.dsm.base.MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_menuRegistration1Fragment"
             app:destination="@id/menuRegistration1Fragment" />
@@ -86,8 +77,7 @@
 
     <fragment
         android:id="@+id/menuRegistration1Fragment"
-        android:name="com.dsm.menu.MenuRegistration1Fragment"
-        android:label="@string/menu_registration">
+        android:name="com.dsm.menu.MenuRegistration1Fragment">
         <action
             android:id="@+id/action_menuRegistration1Fragment_to_menuCategoryFragment"
             app:destination="@id/menuCategoryFragment" />
@@ -98,8 +88,7 @@
 
     <fragment
         android:id="@+id/menuRegistration2Fragment"
-        android:name="com.dsm.menu.MenuRegistration2Fragment"
-        android:label="@string/menu_registration">
+        android:name="com.dsm.menu.MenuRegistration2Fragment">
         <action
             android:id="@+id/action_menuRegistration2Fragment_to_addOptionDialog"
             app:destination="@id/addOptionDialog" />
@@ -122,7 +111,6 @@
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.dsm.setting.SettingFragment"
-        android:label="@string/setting"
         app:moduleName="setting">
         <action
             android:id="@+id/action_settingFragment_to_passwordChangeViewModel"
@@ -137,13 +125,11 @@
 
     <fragment
         android:id="@+id/passwordChangeViewModel"
-        android:name="com.dsm.setting.PasswordChangeFragment"
-        android:label="@string/change_password" />
+        android:name="com.dsm.setting.PasswordChangeFragment"/>
 
     <dialog
         android:id="@+id/unregisterDialog"
-        android:name="com.dsm.setting.UnregisterDialog"
-        android:label="">
+        android:name="com.dsm.setting.UnregisterDialog">
         <action
             android:id="@+id/action_unregisterDialog_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -153,8 +139,7 @@
 
     <fragment
         android:id="@+id/addressChangeFragment"
-        android:name="com.dsm.setting.AddressChangeFragment"
-        android:label="" >
+        android:name="com.dsm.setting.AddressChangeFragment" >
         <action
             android:id="@+id/action_addressChangeFragment_to_addressSearchFragment"
             app:destination="@id/addressSearchFragment" />
