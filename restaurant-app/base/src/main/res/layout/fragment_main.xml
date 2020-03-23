@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation_bnv" />
+        app:defaultNavHost="true" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv_main"
@@ -23,5 +22,4 @@
         app:itemTextColor="@color/selector_bnv_color"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_main" />
-
 </LinearLayout>

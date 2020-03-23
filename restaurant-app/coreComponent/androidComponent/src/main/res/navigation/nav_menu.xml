@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.dsm.menu.MenuFragment">
+
+        <action
+            android:id="@+id/action_menuFragment_to_menuCategoryFragment"
+            app:destination="@id/menuCategoryFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuDetailFragment"
+            app:destination="@id/menuDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuDetailFragment"
+        android:name="com.dsm.menu.MenuDetailFragment">
+        <argument
+            android:name="menu"
+            app:argType="com.dsm.model.Menu" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuCategoryFragment"
+        android:name="com.dsm.menu.MenuCategoryFragment" />
+</navigation>

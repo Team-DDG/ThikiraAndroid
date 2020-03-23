@@ -14,6 +14,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
 class MenuFragment : BaseFragment<FragmentMenuBinding>() {
     override val layoutResId: Int = R.layout.fragment_menu
 
