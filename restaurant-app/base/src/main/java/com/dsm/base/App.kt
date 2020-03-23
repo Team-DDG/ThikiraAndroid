@@ -3,6 +3,7 @@ package com.dsm.base
 import android.app.Application
 import com.dsm.account.di.accountModule
 import com.dsm.address.di.addressModule
+import com.dsm.androidcomponent.view.BnvViewModel
 import com.dsm.api.di.apiModule
 import com.dsm.coupon.di.couponModule
 import com.dsm.db.di.dbModule
@@ -12,7 +13,9 @@ import com.dsm.menu.di.menuModule
 import com.dsm.order.di.orderModule
 import com.dsm.restaurant.di.restaurantModule
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
+import org.koin.dsl.module
 
 class App : Application() {
 
@@ -35,7 +38,9 @@ class App : Application() {
                     menuModule,
                     couponModule,
                     restaurantModule,
-                    orderModule
+                    orderModule,
+
+                    module { viewModel { BnvViewModel() } }
                 )
             )
         }

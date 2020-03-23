@@ -6,6 +6,7 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dsm.androidcomponent.base.BaseFragment
 import com.dsm.androidcomponent.ext.setupToastEvent
+import com.dsm.androidcomponent.view.BnvViewModel
 import com.dsm.menu.adapter.MenuOptionListAdapter
 import com.dsm.menu.databinding.FragmentMenuRegistration2Binding
 import com.dsm.menu.viewModel.MenuRegistrationViewModel
@@ -15,6 +16,7 @@ class MenuRegistration2Fragment : BaseFragment<FragmentMenuRegistration2Binding>
     override val layoutResId: Int = R.layout.fragment_menu_registration2
 
     private val viewModel: MenuRegistrationViewModel by sharedViewModel()
+    private val bnvViewModel: BnvViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,6 +31,7 @@ class MenuRegistration2Fragment : BaseFragment<FragmentMenuRegistration2Binding>
     private fun setupNavigate() {
         viewModel.popToMainEvent.observe(this) {
             findNavController().popBackStack(R.id.mainFragment, false)
+            bnvViewModel.showBnv()
         }
     }
 

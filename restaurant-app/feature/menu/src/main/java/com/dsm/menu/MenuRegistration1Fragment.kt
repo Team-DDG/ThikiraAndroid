@@ -2,10 +2,12 @@ package com.dsm.menu
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dsm.androidcomponent.base.BaseFragment
 import com.dsm.androidcomponent.ext.setupToastEvent
+import com.dsm.androidcomponent.view.BnvViewModel
 import com.dsm.mediapicker.MediaPicker
 import com.dsm.menu.databinding.FragmentMenuRegistration1Binding
 import com.dsm.menu.viewModel.MenuCategorySelectViewModel
@@ -16,10 +18,12 @@ class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>
     override val layoutResId: Int = R.layout.fragment_menu_registration1
 
     private val viewModel: MenuRegistrationViewModel by sharedViewModel()
+    private val bnvViewModel: BnvViewModel by sharedViewModel()
     private val menuCategorySelectViewModel: MenuCategorySelectViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bnvViewModel.hideBnv()
 
         setupNavigate()
         setupMenuCategory()
@@ -30,6 +34,16 @@ class MenuRegistration1Fragment : BaseFragment<FragmentMenuRegistration1Binding>
     }
 
     private fun setupNavigate() {
+        requireActivity().onBackPressedDispatcher.addCallback {
+            findNavController().popBackStack()
+            bnvViewModel.showBnv()
+        }
+
+        binding.tbMenuRegistration1.setNavigationClickListener {
+            findNavController().popBackStack()
+            bnvViewModel.showBnv()
+        }
+
         binding.btnMenuCategory.setOnClickListener {
             findNavController().navigate(R.id.action_menuRegistration1Fragment_to_menuCategoryFragment)
         }
