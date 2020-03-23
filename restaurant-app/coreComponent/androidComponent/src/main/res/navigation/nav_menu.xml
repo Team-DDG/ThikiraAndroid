@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.dsm.menu.MenuFragment">
+
+        <action
+            android:id="@+id/action_menuFragment_to_menuCategoryFragment"
+            app:destination="@id/menuCategoryFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuDetailFragment"
+            app:destination="@id/menuDetailFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuRegistration1Fragment"
+            app:destination="@id/menuRegistration1Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuDetailFragment"
+        android:name="com.dsm.menu.MenuDetailFragment">
+        <argument
+            android:name="menu"
+            app:argType="com.dsm.model.Menu" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuCategoryFragment"
+        android:name="com.dsm.menu.MenuCategoryFragment" />
+
+    <fragment
+        android:id="@+id/menuRegistration1Fragment"
+        android:name="com.dsm.menu.MenuRegistration1Fragment">
+        <action
+            android:id="@+id/action_menuRegistration1Fragment_to_menuCategoryFragment"
+            app:destination="@id/menuCategoryFragment" />
+        <action
+            android:id="@+id/action_menuRegistration1Fragment_to_menuRegistration2Fragment"
+            app:destination="@id/menuRegistration2Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuRegistration2Fragment"
+        android:name="com.dsm.menu.MenuRegistration2Fragment">
+        <action
+            android:id="@+id/action_menuRegistration2Fragment_to_addOptionDialog"
+            app:destination="@id/addOptionDialog" />
+        <action
+            android:id="@+id/action_menuRegistration2Fragment_to_addGroupDialog"
+            app:destination="@id/addGroupDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/addGroupDialog"
+        android:name="com.dsm.menu.AddGroupDialog" />
+    <dialog
+        android:id="@+id/addOptionDialog"
+        android:name="com.dsm.menu.AddOptionDialog" />
+</navigation>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/orderFragment"
+        android:id="@+id/order"
         android:icon="@drawable/ic_order_primary_24dp"
         android:title="@string/order" />
 
     <item
-        android:id="@+id/menuFragment"
+        android:id="@+id/menu"
         android:icon="@drawable/ic_menu_primary_24dp"
         android:title="@string/menu" />
 
     <item
-        android:id="@+id/couponFragment"
+        android:id="@+id/coupon"
         android:icon="@drawable/ic_coupon_primary_24dp"
         android:title="@string/coupon" />
 
     <item
-        android:id="@+id/restaurantFragment"
+        android:id="@+id/restaurant"
         android:icon="@drawable/ic_restaurant_red_24dp"
         android:title="@string/restaurant" />
 </menu>

@@ -25,7 +25,7 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
 
     private fun setupNavigate() {
         binding.ivSetting.setOnClickListener {
-            parentFragment!!.parentFragment!!.findNavController().navigate(R.id.settingFragment)
+            findNavController().navigate(R.id.settingFragment)
         }
     }
 }

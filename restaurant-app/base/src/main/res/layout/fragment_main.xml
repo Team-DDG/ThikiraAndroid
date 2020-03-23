@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:tools="http://schemas.android.com/tools">
 
-    <fragment
-        android:id="@+id/fragment_nav_host"
-        android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
+    <data>
+
+        <variable
+            name="bnvViewModel"
+            type="com.dsm.androidcomponent.view.BnvViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation_bnv" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv_main"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:background="@android:color/white"
-        app:itemIconTint="@color/selector_bnv_color"
-        app:itemTextColor="@color/selector_bnv_color"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu_main" />
+        <fragment
+            android:id="@+id/fragment_nav_host"
+            android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:defaultNavHost="true"
+            tools:ignore="FragmentTagUsage" />
 
-</LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv_main"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@android:color/white"
+            android:visibility="@{bnvViewModel.isBnvVisible ? View.VISIBLE : View.GONE}"
+            app:itemIconTint="@color/selector_bnv_color"
+            app:itemTextColor="@color/selector_bnv_color"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/menu_main" />
+    </LinearLayout>
+</layout>
