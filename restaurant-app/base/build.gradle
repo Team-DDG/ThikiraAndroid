@@ -52,8 +52,7 @@ android {
 }
 
 dependencies {
-    api 'androidx.core:core-ktx:1.2.0'
-    implementation project(path: ':restaurant-app:coreComponent:androidComponent')
+    implementation project(path: ':coreComponent:androidComponent')
 
     implementation project(path: ':restaurant-app:model')
 
