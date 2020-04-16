@@ -9,8 +9,8 @@ apply from: rootProject.file('gradle/android.gradle')
 android.dataBinding.enabled = true
 
 dependencies {
-    implementation project(path: ':restaurant-app:coreComponent:androidComponent')
-    debugImplementation project(path: ':restaurant-app:coreComponent:testComponent')
+    implementation project(path: ':coreComponent:androidComponent')
+    debugImplementation project(path: ':coreComponent:testComponent')
 
     implementation project(path: ':restaurant-app:model')
 

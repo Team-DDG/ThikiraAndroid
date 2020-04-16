@@ -10,14 +10,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/baseapp" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/restaurant" />
+            <option value="$PROJECT_DIR$/coreComponent" />
+            <option value="$PROJECT_DIR$/coreComponent/androidComponent" />
+            <option value="$PROJECT_DIR$/coreComponent/testComponent" />
             <option value="$PROJECT_DIR$/restaurant-app" />
             <option value="$PROJECT_DIR$/restaurant-app/base" />
-            <option value="$PROJECT_DIR$/restaurant-app/coreComponent" />
-            <option value="$PROJECT_DIR$/restaurant-app/coreComponent/androidComponent" />
-            <option value="$PROJECT_DIR$/restaurant-app/coreComponent/testComponent" />
             <option value="$PROJECT_DIR$/restaurant-app/data" />
             <option value="$PROJECT_DIR$/restaurant-app/data/api" />
             <option value="$PROJECT_DIR$/restaurant-app/data/db" />

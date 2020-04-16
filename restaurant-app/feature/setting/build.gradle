@@ -13,11 +13,11 @@ dependencies {
     implementation project(path: ':restaurant-app:model')
 
     implementation project(path: ':restaurant-app:data:error')
-    \
+
     implementation project(path: ':restaurant-app:feature:address')
 
-    implementation project(path: ':restaurant-app:coreComponent:androidComponent')
-    implementation project(path: ':restaurant-app:coreComponent:testComponent')
+    implementation project(path: ':coreComponent:androidComponent')
+    debugImplementation project(path: ':coreComponent:testComponent')
 
     implementation Dep.Kotlin.kotlin
 
