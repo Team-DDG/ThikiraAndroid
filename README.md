@@ -84,7 +84,7 @@ Room(로컬 데이터베이스)에 저장되었던 데이터를 Fragment가 Live
    * Retrofit
    * Retrofit Gson
 * Test
-   * mockito
+   * Mockito
    * live data testing
    * coroutine testing
 * ETC
