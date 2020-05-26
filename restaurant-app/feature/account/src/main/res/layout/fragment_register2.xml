@@ -22,14 +22,28 @@
             android:layout_height="wrap_content"
             tools:ignore="RtlSymmetry">
 
-            <com.dsm.androidcomponent.view.DefaultToolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/tb_register2"
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
+                android:background="@android:color/white"
+                android:elevation="8dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:title="@string/register_restaurant" />
+                app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+                tools:targetApi="lollipop">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/register_restaurant"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.Toolbar>
 
             <Button
                 android:id="@+id/btn_select_category"
@@ -53,6 +67,7 @@
                 android:digits="0123456789"
                 android:hint="@string/delivery_min_price"
                 android:inputType="number"
+                android:nextFocusDown="@id/et_day_off"
                 android:paddingStart="8dp"
                 android:paddingLeft="8dp"
                 android:text="@={viewModel.minPrice}"
