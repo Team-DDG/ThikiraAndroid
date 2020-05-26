@@ -1,0 +1,15 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: rootProject.file('gradle/android_user.gradle')
+
+dependencies {
+    implementation project(path: ':coreComponent:androidComponent')
+
+    implementation Dep.Kotlin.kotlin
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+}
