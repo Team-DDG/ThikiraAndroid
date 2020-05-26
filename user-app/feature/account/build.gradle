@@ -1,0 +1,21 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: rootProject.file('gradle/android.gradle')
+
+dependencies {
+    implementation project(path: ':coreComponent:androidComponent')
+
+    implementation Dep.Kotlin.kotlin
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+
+    testImplementation Dep.Test.mockitoCore
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.liveDataTesting
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.mockitoInline
+}
