@@ -4,6 +4,7 @@ import com.dsm.api.TokenApi
 import com.dsm.pref.PrefStorage
 import okhttp3.Interceptor
 import okhttp3.Response
+import java.net.HttpURLConnection
 
 class TokenInterceptor(
     private val prefStorage: PrefStorage,
@@ -22,10 +23,10 @@ class TokenInterceptor(
 
         val response = chain.proceed(request)
 
-        return if (response.code == 403) {
+        return if (response.code == HttpURLConnection.HTTP_FORBIDDEN) {
             val refreshResponse = tokenApi.refreshToken(refreshToken).execute()
 
-            if (refreshResponse.code() == 200) {
+            if (refreshResponse.code() == HttpURLConnection.HTTP_OK) {
                 val newToken = refreshResponse.body()?.get("accessToken") ?: ""
                 prefStorage.setAccessToken(newToken)
 
@@ -43,7 +44,7 @@ class TokenInterceptor(
                 response
             }
         } else {
-            return response
+            response
         }
     }
 
