@@ -4,7 +4,7 @@
 
 서비스, 시키라!는 더 좋은 배달 경험을 위해 만들어졌습니다.  
 배달을 시키는 사용자 뿐만 아니라 주문, 메뉴를 관리하는 업체의 경험까지도 중요하게 생각합니다.  
-아직 초기 개발 단계이기 때문에 새로운 아이디어가 빠르게 적용될 수 있습니다.
+아직 초기 개발 단계이기 때문에 새로운 아이디어가 빠르게 적용될 수 있습니다. 
 
 ## 컨트리뷰팅!
 언제나 참신하고 멋진 아이디어를 기다리고 있습니다!   
@@ -22,10 +22,10 @@
 
 ### 아키텍처
 아키텍처는 [AndroidJetpack](https://developer.android.com/jetpack/?gclid=Cj0KCQiAwP3yBRCkARIsAABGiPoQ4aLdFUSMcbfMnK9F39SH7PUfBiX9eUtjrwwH0w_oZPKtGnmGzfgaAq1FEALw_wcB)(ViewModel, DataBinding, LiveData)을 활용한 MVVM 패턴입니다.  
-  
+
 그리고 유연하게 모듈을 교체하고 독립적으로 테스트할 수 있는 구조를 사용합니다.  
 이는 제 블로그에서 자세하게 다루었습니다. [분리 가능한 아키텍쳐](https://medium.com/@dikolight203/%EA%B5%90%EC%B2%B4-%EA%B0%80%EB%8A%A5%ED%95%9C-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-af1bff55715)  
-  
+
 ### 데이터 흐름
 ![데이터흐름](https://user-images.githubusercontent.com/36754680/75874150-83387300-5e54-11ea-99db-ee8c127e8f4e.png)  
 Room(로컬 데이터베이스)에 저장되었던 데이터를 Fragment가 LiveData 형태로 감시(observe)합니다.  
@@ -57,7 +57,12 @@ Room(로컬 데이터베이스)에 저장되었던 데이터를 Fragment가 Live
 [업체 디자인](https://www.figma.com/file/uKd5WlaWOaY9DmFg6OxSDq/Wireframe?node-id=2%3A2)  
 [사용자 디자인](https://www.figma.com/file/uKd5WlaWOaY9DmFg6OxSDq/Wireframe?node-id=20%3A12)
 
+## 사용 도구
+
+- Github, Slack, Jira
+
 ## 라이브러리
+
 * [Android Jetpack](https://developer.android.com/jetpack/?gclid=Cj0KCQiAwP3yBRCkARIsAABGiPqdj2dwHr5d0lsRM7dkP4c9A3Ih-e2C-CHnM26xGD89-tdQpWOGes8aAlzjEALw_wcB)  
    * 기초
       * Android KTX
