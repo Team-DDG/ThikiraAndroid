@@ -67,6 +67,7 @@
                 android:digits="0123456789"
                 android:hint="@string/delivery_min_price"
                 android:inputType="number"
+                android:nextFocusDown="@id/et_day_off"
                 android:paddingStart="8dp"
                 android:paddingLeft="8dp"
                 android:text="@={viewModel.minPrice}"
