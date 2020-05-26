@@ -26,7 +26,7 @@ val apiModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl("http://192.168.1.86:1234/")
+            .baseUrl("https://thikira.herokuapp.com/api/restaurant/")
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(TokenApi::class.java)
     }
@@ -45,7 +45,7 @@ val apiModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl("http://192.168.1.86:1234/")
+            .baseUrl("https://thikira.herokuapp.com/api/restaurant/")
             .client(
                 OkHttpClient.Builder()
                     .addInterceptor(TokenInterceptor(get(), get()))

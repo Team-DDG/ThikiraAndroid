@@ -3,6 +3,7 @@ package com.dsm.account.viewModel
 import androidx.lifecycle.*
 import com.dsm.account.R
 import com.dsm.androidcomponent.SingleLiveEvent
+import com.dsm.androidcomponent.ext.isValidEmail
 import com.dsm.error.exception.NotFoundException
 import com.dsm.model.repository.AuthRepository
 import kotlinx.coroutines.launch
@@ -32,6 +33,11 @@ class LoginViewModel(
 
     fun onClickLogin() = viewModelScope.launch {
         try {
+            if (!isValidEmail(email.value)) {
+                _toastEvent.value = R.string.fail_email_invalid
+                return@launch
+            }
+
             authRepository.login(
                 hashMapOf(
                     "email" to email.value,
@@ -47,6 +53,5 @@ class LoginViewModel(
                 else -> R.string.fail_exception_internal
             }
         }
-
     }
 }
