@@ -21,3 +21,5 @@ include ':restaurant-app:data:error'
 include ':user-app:feature:account'
 
 rootProject.name='ThikiraAndroid'
+include ':user-app:base'
+include ':user-app:model'

@@ -1,0 +1,44 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "com.example.base"
+        minSdkVersion 18
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(path: ':coreComponent:androidComponent')
+    
+    implementation project(path: ':user-app:feature:account')
+
+    implementation Dep.Kotlin.kotlin
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+
+    testImplementation Dep.Test.mockitoCore
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.liveDataTesting
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.mockitoInline
+}
