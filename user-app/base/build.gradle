@@ -6,7 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
 
     defaultConfig {
         applicationId "com.example.base"
@@ -35,10 +34,4 @@ dependencies {
     implementation Dep.Kotlin.kotlin
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
-
-    testImplementation Dep.Test.mockitoCore
-    testImplementation Dep.Test.junit
-    testImplementation Dep.Test.liveDataTesting
-    testImplementation Dep.Test.coroutinesTest
-    testImplementation Dep.Test.mockitoInline
 }

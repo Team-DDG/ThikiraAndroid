@@ -19,6 +19,6 @@ class LoginViewModel : ViewModel() {
     val hideKeyEvent: LiveData<Unit> = _hideKeyEvent
 
     fun onClickLogin() {
-        //TODO add code for login
+
     }
 }
