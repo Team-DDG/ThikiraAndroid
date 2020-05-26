@@ -32,12 +32,12 @@ class LoginViewModel(
     val hideKeyEvent: LiveData<Unit> = _hideKeyEvent
 
     fun onClickLogin() = viewModelScope.launch {
-        if (isValidEmail(email.value)) {
-            _toastEvent.value = R.string.fail_email_invalid
-            return@launch
-        }
-
         try {
+            if (!isValidEmail(email.value)) {
+                _toastEvent.value = R.string.fail_email_invalid
+                return@launch
+            }
+
             authRepository.login(
                 hashMapOf(
                     "email" to email.value,
