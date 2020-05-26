@@ -15,8 +15,8 @@ class LoginViewModel : ViewModel() {
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
 
-    private val _hideKeyboardEvent = SingleLiveEvent<Int>()
-    val hideKeyboardEvent: LiveData<Int> = _hideKeyboardEvent
+    private val _hideKeyEvent = SingleLiveEvent<Unit>()
+    val hideKeyEvent: LiveData<Unit> = _hideKeyEvent
 
     fun onClickLogin() {
         //TODO add code for login
