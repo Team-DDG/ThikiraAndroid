@@ -2,6 +2,7 @@ package com.dsm.api.dataSource
 
 import com.dsm.api.ThikiraApi
 import com.dsm.api.response.TokenResponse
+import com.dsm.error.exception.ForbiddenException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -26,6 +27,7 @@ class RemoteAuthDataSourceImpl(
     override suspend fun authToken() = withContext(ioDispatcher) {
         try {
             thikiraApi.authToken()
+            throw ForbiddenException(Throwable("")) // TODO: authToken api가 고쳐지면 삭제
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }
