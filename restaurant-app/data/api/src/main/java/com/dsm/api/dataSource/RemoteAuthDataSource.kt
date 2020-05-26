@@ -29,7 +29,7 @@ class RemoteAuthDataSourceImpl(
             thikiraApi.authToken()
             throw ForbiddenException(Throwable("")) // TODO: authToken api가 고쳐지면 삭제
         } catch (e: Exception) {
-            throw errorHandler.getNetworkException(e)
+            throw errorHandler.getNetworkException(e) //
         }
     }
 
