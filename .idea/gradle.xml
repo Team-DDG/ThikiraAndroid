@@ -32,7 +32,9 @@
             <option value="$PROJECT_DIR$/restaurant-app/feature/restaurant" />
             <option value="$PROJECT_DIR$/restaurant-app/feature/setting" />
             <option value="$PROJECT_DIR$/restaurant-app/model" />
-            <option value="$PROJECT_DIR$/user" />
+            <option value="$PROJECT_DIR$/user-app" />
+            <option value="$PROJECT_DIR$/user-app/feature" />
+            <option value="$PROJECT_DIR$/user-app/feature/account" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

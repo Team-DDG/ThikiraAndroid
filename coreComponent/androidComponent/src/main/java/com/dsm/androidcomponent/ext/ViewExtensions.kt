@@ -7,11 +7,15 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.dsm.androidcomponent.base.BaseActivity
 import com.google.android.material.snackbar.Snackbar
 import java.text.DecimalFormat
 
@@ -32,6 +36,16 @@ fun Fragment.setupSnackbarEvent(
     })
 }
 
+fun LifecycleOwner.setupSnackbarEvent(
+    snackbarEvent: LiveData<Int>,
+    view: View,
+    timeLength: Int = Snackbar.LENGTH_SHORT
+) {
+    snackbarEvent.observe(this, Observer { stringResId ->
+        Snackbar.make(view, stringResId, timeLength)
+    })
+}
+
 fun Fragment.setupToastEvent(
     toastEvent: LiveData<Int>,
     timeLength: Int = Toast.LENGTH_SHORT
@@ -41,9 +55,23 @@ fun Fragment.setupToastEvent(
     })
 }
 
+fun AppCompatActivity.setupToastEvent(
+    toastEvent: LiveData<Int>,
+    timeLength: Int = Toast.LENGTH_SHORT
+) {
+    toastEvent.observe(this, Observer { stringResId ->
+        Toast.makeText(this, stringResId, timeLength).show()
+    })
+}
+
 fun Fragment.hideKeyboard() {
     (activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
         .hideSoftInputFromWindow(view?.windowToken, 0)
+}
+
+fun AppCompatActivity.hideKeyboard() {
+    (this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
+        .hideSoftInputFromWindow( window.attributes.token, 0)
 }
 
 fun Spinner.onItemSelectedListener(onItemSelected: (selectedItem: String) -> Unit) {
