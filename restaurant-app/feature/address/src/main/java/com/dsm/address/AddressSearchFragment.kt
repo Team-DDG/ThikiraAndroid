@@ -17,7 +17,6 @@ class AddressSearchFragment : BaseFragment<FragmentAddressSearchBinding>() {
     override val layoutResId: Int = R.layout.fragment_address_search
 
     private val viewModel: AddressSearchViewModel by sharedViewModel()
-
     private val addressSelectViewModel: AddressSelectViewModel by sharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
