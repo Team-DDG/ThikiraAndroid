@@ -22,6 +22,8 @@ class Register3Fragment : BaseFragment<FragmentRegister3Binding>() {
     }
 
     private fun setupNavigate() {
-        findNavController().navigate(R.id.action_register3Fragment_to_register4Fragment)
+        binding.btnNext.setOnClickListener {
+            findNavController().navigate(R.id.action_register3Fragment_to_register4Fragment)
+        }
     }
 }
