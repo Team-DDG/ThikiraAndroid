@@ -43,7 +43,7 @@ class LoginViewModelTests : BaseTest() {
     @Test
     fun loginSuccessTest() = runBlockingTest {
         viewModel.run {
-            email.value = "email@gmail.com"
+            email.value = "dikolight203@gmail.com"
             password.value = "password!"
 
             `when`(

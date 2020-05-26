@@ -140,14 +140,14 @@ class RegisterViewModelTests : BaseTest() {
             restaurantName.value = "RESTAURANT_NAME"
             phoneNum.value = "PHONE_NUM"
             area.value = listOf("AREA")
-            minPrice.value = "MIN_PRICE"
+            minPrice.value = "10000"
             dayOff.value = "DAY_OFF"
             startHour.value = 0
             startMinute.value = 0
             endHour.value = 1
             endMinute.value = 1
             description.value = "DESCRIPTION"
-            email.value = "EMAIL"
+            email.value = "email@naver.com"
             password.value = "PASSWORD!"
             passwordRetype.value = "PASSWORD!"
 
@@ -169,9 +169,9 @@ class RegisterViewModelTests : BaseTest() {
                         "phone" to phoneNum.value,
                         "add_street" to address.value!!.roadAddress,
                         "add_parcel" to address.value!!.address,
-                        "area" to area.value,
+                        "area" to area.value?.reduce { acc, s -> "$acc,$s" },
                         "category" to category.value,
-                        "min_price" to minPrice.value,
+                        "min_price" to minPrice.value?.toInt(),
                         "day_off" to dayOff.value,
                         "online_payment" to isOnlineEnable.value,
                         "offline_payment" to isOfflineEnable.value,
