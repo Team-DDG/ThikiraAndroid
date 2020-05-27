@@ -1,18 +1,19 @@
 import dependencies.Dep
+import dependencies.Versions
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion Versions.compileSdkVersion
 
     defaultConfig {
         applicationId "com.example.base"
-        minSdkVersion 18
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion Versions.minSdkVersionUser
+        targetSdkVersion Versions.targetSdkVersion
+        versionCode Versions.versionCode
+        versionName Versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,7 +29,7 @@ android {
 
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
-    
+
     implementation project(path: ':user-app:feature:account')
 
     implementation Dep.Kotlin.kotlin
