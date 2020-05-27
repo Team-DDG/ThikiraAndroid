@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 apply from: rootProject.file('gradle/android_user.gradle')
+android.dataBinding.enabled = true
 
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
