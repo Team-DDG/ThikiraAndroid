@@ -8,8 +8,13 @@ apply from: rootProject.file('gradle/android_user.gradle')
 
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
+    implementation project(path: ':user-app:model')
 
     implementation Dep.Kotlin.kotlin
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
+
+    //retrofit
+    implementation Dep.Retrofit.retrofit
+    implementation Dep.Retrofit.gson
 }
