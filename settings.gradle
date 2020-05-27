@@ -18,11 +18,16 @@ include ':restaurant-app:data:api'
 include ':restaurant-app:data:pref'
 include ':restaurant-app:data:error'
 
-include ':user-app:feature:account'
 include ':user-app'
 include ':user-app:base'
 include ':user-app:model'
-
-rootProject.name='ThikiraAndroid'
 include ':user-app:data'
 include ':user-app:data:api'
+include ':user-app:feature:account'
+
+include ':kinda'
+include ':kinda:core'
+include ':kinda:android'
+
+rootProject.name = 'ThikiraAndroid'
+
