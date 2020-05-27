@@ -14,6 +14,9 @@
             <option value="$PROJECT_DIR$/coreComponent" />
             <option value="$PROJECT_DIR$/coreComponent/androidComponent" />
             <option value="$PROJECT_DIR$/coreComponent/testComponent" />
+            <option value="$PROJECT_DIR$/kinda" />
+            <option value="$PROJECT_DIR$/kinda/android" />
+            <option value="$PROJECT_DIR$/kinda/core" />
             <option value="$PROJECT_DIR$/restaurant-app" />
             <option value="$PROJECT_DIR$/restaurant-app/base" />
             <option value="$PROJECT_DIR$/restaurant-app/data" />
