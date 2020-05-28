@@ -23,6 +23,7 @@ include ':user-app:base'
 include ':user-app:model'
 include ':user-app:data'
 include ':user-app:data:api'
+include ':user-app:data:pref'
 include ':user-app:data:firebase'
 include ':user-app:feature:account'
 
@@ -31,3 +32,4 @@ include ':kinda:core'
 include ':kinda:android'
 
 rootProject.name = 'ThikiraAndroid'
+include ':user-app:data:pref'
