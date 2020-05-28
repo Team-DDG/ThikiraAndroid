@@ -10,4 +10,6 @@
     
     <string name="issue_coupon">발행 중인 쿠폰</string>
     <string name="end_of_issue_coupon">발행 종료 쿠폰</string>
+
+    <string name="coupon_not_found">등록된 쿠폰이 없습니다</string>
 </resources>
