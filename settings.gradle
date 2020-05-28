@@ -24,10 +24,11 @@ include ':user-app:model'
 include ':user-app:data'
 include ':user-app:data:api'
 include ':user-app:feature:account'
+include ':user-app:feature:main'
 
 include ':kinda'
 include ':kinda:core'
 include ':kinda:android'
 
 rootProject.name = 'ThikiraAndroid'
-
+include ':user-app:feature:main'
