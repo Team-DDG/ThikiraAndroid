@@ -2,6 +2,7 @@ package com.dsm.coupon.viewModel
 
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.SingleLiveEvent
+import com.dsm.androidcomponent.ext.formatToIso
 import com.dsm.coupon.R
 import com.dsm.error.exception.ForbiddenException
 import com.dsm.model.repository.CouponRepository
@@ -41,7 +42,7 @@ class CouponIssueViewModel(
 
     fun onClickIssueCoupon() = viewModelScope.launch {
         try {
-            couponRepository.issueCoupon(expireDate.value!!, price.value!!.toInt())
+            couponRepository.issueCoupon(formatToIso(expireDate.value!!), price.value!!.toInt())
 
             _dismissEvent.call()
         } catch (e: Exception) {

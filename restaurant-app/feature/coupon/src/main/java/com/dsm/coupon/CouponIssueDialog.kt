@@ -36,10 +36,7 @@ class CouponIssueDialog : BaseDialog<DialogCouponIssueBinding>() {
                 viewModel.setExpireDate(year, month, dayOfMonth)
             }
             val now = Calendar.getInstance()
-            val dialog = DatePickerDialog(
-                context!!, R.style.AppTheme, listener, now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH)
-            )
-            dialog.show()
+            DatePickerDialog(context!!, R.style.AppTheme, listener, now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH)).show()
         }
     }
 }

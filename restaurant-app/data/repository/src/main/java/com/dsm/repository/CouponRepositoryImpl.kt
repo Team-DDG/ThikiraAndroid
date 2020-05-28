@@ -24,10 +24,15 @@ class CouponRepositoryImpl(
     override fun observeCoupon(): LiveData<List<Coupon>> =
         localCouponDataSource.observeCoupon().map { it.map(CouponEntity::toCoupon) }
 
-    override suspend fun issueCoupon(expireDate: Date, price: Int) = withContext(ioDispatcher) {
-        remoteCouponDataSource.issueCoupon(expireDate, price)
+    override suspend fun issueCoupon(expireDate: String, price: Int) = withContext(ioDispatcher) {
+        remoteCouponDataSource.issueCoupon(
+            hashMapOf(
+                "discount_amount" to price,
+                "expired_day" to expireDate
+            )
+        )
 
-        localCouponDataSource.insertCoupon(CouponEntity(0, expireDate, price, false))
+        localCouponDataSource.insertCoupon(CouponEntity(0, Date(), price, false))
     }
 
     override suspend fun refreshCoupons() = withContext(ioDispatcher) {
