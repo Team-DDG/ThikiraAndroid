@@ -34,7 +34,4 @@ interface ThikiraApi {
 
     @POST("auth/sing_in")
     suspend fun login(@Body body: User): TokenResponse
-
-    @GET("auth/refresh")
-    suspend fun refreshToken(@Header("X--Refresh-Token") token: String): TokenResponse
 }

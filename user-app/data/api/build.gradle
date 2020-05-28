@@ -9,12 +9,19 @@ apply from: rootProject.file('gradle/android_user.gradle')
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
     implementation project(path: ':user-app:model')
+    implementation project(path: ":user-app:data:pref")
 
     implementation Dep.Kotlin.kotlin
-    implementation Dep.AndroidX.appCompat
-    implementation Dep.AndroidX.constraintLayout
+
+    // okhttp
+    implementation Dep.OkHttp.logging
 
     //retrofit
     implementation Dep.Retrofit.retrofit
     implementation Dep.Retrofit.gson
+
+    //AndroidX
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+    implementation Dep.AndroidX.Koin.viewModel
 }
