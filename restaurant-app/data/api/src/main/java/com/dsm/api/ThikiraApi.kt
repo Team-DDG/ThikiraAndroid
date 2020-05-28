@@ -69,12 +69,8 @@ interface ThikiraApi {
     /**
      * coupon
      */
-    @FormUrlEncoded
     @POST("coupon")
-    suspend fun issueCoupon(
-        @Field("expired_day") expireDate: Date,
-        @Field("discount_amount") price: Int
-    )
+    suspend fun issueCoupon(@Body body: Any)
 
     @GET("coupon")
     suspend fun getCoupons(): List<CouponResponse>
