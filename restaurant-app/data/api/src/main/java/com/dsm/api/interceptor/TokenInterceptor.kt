@@ -17,7 +17,7 @@ class TokenInterceptor(
 
         val request = chain.request().newBuilder().run {
             removeHeader("Authorization")
-            addHeader("Authorization", accessToken)
+            addHeader("Authorization", "Bearer $accessToken")
             build()
         }
 
@@ -34,7 +34,7 @@ class TokenInterceptor(
                 chain.proceed(
                     request.newBuilder().run {
                         removeHeader("Authorization")
-                        addHeader("Authorization", newToken)
+                        addHeader("Authorization", "Bearer $newToken")
                         build()
                     }
                 )

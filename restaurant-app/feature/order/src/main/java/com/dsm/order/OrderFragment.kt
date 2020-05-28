@@ -13,7 +13,7 @@ class OrderFragment : BaseFragment<FragmentOrderBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupViewPager()
+//        setupViewPager()
     }
 
     private fun setupViewPager() {

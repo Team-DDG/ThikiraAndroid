@@ -27,7 +27,7 @@ class RemoteAuthDataSourceImpl(
         try {
             thikiraApi.authToken()
         } catch (e: Exception) {
-            throw errorHandler.getNetworkException(e) //
+            throw errorHandler.getNetworkException(e)
         }
     }
 

@@ -6,11 +6,10 @@ import com.dsm.error.ErrorHandler
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.util.*
 
 interface RemoteCouponDataSource {
 
-    suspend fun issueCoupon(expireDate: Date, price: Int)
+    suspend fun issueCoupon(body: Any)
 
     suspend fun getCoupons(): List<CouponResponse>
 }
@@ -21,9 +20,9 @@ class RemoteCouponDataSourceImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : RemoteCouponDataSource {
 
-    override suspend fun issueCoupon(expireDate: Date, price: Int) = withContext(ioDispatcher) {
+    override suspend fun issueCoupon(body: Any) = withContext(ioDispatcher) {
         try {
-            thikiraApi.issueCoupon(expireDate, price)
+            thikiraApi.issueCoupon(body)
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }
