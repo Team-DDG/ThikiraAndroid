@@ -57,7 +57,7 @@ interface ThikiraApi {
      * menu category
      */
     @DELETE("menu/category/{mc_ids}")
-    suspend fun deleteMenuCategories(@Path("mc_ids") menuCategoryIds: List<Int>)
+    suspend fun deleteMenuCategory(@Path("mc_ids") menuCategoryIds: Int)
 
     @FormUrlEncoded
     @PATCH("menu/category")
