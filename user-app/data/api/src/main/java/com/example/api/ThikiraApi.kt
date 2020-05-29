@@ -12,7 +12,7 @@ interface ThikiraApi {
     suspend fun leaveThikira(@Header("Authorization") token: String)
 
     @PATCH("password")
-    suspend fun modifyPassword(
+    suspend fun changePassword(
         @Header("Authorization") token: String,
         @Body password: String
     )
