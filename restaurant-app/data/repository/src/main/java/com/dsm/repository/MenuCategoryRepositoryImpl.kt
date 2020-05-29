@@ -39,10 +39,8 @@ class MenuCategoryRepositoryImpl(
     }
 
     override suspend fun deleteMenuCategories(menuCategoriesId: List<Int>) = withContext(ioDispatcher) {
-        remoteDataSource.deleteMenuCategories(menuCategoriesId)
-        menuCategoriesId.forEach {
-            localDataSource.deleteMenuCategoryById(it)
-        }
+        menuCategoriesId.forEach { remoteDataSource.deleteMenuCategory(it) }
+        menuCategoriesId.forEach { localDataSource.deleteMenuCategoryById(it) }
     }
 
     override suspend fun updateMenuCategoryName(menuCategoryId: Int, name: String) = withContext(ioDispatcher) {

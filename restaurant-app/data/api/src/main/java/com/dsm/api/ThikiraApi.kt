@@ -53,6 +53,9 @@ interface ThikiraApi {
     @POST("menu")
     suspend fun uploadMenu(@Body body: Any)
 
+    @DELETE("menu/{m_id}")
+    suspend fun deleteMenu(@Path("m_id") menuId: Int)
+
     /**
      * menu category
      */

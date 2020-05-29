@@ -11,7 +11,7 @@ interface RemoteMenuCategoryDataSource {
 
     suspend fun getMenuCategories(): List<MenuCategoryResponse>
 
-    suspend fun deleteMenuCategories(menuCategories: List<Int>)
+    suspend fun deleteMenuCategory(menuCategoryId: Int)
 
     suspend fun updateMenuCategoryName(menuCategoryId: Int, menuCategoryName: String)
 
@@ -32,9 +32,9 @@ class RemoteMenuCategoryDataSourceImpl(
         }
     }
 
-    override suspend fun deleteMenuCategories(menuCategories: List<Int>) = withContext(ioDispatcher) {
+    override suspend fun deleteMenuCategory(menuCategoryId: Int) = withContext(ioDispatcher) {
         try {
-            thikiraApi.deleteMenuCategories(menuCategories)
+            thikiraApi.deleteMenuCategory(menuCategoryId)
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }
