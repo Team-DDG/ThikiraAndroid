@@ -1,12 +1,11 @@
 package com.dsm.menu
 
 import androidx.lifecycle.liveData
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.menu.viewModel.MenuViewModel
-import com.dsm.model.Group
 import com.dsm.model.Menu
 import com.dsm.model.MenuCategory
-import com.dsm.model.Option
+import com.dsm.model.MenuGroupItem
+import com.dsm.model.MenuOptionItem
 import com.dsm.model.repository.MenuCategoryRepository
 import com.dsm.model.repository.MenuRepository
 import com.dsm.testcomponent.BaseTest
@@ -42,12 +41,12 @@ class MenuListViewModelTests : BaseTest() {
             name = "name",
             price = 1000,
             group = listOf(
-                Group(
+                MenuGroupItem(
                     groupId = 0,
                     name = "name",
                     maxCount = 2,
                     option = listOf(
-                        Option(
+                        MenuOptionItem(
                             optionId = 0,
                             name = "name",
                             price = 1000
@@ -66,16 +65,6 @@ class MenuListViewModelTests : BaseTest() {
 
             menuCategories.test().assertValue(response)
             toastEvent.test().assertNoValue()
-        }
-    }
-
-    @Test
-    fun getMenuCategoriesForbiddenTest() = runBlockingTest {
-        viewModel.run {
-            `when`(menuCategoryRepository.observeMenuCategories())
-                .thenThrow(ForbiddenException(Exception()))
-
-            toastEvent.test().assertValue(R.string.fail_exception_forbidden)
         }
     }
 }

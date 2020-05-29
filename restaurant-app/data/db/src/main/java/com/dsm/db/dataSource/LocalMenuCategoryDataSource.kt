@@ -53,7 +53,7 @@ class LocalMenuCategoryDataSourceImpl(
     }
 
     override suspend fun insertMenuCategories(menuCategories: List<MenuCategoryEntity>) = withContext(ioDispatcher) {
-        menuCategoryDao.insert(menuCategories)
+        menuCategories.forEach { menuCategoryDao.insert(it) }
     }
 
 }

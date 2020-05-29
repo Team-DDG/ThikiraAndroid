@@ -53,11 +53,14 @@ interface ThikiraApi {
     @POST("menu")
     suspend fun uploadMenu(@Body body: Any)
 
+    @DELETE("menu/{m_id}")
+    suspend fun deleteMenu(@Path("m_id") menuId: Int)
+
     /**
      * menu category
      */
     @DELETE("menu/category/{mc_ids}")
-    suspend fun deleteMenuCategories(@Path("mc_ids") menuCategoryIds: List<Int>)
+    suspend fun deleteMenuCategory(@Path("mc_ids") menuCategoryIds: Int)
 
     @FormUrlEncoded
     @PATCH("menu/category")
@@ -65,6 +68,10 @@ interface ThikiraApi {
         @Field("mc_id") menuCategoryId: Int,
         @Field("name") name: String
     )
+
+    @FormUrlEncoded
+    @POST("menu/category")
+    suspend fun addMenuCategory(@Field("name") name: String): Map<String, Int>
 
     /**
      * coupon
