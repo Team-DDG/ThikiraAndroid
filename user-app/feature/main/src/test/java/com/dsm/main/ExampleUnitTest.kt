@@ -1,4 +1,4 @@
-package com.golddog.main
+package com.dsm.main
 
 import org.junit.Test
 
