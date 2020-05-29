@@ -34,4 +34,9 @@ class MenuRepositoryImpl(
     override suspend fun uploadMenu(menuRegistration: MenuRegistration) = withContext(ioDispatcher) {
         remoteDataSource.uploadMenu(menuRegistration.toRequest())
     }
+
+    override suspend fun deleteMenu(menuId: Int) {
+        remoteDataSource.deleteMenu(menuId)
+        localDataSource.deleteMenuByMenuId(menuId)
+    }
 }

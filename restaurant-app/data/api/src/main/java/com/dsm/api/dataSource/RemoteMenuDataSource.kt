@@ -13,6 +13,8 @@ interface RemoteMenuDataSource {
     suspend fun getMenusByMenuCategory(menuCategoryId: Int): List<MenuResponse>
 
     suspend fun uploadMenu(menuRegistrationRequest: MenuRegistrationRequest)
+
+    suspend fun deleteMenu(menuId: Int)
 }
 
 class RemoteMenuDataSourceImpl(
@@ -38,5 +40,11 @@ class RemoteMenuDataSourceImpl(
         }
     }
 
-
+    override suspend fun deleteMenu(menuId: Int) = withContext(ioDispatcher) {
+        try {
+            thikiraApi.deleteMenu(menuId)
+        } catch (e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
 }

@@ -14,4 +14,6 @@ interface MenuCategoryRepository {
     suspend fun deleteMenuCategories(menuCategoriesId: List<Int>)
 
     suspend fun updateMenuCategoryName(menuCategoryId: Int, name: String)
+
+    suspend fun addMenuCategory(menuCategoryName: String)
 }
