@@ -29,7 +29,11 @@
 
     <fragment
         android:id="@+id/menuCategoryFragment"
-        android:name="com.dsm.menu.MenuCategoryFragment" />
+        android:name="com.dsm.menu.MenuCategoryFragment">
+        <action
+            android:id="@+id/action_menuCategoryFragment_to_addMenuCategoryFragment"
+            app:destination="@id/addMenuCategoryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/menuRegistration1Fragment"
@@ -52,6 +56,10 @@
             android:id="@+id/action_menuRegistration2Fragment_to_addGroupDialog"
             app:destination="@id/addGroupDialog" />
     </fragment>
+
+    <fragment
+        android:id="@+id/addMenuCategoryFragment"
+        android:name="com.dsm.menu.AddMenuCategoryFragment" />
 
     <dialog
         android:id="@+id/addGroupDialog"

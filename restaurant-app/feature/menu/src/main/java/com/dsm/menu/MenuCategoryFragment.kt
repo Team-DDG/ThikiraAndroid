@@ -51,11 +51,13 @@ class MenuCategoryFragment : BaseFragment<FragmentMenuCategoryBinding>() {
             PopupMenu(activity, view).apply {
                 menu.add(R.string.delete)
                 menu.add(R.string.update)
+                menu.add(R.string.add)
 
                 setOnMenuItemClickListener { menuItem ->
                     when (menuItem.title) {
                         getString(R.string.delete) -> viewModel.setViewType(MenuCategoryViewType.DELETE)
                         getString(R.string.update) -> viewModel.setViewType(MenuCategoryViewType.UPDATE)
+                        getString(R.string.add) -> findNavController().navigate(R.id.action_menuCategoryFragment_to_addMenuCategoryFragment)
                     }
                     true
                 }
