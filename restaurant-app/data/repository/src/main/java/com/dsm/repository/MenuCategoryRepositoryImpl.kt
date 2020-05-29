@@ -49,4 +49,9 @@ class MenuCategoryRepositoryImpl(
         remoteDataSource.updateMenuCategoryName(menuCategoryId, name)
         localDataSource.updateMenuCategoryName(menuCategoryId, name)
     }
+
+    override suspend fun addMenuCategory(menuCategoryName: String) = withContext(ioDispatcher) {
+        val menuCategoryId = remoteDataSource.addMenuCategory(menuCategoryName)
+        localDataSource.insertMenuCategory(MenuCategoryEntity(menuCategoryId, menuCategoryName))
+    }
 }

@@ -66,6 +66,10 @@ interface ThikiraApi {
         @Field("name") name: String
     )
 
+    @FormUrlEncoded
+    @POST("menu/category")
+    suspend fun addMenuCategory(@Field("name") name: String): Map<String, Int>
+
     /**
      * coupon
      */
