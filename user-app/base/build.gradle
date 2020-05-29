@@ -18,6 +18,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -31,6 +35,8 @@ dependencies {
     implementation project(path: ':coreComponent:androidComponent')
 
     implementation project(path: ':user-app:feature:account')
+
+    implementation project(path: ':user-app:feature:main')
 
     implementation Dep.Kotlin.kotlin
     implementation Dep.AndroidX.appCompat

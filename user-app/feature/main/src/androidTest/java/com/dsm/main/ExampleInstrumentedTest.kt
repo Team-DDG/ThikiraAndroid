@@ -1,4 +1,4 @@
-package com.golddog.main
+package com.dsm.main
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
