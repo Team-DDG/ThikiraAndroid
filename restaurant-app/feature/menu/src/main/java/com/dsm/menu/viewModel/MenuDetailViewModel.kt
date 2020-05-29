@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsm.androidcomponent.SingleLiveEvent
+import com.dsm.error.exception.ForbiddenException
 import com.dsm.menu.R
 import com.dsm.model.repository.MenuRepository
 import kotlinx.coroutines.launch
@@ -24,7 +25,10 @@ class MenuDetailViewModel(
 
             _popEvent.call()
         } catch (e: Exception) {
-            _toastEvent.value = R.string.fail_exception_internal
+            _toastEvent.value = when (e) {
+                is ForbiddenException -> R.string.fail_exception_forbidden
+                else -> R.string.fail_exception_internal
+            }
         }
     }
 }
