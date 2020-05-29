@@ -21,4 +21,7 @@ interface MenuDao {
 
     @Query("delete from Menu where menuCategoryId = :menuCategoryId")
     suspend fun deleteByMenuCategoryId(menuCategoryId: Int)
+
+    @Query("delete from Menu where menuId = :menuId")
+    suspend fun deleteMenuByMenuId(menuId: Int)
 }

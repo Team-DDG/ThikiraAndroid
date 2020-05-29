@@ -15,4 +15,6 @@ val menuModule = module {
     viewModel { MenuViewModel(get(), get()) }
 
     viewModel { AddMenuCategoryViewModel(get()) }
+
+    viewModel { MenuDetailViewModel(get()) }
 }

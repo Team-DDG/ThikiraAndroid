@@ -16,6 +16,8 @@ interface LocalMenuDataSource {
     suspend fun insertMenus(menus: List<MenuEntity>)
 
     suspend fun deleteMenusByMenuCategoryId(menuCategoryId: Int)
+
+    suspend fun deleteMenuByMenuId(menuId: Int)
 }
 
 class LocalMenuDataSourceImpl(
@@ -36,5 +38,9 @@ class LocalMenuDataSourceImpl(
 
     override suspend fun deleteMenusByMenuCategoryId(menuCategoryId: Int) = withContext(ioDispatcher) {
         menuDao.deleteByMenuCategoryId(menuCategoryId)
+    }
+
+    override suspend fun deleteMenuByMenuId(menuId: Int) = withContext(ioDispatcher) {
+        menuDao.deleteMenuByMenuId(menuId)
     }
 }
