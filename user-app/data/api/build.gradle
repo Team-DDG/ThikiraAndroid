@@ -10,8 +10,10 @@ dependencies {
     implementation project(path: ':coreComponent:androidComponent')
     implementation project(path: ':user-app:model')
     implementation project(path: ":user-app:data:pref")
+    implementation project(path: ":error")
 
     implementation Dep.Kotlin.kotlin
+    implementation Dep.Kotlin.coroutineCore
 
     // okhttp
     implementation Dep.OkHttp.logging
