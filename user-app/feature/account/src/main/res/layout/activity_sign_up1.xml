@@ -2,7 +2,9 @@
 <layout>
 
     <data>
-
+        <variable
+            name="viewmodel"
+            type="com.example.account.viewmodel.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
