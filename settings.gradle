@@ -33,3 +33,4 @@ include ':kinda:android'
 
 rootProject.name = 'ThikiraAndroid'
 include ':user-app:data:pref'
+include ':error'
