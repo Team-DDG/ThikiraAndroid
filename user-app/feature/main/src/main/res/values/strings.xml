@@ -1,1 +1,13 @@
-<resources></resources>
+<resources>
+    <string name="korea_food">한식</string>
+    <string name="china_food">중식</string>
+    <string name="japan_food">일식</string>
+    <string name="school_food">분식</string>
+    <string name="chicken">치킨</string>
+    <string name="pizza">피자</string>
+    <string name="night_food">야식</string>
+    <string name="lunchbox">도시락</string>
+    <string name="dessert">디저트</string>
+    <string name="jokbal_bossam">족발 보쌈</string  >
+    <string name="fast_food">패스트푸드</string>
+</resources>
