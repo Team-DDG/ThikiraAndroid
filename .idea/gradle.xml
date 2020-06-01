@@ -40,6 +40,7 @@
             <option value="$PROJECT_DIR$/user-app/base" />
             <option value="$PROJECT_DIR$/user-app/data" />
             <option value="$PROJECT_DIR$/user-app/data/api" />
+            <option value="$PROJECT_DIR$/user-app/data/db" />
             <option value="$PROJECT_DIR$/user-app/data/firebase" />
             <option value="$PROJECT_DIR$/user-app/data/pref" />
             <option value="$PROJECT_DIR$/user-app/feature" />
