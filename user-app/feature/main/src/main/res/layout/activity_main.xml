@@ -13,31 +13,94 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         tools:context="com.dsm.main.MainActivity">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_main"
             listdata="@{vm.eventList}"
-            android:layout_width="match_parent"
-            android:layout_height="128dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guide1_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide1_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:tabMode="scrollable"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabTextColor="@android:color/black"
+            app:tabSelectedTextColor="#F29C9F"
+            app:tabTextAppearance="@style/main_tabStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vp_main"
+            app:layout_constraintTop_toBottomOf="@+id/guide1_main"
             tools:layout_height="48dp">
 
-            <com.google.android.material.tabs.TabItem android:text="test" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/korea_food" />
 
-            <com.google.android.material.tabs.TabItem android:text="test2" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/china_food" />
 
-            <com.google.android.material.tabs.TabItem android:text="test3" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/japan_food" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/school_food" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chicken" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pizza" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/night_food" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lunchbox" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dessert" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jokbal_bossam" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fast_food" />
 
         </com.google.android.material.tabs.TabLayout>
 
@@ -47,7 +110,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tab_main" />
+            app:layout_constraintTop_toBottomOf="@+id/tab_main" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
