@@ -2,7 +2,10 @@ package com.example.api.di
 
 import com.example.api.ThikiraApi
 import com.example.api.TokenApi
+import com.example.api.datasource.*
+import com.example.api.error.ErrorHandlerImpl
 import com.example.api.interceptor.TokenInterceptor
+import com.example.error.ErrorHandler
 import com.example.pref.PrefStorage
 import com.example.pref.PrefStorageImpl
 import okhttp3.OkHttpClient
@@ -38,7 +41,16 @@ val apiModule = module {
             .build().create(ThikiraApi::class.java)
     }
 
+    single<ErrorHandler> { ErrorHandlerImpl() }
+
     single<PrefStorage> { PrefStorageImpl(get()) }
 
-    //TODO: add factory for dependency injection to data source impl
+    /**
+     * data sources
+    */
+    factory<RemoteAuthDataSource> { RemoteAuthDataSourceImpl(get(), get()) }
+
+    factory<RemoteAccountDataSource> { RemoteAccountDataSourceImpl(get(), get()) }
+
+    factory<RemoteUserDataSource> { RemoteUserDataSourceImpl(get(), get()) }
 }
