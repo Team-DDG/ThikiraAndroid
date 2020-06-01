@@ -15,13 +15,6 @@ interface RemoteAccountDataSource {
     suspend fun unregister()
 
     suspend fun changePassword(newPassword: String)
-
-    suspend fun confirmEmail(email: String)
-
-    suspend fun confirmPassword(password: String)
-
-    suspend fun login(body: User): TokenResponse
-    //TODO: discuss about login api's file
 }
 
 class RemoteAccountDataSourceImpl(
@@ -42,7 +35,7 @@ class RemoteAccountDataSourceImpl(
     override suspend fun unregister() = withContext(ioDispatcher) {
         try
         {
-//            thikiraApi.leaveThikira()
+            thikiraApi.leaveThikira()
         } catch (e: Exception)
         {
             throw  errorHandler.getNetworkException(e)
@@ -52,37 +45,7 @@ class RemoteAccountDataSourceImpl(
     override suspend fun changePassword(newPassword: String) = withContext(ioDispatcher) {
         try
         {
-//            thikiraApi.changePassword(Unit(), newPassword)
-        } catch (e: Exception)
-        {
-            throw  errorHandler.getNetworkException(e)
-        }
-    }
-
-    override suspend fun confirmEmail(email: String) = withContext(ioDispatcher) {
-        try
-        {
-            thikiraApi.confirmEmail(email)
-        } catch (e: Exception)
-        {
-            throw  errorHandler.getNetworkException(e)
-        }
-    }
-
-    override suspend fun confirmPassword(password: String) = withContext(ioDispatcher) {
-        try
-        {
-//            thikiraApi.changePassword(Unit(), password)
-        } catch (e: Exception)
-        {
-            throw  errorHandler.getNetworkException(e)
-        }
-    }
-
-    override suspend fun login(body: User) = withContext(ioDispatcher) {
-        try
-        {
-            thikiraApi.login(body)
+            thikiraApi.changePassword(newPassword)
         } catch (e: Exception)
         {
             throw  errorHandler.getNetworkException(e)

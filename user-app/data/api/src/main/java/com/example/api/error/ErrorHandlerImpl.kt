@@ -24,5 +24,4 @@ class ErrorHandlerImpl : ErrorHandler {
             }
             else -> InternalException(throwable)
         }
-    //TODO: mention dohun to move errorHandlerImpl to global error module
 }
