@@ -2,10 +2,15 @@ import dependencies.Dep
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 apply from: rootProject.file('gradle/android_user.gradle')
-android.dataBinding.enabled = true
+android {
+    dataBinding {
+        enabled = true
+    }
+}
 
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
@@ -14,4 +19,10 @@ dependencies {
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
     implementation Dep.AndroidX.viewPager
+    implementation Dep.AndroidX.LifeCycle.liveDataKtx
+    implementation Dep.AndroidX.LifeCycle.viewModelKtx
+    implementation Dep.Glide.glide
+    kapt Dep.Glide.compiler
+    // Dep.Glide만 해도 glide, compiler가 둘 다 작동하는지 질문 PR때 확인좀
+    // 가능하다면 수정사행에서 Dep.Glide 로만 변경하겠음.
 }
