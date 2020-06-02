@@ -37,9 +37,6 @@ interface ThikiraApi {
     @POST("auth/password")
     suspend fun confirmPassword(@Body password: String)
 
-    @GET("auth/refresh")
-    suspend fun refreshToken(): TokenResponse
-
     @POST("auth/sing_in")
     suspend fun login(@Body body: Any): TokenResponse
 }
