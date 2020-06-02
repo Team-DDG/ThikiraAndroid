@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="vm"
+            name="viewModel"
             type="com.dsm.main.MainViewModel" />
     </data>
 
@@ -18,7 +18,7 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_main"
-            list_data="@{vm.eventList}"
+            event_list="@{viewModel.eventList}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/guide1_main"
@@ -106,7 +106,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_main"
-            list_data="@{vm.restaurantList}"
+            restaurant_list="@{viewModel.restaurantList}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

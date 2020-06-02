@@ -22,6 +22,7 @@ class MainEventAdapter : RecyclerView.Adapter<MainEventAdapter.MainEventViewHold
 
     fun setList(data: List<Event>) {
         items = data
+        notifyDataSetChanged()
     }
 
     inner class MainEventViewHolder(private val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {

@@ -25,6 +25,7 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuViewHolder>() {
 
     fun setList(data: List<Restaurant>) {
         items = data
+        notifyDataSetChanged()
     }
 
     inner class MainMenuViewHolder(private val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root) {
