@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class MenuResponse(
 
-    @SerializedName("menu_id")
+    @SerializedName("m_id")
     val menuId: Int,
 
     val name: String,

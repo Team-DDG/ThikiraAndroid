@@ -11,4 +11,6 @@ interface MenuRepository {
     suspend fun refreshMenus(menuCategoryId: Int)
 
     suspend fun uploadMenu(menuRegistration: MenuRegistration)
+
+    suspend fun deleteMenu(menuId: Int)
 }

@@ -27,7 +27,4 @@ interface MenuCategoryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(menuCategory: MenuCategoryEntity)
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(menuCategories: List<MenuCategoryEntity>)
 }
