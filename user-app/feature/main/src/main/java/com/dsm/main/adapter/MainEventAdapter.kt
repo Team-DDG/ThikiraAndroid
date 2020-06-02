@@ -1,9 +1,10 @@
-package com.dsm.main
+package com.dsm.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.model.Event
 import com.dsm.main.databinding.ItemEventBinding
 
 class MainEventAdapter : RecyclerView.Adapter<MainEventAdapter.MainEventViewHolder>() {

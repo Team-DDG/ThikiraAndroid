@@ -1,8 +1,11 @@
 package com.dsm.main
 
 import android.os.Bundle
+import androidx.appcompat.view.menu.MenuAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.dsm.androidcomponent.base.BaseActivity
+import com.dsm.main.adapter.MainEventAdapter
+import com.dsm.main.adapter.MainMenuAdapter
 import com.dsm.main.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -12,12 +15,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private val vm by lazy { MainViewModel() }
     private val eventAdapter by lazy { MainEventAdapter() }
+    private val menuAdapter by lazy { MainMenuAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.vpMain.adapter = eventAdapter
         binding.vpMain.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.rvMain.adapter = menuAdapter
+        binding.rvMain.setHasFixedSize(true)
+
         binding.vm = vm
     }
 }

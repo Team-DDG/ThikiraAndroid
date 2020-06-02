@@ -18,7 +18,7 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_main"
-            listdata="@{vm.eventList}"
+            list_data="@{vm.eventList}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/guide1_main"
@@ -37,14 +37,14 @@
             android:id="@+id/tab_main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:tabMode="scrollable"
-            app:tabIndicatorColor="@android:color/white"
-            app:tabTextColor="@android:color/black"
-            app:tabSelectedTextColor="#F29C9F"
-            app:tabTextAppearance="@style/main_tabStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guide1_main"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#F29C9F"
+            app:tabTextAppearance="@style/main_tabStyle"
+            app:tabTextColor="@android:color/black"
             tools:layout_height="48dp">
 
             <com.google.android.material.tabs.TabItem
@@ -105,8 +105,11 @@
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main"
+            list_data="@{vm.restaurantList}"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

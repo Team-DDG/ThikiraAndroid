@@ -1,4 +1,4 @@
-package com.dsm.main
+package com.example.model
 
 data class Event(val bannerImageURL : String, val mainImageURL: String) {
     override fun toString(): String {
