@@ -14,8 +14,6 @@ interface RemoteAuthDataSource {
 
     suspend fun confirmPassword(password: String)
 
-    suspend fun refreshToken(): TokenResponse
-
     suspend fun login(body: Any): TokenResponse
 }
 
@@ -43,14 +41,6 @@ class RemoteAuthDataSourceImpl(
     override suspend fun confirmPassword(password: String) = withContext(ioDispatcher) {
         try {
             thikiraApi.confirmPassword(password)
-        } catch (e: Exception) {
-            throw errorHandler.getNetworkException(e)
-        }
-    }
-
-    override suspend fun refreshToken(): TokenResponse = withContext(ioDispatcher) {
-        try {
-            thikiraApi.refreshToken()
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }
