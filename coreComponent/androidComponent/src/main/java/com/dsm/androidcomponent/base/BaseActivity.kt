@@ -6,8 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 
-abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity(), LifecycleOwner{
-    lateinit var binding : T
+abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
+    lateinit var binding: T
 
     abstract val layoutResId: Int
 

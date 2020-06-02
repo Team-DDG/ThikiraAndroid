@@ -26,6 +26,7 @@ include ':user-app:data:api'
 include ':user-app:data:pref'
 include ':user-app:data:firebase'
 include ':user-app:feature:account'
+include ':user-app:feature:main'
 
 include ':kinda'
 include ':kinda:core'
