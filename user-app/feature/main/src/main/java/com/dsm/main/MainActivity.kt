@@ -20,11 +20,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.vpMain.adapter = eventAdapter
-        binding.vpMain.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.rvMain.adapter = menuAdapter
-        binding.rvMain.setHasFixedSize(true)
-
+        setUpViewPager()
+        setUpRecyclerView()
         binding.vm = vm
     }
+
+    private fun setUpViewPager() {
+        binding.vpMain.adapter = eventAdapter
+        binding.vpMain.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+    }
+
+    private fun setUpRecyclerView() {
+        binding.rvMain.adapter = menuAdapter
+        binding.rvMain.setHasFixedSize(true)
+    }
+
 }

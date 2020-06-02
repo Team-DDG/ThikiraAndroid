@@ -8,13 +8,13 @@ import com.dsm.main.adapter.MainEventAdapter
 import com.dsm.main.adapter.MainMenuAdapter
 import com.example.model.Restaurant
 
-@BindingAdapter("list_data")
+@BindingAdapter("restaurant_list")
 fun RecyclerView.bindRecyclerView(data: List<Restaurant>) {
     val adapter = adapter as MainMenuAdapter
     adapter.setList(data)
 }
 
-@BindingAdapter("list_data")
+@BindingAdapter("event_list")
 fun ViewPager2.bindRecyclerView(data: List<Event>) {
     val adapter = adapter as MainEventAdapter
     adapter.setList(data)
