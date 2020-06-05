@@ -3,10 +3,10 @@ package com.example.api.response
 import com.google.gson.annotations.SerializedName
 
 data class UserResponse(
-    @SerializedName("add_parcel")
+    @SerializedName("address")
     val address: String,
 
-    @SerializedName("add_street")
+    @SerializedName("road_address")
     val roadAddress: String,
 
     @SerializedName("created_time")
