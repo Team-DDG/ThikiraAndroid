@@ -19,10 +19,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    dataBinding {
-        enabled = true
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -30,19 +26,21 @@ android {
         }
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 }
 
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
-
+    implementation project(path: ':user-app:data:api')
+    implementation project(path: ':user-app:data:repository')
     implementation project(path: ':user-app:feature:account')
-
     implementation project(path: ':user-app:feature:main')
 
     implementation Dep.Kotlin.kotlin
-    implementation Dep.AndroidX.appCompat
-    implementation Dep.AndroidX.constraintLayout
+
+    implementation Dep.AndroidX.coreKtx
+
+    implementation Dep.AndroidX.Koin.viewModel
 }

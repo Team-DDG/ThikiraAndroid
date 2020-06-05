@@ -1,6 +1,7 @@
 package com.dsm.main
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.appcompat.view.menu.MenuAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.dsm.androidcomponent.base.BaseActivity
@@ -22,7 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         setUpViewPager()
         setUpRecyclerView()
-        binding.vm = vm
+        binding.viewModel = vm
     }
 
     private fun setUpViewPager() {
@@ -34,5 +35,4 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.rvMain.adapter = menuAdapter
         binding.rvMain.setHasFixedSize(true)
     }
-
 }
