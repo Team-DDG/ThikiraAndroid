@@ -15,8 +15,9 @@ interface ThikiraApi {
     @DELETE("leave")
     suspend fun leaveThikira()
 
+    @FormUrlEncoded
     @PATCH("password")
-    suspend fun changePassword(@Body password: String)
+    suspend fun changePassword(@Field("password") password: String)
 
     @FormUrlEncoded
     @PATCH("address")
@@ -34,8 +35,9 @@ interface ThikiraApi {
     @GET("auth/email")
     suspend fun confirmEmail(@Query("email") email: String)
 
+    @FormUrlEncoded
     @POST("auth/password")
-    suspend fun confirmPassword(@Body password: String)
+    suspend fun confirmPassword(@Field("password") password: String)
 
     @POST("auth/sing_in")
     suspend fun login(@Body body: Any): TokenResponse

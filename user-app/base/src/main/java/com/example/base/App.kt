@@ -16,11 +16,9 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 listOf(
-                    //data
                     apiModule,
                     repositoryModule,
 
-                    //feature
                     accountModule
                 )
             )
