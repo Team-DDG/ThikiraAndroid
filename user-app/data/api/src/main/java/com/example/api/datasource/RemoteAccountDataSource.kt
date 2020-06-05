@@ -23,31 +23,25 @@ class RemoteAccountDataSourceImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : RemoteAccountDataSource {
     override suspend fun register(body: User) = withContext(ioDispatcher) {
-        try
-        {
+        try {
             thikiraApi.register(body)
-        } catch (e: Exception)
-        {
+        } catch (e: Exception) {
             throw  errorHandler.getNetworkException(e)
         }
     }
 
     override suspend fun unregister() = withContext(ioDispatcher) {
-        try
-        {
+        try {
             thikiraApi.leaveThikira()
-        } catch (e: Exception)
-        {
+        } catch (e: Exception) {
             throw  errorHandler.getNetworkException(e)
         }
     }
 
     override suspend fun changePassword(newPassword: String) = withContext(ioDispatcher) {
-        try
-        {
+        try {
             thikiraApi.changePassword(newPassword)
-        } catch (e: Exception)
-        {
+        } catch (e: Exception) {
             throw  errorHandler.getNetworkException(e)
         }
     }
