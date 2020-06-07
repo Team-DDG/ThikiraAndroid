@@ -11,14 +11,15 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.dsm.main.MainActivity"/>
-        <activity android:name="com.example.account.LoginActivity">
+        <activity android:name="com.dsm.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.account.LoginActivity" />
+
     </application>
 
 </manifest>

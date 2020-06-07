@@ -2,6 +2,7 @@ package com.example.api
 
 import com.example.api.response.TokenResponse
 import com.example.api.response.UserResponse
+import com.example.model.Restaurant
 import com.example.model.User
 import retrofit2.http.*
 
@@ -41,4 +42,10 @@ interface ThikiraApi {
 
     @POST("auth/sing_in")
     suspend fun login(@Body body: Any): TokenResponse
+
+    @GET("restaurant")
+    suspend fun getRestaurantList(
+        @Field("sortOption") sortOption: String,
+        @Field("category") category: String
+    ): List<Restaurant>
 }
