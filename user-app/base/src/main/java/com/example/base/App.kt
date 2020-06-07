@@ -1,6 +1,7 @@
 package com.example.base
 
 import android.app.Application
+import com.dsm.main.di.mainModule
 import com.example.account.di.accountModule
 import com.example.api.di.apiModule
 import com.example.di.repositoryModule
@@ -17,7 +18,8 @@ class App : Application() {
                 listOf(
                     apiModule,
                     repositoryModule,
-                    accountModule
+                    accountModule,
+                    mainModule
                 )
             )
         }
