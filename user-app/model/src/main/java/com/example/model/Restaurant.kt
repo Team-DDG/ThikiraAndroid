@@ -19,4 +19,3 @@ data class Restaurant(
     val openTime: String = "",
     val email: String = ""
 )
-
