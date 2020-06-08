@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant-app/base/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant-app/base/build.gradle" }}-{{ checksum "user-app/base/build.gradle" }}
 
       - run:
           name: Chmod permissions
@@ -26,28 +26,17 @@ jobs:
 
       - run:
           name: Download Dependencies
-          command: ./gradlew restaurant-app:base:androidDependencies
+          command: ./gradlew androidDependencies
 
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant-app/base/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "restaurant-app/base/build.gradle" }}-{{ checksum "user-app/base/build.gradle" }}
 
       - run:
           name: Run Build
-          command: ./gradlew restaurant-app:base:lint restaurant-app:base:assembleDebug
+          command: ./gradlew lint assembleDebug
 
       - run:
           name: Run Tests
-          command: ./gradlew restaurant-app:base:test
-
-      - store_artifacts:
-          path: restaurant-app/base/build/reports
-          destination: restaurant/reports
-
-      - store_test_results:
-          path: restaurant-app/base/build/test-results
-
-      - store_artifacts:
-          path: restaurant-app/baes/build/outputs/apk
-          destination: restaurant/apks
+          command: ./gradlew test
