@@ -1,17 +1,17 @@
-package com.example.account.viewmodel
+package com.example.account
 
 import android.os.Bundle
 import com.dsm.androidcomponent.base.BaseActivity
 import com.dsm.androidcomponent.ext.setupToastEvent
-import com.example.account.R
-import com.example.account.databinding.ActivitySignUp2Binding
+import com.example.account.databinding.ActivityRegister1Binding
+import com.example.account.viewmodel.SignUpViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SignUp2Activity: BaseActivity<ActivitySignUp2Binding>(){
+class Register1Activity: BaseActivity<ActivityRegister1Binding>(){
     override val layoutResId: Int
-        get() = R.layout.activity_sign_up2
+        get() = R.layout.activity_register1
 
-    private val viewModel: SignUpViewModel by viewModel()
+    private val viewModel : SignUpViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

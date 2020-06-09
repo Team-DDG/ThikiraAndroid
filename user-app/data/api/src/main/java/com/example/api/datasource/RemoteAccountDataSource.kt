@@ -1,7 +1,6 @@
 package com.example.api.datasource
 
 import com.example.api.ThikiraApi
-import com.example.api.response.TokenResponse
 import com.example.error.ErrorHandler
 import com.example.model.User
 import kotlinx.coroutines.CoroutineDispatcher

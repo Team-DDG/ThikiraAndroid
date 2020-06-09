@@ -23,7 +23,7 @@ val apiModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl("https://thikira.herokuapp.com/api/user/")
+            .baseUrl("https://thikira.herokuapp.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(TokenApi::class.java)
     }

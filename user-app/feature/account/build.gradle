@@ -10,6 +10,10 @@ android.dataBinding.enabled = true
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
 
+    implementation project(path: ':error')
+
+    implementation project(path: ':user-app:model')
+
     implementation Dep.Kotlin.kotlin
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
