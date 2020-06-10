@@ -1,12 +1,12 @@
 package com.dsm.menu
 
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.firebase.FirebaseStorageSource
 import com.dsm.menu.viewModel.MenuRegistrationViewModel
 import com.dsm.model.MenuCategory
 import com.dsm.model.MenuRegistration
 import com.dsm.model.repository.MenuRepository
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.ForbiddenException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

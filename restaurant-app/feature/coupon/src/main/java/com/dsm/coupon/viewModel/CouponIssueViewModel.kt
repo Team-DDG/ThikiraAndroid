@@ -4,8 +4,8 @@ import androidx.lifecycle.*
 import com.dsm.androidcomponent.SingleLiveEvent
 import com.dsm.androidcomponent.ext.formatToIso
 import com.dsm.coupon.R
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.model.repository.CouponRepository
+import com.example.error.exception.ForbiddenException
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*

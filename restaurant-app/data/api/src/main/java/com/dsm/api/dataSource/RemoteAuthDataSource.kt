@@ -2,6 +2,7 @@ package com.dsm.api.dataSource
 
 import com.dsm.api.ThikiraApi
 import com.dsm.api.response.TokenResponse
+import com.example.error.ErrorHandler
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -19,7 +20,7 @@ interface RemoteAuthDataSource {
 
 class RemoteAuthDataSourceImpl(
     private val thikiraApi: ThikiraApi,
-    private val errorHandler: com.dsm.error.ErrorHandler,
+    private val errorHandler: ErrorHandler,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : RemoteAuthDataSource {
 
