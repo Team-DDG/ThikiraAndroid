@@ -3,10 +3,10 @@ package com.dsm.setting.viewModel
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.R
 import com.dsm.androidcomponent.SingleLiveEvent
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.model.Address
 import com.dsm.model.repository.AddressRepository
 import com.dsm.model.repository.RestaurantRepository
+import com.example.error.exception.ForbiddenException
 import kotlinx.coroutines.launch
 
 class AddressChangeViewModel(
