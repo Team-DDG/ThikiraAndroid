@@ -1,10 +1,10 @@
 package com.dsm.account
 
 import com.dsm.account.viewModel.LoginViewModel
-import com.dsm.error.exception.InternalException
-import com.dsm.error.exception.NotFoundException
 import com.dsm.model.repository.AuthRepository
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.InternalException
+import com.example.error.exception.NotFoundException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

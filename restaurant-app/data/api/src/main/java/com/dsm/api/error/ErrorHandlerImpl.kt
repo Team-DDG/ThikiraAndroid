@@ -1,7 +1,7 @@
 package com.dsm.api.error
 
-import com.dsm.error.ErrorHandler
-import com.dsm.error.exception.*
+import com.example.error.ErrorHandler
+import com.example.error.exception.*
 import retrofit2.HttpException
 import java.net.HttpURLConnection
 

@@ -19,7 +19,8 @@ android {
 
 dependencies {
     implementation project(path: ':restaurant-app:data:pref')
-    implementation project(path: ':restaurant-app:data:error')
+
+    implementation project(path: ':error')
 
     // kotlin
     implementation Dep.Kotlin.kotlin

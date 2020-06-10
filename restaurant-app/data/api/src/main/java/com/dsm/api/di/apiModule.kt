@@ -7,9 +7,9 @@ import com.dsm.api.dataSource.*
 import com.dsm.api.error.ErrorHandlerImpl
 import com.dsm.api.interceptor.NaverInterceptor
 import com.dsm.api.interceptor.TokenInterceptor
-import com.dsm.error.ErrorHandler
 import com.dsm.pref.PrefStorage
 import com.dsm.pref.PrefStorageImpl
+import com.example.error.ErrorHandler
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
