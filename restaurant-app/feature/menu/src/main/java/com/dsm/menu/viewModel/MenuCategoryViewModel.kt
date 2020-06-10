@@ -4,10 +4,10 @@ import android.util.SparseBooleanArray
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.R
 import com.dsm.androidcomponent.SingleLiveEvent
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.menu.binding.MenuCategoryViewType
 import com.dsm.model.MenuCategory
 import com.dsm.model.repository.MenuCategoryRepository
+import com.example.error.exception.ForbiddenException
 import kotlinx.coroutines.launch
 
 class MenuCategoryViewModel(

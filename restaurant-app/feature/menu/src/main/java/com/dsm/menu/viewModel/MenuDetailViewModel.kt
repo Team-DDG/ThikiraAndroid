@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsm.androidcomponent.SingleLiveEvent
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.menu.R
 import com.dsm.model.repository.MenuRepository
+import com.example.error.exception.ForbiddenException
 import kotlinx.coroutines.launch
 
 class MenuDetailViewModel(

@@ -59,7 +59,6 @@ dependencies {
     implementation project(path: ':restaurant-app:data:api')
     implementation project(path: ':restaurant-app:data:db')
     implementation project(path: ':restaurant-app:data:repository')
-    implementation project(path: ':restaurant-app:data:error')
     implementation project(path: ':restaurant-app:data:pref')
     implementation project(path: ':restaurant-app:data:firebase')
 
@@ -69,6 +68,8 @@ dependencies {
     implementation project(path: ':restaurant-app:feature:order')
     implementation project(path: ':restaurant-app:feature:restaurant')
     implementation project(path: ':restaurant-app:feature:address')
+
+    implementation project(path: ':error')
 
     implementation Dep.Kotlin.kotlin
 
