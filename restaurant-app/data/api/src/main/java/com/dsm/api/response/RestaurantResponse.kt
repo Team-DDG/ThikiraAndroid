@@ -10,10 +10,9 @@ data class RestaurantResponse(
 
     val phone: String,
 
-    @SerializedName("add_street")
+    @SerializedName("road_address")
     val roadAddress: String,
 
-    @SerializedName("add_parcel")
     val address: String,
 
     @SerializedName("area")

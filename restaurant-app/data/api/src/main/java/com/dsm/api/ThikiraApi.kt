@@ -6,7 +6,7 @@ import java.util.*
 
 interface ThikiraApi {
 
-    @GET("/")
+    @GET("")
     suspend fun getRestaurantInfo(): RestaurantResponse
 
     @POST("create")
