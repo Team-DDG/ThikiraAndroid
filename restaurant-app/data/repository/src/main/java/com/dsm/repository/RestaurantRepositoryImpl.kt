@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.dsm.api.dataSource.RemoteRestaurantDataSource
 import com.dsm.db.dataSource.LocalRestaurantDataSource
-import com.dsm.db.entity.RestaurantEntity
 import com.dsm.mapper.toEntity
 import com.dsm.mapper.toRestaurant
 import com.dsm.model.Address
@@ -31,7 +30,9 @@ class RestaurantRepositoryImpl(
     }
 
     override fun observeRestaurantInfo(): LiveData<Restaurant> =
-        localRestaurantDataSource.observeRestaurantInfo().map(RestaurantEntity::toRestaurant)
+        localRestaurantDataSource.observeRestaurantInfo().map {
+            it?.toRestaurant() ?: Restaurant()
+        }
 
     override suspend fun refreshRestaurantInfo() = withContext(ioDispatcher) {
         remoteRestaurantDataSource.getRestaurantInfo().let {
@@ -39,5 +40,4 @@ class RestaurantRepositoryImpl(
             localRestaurantDataSource.insertRestaurantInfo(it.toEntity())
         }
     }
-
 }
