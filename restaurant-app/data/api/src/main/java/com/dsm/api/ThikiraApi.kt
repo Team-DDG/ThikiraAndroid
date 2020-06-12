@@ -25,15 +25,16 @@ interface ThikiraApi {
     @FormUrlEncoded
     @PATCH("address")
     suspend fun changeAddress(
-        @Field("add_parcel") address: String,
-        @Field("add_street") roadAddress: String
+        @Field("address") address: String,
+        @Field("road_address") roadAddress: String
     )
 
     /**
      * auth
      */
-    @GET("auth/password")
-    suspend fun confirmPassword(@Query("password") password: String)
+    @FormUrlEncoded
+    @POST("auth/password")
+    suspend fun confirmPassword(@Field("password") password: String)
 
     @GET("auth/email")
     suspend fun confirmEmailDuplication(@Query("email") email: String)
