@@ -9,14 +9,22 @@ android.dataBinding.enabled = true
 
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
+    implementation project(path: ':coreComponent:testComponent')
 
     implementation project(path: ':error')
 
     implementation project(path: ':user-app:model')
+
+    implementation project(path: ':user-app:data:firebase')
 
     implementation Dep.Kotlin.kotlin
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
 
     implementation Dep.AndroidX.Koin.viewModel
+
+    testImplementation Dep.Test.mockitoCore
+    testImplementation Dep.Test.mockitoInline
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.liveDataTesting
 }

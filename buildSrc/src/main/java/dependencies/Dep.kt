@@ -56,6 +56,7 @@ object Dep {
 
     object Firebase {
         const val storage = "com.google.firebase:firebase-storage:19.1.1"
+        const val auth = "com.google.firebase:firebase-auth:19.1.0"
     }
 
     object Retrofit {
