@@ -3,10 +3,10 @@ package com.dsm.coupon.viewModel
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.R
 import com.dsm.androidcomponent.SingleLiveEvent
-import com.dsm.error.exception.ForbiddenException
-import com.dsm.error.exception.NotFoundException
 import com.dsm.model.Coupon
 import com.dsm.model.repository.CouponRepository
+import com.example.error.exception.ForbiddenException
+import com.example.error.exception.NotFoundException
 import kotlinx.coroutines.launch
 
 class CouponViewModel(

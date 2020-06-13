@@ -4,8 +4,8 @@ import androidx.lifecycle.*
 import com.dsm.account.R
 import com.dsm.androidcomponent.SingleLiveEvent
 import com.dsm.androidcomponent.ext.isValidEmail
-import com.dsm.error.exception.NotFoundException
 import com.dsm.model.repository.AuthRepository
+import com.example.error.exception.NotFoundException
 import kotlinx.coroutines.launch
 
 class LoginViewModel(

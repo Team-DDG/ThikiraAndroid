@@ -3,11 +3,11 @@ package com.dsm.setting.viewModel
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.SingleLiveEvent
 import com.dsm.androidcomponent.ext.isValidPassword
-import com.dsm.error.exception.ForbiddenException
-import com.dsm.error.exception.UnauthorizedException
 import com.dsm.model.repository.AccountRepository
 import com.dsm.model.repository.AuthRepository
 import com.dsm.setting.R
+import com.example.error.exception.ForbiddenException
+import com.example.error.exception.UnauthorizedException
 import kotlinx.coroutines.launch
 
 class PasswordChangeViewModel(

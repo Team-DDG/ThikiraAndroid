@@ -1,13 +1,13 @@
 package com.dsm.account
 
 import com.dsm.account.viewModel.RegisterViewModel
-import com.dsm.error.exception.ConflictException
-import com.dsm.error.exception.InternalException
 import com.dsm.firebase.FirebaseStorageSource
 import com.dsm.model.Address
 import com.dsm.model.repository.AccountRepository
 import com.dsm.model.repository.AuthRepository
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.ConflictException
+import com.example.error.exception.InternalException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

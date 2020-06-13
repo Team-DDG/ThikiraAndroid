@@ -14,8 +14,9 @@ dependencies {
 
     implementation project(path: ':restaurant-app:model')
 
-    implementation project(path: ':restaurant-app:data:error')
     implementation project(path: ':restaurant-app:data:firebase')
+
+    implementation project(path: ':error')
 
     implementation Dep.material
     implementation Dep.mediaPicker

@@ -1,11 +1,12 @@
 package com.dsm.setting
 
-import com.dsm.error.exception.ForbiddenException
-import com.dsm.error.exception.UnauthorizedException
+import com.dsm.androidcomponent.R
 import com.dsm.model.repository.AccountRepository
 import com.dsm.model.repository.AuthRepository
 import com.dsm.setting.viewModel.UnregisterViewModel
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.ForbiddenException
+import com.example.error.exception.UnauthorizedException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -51,7 +52,7 @@ class UnregisterViewModelTests : BaseTest() {
 
             onClickUnregister()
 
-            toastEvent.test().assertValue(R.string.fail_password_auth)
+            toastEvent.test().assertValue(com.dsm.setting.R.string.fail_password_auth)
             navigateEvent.test().assertNoValue()
             verifyNoInteractions(accountRepository)
         }
@@ -67,7 +68,7 @@ class UnregisterViewModelTests : BaseTest() {
 
             onClickUnregister()
 
-            toastEvent.test().assertValue(com.dsm.androidcomponent.R.string.fail_exception_forbidden)
+            toastEvent.test().assertValue(R.string.fail_exception_forbidden)
             navigateEvent.test().assertNoValue()
         }
     }
@@ -82,7 +83,7 @@ class UnregisterViewModelTests : BaseTest() {
             onClickUnregister()
 
             toastEvent.test().assertNoValue()
-            navigateEvent.test().assertValue(com.dsm.androidcomponent.R.id.action_unregisterDialog_to_loginFragment)
+            navigateEvent.test().assertValue(R.id.action_unregisterDialog_to_nav_graph)
         }
     }
 }

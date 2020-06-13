@@ -1,9 +1,10 @@
 package com.dsm.coupon
 
+import com.dsm.androidcomponent.ext.formatToIso
 import com.dsm.coupon.viewModel.CouponIssueViewModel
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.model.repository.CouponRepository
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.ForbiddenException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -43,7 +44,7 @@ class CouponIssueViewModelTests : BaseTest() {
         viewModel.run {
             setExpireDate(2000, 1, 1)
             price.value = "1000"
-            `when`(couponRepository.issueCoupon(expireDate.value!!, price.value!!.toInt()))
+            `when`(couponRepository.issueCoupon(formatToIso(expireDate.value!!), price.value!!.toInt()))
                 .thenThrow(ForbiddenException(Exception()))
 
             onClickIssueCoupon()
@@ -57,7 +58,7 @@ class CouponIssueViewModelTests : BaseTest() {
         viewModel.run {
             setExpireDate(2000, 1, 1)
             price.value = "1000"
-            `when`(couponRepository.issueCoupon(expireDate.value!!, price.value!!.toInt()))
+            `when`(couponRepository.issueCoupon(formatToIso(expireDate.value!!), price.value!!.toInt()))
                 .thenReturn(Unit)
 
             onClickIssueCoupon()

@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsm.androidcomponent.SingleLiveEvent
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.model.Order
 import com.dsm.model.repository.OrderRepository
 import com.dsm.order.R
+import com.example.error.exception.ForbiddenException
 import kotlinx.coroutines.launch
 import java.util.*
 

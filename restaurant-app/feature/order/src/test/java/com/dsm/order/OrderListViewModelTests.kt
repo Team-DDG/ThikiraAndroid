@@ -1,6 +1,5 @@
 package com.dsm.order
 
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.model.Order
 import com.dsm.model.OrderDetailItem
 import com.dsm.model.OrderGroupItem
@@ -8,6 +7,7 @@ import com.dsm.model.OrderOptionItem
 import com.dsm.model.repository.OrderRepository
 import com.dsm.order.viewModel.OrderListViewModel
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.ForbiddenException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

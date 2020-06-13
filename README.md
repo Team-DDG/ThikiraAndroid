@@ -57,8 +57,14 @@ Room(로컬 데이터베이스)에 저장되었던 데이터를 Fragment가 Live
 [업체 디자인](https://www.figma.com/file/uKd5WlaWOaY9DmFg6OxSDq/Wireframe?node-id=2%3A2)  
 [사용자 디자인](https://www.figma.com/file/uKd5WlaWOaY9DmFg6OxSDq/Wireframe?node-id=20%3A12)
 
-## 사용 도구
+## 팀
+팀원은 가나다 순입니다.
+- 김도훈: 안드로이드, 리드
+- 박영진: 디자인
+- 최승민: 안드로이드
+- 홍성하: 안드로이드
 
+## 사용 도구
 - Github, Slack, Jira
 
 ## 라이브러리

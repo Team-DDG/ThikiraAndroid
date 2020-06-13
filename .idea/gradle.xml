@@ -23,7 +23,6 @@
             <option value="$PROJECT_DIR$/restaurant-app/data" />
             <option value="$PROJECT_DIR$/restaurant-app/data/api" />
             <option value="$PROJECT_DIR$/restaurant-app/data/db" />
-            <option value="$PROJECT_DIR$/restaurant-app/data/error" />
             <option value="$PROJECT_DIR$/restaurant-app/data/firebase" />
             <option value="$PROJECT_DIR$/restaurant-app/data/pref" />
             <option value="$PROJECT_DIR$/restaurant-app/data/repository" />

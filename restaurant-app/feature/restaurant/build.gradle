@@ -13,7 +13,7 @@ dependencies {
 
     implementation project(path: ':restaurant-app:model')
 
-    implementation project(path: ':restaurant-app:data:error')
+    implementation project(path: ':error')
 
     implementation Dep.Kotlin.kotlin
 

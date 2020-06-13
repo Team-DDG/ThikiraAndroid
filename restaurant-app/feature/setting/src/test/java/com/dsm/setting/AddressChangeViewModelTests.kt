@@ -1,12 +1,12 @@
 package com.dsm.setting
 
 import com.dsm.androidcomponent.R
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.model.Address
 import com.dsm.model.repository.AddressRepository
 import com.dsm.model.repository.RestaurantRepository
 import com.dsm.setting.viewModel.AddressChangeViewModel
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.ForbiddenException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
