@@ -18,7 +18,7 @@ interface RestaurantDao {
     suspend fun updateAddress(address: String, roadAddress: String)
 
     @Query("select * from restaurant")
-    fun observeRestaurant(): LiveData<RestaurantEntity>
+    fun observeRestaurant(): LiveData<RestaurantEntity?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(restaurant: RestaurantEntity)

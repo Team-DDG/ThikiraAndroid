@@ -2,33 +2,33 @@ package com.dsm.model
 
 data class Restaurant(
 
-    val name: String,
+    val name: String = "",
 
-    val image: String,
+    val image: String = "",
 
-    val phone: String,
+    val phone: String = "",
 
-    val deliverableArea: String,
+    val deliverableArea: String = "",
 
-    val category: String,
+    val category: String = "",
 
-    val minPrice: Int,
+    val minPrice: Int = 0,
 
-    val dayOff: String,
+    val dayOff: String = "",
 
-    val isOnlinePayment: Boolean,
+    val isOnlinePayment: Boolean = false,
 
-    val isOfflinePayment: Boolean,
+    val isOfflinePayment: Boolean = false,
 
-    val openTime: String,
+    val openTime: String = "",
 
-    val closeTime: String,
+    val closeTime: String = "",
 
-    val description: String,
+    val description: String = "",
 
-    val email: String,
+    val email: String = "",
 
-    val address: String,
+    val address: String = "",
 
-    val roadAddress: String
+    val roadAddress: String = ""
 )

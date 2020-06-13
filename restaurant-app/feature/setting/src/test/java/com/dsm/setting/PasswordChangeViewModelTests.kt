@@ -1,11 +1,11 @@
 package com.dsm.setting
 
-import com.dsm.error.exception.ForbiddenException
-import com.dsm.error.exception.UnauthorizedException
 import com.dsm.model.repository.AccountRepository
 import com.dsm.model.repository.AuthRepository
 import com.dsm.setting.viewModel.PasswordChangeViewModel
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.ForbiddenException
+import com.example.error.exception.UnauthorizedException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

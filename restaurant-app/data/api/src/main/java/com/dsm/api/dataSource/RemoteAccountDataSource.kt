@@ -1,6 +1,7 @@
 package com.dsm.api.dataSource
 
 import com.dsm.api.ThikiraApi
+import com.example.error.ErrorHandler
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -16,7 +17,7 @@ interface RemoteAccountDataSource {
 
 class RemoteAccountDataSourceImpl(
     private val thikiraApi: ThikiraApi,
-    private val errorHandler: com.dsm.error.ErrorHandler,
+    private val errorHandler: ErrorHandler,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : RemoteAccountDataSource {
     override suspend fun register(body: Any) = withContext(ioDispatcher) {
