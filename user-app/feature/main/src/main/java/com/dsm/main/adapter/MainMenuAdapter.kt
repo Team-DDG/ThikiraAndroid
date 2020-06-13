@@ -32,9 +32,9 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuViewHolder>() {
         fun bind(item: Restaurant) {
             Glide.with(binding.root.context).load(item.image).into(binding.rvMainImage)
             binding.rvMainRestaurantName.text = item.name
-//            binding.rvMainScore.text = item.score
-//            서버통신 로직에서 score를 주면 사용 가능
+            binding.rvMainScore.text = "${item.star}"
             binding.rvMainMinPrice.text = "${NumberFormat.getNumberInstance(Locale.US).format(item.minPrice)}원 부터"
         }
     }
+    
 }
