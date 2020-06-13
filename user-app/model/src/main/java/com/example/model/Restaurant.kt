@@ -11,6 +11,7 @@ data class Restaurant(
     val restaurantId: Int = -1,
     val createTime: String = "",
     val phone: String = "",
+    val star: Double = 0.0,
     val minPrice: Int = 0,
     val offlinePayment: Boolean = false,
     val closeTime: String = "",
