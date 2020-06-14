@@ -27,7 +27,10 @@ class MainEventAdapter : RecyclerView.Adapter<MainEventAdapter.MainEventViewHold
 
     inner class MainEventViewHolder(private val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Event) {
-            Glide.with(binding.root.context).load(item.bannerImageURL).into(binding.imageEvent)
+            Glide.with(binding.root.context).load(item.bannerImage).into(binding.imageEvent)
+            binding.imageEvent.setOnClickListener {
+                // TODO : item.mainImage 를 이용해 EventActivity를 열고, string을 intent로 전달하기
+            }
         }
     }
 }
