@@ -45,7 +45,7 @@ interface ThikiraApi {
 
     @GET("restaurant")
     suspend fun getRestaurantList(
-        @Query("sortOption") sortOption: String,
+        @Query("sort_option") sort_option: String,
         @Query("category") category: String
     ): List<Restaurant>
 }
