@@ -2,7 +2,6 @@ package com.example.api
 
 import com.example.api.response.TokenResponse
 import com.example.api.response.UserResponse
-import com.example.model.User
 import retrofit2.http.*
 
 interface ThikiraApi {

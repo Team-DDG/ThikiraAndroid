@@ -28,6 +28,9 @@ class LoginViewModel(
     private val _hideKeyEvent = SingleLiveEvent<Unit>()
     val hideKeyEvent: LiveData<Unit> = _hideKeyEvent
 
+    private val _startMainEvent = SingleLiveEvent<Unit>()
+    val startMainEvent: LiveData<Unit> = _startMainEvent
+
     fun onClickLogin() = viewModelScope.launch {
         try {
             if (!isValidEmail(email.value)) {
@@ -42,6 +45,7 @@ class LoginViewModel(
                 )
             )
 
+            _startMainEvent.call()
             _hideKeyEvent.call()
         } catch (e: Exception) {
             Log.d("debugError", e.message!!)
