@@ -1,11 +1,11 @@
 package com.dsm.menu
 
 import androidx.lifecycle.liveData
-import com.dsm.error.exception.ForbiddenException
 import com.dsm.menu.viewModel.MenuCategoryViewModel
 import com.dsm.model.MenuCategory
 import com.dsm.model.repository.MenuCategoryRepository
 import com.dsm.testcomponent.BaseTest
+import com.example.error.exception.ForbiddenException
 import com.jraska.livedata.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

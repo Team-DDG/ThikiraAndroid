@@ -5,11 +5,11 @@ import com.dsm.account.R
 import com.dsm.androidcomponent.SingleLiveEvent
 import com.dsm.androidcomponent.ext.isValidEmail
 import com.dsm.androidcomponent.ext.isValidPassword
-import com.dsm.error.exception.ConflictException
 import com.dsm.firebase.FirebaseStorageSource
 import com.dsm.model.Address
 import com.dsm.model.repository.AccountRepository
 import com.dsm.model.repository.AuthRepository
+import com.example.error.exception.ConflictException
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -172,8 +172,8 @@ class RegisterViewModel(
                     "image" to imageUrl.value,
                     "name" to restaurantName.value,
                     "phone" to phoneNum.value,
-                    "add_street" to address.value!!.roadAddress,
-                    "add_parcel" to address.value!!.address,
+                    "road_address" to address.value!!.roadAddress,
+                    "address" to address.value!!.address,
                     "area" to area.value?.reduce { acc, s -> "$acc,$s" },
                     "category" to category.value,
                     "min_price" to minPrice.value?.toInt(),

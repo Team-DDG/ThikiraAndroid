@@ -3,10 +3,10 @@ package com.dsm.setting.viewModel
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.R
 import com.dsm.androidcomponent.SingleLiveEvent
-import com.dsm.error.exception.ForbiddenException
-import com.dsm.error.exception.UnauthorizedException
 import com.dsm.model.repository.AccountRepository
 import com.dsm.model.repository.AuthRepository
+import com.example.error.exception.ForbiddenException
+import com.example.error.exception.UnauthorizedException
 import kotlinx.coroutines.launch
 
 class UnregisterViewModel(

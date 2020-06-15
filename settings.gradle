@@ -16,7 +16,6 @@ include ':restaurant-app:data:db'
 include ':restaurant-app:data:db'
 include ':restaurant-app:data:api'
 include ':restaurant-app:data:pref'
-include ':restaurant-app:data:error'
 
 include ':user-app'
 include ':user-app:base'

@@ -2,9 +2,9 @@ package com.dsm.menu.viewModel
 
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.SingleLiveEvent
-import com.dsm.error.exception.ConflictException
 import com.dsm.menu.R
 import com.dsm.model.repository.MenuCategoryRepository
+import com.example.error.exception.ConflictException
 import kotlinx.coroutines.launch
 
 class AddMenuCategoryViewModel(
