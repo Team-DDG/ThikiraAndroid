@@ -14,7 +14,7 @@ interface LocalRestaurantDataSource {
 
     suspend fun changeAddress(address: String, roadAddress: String)
 
-    fun observeRestaurantInfo(): LiveData<RestaurantEntity>
+    fun observeRestaurantInfo(): LiveData<RestaurantEntity?>
 
     suspend fun insertRestaurantInfo(restaurant: RestaurantEntity)
 
@@ -34,7 +34,7 @@ class LocalRestaurantDataSourceImpl(
         restaurantDao.updateAddress(address, roadAddress)
     }
 
-    override fun observeRestaurantInfo(): LiveData<RestaurantEntity> =
+    override fun observeRestaurantInfo(): LiveData<RestaurantEntity?> =
         restaurantDao.observeRestaurant()
 
     override suspend fun insertRestaurantInfo(restaurant: RestaurantEntity) = withContext(ioDispatcher) {
