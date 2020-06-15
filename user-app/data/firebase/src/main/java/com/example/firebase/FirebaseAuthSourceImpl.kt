@@ -1,6 +1,7 @@
 package com.example.firebase
 
 import android.app.Activity
+import android.util.Log
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
@@ -16,26 +17,25 @@ class FirebaseAuthSourceImpl : FirebaseAuthSource {
         onVerificationCompleted: (code: String) -> Unit,
         onVerificationFailed: () -> Unit
     ) {
-        PhoneAuthProvider.getInstance().apply {
-            verifyPhoneNumber(
-                phoneNumber,
-                120,
-                TimeUnit.SECONDS,
-                activity,
-                object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                    override fun onVerificationCompleted(p0: PhoneAuthCredential) {
-                        var code = p0.smsCode
-                        if(code != null){
-                            onVerificationCompleted(code)
-                        }
+        Log.d("firebase_log", phoneNumber)
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+            phoneNumber,
+            120,
+            TimeUnit.SECONDS,
+            activity,
+            object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                override fun onVerificationCompleted(p0: PhoneAuthCredential) {
+                    val code = p0.smsCode
+                    if (code != null) {
+                        onVerificationCompleted(code)
                     }
-
-                    override fun onVerificationFailed(p0: FirebaseException) {
-                        onVerificationFailed()
-                    }
-
                 }
-            )
-        }
+
+                override fun onVerificationFailed(p0: FirebaseException) {
+                    Log.d("firebase_log", p0.message)
+                    onVerificationFailed()
+                }
+            }
+        )
     }
 }

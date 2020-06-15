@@ -6,6 +6,7 @@ import androidx.lifecycle.observe
 import com.dsm.androidcomponent.base.BaseActivity
 import com.dsm.androidcomponent.ext.hideKeyboard
 import com.dsm.androidcomponent.ext.setupToastEvent
+import com.dsm.main.MainActivity
 import com.example.account.databinding.ActivityLoginBinding
 import com.example.account.viewmodel.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,7 +27,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         }
 
         viewModel.hideKeyEvent.observe(this) { hideKeyboard() }
+        viewModel.startMainEvent.observe(this) { startMainActivity() }
 
         binding.viewmodel = viewModel
+    }
+
+    private fun startMainActivity() {
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }
