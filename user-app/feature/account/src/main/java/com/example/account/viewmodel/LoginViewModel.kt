@@ -1,13 +1,10 @@
 package com.example.account.viewmodel
 
-import android.app.Activity
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.SingleLiveEvent
 import com.dsm.androidcomponent.ext.isValidEmail
-import com.dsm.main.MainActivity
 import com.example.model.repository.AuthRepository
 import com.example.account.R
-import com.example.account.Signup1Activity
 import com.example.error.exception.NotFoundException
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -30,8 +27,11 @@ class LoginViewModel(
     private val _hideKeyEvent = SingleLiveEvent<Unit>()
     val hideKeyEvent: LiveData<Unit> = _hideKeyEvent
 
-    private val _navigateEvent = SingleLiveEvent<Activity>()
-    val navigateEvent: LiveData<Activity> = _navigateEvent
+    private val _navigateMainEvent = SingleLiveEvent<Unit>()
+    val navigateMainEvent: LiveData<Unit> = _navigateMainEvent
+
+    private val _navigateSignupEvent = SingleLiveEvent<Unit>()
+    val navigateSignupEvent: LiveData<Unit> = _navigateSignupEvent
 
     fun onClickLogin() = viewModelScope.launch {
         try {
@@ -47,7 +47,7 @@ class LoginViewModel(
                 )
             )
 
-            _navigateEvent.value = MainActivity()
+            _navigateMainEvent.call()
             _hideKeyEvent.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
@@ -58,6 +58,6 @@ class LoginViewModel(
     }
 
     fun onClickSignup() {
-        _navigateEvent.value = Signup1Activity()
+        _navigateSignupEvent.call()
     }
 }

@@ -75,16 +75,10 @@ fun AppCompatActivity.hideKeyboard() {
         .hideSoftInputFromWindow( window.attributes.token, 0)
 }
 
-fun AppCompatActivity.setupNavigateEvent(
-    navigateEvent: LiveData<Activity>
-) {
-    navigateEvent.observe(this, Observer { navigateEvent ->
-        startActivity(Intent(this, navigateEvent::class.java))
+inline fun <reified T: Activity> AppCompatActivity.setupNavigateEvent(navigateEvent: LiveData<Unit>){
+    navigateEvent.observe(this, Observer {
+        startActivity(Intent(this, T::class.java))
     })
-}
-
-inline fun <reified T: Activity> AppCompatActivity.startActivity(){
-    startActivity(Intent(this, T::class.java))
 }
 
 fun Spinner.onItemSelectedListener(onItemSelected: (selectedItem: String) -> Unit) {
