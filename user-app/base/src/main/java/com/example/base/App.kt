@@ -20,7 +20,7 @@ class App : Application() {
                     apiModule,
                     repositoryModule,
                     accountModule,
-                    mainModule
+                    mainModule,
                     firebaseModule
                 )
             )
