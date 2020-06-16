@@ -23,16 +23,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
         setupToastEvent(viewModel.toastEvent)
 
+        setupNavigateEvent(viewModel.navigateEvent)
+
         viewModel.hideKeyEvent.observe(this) { hideKeyboard() }
 
-        viewModel.navigateMainEvent.observe(this) { startActivity<MainActivity>() }
+        viewModel.navigateEvent.observe(this) { startActivity<MainActivity>() }
 
         binding.viewmodel = viewModel
-    }
-
-    private fun setupNavigate() {
-        setupNavigateEvent(viewModel.navigateMainEvent)
-
-        binding.tvRegisterLogin.setOnClickListener { startActivity<Signup1Activity>() }
     }
 }
