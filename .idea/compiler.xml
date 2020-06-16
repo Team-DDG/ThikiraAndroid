@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="AndroidStudioProjects-ThikiraAndroid-error" target="1.7" />
       <module name="BuildSrc" target="1.7" />
       <module name="buildSrc" target="1.7" />
       <module name="coreComponent" target="1.7" />
