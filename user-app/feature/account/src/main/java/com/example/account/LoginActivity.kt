@@ -27,8 +27,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
         viewModel.hideKeyEvent.observe(this) { hideKeyboard() }
 
-        viewModel.navigateEvent.observe(this) { startActivity<MainActivity>() }
-
         binding.viewmodel = viewModel
     }
 }
