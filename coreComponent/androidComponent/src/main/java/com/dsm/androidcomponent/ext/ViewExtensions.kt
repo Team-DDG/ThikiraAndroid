@@ -1,6 +1,7 @@
 package com.dsm.androidcomponent.ext
 
 import android.app.Activity
+import android.content.Intent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
@@ -72,6 +73,18 @@ fun Fragment.hideKeyboard() {
 fun AppCompatActivity.hideKeyboard() {
     (this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
         .hideSoftInputFromWindow( window.attributes.token, 0)
+}
+
+fun AppCompatActivity.setupNavigateEvent(
+    navigateEvent: LiveData<Activity>
+) {
+    navigateEvent.observe(this, Observer { navigateEvent ->
+        startActivity(Intent(this, navigateEvent::class.java))
+    })
+}
+
+inline fun <reified T: Activity> AppCompatActivity.startActivity(){
+    startActivity(Intent(this, T::class.java))
 }
 
 fun Spinner.onItemSelectedListener(onItemSelected: (selectedItem: String) -> Unit) {

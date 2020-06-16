@@ -38,9 +38,11 @@ android {
 
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
+
     implementation project(path: ':user-app:data:api')
     implementation project(path: ':user-app:data:repository')
     implementation project(path: ':user-app:data:firebase')
+
     implementation project(path: ':user-app:feature:account')
     implementation project(path: ':user-app:feature:main')
 
