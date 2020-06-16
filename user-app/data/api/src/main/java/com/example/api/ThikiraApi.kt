@@ -40,7 +40,7 @@ interface ThikiraApi {
     @POST("auth/password")
     suspend fun confirmPassword(@Field("password") password: String)
 
-    @POST("auth/sing_in")
+    @POST("auth/sign_in")
     suspend fun login(@Body body: Any): TokenResponse
 
     /**
