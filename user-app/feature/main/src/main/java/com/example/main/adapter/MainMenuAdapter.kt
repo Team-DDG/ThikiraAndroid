@@ -1,10 +1,10 @@
-package com.dsm.main.adapter
+package com.example.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dsm.main.adapter.MainMenuAdapter.MainMenuViewHolder
+import com.example.main.adapter.MainMenuAdapter.MainMenuViewHolder
 import com.dsm.main.databinding.ItemRestaurantBinding
 import com.example.model.Restaurant
 import java.text.NumberFormat
