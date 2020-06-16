@@ -1,11 +1,12 @@
 package com.example.account
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.observe
 import com.dsm.androidcomponent.base.BaseActivity
 import com.dsm.androidcomponent.ext.hideKeyboard
+import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
+import com.dsm.androidcomponent.ext.startActivity
 import com.dsm.main.MainActivity
 import com.example.account.databinding.ActivityLoginBinding
 import com.example.account.viewmodel.LoginViewModel
@@ -22,17 +23,16 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
         setupToastEvent(viewModel.toastEvent)
 
-        binding.tvRegisterLogin.setOnClickListener {
-            startActivity(Intent(this, Register1Activity::class.java))
-        }
-
         viewModel.hideKeyEvent.observe(this) { hideKeyboard() }
-        viewModel.startMainEvent.observe(this) { startMainActivity() }
+
+        viewModel.navigateMainEvent.observe(this) { startActivity<MainActivity>() }
 
         binding.viewmodel = viewModel
     }
 
-    private fun startMainActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
+    private fun setupNavigate() {
+        setupNavigateEvent(viewModel.navigateMainEvent)
+
+        binding.tvRegisterLogin.setOnClickListener { startActivity<Signup1Activity>() }
     }
 }

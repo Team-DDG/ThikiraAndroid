@@ -3,15 +3,16 @@ package com.example.account
 import android.os.Bundle
 import com.dsm.androidcomponent.base.BaseActivity
 import com.dsm.androidcomponent.ext.setupToastEvent
-import com.example.account.databinding.ActivityRegister2Binding
-import com.example.account.viewmodel.RegisterViewModel
+import com.example.account.databinding.ActivitySignup1Binding
+import com.example.account.viewmodel.SignupViewModel
+import kotlinx.android.synthetic.main.activity_signup1.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class Register2Activity: BaseActivity<ActivityRegister2Binding>(){
+class Signup1Activity: BaseActivity<ActivitySignup1Binding>(){
     override val layoutResId: Int
-        get() = R.layout.activity_register2
+        get() = R.layout.activity_signup1
 
-    private val viewModel: RegisterViewModel by viewModel()
+    private val viewModel : SignupViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,5 +20,9 @@ class Register2Activity: BaseActivity<ActivityRegister2Binding>(){
         setupToastEvent(viewModel.toastEvent)
 
         binding.viewmodel = viewModel
+
+        btn_send_register1.setOnClickListener{
+            viewModel.onClickStartVerify(this)
+        }
     }
 }

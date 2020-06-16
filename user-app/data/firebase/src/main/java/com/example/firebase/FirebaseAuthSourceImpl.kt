@@ -1,7 +1,6 @@
 package com.example.firebase
 
 import android.app.Activity
-import android.util.Log
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
@@ -9,7 +8,9 @@ import java.util.concurrent.TimeUnit
 
 class FirebaseAuthSourceImpl : FirebaseAuthSource {
 
-    private val phoneAuthProvider: PhoneAuthProvider by lazy { PhoneAuthProvider.getInstance() }
+    companion object {
+        const val VERIFY_PHONE_TIME_OUT_DURATION: Long = 120
+    }
 
     override fun userAuthWithPhone(
         phoneNumber: String,
@@ -17,10 +18,9 @@ class FirebaseAuthSourceImpl : FirebaseAuthSource {
         onVerificationCompleted: (code: String) -> Unit,
         onVerificationFailed: () -> Unit
     ) {
-        Log.d("firebase_log", phoneNumber)
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
             phoneNumber,
-            120,
+            VERIFY_PHONE_TIME_OUT_DURATION,
             TimeUnit.SECONDS,
             activity,
             object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -32,7 +32,6 @@ class FirebaseAuthSourceImpl : FirebaseAuthSource {
                 }
 
                 override fun onVerificationFailed(p0: FirebaseException) {
-                    Log.d("firebase_log", p0.message)
                     onVerificationFailed()
                 }
             }

@@ -1,19 +1,16 @@
 package com.example.account.viewmodel
 
 import android.app.Activity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.dsm.androidcomponent.SingleLiveEvent
 import com.dsm.androidcomponent.ext.isValidEmail
 import com.example.account.R
 import com.example.error.exception.ConflictException
 import com.example.firebase.FirebaseAuthSource
 
-class RegisterViewModel(
+class SignupViewModel(
     private val firebaseAuthSource: FirebaseAuthSource
-): ViewModel() {
+) : ViewModel() {
     val email = MutableLiveData<String>()
     val nickname = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -29,12 +26,12 @@ class RegisterViewModel(
     private val _authCode = MutableLiveData<String>()
     val authCode: LiveData<String> = _authCode
 
-    val isStartVerifyEnable: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
-        value = !phone.value.isNullOrBlank()
+    val isStartVerifyEnable: LiveData<Boolean> = phone.map {
+        !it.isNullOrBlank()
     }
 
-    val isVerifyEnable: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
-        value = !certificationNum.value.isNullOrBlank()
+    val isVerifyEnable: LiveData<Boolean> = certificationNum.map {
+        !it.isNullOrBlank()
     }
 
     fun onClickStartVerify(activity: Activity) {
@@ -58,7 +55,7 @@ class RegisterViewModel(
     fun onClickDuplicationCheck() {
         val currentEmail = email.value
 
-        if(currentEmail != null || currentEmail.isNullOrBlank()){
+        if (currentEmail != null || currentEmail.isNullOrBlank()) {
             _toastEvent.value = R.string.fail_email_blank
             return
         }
@@ -74,8 +71,8 @@ class RegisterViewModel(
     private fun checkEmailDuplication(email: String) {
         try {
 
-        } catch (e: Exception){
-            _toastEvent.value = when(e) {
+        } catch (e: Exception) {
+            _toastEvent.value = when (e) {
                 is ConflictException -> R.string.fail_email_conflict
                 else -> R.string.fail_exception_internal
             }

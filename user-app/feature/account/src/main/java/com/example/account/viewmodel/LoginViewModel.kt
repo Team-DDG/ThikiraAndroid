@@ -1,9 +1,10 @@
 package com.example.account.viewmodel
 
-import android.util.Log
+import android.app.Activity
 import androidx.lifecycle.*
 import com.dsm.androidcomponent.SingleLiveEvent
 import com.dsm.androidcomponent.ext.isValidEmail
+import com.dsm.main.MainActivity
 import com.example.model.repository.AuthRepository
 import com.example.account.R
 import com.example.error.exception.NotFoundException
@@ -28,8 +29,8 @@ class LoginViewModel(
     private val _hideKeyEvent = SingleLiveEvent<Unit>()
     val hideKeyEvent: LiveData<Unit> = _hideKeyEvent
 
-    private val _startMainEvent = SingleLiveEvent<Unit>()
-    val startMainEvent: LiveData<Unit> = _startMainEvent
+    private val _navigateMainEvent = SingleLiveEvent<Activity>()
+    val navigateMainEvent: LiveData<Activity> = _navigateMainEvent
 
     fun onClickLogin() = viewModelScope.launch {
         try {
@@ -45,10 +46,9 @@ class LoginViewModel(
                 )
             )
 
-            _startMainEvent.call()
+            _navigateMainEvent.value = MainActivity()
             _hideKeyEvent.call()
         } catch (e: Exception) {
-            Log.d("debugError", e.message!!)
             _toastEvent.value = when (e) {
                 is NotFoundException -> R.string.fail_account_not_found
                 else -> R.string.fail_exception_internal
