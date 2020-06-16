@@ -2,7 +2,6 @@ package com.example.api
 
 import com.example.api.response.TokenResponse
 import com.example.api.response.UserResponse
-import com.example.model.User
 import retrofit2.http.*
 
 interface ThikiraApi {
@@ -39,6 +38,6 @@ interface ThikiraApi {
     @POST("auth/password")
     suspend fun confirmPassword(@Field("password") password: String)
 
-    @POST("auth/sing_in")
+    @POST("auth/sign_in")
     suspend fun login(@Body body: Any): TokenResponse
 }
