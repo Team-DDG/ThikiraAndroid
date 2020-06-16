@@ -13,7 +13,6 @@ buildscript {
         classpath Dep.GradlePlugin.gradle
         classpath Dep.GradlePlugin.kotlinGradlePlugin
         classpath Dep.GradlePlugin.googleService
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
