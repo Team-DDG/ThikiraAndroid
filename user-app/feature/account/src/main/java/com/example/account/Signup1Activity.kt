@@ -2,6 +2,7 @@ package com.example.account
 
 import android.os.Bundle
 import com.dsm.androidcomponent.base.BaseActivity
+import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
 import com.example.account.databinding.ActivitySignup1Binding
 import com.example.account.viewmodel.SignupViewModel
@@ -18,6 +19,8 @@ class Signup1Activity: BaseActivity<ActivitySignup1Binding>(){
         super.onCreate(savedInstanceState)
 
         setupToastEvent(viewModel.toastEvent)
+
+        setupNavigateEvent<Signup2Activity>(viewModel.navigateSignup2Event)
 
         binding.viewmodel = viewModel
 

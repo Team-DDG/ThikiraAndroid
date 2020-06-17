@@ -1,6 +1,7 @@
 package com.example.firebase
 
 import android.app.Activity
+import android.util.Log
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
@@ -32,6 +33,7 @@ class FirebaseAuthSourceImpl : FirebaseAuthSource {
                 }
 
                 override fun onVerificationFailed(p0: FirebaseException) {
+                    Log.d("firebase_error", p0.message!!)
                     onVerificationFailed()
                 }
             }
