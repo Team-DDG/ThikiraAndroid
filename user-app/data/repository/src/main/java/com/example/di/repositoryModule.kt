@@ -11,5 +11,5 @@ import org.koin.dsl.module
 val repositoryModule = module {
     factory<AuthRepository> { AuthRepositoryImpl(get(), get()) }
     factory<RestaurantRepository> { RestaurantRepositoryImpl(get()) }
-    factory<EventRepository> { EventRepositoryImpl(get(), get()) }
+    factory<EventRepository> { EventRepositoryImpl(get()) }
 }
