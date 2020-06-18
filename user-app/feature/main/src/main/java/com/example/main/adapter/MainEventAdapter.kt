@@ -1,4 +1,4 @@
-package com.dsm.main.adapter
+package com.example.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

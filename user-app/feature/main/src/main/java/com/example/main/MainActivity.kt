@@ -1,10 +1,11 @@
-package com.dsm.main
+package com.example.main
 
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.dsm.androidcomponent.base.BaseActivity
-import com.dsm.main.adapter.MainEventAdapter
-import com.dsm.main.adapter.MainMenuAdapter
+import com.dsm.main.R
+import com.example.main.adapter.MainEventAdapter
+import com.example.main.adapter.MainMenuAdapter
 import com.dsm.main.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
