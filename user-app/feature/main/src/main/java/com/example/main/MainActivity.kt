@@ -10,7 +10,6 @@ import com.dsm.main.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override val layoutResId: Int
