@@ -8,14 +8,14 @@
 
         <variable
             name="viewModel"
-            type="com.dsm.main.MainViewModel" />
+            type="com.example.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        tools:context="com.dsm.main.MainActivity">
+        tools:context="com.example.main.MainActivity">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_main"
