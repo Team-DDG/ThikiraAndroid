@@ -24,7 +24,7 @@ class RemoteAccountDataSourceImpl(
         try {
             thikiraApi.register(body)
         } catch (e: Exception) {
-            throw  errorHandler.getNetworkException(e)
+            throw errorHandler.getNetworkException(e)
         }
     }
 
@@ -32,7 +32,7 @@ class RemoteAccountDataSourceImpl(
         try {
             thikiraApi.leaveThikira()
         } catch (e: Exception) {
-            throw  errorHandler.getNetworkException(e)
+            throw errorHandler.getNetworkException(e)
         }
     }
 
@@ -40,7 +40,8 @@ class RemoteAccountDataSourceImpl(
         try {
             thikiraApi.changePassword(newPassword)
         } catch (e: Exception) {
-            throw  errorHandler.getNetworkException(e)
+            throw errorHandler.getNetworkException(e)
         }
     }
+
 }

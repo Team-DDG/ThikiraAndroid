@@ -6,7 +6,7 @@ import com.dsm.androidcomponent.base.BaseActivity
 import com.dsm.androidcomponent.ext.hideKeyboard
 import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
-import com.dsm.main.MainActivity
+import com.example.main.MainActivity
 import com.example.account.databinding.ActivityLoginBinding
 import com.example.account.viewmodel.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

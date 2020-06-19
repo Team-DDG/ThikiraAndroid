@@ -9,6 +9,6 @@ val accountModule = module {
 
     viewModel { LoginViewModel(get()) }
 
-    viewModel { SignupViewModel(get()) }
+    viewModel { SignupViewModel(get(), get()) }
 
 }
