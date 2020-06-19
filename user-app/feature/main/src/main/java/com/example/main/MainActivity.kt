@@ -3,6 +3,7 @@ package com.example.main
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.dsm.androidcomponent.base.BaseActivity
+import com.dsm.androidcomponent.ext.setupToastEvent
 import com.dsm.main.R
 import com.example.main.adapter.MainEventAdapter
 import com.example.main.adapter.MainMenuAdapter
@@ -25,6 +26,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         setUpViewPager()
         setUpRecyclerView()
         setUpTabLayoutListener()
+        setupToastEvent(viewModel.toastEvent)
 
         binding.viewModel = viewModel
     }
