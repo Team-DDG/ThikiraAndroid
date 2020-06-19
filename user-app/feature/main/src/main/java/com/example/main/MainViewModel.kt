@@ -4,6 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dsm.androidcomponent.SingleLiveEvent
+import com.dsm.androidcomponent.ext.setupToastEvent
+import com.dsm.main.R
+import com.example.error.exception.ForbiddenException
+import com.example.error.exception.NotFoundException
 import com.example.model.Event
 import com.example.model.Restaurant
 import com.example.model.repository.EventRepository
@@ -16,11 +21,16 @@ class MainViewModel(
 ) : ViewModel() {
     private val _events: MutableLiveData<List<Event>> = MutableLiveData(listOf())
     val events: LiveData<List<Event>> = _events
+
     private val _restaurants: MutableLiveData<List<Restaurant>> = MutableLiveData(listOf())
     val restaurants: LiveData<List<Restaurant>> = _restaurants
+
     private val restaurantMap: HashMap<String, List<Restaurant>> = hashMapOf()
 
     private val isRestaurantLoading = MutableLiveData(false)
+
+    private val _toastEvent = SingleLiveEvent<Int>()
+    val toastEvent: LiveData<Int> = _toastEvent
 
     init {
         setRestaurantHashMap()
@@ -49,7 +59,15 @@ class MainViewModel(
     }
 
     private fun getEventList() = viewModelScope.launch {
-        _events.value = eventRepository.getEventList()
+        try {
+            _events.value = eventRepository.getEventList()
+        } catch (e: Exception) {
+            when (e) {
+                is ForbiddenException -> _toastEvent.value = R.string.fail_exception_forbidden
+                is NotFoundException -> Unit
+                else -> _toastEvent.value = R.string.fail_exception_internal
+            }
+        }
     }
 
     fun getRestaurantList(category: String) = viewModelScope.launch {
@@ -57,7 +75,15 @@ class MainViewModel(
         if (restaurantMap[category]!!.isNotEmpty()) {
             _restaurants.value = restaurantMap[category]
         } else {
-            _restaurants.value = restaurantRepository.getRestaurantList("NEARNESS", category)
+            try {
+                _restaurants.value = restaurantRepository.getRestaurantList("NEARNESS", category)
+            } catch (e: Exception) {
+                when (e) {
+                    is ForbiddenException -> _toastEvent.value = R.string.fail_exception_forbidden
+                    is NotFoundException -> Unit
+                    else -> _toastEvent.value = R.string.fail_exception_internal
+                }
+            }
         }
         isRestaurantLoading.value = false
     }
