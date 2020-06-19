@@ -1,5 +1,6 @@
 package com.example.main
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,11 +14,13 @@ class MainViewModel(
     private val restaurantRepository: RestaurantRepository,
     private val eventRepository: EventRepository
 ) : ViewModel() {
-    val eventList: MutableLiveData<List<Event>> = MutableLiveData(listOf())
-    val restaurantList: MutableLiveData<List<Restaurant>> = MutableLiveData(listOf())
+    private val _events: MutableLiveData<List<Event>> = MutableLiveData(listOf())
+    val events: LiveData<List<Event>> = _events
+    private val _restaurants: MutableLiveData<List<Restaurant>> = MutableLiveData(listOf())
+    val restaurants: LiveData<List<Restaurant>> = _restaurants
     private val restaurantMap: HashMap<String, List<Restaurant>> = hashMapOf()
 
-    val progressBarVisibility = MutableLiveData(false)
+    private val isRestaurantLoading = MutableLiveData(false)
 
     init {
         setRestaurantHashMap()
@@ -26,35 +29,37 @@ class MainViewModel(
     }
 
     private fun setRestaurantHashMap() {
-        restaurantMap.putAll(
-            hashMapOf(
-                Pair("한식", listOf()),
-                Pair("중식", listOf()),
-                Pair("일식", listOf()),
-                Pair("분식", listOf()),
-                Pair("치킨", listOf()),
-                Pair("피자", listOf()),
-                Pair("야식", listOf()),
-                Pair("도시락", listOf()),
-                Pair("디저트", listOf()),
-                Pair("족발 보쌈", listOf()),
-                Pair("패스트푸드", listOf())
+        restaurantMap.run {
+            putAll(
+                hashMapOf(
+                    "한식" to listOf(),
+                    "중식" to listOf(),
+                    "일식" to listOf(),
+                    "분식" to listOf(),
+                    "치킨" to listOf(),
+                    "피자" to listOf(),
+                    "야식" to listOf(),
+                    "도시락" to listOf(),
+                    "디저트" to listOf(),
+                    "족발 보쌈" to listOf(),
+                    "패스트푸드" to listOf()
+                )
             )
-        )
+        }
     }
 
     private fun getEventList() = viewModelScope.launch {
-        eventList.value = eventRepository.getEventList()
+        _events.value = eventRepository.getEventList()
     }
 
     fun getRestaurantList(category: String) = viewModelScope.launch {
-        progressBarVisibility.value = true
+        isRestaurantLoading.value = true
         if (restaurantMap[category]!!.isNotEmpty()) {
-            restaurantList.value = restaurantMap[category]
+            _restaurants.value = restaurantMap[category]
         } else {
-            restaurantList.value = restaurantRepository.getRestaurantList("NEARNESS", category)
+            _restaurants.value = restaurantRepository.getRestaurantList("NEARNESS", category)
         }
-        progressBarVisibility.value = false
+        isRestaurantLoading.value = false
     }
 
 }

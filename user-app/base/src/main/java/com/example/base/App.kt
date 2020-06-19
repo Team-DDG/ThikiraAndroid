@@ -19,9 +19,10 @@ class App : Application() {
                 listOf(
                     apiModule,
                     repositoryModule,
+                    firebaseModule,
+
                     accountModule,
-                    mainModule,
-                    firebaseModule
+                    mainModule
                 )
             )
         }

@@ -19,7 +19,7 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_main"
-            event_list="@{viewModel.eventList}"
+            event_list="@{viewModel.events}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/guide1_main"
@@ -107,7 +107,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_main"
-            restaurant_list="@{viewModel.restaurantList}"
+            restaurant_list="@{viewModel.restaurants}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -119,7 +119,7 @@
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="@{viewModel.progressBarVisibility ? View.VISIBLE : View.INVISIBLE}"
+            android:visibility="@{viewModel.isRestaurantLoding ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
