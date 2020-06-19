@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.dsm.androidcomponent.ext.numberAutoComma
 import com.example.main.adapter.MainMenuAdapter.MainMenuViewHolder
 import com.dsm.main.databinding.ItemRestaurantBinding
 import com.example.model.Restaurant
@@ -30,11 +31,10 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuViewHolder>() {
 
     inner class MainMenuViewHolder(private val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Restaurant) {
-            Glide.with(binding.root.context).load(item.image).into(binding.rvMainImage)
+            Glide.with(itemView.context).load(item.image).into(binding.rvMainImage)
             binding.rvMainRestaurantName.text = item.name
             binding.rvMainScore.text = "${item.star}"
-            binding.rvMainMinPrice.text = "${NumberFormat.getNumberInstance(Locale.US).format(item.minPrice)}원 부터"
+            binding.rvMainMinPrice.text = "${item.minPrice.numberAutoComma()}${binding.rvMainMinPrice.text}"
         }
     }
-    
 }

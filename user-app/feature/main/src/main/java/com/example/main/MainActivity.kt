@@ -42,7 +42,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun setUpTabLayoutListener() {
         binding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                binding.viewModel?.getRestaurantList(tab.text.toString())
+                viewModel.getRestaurantList(tab.text.toString())
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
