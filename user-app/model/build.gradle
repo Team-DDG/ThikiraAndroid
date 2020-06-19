@@ -10,5 +10,8 @@ dependencies {
     implementation project(path: ':coreComponent:androidComponent')
 
     implementation Dep.Kotlin.kotlin
+
     implementation Dep.AndroidX.appCompat
+
+    implementation Dep.Retrofit.gson
 }
