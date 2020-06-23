@@ -25,6 +25,9 @@ dependencies {
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
 
     implementation Dep.AndroidX.Koin.viewModel
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
 
     testImplementation Dep.Test.mockitoCore
     testImplementation Dep.Test.mockitoInline

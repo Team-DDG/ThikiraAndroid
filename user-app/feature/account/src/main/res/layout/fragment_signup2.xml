@@ -2,10 +2,11 @@
 <layout>
 
     <data>
+        <import type="android.view.View"/>
+
         <variable
             name="viewmodel"
             type="com.example.account.viewmodel.SignupViewModel" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -53,6 +54,7 @@
             android:textColorHint="@color/colorGrey"
             android:textSize="16sp"
             android:gravity="center_vertical"
+            android:text="@={viewmodel.email}"
             app:layout_constraintLeft_toLeftOf="@id/gl_left_register2"
             app:layout_constraintRight_toRightOf="@id/gl_right_register2"
             app:layout_constraintTop_toBottomOf="@id/tb_register2" />
@@ -62,8 +64,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:text="@string/check_conflict"
-            android:textColor="@color/colorGrey"
+            android:textColor="@{viewmodel.isEmailVerified ? @color/colorGrey : @color/colorPrimaryLight}"
             android:textSize="16sp"
+            android:onClick="@{() -> viewmodel.onClickDuplicationCheck()}"
             app:layout_constraintBottom_toBottomOf="@id/et_email_register2"
             app:layout_constraintEnd_toEndOf="@id/et_email_register2"
             app:layout_constraintTop_toTopOf="@id/et_email_register2" />
@@ -83,6 +86,7 @@
             android:textColorHint="@color/colorGrey"
             android:textSize="16sp"
             android:gravity="center_vertical"
+            android:text="@={viewmodel.password}"
             app:layout_constraintLeft_toLeftOf="@id/gl_left_register2"
             app:layout_constraintRight_toRightOf="@id/gl_right_register2"
             app:layout_constraintTop_toBottomOf="@id/et_email_register2" />
@@ -102,6 +106,7 @@
             android:textColorHint="@color/colorGrey"
             android:textSize="16sp"
             android:gravity="center_vertical"
+            android:text="@={viewmodel.passwordCheck}"
             app:layout_constraintLeft_toLeftOf="@id/gl_left_register2"
             app:layout_constraintRight_toRightOf="@id/gl_right_register2"
             app:layout_constraintTop_toBottomOf="@id/et_pwd_register2" />
@@ -112,6 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:src="@drawable/ic_check_grey_24dp"
+            android:visibility="@{viewmodel.isPasswordChecked ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="@id/et_pwdCheck_register2"
             app:layout_constraintEnd_toEndOf="@id/et_pwdCheck_register2"
             app:layout_constraintTop_toTopOf="@id/et_pwdCheck_register2" />
@@ -125,17 +131,18 @@
             android:drawableStart="@drawable/ic_person_grey_24dp"
             android:drawablePadding="16dp"
             android:hint="@string/nickname"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:paddingStart="24dp"
             android:paddingLeft="24dp"
             android:textColorHint="@color/colorGrey"
             android:textSize="16sp"
             android:gravity="center_vertical"
+            android:text="@={viewmodel.nickname}"
             app:layout_constraintLeft_toLeftOf="@id/gl_left_register2"
             app:layout_constraintRight_toRightOf="@id/gl_right_register2"
             app:layout_constraintTop_toBottomOf="@id/et_pwdCheck_register2" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.dsm.androidcomponent.view.EnableButton
             android:id="@+id/btn_register"
             android:layout_width="0dp"
             android:layout_height="48dp"
@@ -146,6 +153,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
+            app:enable="@{viewmodel.isSignupEnable}"
+            android:onClick="@{() -> viewmodel.onClickSignup()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/gl_right_register2"
             app:layout_constraintStart_toStartOf="@id/gl_left_register2" />
