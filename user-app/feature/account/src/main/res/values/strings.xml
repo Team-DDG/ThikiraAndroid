@@ -19,7 +19,7 @@
 
     <string name="success_verify_phone">인증에 성공하였습니다</string>
     <string name="success_email_duplication_check">사용 가능한 이메일입니다</string>
-    <string name="success_register_restaurant">회원가입에 성공하셨습니다</string>
+    <string name="success_signin_user">회원가입에 성공하셨습니다</string>
 
     <string name="fail_verify_phone">인증에 실패하였습니다</string>
     <string name="fail_account_not_found">존재하지 않는 계정입니다</string>
@@ -27,9 +27,11 @@
     <string name="fail_email_blank">이메일이 공백입니다</string>
     <string name="fail_email_invalid">유효하지 않은 이메일입니다</string>
     <string name="fail_email_conflict">이미 존재하는 이메일입니다</string>
+    <string name="fail_email_changed">이메일이 변경되었으니 중복확인을 해야합니다</string>
     <string name="fail_password_auth">비밀번호가 틀렸습니다</string>
     <string name="fail_password_invalid">유효하지 않은 비밀번호입니다</string>
     <string name="fail_re_type_different">비밀번호가 일치하지 않습니다</string>
+    <string name="fail_nickname_conflict">이미 존재하는 닉네임입니다</string>
 
     <string name="forget_id_or_pwd">아이디 | 비밀번호를 잊어버렸어요ㅠㅠ</string>
 </resources>

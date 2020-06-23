@@ -25,12 +25,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         setupNavigate()
 
         viewModel.hideKeyEvent.observe(this) { hideKeyboard() }
+        viewModel.finishLoginEvent.observe(this) { finish() }
 
         binding.viewmodel = viewModel
     }
 
     private fun setupNavigate() {
         setupNavigateEvent<MainActivity>(viewModel.navigateMainEvent)
-        setupNavigateEvent<Signup1Activity>(viewModel.navigateSignupEvent)
+        setupNavigateEvent<SignupActivity>(viewModel.navigateSignupEvent)
     }
 }
