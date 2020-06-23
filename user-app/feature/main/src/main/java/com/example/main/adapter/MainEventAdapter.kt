@@ -1,4 +1,4 @@
-package com.dsm.main.adapter
+package com.example.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,7 +27,7 @@ class MainEventAdapter : RecyclerView.Adapter<MainEventAdapter.MainEventViewHold
 
     inner class MainEventViewHolder(private val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Event) {
-            Glide.with(binding.root.context).load(item.bannerImageURL).into(binding.imageEvent)
+            Glide.with(itemView.context).load(item.bannerImage).into(binding.imageEvent)
         }
     }
 }
