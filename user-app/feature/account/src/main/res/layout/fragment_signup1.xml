@@ -128,7 +128,6 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:onClick="@{() -> viewmodel.onClickNext()}"
             app:enable="@{viewmodel.isNextEnable()}"
             app:enableBackground="@drawable/bg_button_enable"
             app:enableTextColor="@color/colorPrimary"

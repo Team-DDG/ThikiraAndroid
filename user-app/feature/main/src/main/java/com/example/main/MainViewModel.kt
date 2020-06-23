@@ -27,7 +27,8 @@ class MainViewModel(
 
     private val restaurantMap: HashMap<String, List<Restaurant>> = hashMapOf()
 
-    private val isRestaurantLoading = MutableLiveData(false)
+    private val _isRestaurantLoading = MutableLiveData(false)
+    val isRestaurantLoading: LiveData<Boolean> = _isRestaurantLoading
 
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
@@ -71,7 +72,7 @@ class MainViewModel(
     }
 
     fun getRestaurantList(category: String) = viewModelScope.launch {
-        isRestaurantLoading.value = true
+        _isRestaurantLoading.value = true
         if (restaurantMap[category]!!.isNotEmpty()) {
             _restaurants.value = restaurantMap[category]
         } else {
@@ -85,7 +86,7 @@ class MainViewModel(
                 }
             }
         }
-        isRestaurantLoading.value = false
+        _isRestaurantLoading.value = false
     }
 
 }
