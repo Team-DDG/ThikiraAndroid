@@ -11,6 +11,8 @@ android.dataBinding.enabled = true
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
 
+    implementation project(path: ':error')
+
     implementation project(path: ':user-app:model')
 
     implementation Dep.Kotlin.kotlin
@@ -21,6 +23,8 @@ dependencies {
 
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
     implementation Dep.AndroidX.LifeCycle.viewModelKtx
+
+    implementation Dep.AndroidX.Koin.viewModel
 
     implementation Dep.Glide.glide
     kapt Dep.Glide.compiler
