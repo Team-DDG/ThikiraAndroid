@@ -54,8 +54,8 @@ class SignupViewModel(
         }
     }
 
-    val isPasswordChecked: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
-        addSource(passwordCheck) { value = password.value == passwordCheck.value }
+    val isPasswordChecked: LiveData<Boolean> = passwordCheck.map {
+        password.value == passwordCheck.value
     }
 
     val isSignupEnable: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {

@@ -28,7 +28,7 @@ class MainViewModel(
     private val restaurantMap: HashMap<String, List<Restaurant>> = hashMapOf()
 
     private val _isRestaurantLoading = MutableLiveData(false)
-    val isRestaurantLoading = _isRestaurantLoading
+    val isRestaurantLoading: LiveData<Boolean> = _isRestaurantLoading
 
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
