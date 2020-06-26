@@ -34,9 +34,13 @@ class MainViewModel(
     val toastEvent: LiveData<Int> = _toastEvent
 
     init {
+        _isRestaurantLoading.value = true
+
         setRestaurantHashMap()
         getRestaurantList("한식")
         getEventList()
+
+        _isRestaurantLoading.value = false
     }
 
     private fun setRestaurantHashMap() {
@@ -60,6 +64,8 @@ class MainViewModel(
     }
 
     private fun getEventList() = viewModelScope.launch {
+        _isRestaurantLoading.value = true
+
         try {
             _events.value = eventRepository.getEventList()
         } catch (e: Exception) {
@@ -69,10 +75,13 @@ class MainViewModel(
                 else -> _toastEvent.value = R.string.fail_exception_internal
             }
         }
+
+        _isRestaurantLoading.value = false
     }
 
     fun getRestaurantList(category: String) = viewModelScope.launch {
         _isRestaurantLoading.value = true
+
         if (restaurantMap[category]!!.isNotEmpty()) {
             _restaurants.value = restaurantMap[category]
         } else {
@@ -86,6 +95,7 @@ class MainViewModel(
                 }
             }
         }
+
         _isRestaurantLoading.value = false
     }
 

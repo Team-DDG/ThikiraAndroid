@@ -14,10 +14,10 @@ class MainEventAdapter : RecyclerView.Adapter<MainEventAdapter.MainEventViewHold
         return MainEventViewHolder(ItemEventBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = Integer.MAX_VALUE
 
     override fun onBindViewHolder(holder: MainEventViewHolder, position: Int) {
-        holder.bind(items[position])
+        if (items.isNotEmpty()) holder.bind(items[position % items.size])
     }
 
     fun setList(data: List<Event>) {
