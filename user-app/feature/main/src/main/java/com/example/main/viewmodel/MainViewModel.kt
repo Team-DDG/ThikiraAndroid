@@ -1,11 +1,10 @@
-package com.example.main
+package com.example.main.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsm.androidcomponent.SingleLiveEvent
-import com.dsm.androidcomponent.ext.setupToastEvent
 import com.dsm.main.R
 import com.example.error.exception.ForbiddenException
 import com.example.error.exception.NotFoundException
