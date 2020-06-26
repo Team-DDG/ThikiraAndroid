@@ -34,6 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun setUpViewPager() {
         binding.vpMain.adapter = eventAdapter
         binding.vpMain.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.vpMain.currentItem = 1000
     }
 
     private fun setUpRecyclerView() {
