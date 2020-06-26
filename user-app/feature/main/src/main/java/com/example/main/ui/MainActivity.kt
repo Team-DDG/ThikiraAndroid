@@ -63,7 +63,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun autoScrollViewPager() {
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenResumed {
             while (isRunning) {
                 delay(3000)
                 binding.vpMain.currentItem += 1
