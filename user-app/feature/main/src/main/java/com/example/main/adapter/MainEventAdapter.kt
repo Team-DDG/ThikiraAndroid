@@ -1,11 +1,13 @@
 package com.example.main.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.model.Event
 import com.dsm.main.databinding.ItemEventBinding
+import com.example.main.ui.EventActivity
 
 class MainEventAdapter : RecyclerView.Adapter<MainEventAdapter.MainEventViewHolder>() {
     private var items: List<Event> = emptyList()
@@ -28,6 +30,11 @@ class MainEventAdapter : RecyclerView.Adapter<MainEventAdapter.MainEventViewHold
     inner class MainEventViewHolder(private val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Event) {
             Glide.with(itemView.context).load(item.bannerImage).into(binding.imageEvent)
+            binding.imageEvent.setOnClickListener {
+                val intent = Intent(binding.root.context, EventActivity::class.java)
+                intent.putExtra("index", item.mainImage)
+                binding.root.context.startActivity(intent)
+            }
         }
     }
 }
