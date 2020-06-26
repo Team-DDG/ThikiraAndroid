@@ -27,7 +27,5 @@ dependencies {
     implementation Dep.AndroidX.Koin.viewModel
 
     implementation Dep.Glide.glide
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt Dep.Glide.compiler
 }

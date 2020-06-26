@@ -12,7 +12,6 @@ import com.dsm.main.databinding.ActivityMainBinding
 import com.example.main.viewmodel.MainViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -24,7 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private val eventAdapter by lazy { MainEventAdapter() }
     private val menuAdapter by lazy { MainMenuAdapter() }
 
-    private var isRunning = true
+    private var isActivityFocused = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +63,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun autoScrollViewPager() {
         lifecycleScope.launchWhenResumed {
-            while (isRunning) {
+            while (isActivityFocused) {
                 delay(3000)
                 binding.vpMain.currentItem += 1
             }
@@ -74,11 +73,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onPause() {
         super.onPause()
-        isRunning = false
+        isActivityFocused = false
     }
 
     override fun onResume() {
         super.onResume()
-        isRunning = true
+        isActivityFocused = true
     }
 }

@@ -31,9 +31,10 @@ class MainEventAdapter : RecyclerView.Adapter<MainEventAdapter.MainEventViewHold
         fun bind(item: Event) {
             Glide.with(itemView.context).load(item.bannerImage).into(binding.imageEvent)
             binding.imageEvent.setOnClickListener {
-                val intent = Intent(binding.root.context, EventActivity::class.java)
-                intent.putExtra("index", item.mainImage)
-                binding.root.context.startActivity(intent)
+                Intent(itemView.context, EventActivity::class.java).apply {
+                    this.putExtra("index", item.mainImage)
+                    it.context.startActivity(this)
+                }
             }
         }
     }
