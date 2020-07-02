@@ -25,7 +25,7 @@ jobs:
         run: echo ${{ secrets.USER_GOOGLE_SERVICES }} | base64 --decode
       
       - name: Google services
-        run: echo ${{ secrets.USER_GOOGLE_SERVICES }} | base64 --decode > $GITHUB_WORKSPACE/user-app/data/firebase/google-services.json
+        run: echo ${{ secrets.USER_GOOGLE_SERVICES }} | base64 --decode > $GITHUB_WORKSPACE/user-app/data/firebase/google-services.json 
       
       - name: build
         run: ./gradlew :user-app:base:assembleDebug
