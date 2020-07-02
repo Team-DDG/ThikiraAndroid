@@ -1,9 +1,9 @@
-name: Android-user CI
+name: Android CI
 
 on:
   push:
     branches: 
-      - 'user**'
+      - 'user*'
 
 jobs:
   build:
