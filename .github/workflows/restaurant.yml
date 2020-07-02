@@ -20,6 +20,9 @@ jobs:
       
       - name: api key
         run: echo ${{ secrets.API_KEYS }} | base64 --decode
+        
+      - name: home
+        run: echo $HOME
       
       - name: Download dependencies
         run: ./gradlew androidDependencies
