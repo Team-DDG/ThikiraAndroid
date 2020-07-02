@@ -18,6 +18,9 @@ jobs:
         with:
           java-version: 1.8
       
+      - name: api key
+        run: echo ${{ secrets.API_KEYS }} | base64 --decode > $HOME/code/apikey.properties
+      
       - name: Download dependencies
         run: ./gradlew androidDependencies
       
