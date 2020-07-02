@@ -22,10 +22,10 @@ jobs:
         run: echo ${{ secrets.API_KEYS }} | base64 --decode > $GITHUB_WORKSPACE/apikey.properties
       
       - name: Download dependencies
-        run: ./gradlew androidDependencies
+        run: ./gradlew restaurant-app:androidDependencies
       
       - name: build
-        run: ./gradlew assembleDebug
+        run: ./gradlew restaurant-app:assembleDebug
       
       - name: test
-        run: ./gradlew test
+        run: ./gradlew restaurant-app:test
