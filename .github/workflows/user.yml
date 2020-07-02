@@ -1,0 +1,31 @@
+name: Android CI
+
+on:
+  push:
+    branches: 
+      - 'user*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      
+      - name: API keys
+        run: echo ${{ secrets.API_KEYS }} | base64 --decode > $GITHUB_WORKSPACE/apikey.properties
+      
+      - name: Google services
+        run: echo ${{ secrets.USER_GOOGLE_SERVICES }} | base64 --decode > $GITHUB_WORKSPACE/user-app/data/firebase/google-services.json 
+      
+      - name: build
+        run: ./gradlew :user-app:base:assembleDebug
+      
+      - name: test
+        run: ./gradlew :user-app:base:connectedDebugAndroidTest
