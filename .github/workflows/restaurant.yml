@@ -21,8 +21,8 @@ jobs:
       - name: api key
         run: echo ${{ secrets.API_KEYS }} | base64 --decode > $GITHUB_WORKSPACE/apikey.properties
       
-      - name: build
-        run: ./gradlew :restaurant-app:base:assembleDebug
+#       - name: build
+#         run: ./gradlew :restaurant-app:base:assembleDebug
       
       - name: test
-        run: ./gradlew :restaurant-app:test
+        run: ./gradlew :restaurant-app:feature:test
