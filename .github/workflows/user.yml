@@ -22,7 +22,7 @@ jobs:
         run: echo ${{ secrets.API_KEYS }} | base64 --decode > $GITHUB_WORKSPACE/apikey.properties
       
       - name: Google services
-        run: echo ${{ secrets.RESTAURANT_GOOGLE_SERVICES }} | base64 --decode > $GITHUB_WORKSPACE/user-app/data/firebase/google-services.json 
+        run: echo ${{ secrets.USER_GOOGLE_SERVICES }} | base64 --decode > $GITHUB_WORKSPACE/user-app/data/firebase/google-services.json 
       
       - name: build
         run: ./gradlew :user-app:base:assembleDebug
