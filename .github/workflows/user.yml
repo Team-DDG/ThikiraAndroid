@@ -3,7 +3,7 @@ name: Android-user CI
 on:
   push:
     branches: 
-      - 'user*'
+      - 'user**'
 
 jobs:
   build:
