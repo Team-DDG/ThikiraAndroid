@@ -84,3 +84,4 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/restaurant-app/data/firebase/google-services.json
+restaurant-app/base/google-services.json
