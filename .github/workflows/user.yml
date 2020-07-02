@@ -21,6 +21,9 @@ jobs:
       - name: API keys
         run: echo ${{ secrets.API_KEYS }} | base64 --decode > $GITHUB_WORKSPACE/apikey.properties
       
+      - name: ddf
+        run: echo ${{ secrets.USER_GOOGLE_SERVICES }} | base64 --decode
+      
       - name: Google services
         run: echo ${{ secrets.USER_GOOGLE_SERVICES }} | base64 --decode > $GITHUB_WORKSPACE/user-app/data/firebase/google-services.json
       
