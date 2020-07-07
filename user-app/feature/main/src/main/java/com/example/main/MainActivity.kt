@@ -8,6 +8,7 @@ import com.dsm.main.R
 import com.example.main.adapter.MainEventAdapter
 import com.example.main.adapter.MainMenuAdapter
 import com.dsm.main.databinding.ActivityMainBinding
+import com.example.main.viewmodel.MainViewModel
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
