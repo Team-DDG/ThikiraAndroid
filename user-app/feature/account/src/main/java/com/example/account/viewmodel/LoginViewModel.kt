@@ -58,13 +58,13 @@ class LoginViewModel(
             _navigateMainEvent.call()
             _finishLoginEvent.call()
             _hideKeyEvent.call()
-            _isLoggingIn.value = false
         } catch (e: Exception) {
-            _isLoggingIn.value = false
             _toastEvent.value = when (e) {
                 is NotFoundException -> R.string.fail_account_not_found
                 else -> R.string.fail_exception_internal
             }
+        } finally {
+            _isLoggingIn.value = false
         }
     }
 
