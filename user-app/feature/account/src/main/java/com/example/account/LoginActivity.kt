@@ -6,7 +6,7 @@ import com.dsm.androidcomponent.base.BaseActivity
 import com.dsm.androidcomponent.ext.hideKeyboard
 import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
-import com.example.main.MainActivity
+import com.example.main.ui.MainActivity
 import com.example.account.databinding.ActivityLoginBinding
 import com.example.account.viewmodel.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,12 +25,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         setupNavigate()
 
         viewModel.hideKeyEvent.observe(this) { hideKeyboard() }
+        viewModel.finishLoginEvent.observe(this) { finish() }
 
         binding.viewmodel = viewModel
     }
 
     private fun setupNavigate() {
         setupNavigateEvent<MainActivity>(viewModel.navigateMainEvent)
-        setupNavigateEvent<Signup1Activity>(viewModel.navigateSignupEvent)
+        setupNavigateEvent<SignupActivity>(viewModel.navigateSignupEvent)
     }
 }

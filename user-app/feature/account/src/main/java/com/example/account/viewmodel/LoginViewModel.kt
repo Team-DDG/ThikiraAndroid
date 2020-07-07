@@ -33,6 +33,9 @@ class LoginViewModel(
     private val _navigateSignupEvent = SingleLiveEvent<Unit>()
     val navigateSignupEvent: LiveData<Unit> = _navigateSignupEvent
 
+    private val _finishLoginEvent = SingleLiveEvent<Unit>()
+    val finishLoginEvent: LiveData<Unit> = _finishLoginEvent
+
     fun onClickLogin() = viewModelScope.launch {
         try {
             if (!isValidEmail(email.value)) {
@@ -48,6 +51,7 @@ class LoginViewModel(
             )
 
             _navigateMainEvent.call()
+            _finishLoginEvent.call()
             _hideKeyEvent.call()
         } catch (e: Exception) {
             _toastEvent.value = when (e) {
