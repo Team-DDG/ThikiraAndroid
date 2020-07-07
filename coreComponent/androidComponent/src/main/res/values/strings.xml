@@ -12,5 +12,6 @@
     <string name="restaurant">업체</string>
     <string name="coupon">쿠폰</string>
 
+    <string name="from_money">원 부터</string>
     <string name="won">원</string>
 </resources>
