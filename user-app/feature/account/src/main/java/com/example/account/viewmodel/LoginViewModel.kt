@@ -27,6 +27,9 @@ class LoginViewModel(
     private val _hideKeyEvent = SingleLiveEvent<Unit>()
     val hideKeyEvent: LiveData<Unit> = _hideKeyEvent
 
+    private val _isLoggingIn = MutableLiveData(false)
+    val isLoggingIn: LiveData<Boolean> = _isLoggingIn
+
     private val _navigateMainEvent = SingleLiveEvent<Unit>()
     val navigateMainEvent: LiveData<Unit> = _navigateMainEvent
 
@@ -37,6 +40,8 @@ class LoginViewModel(
     val finishLoginEvent: LiveData<Unit> = _finishLoginEvent
 
     fun onClickLogin() = viewModelScope.launch {
+        _isLoggingIn.value = true
+
         try {
             if (!isValidEmail(email.value)) {
                 _toastEvent.value = R.string.fail_email_invalid
@@ -58,6 +63,8 @@ class LoginViewModel(
                 is NotFoundException -> R.string.fail_account_not_found
                 else -> R.string.fail_exception_internal
             }
+        } finally {
+            _isLoggingIn.value = false
         }
     }
 
