@@ -8,13 +8,16 @@ import com.dsm.androidcomponent.SingleLiveEvent
 import com.dsm.main.R
 import com.example.error.exception.ForbiddenException
 import com.example.error.exception.NotFoundException
+import com.example.error.exception.UnauthorizedException
 import com.example.model.Event
 import com.example.model.Restaurant
+import com.example.model.repository.AuthRepository
 import com.example.model.repository.EventRepository
 import com.example.model.repository.RestaurantRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(
+    private val authRepository: AuthRepository,
     private val restaurantRepository: RestaurantRepository,
     private val eventRepository: EventRepository
 ) : ViewModel() {
@@ -31,6 +34,9 @@ class MainViewModel(
 
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
+
+    private val _logoutEvent = SingleLiveEvent<Unit>()
+    val logoutEvent: LiveData<Unit> = _logoutEvent
 
     init {
         _isRestaurantLoading.value = true
@@ -71,6 +77,7 @@ class MainViewModel(
             when (e) {
                 is ForbiddenException -> _toastEvent.value = R.string.fail_exception_forbidden
                 is NotFoundException -> Unit
+                is UnauthorizedException -> logout()
                 else -> _toastEvent.value = R.string.fail_exception_internal
             }
         }
@@ -90,6 +97,7 @@ class MainViewModel(
                 when (e) {
                     is ForbiddenException -> _toastEvent.value = R.string.fail_exception_forbidden
                     is NotFoundException -> Unit
+                    is UnauthorizedException -> logout()
                     else -> _toastEvent.value = R.string.fail_exception_internal
                 }
             }
@@ -98,4 +106,8 @@ class MainViewModel(
         _isRestaurantLoading.value = false
     }
 
+    private fun logout() {
+        authRepository.logout()
+        _logoutEvent.call()
+    }
 }
