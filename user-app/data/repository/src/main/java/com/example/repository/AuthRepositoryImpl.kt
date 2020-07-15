@@ -29,4 +29,13 @@ class AuthRepositoryImpl(
         prefStorage.setAccessToken(response.accessToken)
         prefStorage.setRefreshToken(response.refreshToken)
     }
+
+    override fun isLoggedIn(): Boolean {
+        return (prefStorage.getAccessToken() != "" && prefStorage.getRefreshToken() != "")
+    }
+
+    override fun logout() {
+        prefStorage.deleteAccessToken()
+        prefStorage.deleteRefreshToken()
+    }
 }

@@ -23,7 +23,7 @@ class TokenInterceptor(
 
         val response = chain.proceed(request)
 
-        return if (response.code == HttpURLConnection.HTTP_FORBIDDEN) {
+        return if (response.code == HttpURLConnection.HTTP_UNAUTHORIZED) {
             val refreshResponse = tokenApi.refreshToken(refreshToken).execute()
 
             if (refreshResponse.code() == HttpURLConnection.HTTP_OK) {

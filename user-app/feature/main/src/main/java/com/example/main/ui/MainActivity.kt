@@ -4,11 +4,13 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.dsm.androidcomponent.base.BaseActivity
+import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
 import com.dsm.main.R
 import com.example.main.adapter.MainEventAdapter
 import com.example.main.adapter.MainMenuAdapter
 import com.dsm.main.databinding.ActivityMainBinding
+import com.example.account.LoginActivity
 import com.example.main.viewmodel.MainViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.delay
@@ -31,6 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         setUpViewPager()
         setUpRecyclerView()
         setUpTabLayoutListener()
+        setupNavigate()
         setupToastEvent(viewModel.toastEvent)
 
         binding.viewModel = viewModel
@@ -70,6 +73,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
 
+    private fun setupNavigate() {
+        setupNavigateEvent<LoginActivity>(viewModel.logoutEvent)
+    }
 
     override fun onPause() {
         super.onPause()
