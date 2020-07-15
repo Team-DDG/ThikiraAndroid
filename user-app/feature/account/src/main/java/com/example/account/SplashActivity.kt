@@ -20,11 +20,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         super.onCreate(savedInstanceState)
 
         setupNavigate()
-        viewModel.finishActivityEvent.observe(this) { finish() }
     }
 
     private fun setupNavigate() {
         setupNavigateEvent<LoginActivity>(viewModel.startLoginEvent)
         setupNavigateEvent<MainActivity>(viewModel.startMainEvent)
+        viewModel.finishActivityEvent.observe(this) { finish() }
     }
 }

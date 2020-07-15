@@ -9,7 +9,7 @@ interface AuthRepository {
 
     suspend fun login(body: Any)
 
-    fun checkLogin(): Boolean
+    fun isLoggedIn(): Boolean
 
     fun logout()
 }

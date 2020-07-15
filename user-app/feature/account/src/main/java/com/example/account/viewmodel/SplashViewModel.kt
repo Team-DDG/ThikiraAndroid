@@ -27,11 +27,9 @@ class SplashViewModel(
 
     private fun checkLogin() = viewModelScope.launch {
         delay(1500)
-        if (authRepository.checkLogin()) {
-            _startMainEvent.call()
-        } else {
-            _startLoginEvent.call()
-        }
+        if (authRepository.isLoggedIn()) _startMainEvent.call()
+        else _startLoginEvent.call()
+
         _finishActivityEvent.call()
     }
 }
