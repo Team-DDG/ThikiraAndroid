@@ -1,8 +1,10 @@
 package com.example.api
 
+import com.example.MenuList
 import com.example.api.response.TokenResponse
 import com.example.api.response.UserResponse
 import com.example.model.Event
+import com.example.model.Menu
 import com.example.model.Restaurant
 import retrofit2.http.*
 
@@ -60,12 +62,12 @@ interface ThikiraApi {
     @GET("menu")
     suspend fun getMenuList(
         @Query("mc_id") menuCategoryId: String
-    )
+    ): List<Menu>
 
     @GET("menu/category")
     suspend fun getMenuCategory (
         @Query("r_id") restaurantId: String
-    )
+    ): List<MenuList>
 
     /**
      * event
