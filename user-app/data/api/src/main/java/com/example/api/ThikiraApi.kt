@@ -1,6 +1,6 @@
 package com.example.api
 
-import com.example.MenuList
+import com.example.model.MenuCategory
 import com.example.api.response.TokenResponse
 import com.example.api.response.UserResponse
 import com.example.model.Event
@@ -67,7 +67,7 @@ interface ThikiraApi {
     @GET("menu/category")
     suspend fun getMenuCategory (
         @Query("r_id") restaurantId: String
-    ): List<MenuList>
+    ): List<MenuCategory>
 
     /**
      * event
