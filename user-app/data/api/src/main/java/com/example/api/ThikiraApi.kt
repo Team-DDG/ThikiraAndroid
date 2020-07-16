@@ -54,6 +54,20 @@ interface ThikiraApi {
     ): List<Restaurant>
 
     /**
+     * menu
+     */
+
+    @GET("menu")
+    suspend fun getMenuList(
+        @Query("mc_id") menuCategoryId: String
+    )
+
+    @GET("menu/category")
+    suspend fun getMenuCategory (
+        @Query("r_id") restaurantId: String
+    )
+
+    /**
      * event
      */
 
