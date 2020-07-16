@@ -1,16 +1,16 @@
 package com.example.main.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.observe
 import androidx.viewpager2.widget.ViewPager2
 import com.dsm.androidcomponent.base.BaseActivity
-import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
 import com.dsm.main.R
 import com.example.main.adapter.MainEventAdapter
 import com.example.main.adapter.MainMenuAdapter
 import com.dsm.main.databinding.ActivityMainBinding
-import com.example.account.LoginActivity
 import com.example.main.viewmodel.MainViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.delay
@@ -74,7 +74,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun setupNavigate() {
-        setupNavigateEvent<LoginActivity>(viewModel.logoutEvent)
+        viewModel.logoutEvent.observe(this) {
+            startActivity(Intent().apply { setClassName(this@MainActivity, "com.example.account.LoginActivity") })
+            finish()
+        }
     }
 
     override fun onPause() {
