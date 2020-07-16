@@ -14,7 +14,7 @@ interface RemoteMenuDataSource {
     suspend fun getMenuCategory(restaurantId: String): List<MenuCategory>
 }
 
-class MenuCategoryImpl(
+class RemoteMenuDataSourceImpl(
     private val thikiraApi: ThikiraApi,
     private val errorHandler: ErrorHandler,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
