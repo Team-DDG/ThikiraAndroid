@@ -1,13 +1,7 @@
 package com.example.di
 
-import com.example.model.repository.AccountRepository
-import com.example.model.repository.AuthRepository
-import com.example.model.repository.EventRepository
-import com.example.model.repository.RestaurantRepository
-import com.example.repository.AccountRepositoryImpl
-import com.example.repository.AuthRepositoryImpl
-import com.example.repository.EventRepositoryImpl
-import com.example.repository.RestaurantRepositoryImpl
+import com.example.model.repository.*
+import com.example.repository.*
 import org.koin.dsl.module
 
 val repositoryModule = module {
@@ -15,4 +9,5 @@ val repositoryModule = module {
     factory<RestaurantRepository> { RestaurantRepositoryImpl(get()) }
     factory<EventRepository> { EventRepositoryImpl(get()) }
     factory<AccountRepository> { AccountRepositoryImpl(get()) }
+    factory<MenuRepository> { MenuRepositoryImpl(get()) }
 }
