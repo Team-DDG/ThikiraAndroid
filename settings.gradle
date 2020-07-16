@@ -1,3 +1,4 @@
+include ':user-app:feature:restaurant'
 include ':coreComponent:testComponent'
 include ':coreComponent:androidComponent'
 

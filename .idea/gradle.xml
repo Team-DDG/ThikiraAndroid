@@ -46,6 +46,7 @@
             <option value="$PROJECT_DIR$/user-app/feature" />
             <option value="$PROJECT_DIR$/user-app/feature/account" />
             <option value="$PROJECT_DIR$/user-app/feature/main" />
+            <option value="$PROJECT_DIR$/user-app/feature/restaurant" />
             <option value="$PROJECT_DIR$/user-app/model" />
           </set>
         </option>
