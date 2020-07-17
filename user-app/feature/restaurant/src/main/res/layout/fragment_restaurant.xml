@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_restaurant_score"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_star"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/image_restaurant_score"
+            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_score"
+            app:layout_constraintStart_toEndOf="@id/image_restaurant_score"
+            android:layout_marginStart="16dp"
+            android:text="4.5"/>
+
+        <ImageView
+            android:id="@+id/image_restaurant_time"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toBottomOf="@id/image_restaurant_score"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_clock"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/image_restaurant_time"
+            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_time"
+            app:layout_constraintStart_toEndOf="@id/image_restaurant_time"
+            android:layout_marginStart="16dp"
+            android:text="00:00 ~ 23:59"/>
+
+        <ImageView
+            android:id="@+id/image_restaurant_phone"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toBottomOf="@id/image_restaurant_time"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_phone"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/image_restaurant_phone"
+            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_phone"
+            app:layout_constraintStart_toEndOf="@id/image_restaurant_phone"
+            android:layout_marginStart="16dp"
+            android:text="042-567-1234"/>
+
+        <ImageView
+            android:id="@+id/image_restaurant_mail"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toBottomOf="@id/image_restaurant_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_mail"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/image_restaurant_mail"
+            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_mail"
+            app:layout_constraintStart_toEndOf="@id/image_restaurant_mail"
+            android:layout_marginStart="16dp"
+            android:text="dhkimchi@gmail.com"/>
+
+        <ImageView
+            android:id="@+id/image_restaurant_location"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toBottomOf="@id/image_restaurant_mail"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_location"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/image_restaurant_location"
+            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_location"
+            app:layout_constraintStart_toEndOf="@id/image_restaurant_location"
+            android:layout_marginStart="16dp"
+            android:text="부산 광역시 이상한구 남포동"/>
+
+        <ImageView
+            android:id="@+id/image_restaurant_target"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toBottomOf="@id/image_restaurant_location"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_target"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_target"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/image_restaurant_target"
+            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_target"
+            app:layout_constraintStart_toEndOf="@id/image_restaurant_target"
+            android:layout_marginStart="16dp"
+            android:text="전세계"/>
+        
+        <View
+            android:id="@+id/view_restaurant_divider1"
+            android:layout_width="360dp"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toBottomOf="@id/image_restaurant_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorGrey7"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/view_restaurant_divider1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:textSize="16sp"
+            android:text="카테고리: 국밥짐"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_min_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_restaurant_category"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="24dp"
+            android:textSize="16dp"
+            android:text="최소 주문 금액: 10,000원"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_closed_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_restaurant_min_price"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="24dp"
+            android:textSize="16dp"
+            android:text="휴무: 365일 일년 내내 방황하는 내 영혼을 찾아 "/>
+
+        <View
+            android:id="@+id/view_restaurant_divider2"
+            android:layout_width="360dp"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toBottomOf="@id/text_restaurant_closed_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorGrey7"/>
+
+        <TextView
+            android:id="@+id/text_restaurant_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/view_restaurant_divider2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="저 김도훈의 김치찌게 집은 말로할 수 없습니다. 태어날 때부터 저는 김치와 한 몸이었습니다. 그래서 제 이런 태생을 반영하여 김치찌개를 만들어보고 부모님께 칭찬을 받았습니다. 그래서 저는 도훈이네 김치찌게를 만들어 여러분에게 저와 한 몸인..."
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

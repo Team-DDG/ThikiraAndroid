@@ -15,6 +15,7 @@ dependencies {
     implementation Dep.Kotlin.kotlin
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
+    implementation Dep.AndroidX.viewPager
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
 
     implementation Dep.AndroidX.Koin.viewModel
