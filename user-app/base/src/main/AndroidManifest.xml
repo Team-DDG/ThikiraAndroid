@@ -23,6 +23,7 @@
         <activity android:name="com.example.main.ui.MainActivity"/>
         <activity android:name="com.example.account.ui.LoginActivity"/>
         <activity android:name="com.example.account.ui.SignupActivity"/>
+        <activity android:name="com.example.restaurant.ui.RestaurantActivity"/>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.main.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,9 +9,13 @@ import com.dsm.androidcomponent.ext.numberAutoComma
 import com.dsm.main.R
 import com.dsm.main.databinding.ItemRestaurantBinding
 import com.example.main.adapter.MainMenuAdapter.MainMenuViewHolder
+import com.example.main.viewmodel.MainViewModel
 import com.example.model.Restaurant
+import com.example.restaurant.ui.RestaurantActivity
 
-class MainMenuAdapter : RecyclerView.Adapter<MainMenuViewHolder>() {
+class MainMenuAdapter(
+    private val mainViewModel: MainViewModel
+) : RecyclerView.Adapter<MainMenuViewHolder>() {
     private var items: List<Restaurant> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainMenuViewHolder {
@@ -34,6 +39,11 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuViewHolder>() {
             binding.rvMainRestaurantName.text = item.name
             binding.rvMainScore.text = "${item.star}"
             binding.rvMainMinPrice.text = item.minPrice.numberAutoComma() + itemView.context.getString(R.string.from_money)
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, RestaurantActivity::class.java)
+                intent.putExtra("r_id", item.rId)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 }
