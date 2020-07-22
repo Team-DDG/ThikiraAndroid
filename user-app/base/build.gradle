@@ -45,6 +45,7 @@ dependencies {
 
     implementation project(path: ':user-app:feature:account')
     implementation project(path: ':user-app:feature:main')
+    implementation project(path: ':user-app:feature:restaurant')
 
     implementation Dep.Kotlin.kotlin
 

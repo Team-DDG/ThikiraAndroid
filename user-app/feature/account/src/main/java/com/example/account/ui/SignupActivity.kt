@@ -1,8 +1,8 @@
-package com.example.account
+package com.example.account.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.dsm.androidcomponent.base.BaseActivity
+import com.example.account.R
 
 class SignupActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

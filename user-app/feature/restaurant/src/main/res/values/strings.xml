@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="info">정보</string>
+    <string name="menu">메뉴</string>
+    <string name="review">리뷰</string>
+</resources>

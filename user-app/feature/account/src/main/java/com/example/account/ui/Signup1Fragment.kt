@@ -1,15 +1,15 @@
-package com.example.account
+package com.example.account.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.dsm.androidcomponent.base.BaseFragment
 import com.dsm.androidcomponent.ext.setupToastEvent
+import com.example.account.R
 import com.example.account.databinding.FragmentSignup1Binding
 import com.example.account.viewmodel.SignupViewModel
 import kotlinx.android.synthetic.main.fragment_signup1.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class Signup1Fragment: BaseFragment<FragmentSignup1Binding>(){
     override val layoutResId: Int
