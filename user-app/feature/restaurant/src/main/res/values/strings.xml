@@ -3,4 +3,6 @@
     <string name="info">정보</string>
     <string name="menu">메뉴</string>
     <string name="review">리뷰</string>
+
+    <string name="failed_get_restaurant">정보를 받아오는데 실패했습니다</string>
 </resources>

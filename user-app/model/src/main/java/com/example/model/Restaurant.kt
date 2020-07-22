@@ -1,6 +1,7 @@
 package com.example.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Restaurant(
 
@@ -57,4 +58,4 @@ data class Restaurant(
 
     @field:SerializedName("email")
     val email: String
-)
+): Serializable

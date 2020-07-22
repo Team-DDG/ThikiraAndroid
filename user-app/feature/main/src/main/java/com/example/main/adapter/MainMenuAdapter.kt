@@ -12,6 +12,7 @@ import com.example.main.adapter.MainMenuAdapter.MainMenuViewHolder
 import com.example.main.viewmodel.MainViewModel
 import com.example.model.Restaurant
 import com.example.restaurant.ui.RestaurantActivity
+import java.io.Serializable
 
 class MainMenuAdapter(
     private val mainViewModel: MainViewModel
@@ -41,7 +42,7 @@ class MainMenuAdapter(
             binding.rvMainMinPrice.text = item.minPrice.numberAutoComma() + itemView.context.getString(R.string.from_money)
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, RestaurantActivity::class.java)
-                intent.putExtra("r_id", item.rId)
+                intent.putExtra("restaurant", item as Serializable)
                 itemView.context.startActivity(intent)
             }
         }
