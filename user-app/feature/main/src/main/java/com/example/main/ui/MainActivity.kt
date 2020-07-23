@@ -75,7 +75,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun setupNavigate() {
         viewModel.logoutEvent.observe(this) {
-            startActivity(Intent().apply { setClassName(this@MainActivity, "com.example.account.LoginActivity") })
+            startActivity(Intent().apply { setClassName(this@MainActivity, "com.example.account.ui.LoginActivity") })
             finish()
         }
     }

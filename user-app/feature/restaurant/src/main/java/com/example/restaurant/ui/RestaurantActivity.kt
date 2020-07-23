@@ -28,6 +28,8 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
         setUpInfo()
         setUpTabLayout()
         binding.viewpagerRestaurant.adapter = RestaurantAdapter(this, fragmentList)
+
+        binding.viewModel = viewModel
     }
 
     private fun setUpInfo() {
