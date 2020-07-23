@@ -1,9 +1,7 @@
 package com.example.restaurant.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.dsm.androidcomponent.base.BaseFragment
 import com.example.restaurant.R
 import com.example.restaurant.databinding.FragmentInfoBinding
@@ -18,7 +16,5 @@ class InfoFragment: BaseFragment<FragmentInfoBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
     }
 }
