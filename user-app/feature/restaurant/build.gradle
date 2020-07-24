@@ -12,6 +12,8 @@ dependencies {
 
     implementation project(path: ':user-app:model')
 
+    implementation Dep.material
+
     implementation Dep.Kotlin.kotlin
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout

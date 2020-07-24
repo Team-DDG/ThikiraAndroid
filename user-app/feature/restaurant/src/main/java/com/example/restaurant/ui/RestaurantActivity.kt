@@ -2,6 +2,7 @@ package com.example.restaurant.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import com.dsm.androidcomponent.base.BaseActivity
 import com.example.model.Restaurant
 import com.example.restaurant.R
@@ -9,6 +10,8 @@ import com.example.restaurant.adapter.RestaurantAdapter
 import com.example.restaurant.databinding.ActivityRestaurantBinding
 import com.example.restaurant.viewmodel.RestaurantViewModel
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.android.synthetic.main.activity_restaurant.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
@@ -16,6 +19,11 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
         get() = R.layout.activity_restaurant
 
     private val viewModel: RestaurantViewModel by viewModel()
+    private val tabText = arrayListOf(
+        "정보",
+        "메뉴",
+        "리뷰"
+    )
     private val fragmentList = arrayListOf(
         InfoFragment(),
         MenuFragment(),
@@ -27,7 +35,6 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
 
         setUpInfo()
         setUpTabLayout()
-        binding.viewpagerRestaurant.adapter = RestaurantAdapter(this, fragmentList)
 
         binding.viewModel = viewModel
     }
@@ -43,21 +50,11 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
     }
 
     private fun setUpTabLayout() {
-        binding.tablayoutRestaurant.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-            }
+        binding.viewpagerRestaurant.adapter = RestaurantAdapter(this, fragmentList)
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-            }
-
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                when (tab?.text) {
-                    "정보" -> binding.viewpagerRestaurant.currentItem = 0
-                    "메뉴" -> binding.viewpagerRestaurant.currentItem = 1
-                    "리뷰" -> binding.viewpagerRestaurant.currentItem = 2
-                }
-            }
-
-        })
+        TabLayoutMediator(tablayout_restaurant, viewpager_restaurant) { tab, position ->
+            tab.text = tabText[position]
+            viewpager_restaurant.setCurrentItem(tab.position, true)
+        }.attach()
     }
 }
