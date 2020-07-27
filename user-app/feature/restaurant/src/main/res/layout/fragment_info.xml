@@ -1,204 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewmodel"
             type="com.example.restaurant.viewmodel.RestaurantViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/image_restaurant_score"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_star"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_restaurant_score"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@{viewmodel.star}"
-            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_score"
-            app:layout_constraintStart_toEndOf="@id/image_restaurant_score"
-            app:layout_constraintTop_toTopOf="@id/image_restaurant_score" />
+            android:background="#FFFFFF">
 
-        <ImageView
-            android:id="@+id/image_restaurant_time"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_clock"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_restaurant_score" />
+            <ImageView
+                android:id="@+id/image_restaurant_score"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_star"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_restaurant_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@{viewmodel.operatingTime}"
-            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_time"
-            app:layout_constraintStart_toEndOf="@id/image_restaurant_time"
-            app:layout_constraintTop_toTopOf="@id/image_restaurant_time" />
+            <TextView
+                android:id="@+id/text_restaurant_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{viewmodel.star}"
+                app:layout_constraintBottom_toBottomOf="@id/image_restaurant_score"
+                app:layout_constraintStart_toEndOf="@id/image_restaurant_score"
+                app:layout_constraintTop_toTopOf="@id/image_restaurant_score" />
 
-        <ImageView
-            android:id="@+id/image_restaurant_phone"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_phone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_restaurant_time" />
+            <ImageView
+                android:id="@+id/image_restaurant_time"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_clock"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_restaurant_score" />
 
-        <TextView
-            android:id="@+id/text_restaurant_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@{viewmodel.phone}"
-            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_phone"
-            app:layout_constraintStart_toEndOf="@id/image_restaurant_phone"
-            app:layout_constraintTop_toTopOf="@id/image_restaurant_phone" />
+            <TextView
+                android:id="@+id/text_restaurant_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{viewmodel.operatingTime}"
+                app:layout_constraintBottom_toBottomOf="@id/image_restaurant_time"
+                app:layout_constraintStart_toEndOf="@id/image_restaurant_time"
+                app:layout_constraintTop_toTopOf="@id/image_restaurant_time" />
 
-        <ImageView
-            android:id="@+id/image_restaurant_mail"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_mail"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_restaurant_phone" />
+            <ImageView
+                android:id="@+id/image_restaurant_phone"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_restaurant_time" />
 
-        <TextView
-            android:id="@+id/text_restaurant_mail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@{viewmodel.email}"
-            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_mail"
-            app:layout_constraintStart_toEndOf="@id/image_restaurant_mail"
-            app:layout_constraintTop_toTopOf="@id/image_restaurant_mail" />
+            <TextView
+                android:id="@+id/text_restaurant_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{viewmodel.phone}"
+                app:layout_constraintBottom_toBottomOf="@id/image_restaurant_phone"
+                app:layout_constraintStart_toEndOf="@id/image_restaurant_phone"
+                app:layout_constraintTop_toTopOf="@id/image_restaurant_phone" />
 
-        <ImageView
-            android:id="@+id/image_restaurant_location"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_location"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_restaurant_mail" />
+            <ImageView
+                android:id="@+id/image_restaurant_mail"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_mail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_restaurant_phone" />
 
-        <TextView
-            android:id="@+id/text_restaurant_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@{viewmodel.address}"
-            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_location"
-            app:layout_constraintStart_toEndOf="@id/image_restaurant_location"
-            app:layout_constraintTop_toTopOf="@id/image_restaurant_location" />
+            <TextView
+                android:id="@+id/text_restaurant_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{viewmodel.email}"
+                app:layout_constraintBottom_toBottomOf="@id/image_restaurant_mail"
+                app:layout_constraintStart_toEndOf="@id/image_restaurant_mail"
+                app:layout_constraintTop_toTopOf="@id/image_restaurant_mail" />
 
-        <ImageView
-            android:id="@+id/image_restaurant_target"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_target"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_restaurant_location" />
+            <ImageView
+                android:id="@+id/image_restaurant_location"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_restaurant_mail" />
 
-        <TextView
-            android:id="@+id/text_restaurant_target"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@{viewmodel.area}"
-            app:layout_constraintBottom_toBottomOf="@id/image_restaurant_target"
-            app:layout_constraintStart_toEndOf="@id/image_restaurant_target"
-            app:layout_constraintTop_toTopOf="@id/image_restaurant_target" />
+            <TextView
+                android:id="@+id/text_restaurant_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{viewmodel.address}"
+                app:layout_constraintBottom_toBottomOf="@id/image_restaurant_location"
+                app:layout_constraintStart_toEndOf="@id/image_restaurant_location"
+                app:layout_constraintTop_toTopOf="@id/image_restaurant_location" />
 
-        <View
-            android:id="@+id/view_restaurant_divider1"
-            android:layout_width="360dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorGrey7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_restaurant_target" />
+            <ImageView
+                android:id="@+id/image_restaurant_target"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_target"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_restaurant_location" />
 
-        <TextView
-            android:id="@+id/text_restaurant_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:text="@{viewmodel.category}"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_restaurant_divider1" />
+            <TextView
+                android:id="@+id/text_restaurant_target"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{viewmodel.area}"
+                app:layout_constraintBottom_toBottomOf="@id/image_restaurant_target"
+                app:layout_constraintStart_toEndOf="@id/image_restaurant_target"
+                app:layout_constraintTop_toTopOf="@id/image_restaurant_target" />
 
-        <TextView
-            android:id="@+id/text_restaurant_min_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:text="@{viewmodel.minPrice}"
-            android:textSize="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_restaurant_category" />
+            <View
+                android:id="@+id/view_restaurant_divider1"
+                android:layout_width="360dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorGrey7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_restaurant_target" />
 
-        <TextView
-            android:id="@+id/text_restaurant_closed_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:text="@{viewmodel.dayOff}"
-            android:textSize="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_restaurant_min_price" />
+            <TextView
+                android:id="@+id/text_restaurant_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@{viewmodel.category}"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_restaurant_divider1" />
 
-        <View
-            android:id="@+id/view_restaurant_divider2"
-            android:layout_width="360dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorGrey7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_restaurant_closed_date" />
+            <TextView
+                android:id="@+id/text_restaurant_min_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="@{viewmodel.minPrice}"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_restaurant_category" />
 
-        <TextView
-            android:id="@+id/text_restaurant_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
-            android:text="@{viewmodel.description}"
-            android:textColor="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_restaurant_divider2" />
+            <TextView
+                android:id="@+id/text_restaurant_closed_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="@{viewmodel.dayOff}"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_restaurant_min_price" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/view_restaurant_divider2"
+                android:layout_width="360dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorGrey7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_restaurant_closed_date" />
+
+            <TextView
+                android:id="@+id/text_restaurant_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="@{viewmodel.description}"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_restaurant_divider2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </layout>

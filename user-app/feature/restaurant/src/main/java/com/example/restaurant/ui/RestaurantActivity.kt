@@ -1,15 +1,15 @@
 package com.example.restaurant.ui
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
 import com.dsm.androidcomponent.base.BaseActivity
 import com.example.model.Restaurant
 import com.example.restaurant.R
 import com.example.restaurant.adapter.RestaurantAdapter
 import com.example.restaurant.databinding.ActivityRestaurantBinding
 import com.example.restaurant.viewmodel.RestaurantViewModel
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_restaurant.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -18,17 +18,17 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
     override val layoutResId: Int
         get() = R.layout.activity_restaurant
 
+    private val infoFragment = InfoFragment()
+    private val menuFragment = MenuFragment()
+    private val reviewFragment = ReviewFragment()
+
     private val viewModel: RestaurantViewModel by viewModel()
     private val tabText = arrayListOf(
         "정보",
         "메뉴",
         "리뷰"
     )
-    private val fragmentList = arrayListOf(
-        InfoFragment(),
-        MenuFragment(),
-        ReviewFragment()
-    )
+    private lateinit var fragmentList: ArrayList<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,17 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
         val intent = intent
         if (intent.hasExtra("restaurant")) {
             val restaurantInfo = intent.extras?.get("restaurant") as Restaurant
-            viewModel.setRestaurantInfo(restaurantInfo)
+//            viewModel.setRestaurantInfo(restaurantInfo)
+            Glide.with(this).load(restaurantInfo.image).into(image_restaurant_main)
+            val bundle = Bundle()
+            bundle.putSerializable("restaurant", restaurantInfo)
+            infoFragment.arguments = bundle
+
+            fragmentList = arrayListOf(
+                infoFragment,
+                menuFragment,
+                reviewFragment
+            )
         } else {
             viewModel.failedToGetRestaurantInfo()
         }

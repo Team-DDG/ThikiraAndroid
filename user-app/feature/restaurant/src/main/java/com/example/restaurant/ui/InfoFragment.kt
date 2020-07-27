@@ -1,8 +1,10 @@
 package com.example.restaurant.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.dsm.androidcomponent.base.BaseFragment
+import com.example.model.Restaurant
 import com.example.restaurant.R
 import com.example.restaurant.databinding.FragmentInfoBinding
 import com.example.restaurant.viewmodel.RestaurantViewModel
@@ -16,5 +18,15 @@ class InfoFragment: BaseFragment<FragmentInfoBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setInfo(arguments)
+
+        binding.viewmodel = viewModel
+    }
+
+    private fun setInfo(bundle: Bundle?) {
+        if (bundle != null) {
+            viewModel.setRestaurantInfo(bundle.getSerializable("restaurant") as Restaurant)
+        }
     }
 }

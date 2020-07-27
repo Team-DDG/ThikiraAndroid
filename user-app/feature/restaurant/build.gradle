@@ -21,4 +21,8 @@ dependencies {
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
 
     implementation Dep.AndroidX.Koin.viewModel
+
+    implementation Dep.Glide.glide
+
+    annotationProcessor Dep.Glide.compiler
 }
