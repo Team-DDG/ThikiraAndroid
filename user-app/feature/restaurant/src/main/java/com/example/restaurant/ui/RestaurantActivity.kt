@@ -37,6 +37,9 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
         setUpTabLayout()
 
         binding.viewModel = viewModel
+        button_restaurant_back.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setUpInfo() {

@@ -24,6 +24,9 @@ class InfoFragment: BaseFragment<FragmentInfoBinding>() {
         binding.viewmodel = viewModel
     }
 
+    //TODO: restaurant activity menu
+    //TODO: restaurant activity scroll(better way to scroll)
+
     private fun setInfo(bundle: Bundle?) {
         if (bundle != null) {
             viewModel.setRestaurantInfo(bundle.getSerializable("restaurant") as Restaurant)
