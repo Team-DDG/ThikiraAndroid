@@ -46,7 +46,6 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
         val intent = intent
         if (intent.hasExtra("restaurant")) {
             val restaurantInfo = intent.extras?.get("restaurant") as Restaurant
-//            viewModel.setRestaurantInfo(restaurantInfo)
             Glide.with(this).load(restaurantInfo.image).into(image_restaurant_main)
             val bundle = Bundle()
             bundle.putSerializable("restaurant", restaurantInfo)
