@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsm.androidcomponent.SingleLiveEvent
+import com.example.model.Menu
 import com.example.model.MenuCategory
 import com.example.model.Restaurant
 import com.example.model.repository.MenuRepository
@@ -51,6 +52,9 @@ class RestaurantViewModel(
     private val _menuCategoryList: MutableLiveData<List<MenuCategory>> = MutableLiveData()
     val menuCategoryList: LiveData<List<MenuCategory>> = _menuCategoryList
 
+    private val _menuList: MutableLiveData<List<Menu>> = MutableLiveData()
+    val menuList: LiveData<List<Menu>> = _menuList
+
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
 
@@ -73,9 +77,17 @@ class RestaurantViewModel(
 
     fun getMenuCategory() = viewModelScope.launch{
         try {
-            _menuCategoryList.value = menuRepository.getMenuCategory(restaurant.value?.rId.toString())
+            _menuCategoryList.value = menuRepository.getMenuCategory(restaurant.value?.rId!!)
         } catch (e: Exception) {
             _toastEvent.value = R.string.fail_exception_internal
+        }
+    }
+
+    fun getMenu(categoryId: Int) = viewModelScope.launch {
+        try {
+            _menuList.value = menuRepository.getMenuList(categoryId)
+        } catch (e: Exception) {
+            //TODO: handle error
         }
     }
 }
