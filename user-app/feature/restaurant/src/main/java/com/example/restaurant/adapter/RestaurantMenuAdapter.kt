@@ -10,19 +10,18 @@ import com.example.restaurant.viewmodel.RestaurantViewModel
 class RestaurantMenuAdapter(
     private val viewModel: RestaurantViewModel
 ) : RecyclerView.Adapter<MenuViewHolder>() {
-    private var menuList: List<Menu> = emptyList()
+    var menus: List<Menu> = arrayListOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder =
         MenuViewHolder(ItemMenuBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
-    override fun getItemCount(): Int = menuList.size
+    override fun getItemCount(): Int = menus.size
 
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) = holder.bind()
-
-    fun setList(data: List<Menu>) {
-        menuList = data
-        notifyDataSetChanged()
-    }
 }
 
 class MenuViewHolder(private val binding: ItemMenuBinding) : RecyclerView.ViewHolder(binding.root) {

@@ -1,5 +1,6 @@
 package com.example.restaurant.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -59,6 +60,7 @@ class RestaurantViewModel(
     val toastEvent: LiveData<Int> = _toastEvent
 
     fun setRestaurantInfo(info: Restaurant) {
+        _restaurant.value = info
         _star.value = info.star.toString()
         _operatingTime.value = info.openTime + " ~ " + info.closeTime
         _phone.value = info.phone
@@ -78,6 +80,7 @@ class RestaurantViewModel(
     fun getMenuCategory() = viewModelScope.launch{
         try {
             _menuCategoryList.value = menuRepository.getMenuCategory(restaurant.value?.rId!!)
+            Log.d("menuCategoryList", _menuCategoryList.value.toString());
         } catch (e: Exception) {
             _toastEvent.value = R.string.fail_exception_internal
         }
@@ -87,7 +90,7 @@ class RestaurantViewModel(
         try {
             _menuList.value = menuRepository.getMenuList(categoryId)
         } catch (e: Exception) {
-            //TODO: handle error
+            _toastEvent.value = R.string.fail_exception_internal
         }
     }
 }

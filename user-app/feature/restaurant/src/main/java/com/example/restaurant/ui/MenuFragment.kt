@@ -2,6 +2,8 @@ package com.example.restaurant.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import com.dsm.androidcomponent.base.BaseFragment
 import com.example.model.MenuCategory
 import com.example.restaurant.R
@@ -16,38 +18,38 @@ class MenuFragment: BaseFragment<FragmentMenuBinding>() {
     override val layoutResId: Int
         get() = R.layout.fragment_menu
 
+    //TODO: make items for menu and check for menu rv adapter is working with tab layout
+
     private val viewModel: RestaurantViewModel by sharedViewModel()
     private val menuAdapter by lazy { RestaurantMenuAdapter(viewModel) }
-    private val menuCategoryList: List<MenuCategory>? by lazy { viewModel.menuCategoryList.value }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.viewModel = viewModel
         recyclerview_menu.adapter = menuAdapter
+        recyclerview_menu.layoutManager = GridLayoutManager(context, 2)
 
-        setUpTabLayout()
-    }
+        viewModel.getMenuCategory()
 
-    private fun setUpTabLayout() {
-        menuCategoryList?.map {
-            tablayout_menu_category.addTab(tablayout_menu_category.newTab().setText(it.name))
-        }
-        tablayout_menu_category.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(tab: TabLayout.Tab?) {
+        viewModel.menuCategoryList.observe(viewLifecycleOwner, Observer {
+            it.map {
+                tablayout_menu_category.addTab(tablayout_menu_category.newTab().setText(it.name))
             }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-            }
-
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                //TODO: access to view model and get data(find category id in Menu category list and use filter to get it)
-                val category = menuCategoryList?.filter {
-                    it.name == tab?.text
+            tablayout_menu_category.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+                override fun onTabReselected(tab: TabLayout.Tab?) {
                 }
-                //TODO: call api through view model
-                viewModel.getMenu(category!![0].menuCategoryId)
-            }
+
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+                }
+
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    val category = it.filter {
+                        it.name == tab?.text
+                    }
+                    viewModel.getMenu(category[0].menuCategoryId)
+                }
+            })
         })
     }
 }
