@@ -80,7 +80,6 @@ class RestaurantViewModel(
     fun getMenuCategory() = viewModelScope.launch{
         try {
             _menuCategoryList.value = menuRepository.getMenuCategory(restaurant.value?.rId!!)
-            Log.d("menuCategoryList", _menuCategoryList.value.toString());
         } catch (e: Exception) {
             _toastEvent.value = R.string.fail_exception_internal
         }

@@ -18,8 +18,6 @@ class MenuFragment: BaseFragment<FragmentMenuBinding>() {
     override val layoutResId: Int
         get() = R.layout.fragment_menu
 
-    //TODO: make items for menu and check for menu rv adapter is working with tab layout
-
     private val viewModel: RestaurantViewModel by sharedViewModel()
     private val menuAdapter by lazy { RestaurantMenuAdapter(viewModel) }
 
@@ -31,6 +29,9 @@ class MenuFragment: BaseFragment<FragmentMenuBinding>() {
         recyclerview_menu.layoutManager = GridLayoutManager(context, 2)
 
         viewModel.getMenuCategory()
+        if (viewModel.menuCategoryList.value != null) {
+            viewModel.getMenu(viewModel.menuCategoryList.value!![0].menuCategoryId)
+        }
 
         viewModel.menuCategoryList.observe(viewLifecycleOwner, Observer {
             it.map {
