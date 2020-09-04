@@ -28,7 +28,7 @@ class RestaurantMenuAdapter(
 class MenuViewHolder(private val binding: ItemMenuBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: Menu) {
         binding.root.setOnClickListener {
-            //TODO add activity or dialog for menu
+
         }
         Glide.with(binding.root.context).load(item.image).override(200, 200).into(binding.ivMenuImage)
         binding.tvMenuName.text = item.name
