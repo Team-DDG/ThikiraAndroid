@@ -25,5 +25,5 @@ dependencies {
 
     implementation Dep.Glide.glide
 
-    annotationProcessor Dep.Glide.compiler
+    kapt Dep.Glide.compiler
 }

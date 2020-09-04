@@ -30,7 +30,8 @@ class MenuViewHolder(private val binding: ItemMenuBinding) : RecyclerView.ViewHo
         binding.root.setOnClickListener {
             //TODO add activity or dialog for menu
         }
-        Glide.with(itemView.context).load(item.image).into(binding.ivMenuImage)
+        Glide.with(binding.root.context).load(item.image).override(200, 200).into(binding.ivMenuImage)
         binding.tvMenuName.text = item.name
+        binding.tvMenuPrice.text = "${item.price}원"
     }
 }

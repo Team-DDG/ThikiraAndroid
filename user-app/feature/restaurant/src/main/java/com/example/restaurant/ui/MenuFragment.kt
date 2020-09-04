@@ -5,7 +5,6 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dsm.androidcomponent.base.BaseFragment
-import com.example.model.MenuCategory
 import com.example.restaurant.R
 import com.example.restaurant.adapter.RestaurantMenuAdapter
 import com.example.restaurant.databinding.FragmentMenuBinding
@@ -13,7 +12,6 @@ import com.example.restaurant.viewmodel.RestaurantViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_menu.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-
 class MenuFragment: BaseFragment<FragmentMenuBinding>() {
     override val layoutResId: Int
         get() = R.layout.fragment_menu
@@ -51,6 +49,9 @@ class MenuFragment: BaseFragment<FragmentMenuBinding>() {
                     viewModel.getMenu(category[0].menuCategoryId)
                 }
             })
+            tablayout_menu_category.selectTab(tablayout_menu_category.getTabAt(0))
+            viewModel.getMenu(viewModel.menuCategoryList.value?.get(0)!!.menuCategoryId)
         })
     }
 }
+
