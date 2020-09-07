@@ -23,7 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private val viewModel: MainViewModel by viewModel()
     private val eventAdapter by lazy { MainEventAdapter() }
-    private val menuAdapter by lazy { MainMenuAdapter(viewModel) }
+    private val menuAdapter by lazy { MainMenuAdapter() }
 
     private var isActivityFocused = true
 
