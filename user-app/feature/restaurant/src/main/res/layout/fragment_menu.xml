@@ -36,6 +36,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tablayout_menu_category"
                 menu_category_list="@{viewModel.menuList}"
+                bind:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
 
                 tools:listitem = "@layout/item_menu"
                 tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

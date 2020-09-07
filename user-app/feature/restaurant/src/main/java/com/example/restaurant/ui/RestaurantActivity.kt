@@ -18,6 +18,11 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
     override val layoutResId: Int
         get() = R.layout.activity_restaurant
 
+    private val restaurantInfo: Restaurant by lazy {
+        val intent = intent
+        intent.extras?.get("restaurant") as Restaurant
+    }
+
     private val infoFragment = InfoFragment()
     private val menuFragment = MenuFragment()
     private val reviewFragment = ReviewFragment()
@@ -43,9 +48,7 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>() {
     }
 
     private fun setUpInfo() {
-        val intent = intent
         if (intent.hasExtra("restaurant")) {
-            val restaurantInfo = intent.extras?.get("restaurant") as Restaurant
             Glide.with(this).load(restaurantInfo.image).into(image_restaurant_main)
             val bundle = Bundle()
             bundle.putSerializable("restaurant", restaurantInfo)

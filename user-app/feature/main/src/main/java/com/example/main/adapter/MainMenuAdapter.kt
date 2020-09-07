@@ -41,8 +41,9 @@ class MainMenuAdapter(
             binding.rvMainScore.text = "${item.star}"
             binding.rvMainMinPrice.text = item.minPrice.numberAutoComma() + itemView.context.getString(R.string.from_money)
             itemView.setOnClickListener {
-                val intent = Intent(itemView.context, RestaurantActivity::class.java)
-                intent.putExtra("restaurant", item as Serializable)
+                val intent = Intent(itemView.context, RestaurantActivity::class.java).run {
+                    putExtra("restaurant", item as Serializable)
+                }
                 itemView.context.startActivity(intent)
             }
         }
