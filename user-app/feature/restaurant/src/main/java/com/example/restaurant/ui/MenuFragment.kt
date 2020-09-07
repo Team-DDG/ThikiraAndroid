@@ -7,6 +7,7 @@ import com.dsm.androidcomponent.base.BaseFragment
 import com.example.restaurant.R
 import com.example.restaurant.adapter.RestaurantMenuAdapter
 import com.example.restaurant.databinding.FragmentMenuBinding
+import com.example.restaurant.ext.onTabSelected
 import com.example.restaurant.viewmodel.RestaurantViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -42,18 +43,6 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
             }
             tablayout_menu_category.selectTab(tablayout_menu_category.getTabAt(0))
             viewModel.getMenu(viewModel.menuCategoryList.value?.get(0)!!.menuCategoryId)
-        })
-    }
-
-    private fun TabLayout.onTabSelected(onTabSelected: (tab: TabLayout.Tab?) -> Unit) {
-        this.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                onTabSelected(tab)
-            }
         })
     }
 }
