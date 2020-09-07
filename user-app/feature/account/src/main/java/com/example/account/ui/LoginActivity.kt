@@ -1,4 +1,4 @@
-package com.example.account
+package com.example.account.ui
 
 import android.os.Bundle
 import androidx.lifecycle.observe
@@ -6,6 +6,7 @@ import com.dsm.androidcomponent.base.BaseActivity
 import com.dsm.androidcomponent.ext.hideKeyboard
 import com.dsm.androidcomponent.ext.setupNavigateEvent
 import com.dsm.androidcomponent.ext.setupToastEvent
+import com.example.account.R
 import com.example.main.ui.MainActivity
 import com.example.account.databinding.ActivityLoginBinding
 import com.example.account.viewmodel.LoginViewModel

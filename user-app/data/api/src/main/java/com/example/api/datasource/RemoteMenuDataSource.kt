@@ -9,9 +9,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 interface RemoteMenuDataSource {
-    suspend fun getMenuList(menuCategoryId: String): List<Menu>
+    suspend fun getMenuList(menuCategoryId: Int): List<Menu>
 
-    suspend fun getMenuCategory(restaurantId: String): List<MenuCategory>
+    suspend fun getMenuCategory(restaurantId: Int): List<MenuCategory>
 }
 
 class RemoteMenuDataSourceImpl(
@@ -19,7 +19,7 @@ class RemoteMenuDataSourceImpl(
     private val errorHandler: ErrorHandler,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : RemoteMenuDataSource {
-    override suspend fun getMenuList(menuCategoryId: String): List<Menu> = withContext(ioDispatcher) {
+    override suspend fun getMenuList(menuCategoryId: Int): List<Menu> = withContext(ioDispatcher) {
         try {
             thikiraApi.getMenuList(menuCategoryId)
         } catch (e: Exception) {
@@ -27,7 +27,7 @@ class RemoteMenuDataSourceImpl(
         }
     }
 
-    override suspend fun getMenuCategory(restaurantId: String): List<MenuCategory> = withContext(ioDispatcher) {
+    override suspend fun getMenuCategory(restaurantId: Int): List<MenuCategory> = withContext(ioDispatcher) {
         try {
             thikiraApi.getMenuCategory(restaurantId)
         } catch (e: Exception) {

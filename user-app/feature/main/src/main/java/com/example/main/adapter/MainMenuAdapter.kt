@@ -1,5 +1,6 @@
 package com.example.main.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +9,10 @@ import com.dsm.androidcomponent.ext.numberAutoComma
 import com.dsm.main.R
 import com.dsm.main.databinding.ItemRestaurantBinding
 import com.example.main.adapter.MainMenuAdapter.MainMenuViewHolder
+import com.example.main.viewmodel.MainViewModel
 import com.example.model.Restaurant
+import com.example.restaurant.ui.RestaurantActivity
+import java.io.Serializable
 
 class MainMenuAdapter : RecyclerView.Adapter<MainMenuViewHolder>() {
     private var items: List<Restaurant> = emptyList()
@@ -28,12 +32,18 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuViewHolder>() {
         notifyDataSetChanged()
     }
 
-    inner class MainMenuViewHolder(private val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MainMenuViewHolder(private val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Restaurant) {
             Glide.with(itemView.context).load(item.image).into(binding.rvMainImage)
             binding.rvMainRestaurantName.text = item.name
             binding.rvMainScore.text = "${item.star}"
             binding.rvMainMinPrice.text = item.minPrice.numberAutoComma() + itemView.context.getString(R.string.from_money)
+            itemView.setOnClickListener {
+                Intent(itemView.context, RestaurantActivity::class.java).run {
+                    putExtra("restaurant", item as Serializable)
+                    itemView.context.startActivity(this)
+                }
+            }
         }
     }
 }

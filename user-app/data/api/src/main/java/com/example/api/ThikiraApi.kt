@@ -61,12 +61,12 @@ interface ThikiraApi {
 
     @GET("menu")
     suspend fun getMenuList(
-        @Query("mc_id") menuCategoryId: String
+        @Query("mc_id") menuCategoryId: Int
     ): List<Menu>
 
     @GET("menu/category")
     suspend fun getMenuCategory (
-        @Query("r_id") restaurantId: String
+        @Query("r_id") restaurantId: Int
     ): List<MenuCategory>
 
     /**

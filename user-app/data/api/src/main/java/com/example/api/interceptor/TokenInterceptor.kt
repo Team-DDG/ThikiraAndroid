@@ -10,7 +10,6 @@ class TokenInterceptor (
     private val prefStorage: PrefStorage,
     private val tokenApi: TokenApi
 ) : Interceptor {
-
     override fun intercept(chain: Interceptor.Chain): Response {
         val accessToken = prefStorage.getAccessToken()
         val refreshToken = prefStorage.getRefreshToken()

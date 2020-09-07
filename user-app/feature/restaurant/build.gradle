@@ -11,23 +11,19 @@ android.dataBinding.enabled = true
 dependencies {
     implementation project(path: ':coreComponent:androidComponent')
 
-    implementation project(path: ':error')
-
     implementation project(path: ':user-app:model')
 
-    implementation project(path: ':user-app:feature:restaurant')
+    implementation Dep.material
 
     implementation Dep.Kotlin.kotlin
-
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.constraintLayout
     implementation Dep.AndroidX.viewPager
-
     implementation Dep.AndroidX.LifeCycle.liveDataKtx
-    implementation Dep.AndroidX.LifeCycle.viewModelKtx
 
     implementation Dep.AndroidX.Koin.viewModel
 
     implementation Dep.Glide.glide
+
     kapt Dep.Glide.compiler
 }

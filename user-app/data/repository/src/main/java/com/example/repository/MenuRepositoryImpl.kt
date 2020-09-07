@@ -12,11 +12,11 @@ class MenuRepositoryImpl (
     private val remoteMenuDataSource: RemoteMenuDataSource,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ): MenuRepository {
-    override suspend fun getMenuList(categoryId: String): List<Menu> = withContext(ioDispatcher) {
+    override suspend fun getMenuList(categoryId: Int): List<Menu> = withContext(ioDispatcher) {
         remoteMenuDataSource.getMenuList(categoryId)
     }
 
-    override suspend fun getMenuCategory(restaurantId: String): List<MenuCategory> = withContext(ioDispatcher) {
+    override suspend fun getMenuCategory(restaurantId: Int): List<MenuCategory> = withContext(ioDispatcher) {
         remoteMenuDataSource.getMenuCategory(restaurantId)
     }
 }

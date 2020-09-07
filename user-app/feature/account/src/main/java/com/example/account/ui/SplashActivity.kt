@@ -1,9 +1,10 @@
-package com.example.account
+package com.example.account.ui
 
 import android.os.Bundle
 import androidx.lifecycle.observe
 import com.dsm.androidcomponent.base.BaseActivity
 import com.dsm.androidcomponent.ext.setupNavigateEvent
+import com.example.account.R
 import com.example.account.databinding.ActivitySplashBinding
 import com.example.account.viewmodel.SplashViewModel
 import com.example.main.ui.MainActivity

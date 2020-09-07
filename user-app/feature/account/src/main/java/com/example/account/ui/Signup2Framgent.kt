@@ -1,10 +1,11 @@
-package com.example.account
+package com.example.account.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.observe
 import com.dsm.androidcomponent.base.BaseFragment
 import com.dsm.androidcomponent.ext.setupToastEvent
+import com.example.account.R
 import com.example.account.databinding.FragmentSignup2Binding
 import com.example.account.viewmodel.SignupViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel

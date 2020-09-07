@@ -3,9 +3,9 @@ package com.example.main.ext
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.model.Event
 import com.example.main.adapter.MainEventAdapter
 import com.example.main.adapter.MainMenuAdapter
+import com.example.model.Event
 import com.example.model.Restaurant
 
 @BindingAdapter("restaurant_list")
